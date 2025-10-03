@@ -86,13 +86,10 @@ const Header = () => {
           <div className="flex items-center justify-between py-4">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3">
-              <img 
-                src="/logo.png" 
-                alt="NETZ Informatique Logo" 
-                className="h-12 w-auto object-contain"
-              />
               <div className="flex flex-col">
-                <span className="font-bold text-xl text-primary">NETZ Informatique</span>
+                <span className="font-bold text-2xl bg-gradient-to-r from-primary via-purple-600 to-green-500 bg-clip-text text-transparent">
+                  NETZ Informatique
+                </span>
                 <span className="text-xs text-muted-foreground">Votre Partenaire Technologique</span>
               </div>
             </Link>
