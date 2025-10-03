@@ -15,9 +15,9 @@ const PartnersSection = () => {
       logo: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg'
     },
     {
-      name: 'QUALIOPI',
-      description: 'Certification QUALIOPI',
-      logo: 'https://travail-emploi.gouv.fr/IMG/png/qualiopi_avec_marianne.png'
+      name: 'Google',
+      description: 'Google Partner',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg'
     }
   ]
 
