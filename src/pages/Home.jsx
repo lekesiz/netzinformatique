@@ -56,8 +56,8 @@ const Home = () => {
               <div className="mt-8 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
                 <div className="flex items-center gap-2">
                   <Phone className="text-primary" size={20} />
-                  <a href="tel:+33899250151" className="font-semibold hover:text-primary transition">
-                    0 8 99 25 01 51
+                  <a href="tel:+33367310201" className="font-semibold hover:text-primary transition">
+                    03 67 31 02 01
                   </a>
                 </div>
                 <span className="hidden sm:inline text-muted-foreground">•</span>

@@ -11,15 +11,19 @@ import { posts as allPosts } from '@/content/blog/posts';
 const BlogIndex = () => {
   const { t, i18n } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
-  const [filteredPosts, setFilteredPosts] = useState([]);
+  const [filteredPosts, setFilteredPosts] = useState(allPosts);
 
   useEffect(() => {
-    const results = allPosts.filter(post => 
-      post.title[i18n.language]?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      post.excerpt[i18n.language]?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      post.tags[i18n.language]?.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
-    );
-    setFilteredPosts(results);
+    if (searchTerm === '') {
+      setFilteredPosts(allPosts);
+    } else {
+      const results = allPosts.filter(post => 
+        post.title[i18n.language]?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        post.excerpt[i18n.language]?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        post.tags[i18n.language]?.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
+      );
+      setFilteredPosts(results);
+    }
   }, [searchTerm, i18n.language]);
 
   return (
