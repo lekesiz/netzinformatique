@@ -32,6 +32,26 @@ const Contact = lazy(() => import('./pages/Contact'))
 const MentionsLegales = lazy(() => import('./pages/MentionsLegales'))
 const PolitiqueConfidentialite = lazy(() => import('./pages/PolitiqueConfidentialite'))
 
+// New service detail pages
+const DepannageMaintenance = lazy(() => import('./pages/services/DepannageMaintenance'))
+const IAOffline = lazy(() => import('./pages/services/IAOffline'))
+const FormationProfessionnelle = lazy(() => import('./pages/services/FormationProfessionnelle'))
+const Cybersecurite = lazy(() => import('./pages/services/Cybersecurite'))
+const CloudReseau = lazy(() => import('./pages/services/CloudReseau'))
+const WebDigital = lazy(() => import('./pages/services/WebDigital'))
+
+// Blog pages
+const BlogIndex = lazy(() => import('./pages/blog/BlogIndex'))
+const BlogPost = lazy(() => import('./pages/blog/BlogPost'))
+
+// Sector pages
+const SectorPage = lazy(() => import('./pages/sectors/SectorPage'))
+
+// Other pages
+const FAQ = lazy(() => import('./pages/FAQ'))
+const Legal = lazy(() => import('./pages/Legal'))
+const Privacy = lazy(() => import('./pages/Privacy'))
+
 function App() {
   const [showIntro, setShowIntro] = useState(true)
   const [introComplete, setIntroComplete] = useState(false)
@@ -51,19 +71,41 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/a-propos" element={<About />} />
+              <Route path="/about" element={<About />} />
+              
+              {/* Services */}
               <Route path="/services" element={<Services />} />
               <Route path="/services/particuliers" element={<ServiceIndividual />} />
               <Route path="/services/entreprises" element={<ServiceEnterprise />} />
+              <Route path="/services/depannage-maintenance" element={<DepannageMaintenance />} />
+              <Route path="/services/ia-offline" element={<IAOffline />} />
+              <Route path="/services/formation-professionnelle" element={<FormationProfessionnelle />} />
+              <Route path="/services/cybersecurite" element={<Cybersecurite />} />
+              <Route path="/services/cloud-reseau" element={<CloudReseau />} />
+              <Route path="/services/web-digital" element={<WebDigital />} />
+              
+              {/* Solutions */}
               <Route path="/solutions" element={<Solutions />} />
               <Route path="/solutions/intelligence-artificielle" element={<SolutionAI />} />
               <Route path="/solutions/web-developpement" element={<SolutionWeb />} />
               <Route path="/solutions/cloud" element={<SolutionCloud />} />
+              
+              {/* Formation */}
               <Route path="/formation" element={<Formation />} />
               <Route path="/formation/bilan-competences" element={<BilanCompetences />} />
-              <Route path="/blog" element={<Blog />} />
+              
+              {/* Blog */}
+              <Route path="/blog" element={<BlogIndex />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
+              
+              {/* Sectors */}
+              <Route path="/sectors/:slug" element={<SectorPage />} />
+              
+              {/* Other pages */}
               <Route path="/contact" element={<Contact />} />
-              <Route path="/mentions-legales" element={<MentionsLegales />} />
-              <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/mentions-legales" element={<Legal />} />
+              <Route path="/politique-confidentialite" element={<Privacy />} />
             </Routes>
           </Suspense>
         </main>
