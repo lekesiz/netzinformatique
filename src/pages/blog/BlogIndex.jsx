@@ -51,18 +51,42 @@ const BlogIndex = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredPosts && filteredPosts.length > 0 ? (
             filteredPosts.map(post => (
-              <Link to={`/blog/${post.slug}`} key={post.slug} className="group block bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden border">
-                <div className="w-full h-48 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-                  <span className="text-4xl">📝</span>
+              <Link to={`/blog/${post.slug}`} key={post.slug} className="group block bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:-translate-y-1">
+                <div className="relative w-full h-56 bg-gradient-to-br from-violet-500 via-purple-500 to-fuchsia-500 overflow-hidden">
+                  <div className="absolute inset-0 bg-black/10"></div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center text-white p-6">
+                      <div className="text-5xl mb-3">📝</div>
+                      <div className="text-xs font-semibold uppercase tracking-wider opacity-90">
+                        {new Date(post.date).toLocaleDateString(i18n.language, { day: 'numeric', month: 'short', year: 'numeric' })}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute top-3 right-3">
+                    {post.tags[i18n.language]?.slice(0, 1).map(tag => (
+                      <span key={tag} className="inline-block text-xs bg-white/90 text-purple-700 font-bold px-3 py-1 rounded-full shadow-sm">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
                 <div className="p-6">
-                  <p className="text-sm text-muted-foreground mb-2">{new Date(post.date).toLocaleDateString(i18n.language)}</p>
-                  <h2 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">{post.title[i18n.language]}</h2>
-                  <p className="text-muted-foreground mb-4">{post.excerpt[i18n.language]}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {post.tags[i18n.language]?.map(tag => (
-                      <span key={tag} className="text-xs bg-secondary/10 text-secondary font-semibold px-2 py-1 rounded-full">{tag}</span>
+                  <h2 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300 line-clamp-2">
+                    {post.title[i18n.language]}
+                  </h2>
+                  <p className="text-muted-foreground text-sm mb-4 line-clamp-3 leading-relaxed">
+                    {post.excerpt[i18n.language]}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {post.tags[i18n.language]?.slice(1, 4).map(tag => (
+                      <span key={tag} className="text-xs bg-purple-50 text-purple-700 font-medium px-3 py-1 rounded-full border border-purple-100">
+                        {tag}
+                      </span>
                     ))}
+                  </div>
+                  <div className="flex items-center text-primary font-semibold text-sm group-hover:gap-2 transition-all">
+                    <span>{t('blog.readMore', 'Lire la suite')}</span>
+                    <span className="group-hover:translate-x-1 transition-transform">→</span>
                   </div>
                 </div>
               </Link>
