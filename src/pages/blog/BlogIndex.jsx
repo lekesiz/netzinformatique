@@ -45,21 +45,29 @@ const BlogIndex = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredPosts.map(post => (
-            <Link to={`/blog/${post.slug}`} key={post.slug} className="group block bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden border">
-              <img src={post.image} alt={post.title[i18n.language]} className="w-full h-48 object-cover" />
-              <div className="p-6">
-                <p className="text-sm text-muted-foreground mb-2">{new Date(post.date).toLocaleDateString(i18n.language)}</p>
-                <h2 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">{post.title[i18n.language]}</h2>
-                <p className="text-muted-foreground mb-4">{post.excerpt[i18n.language]}</p>
-                <div className="flex flex-wrap gap-2">
-                  {post.tags[i18n.language]?.map(tag => (
-                    <span key={tag} className="text-xs bg-secondary/10 text-secondary font-semibold px-2 py-1 rounded-full">{tag}</span>
-                  ))}
+          {filteredPosts && filteredPosts.length > 0 ? (
+            filteredPosts.map(post => (
+              <Link to={`/blog/${post.slug}`} key={post.slug} className="group block bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden border">
+                <div className="w-full h-48 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
+                  <span className="text-4xl">📝</span>
                 </div>
-              </div>
-            </Link>
-          ))}
+                <div className="p-6">
+                  <p className="text-sm text-muted-foreground mb-2">{new Date(post.date).toLocaleDateString(i18n.language)}</p>
+                  <h2 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">{post.title[i18n.language]}</h2>
+                  <p className="text-muted-foreground mb-4">{post.excerpt[i18n.language]}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {post.tags[i18n.language]?.map(tag => (
+                      <span key={tag} className="text-xs bg-secondary/10 text-secondary font-semibold px-2 py-1 rounded-full">{tag}</span>
+                    ))}
+                  </div>
+                </div>
+              </Link>
+            ))
+          ) : (
+            <div className="col-span-full text-center py-12">
+              <p className="text-xl text-muted-foreground">{t('blog.noArticles', 'Aucun article disponible')}</p>
+            </div>
+          )}
         </div>
       </div>
     </>

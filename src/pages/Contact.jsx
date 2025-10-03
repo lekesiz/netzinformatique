@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle, AlertCircle } from 'lucide-react'
 import { Alert, AlertDescription } from '@/components/ui/alert'
+import GoogleMap from '@/components/common/GoogleMap'
 
 const Contact = () => {
   const { t } = useTranslation()
@@ -180,6 +181,13 @@ const Contact = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Google Maps Section */}
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <GoogleMap />
         </div>
       </section>
     </div>
