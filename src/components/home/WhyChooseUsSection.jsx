@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next'
-import { Award, MapPin, Shield, Users, Certificate, Leaf } from 'lucide-react'
+import { Award, MapPin, Shield, Users, BadgeCheck, Leaf } from 'lucide-react'
 import { whyChooseUs } from '@/data/services'
 
 const iconMap = {
-  Award, MapPin, Shield, Users, Certificate, Leaf
+  Award, MapPin, Shield, Users, Certificate: BadgeCheck, Leaf
 }
 
 const WhyChooseUsSection = () => {
