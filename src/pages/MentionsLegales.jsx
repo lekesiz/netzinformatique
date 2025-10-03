@@ -21,7 +21,7 @@ export default function MentionsLegales() {
             <p><strong>SIRET :</strong> RCS Strasbourg 818 347 346</p>
             <p><strong>Téléphone :</strong> +(33) 0 8 99 25 01 51</p>
             <p><strong>Email :</strong> contact@netzinformatique.fr</p>
-            <p><strong>Directeur de la publication :</strong> M. [Nom du dirigeant]</p>
+            <p><strong>Directeur de la publication :</strong> M. Mikail Lekesiz</p>
             <p><strong>Certification :</strong> QUALIOPI</p>
           </CardContent>
         </Card>
