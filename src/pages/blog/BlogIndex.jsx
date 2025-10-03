@@ -12,19 +12,22 @@ const BlogIndex = () => {
   const { t, i18n } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredPosts, setFilteredPosts] = useState(allPosts);
+  
+  // Normalize language code (e.g., 'en-US' -> 'en')
+  const lang = i18n.language.split('-')[0];
 
   useEffect(() => {
     if (searchTerm === '') {
       setFilteredPosts(allPosts);
     } else {
       const results = allPosts.filter(post => 
-        post.title[i18n.language]?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        post.excerpt[i18n.language]?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        post.tags[i18n.language]?.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
+        post.title[lang]?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        post.excerpt[lang]?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        post.tags[lang]?.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
       );
       setFilteredPosts(results);
     }
-  }, [searchTerm, i18n.language]);
+  }, [searchTerm, lang]);
 
   return (
     <>
@@ -58,12 +61,12 @@ const BlogIndex = () => {
                     <div className="text-center text-white p-6">
                       <div className="text-5xl mb-3">📝</div>
                       <div className="text-xs font-semibold uppercase tracking-wider opacity-90">
-                        {new Date(post.date).toLocaleDateString(i18n.language, { day: 'numeric', month: 'short', year: 'numeric' })}
+                        {new Date(post.date).toLocaleDateString(lang, { day: 'numeric', month: 'short', year: 'numeric' })}
                       </div>
                     </div>
                   </div>
                   <div className="absolute top-3 right-3">
-                    {post.tags[i18n.language]?.slice(0, 1).map(tag => (
+                    {post.tags[lang]?.slice(0, 1).map(tag => (
                       <span key={tag} className="inline-block text-xs bg-white/90 text-purple-700 font-bold px-3 py-1 rounded-full shadow-sm">
                         {tag}
                       </span>
@@ -77,7 +80,7 @@ const BlogIndex = () => {
                     WebkitBoxOrient: 'vertical',
                     overflow: 'hidden'
                   }}>
-                    {post.title[i18n.language]}
+                    {post.title[lang]}
                   </h2>
                   <p className="text-muted-foreground text-sm mb-4 leading-relaxed" style={{
                     display: '-webkit-box',
@@ -85,10 +88,10 @@ const BlogIndex = () => {
                     WebkitBoxOrient: 'vertical',
                     overflow: 'hidden'
                   }}>
-                    {post.excerpt[i18n.language]}
+                    {post.excerpt[lang]}
                   </p>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {post.tags[i18n.language]?.slice(1, 4).map(tag => (
+                    {post.tags[lang]?.slice(1, 4).map(tag => (
                       <span key={tag} className="text-xs bg-purple-50 text-purple-700 font-medium px-3 py-1 rounded-full border border-purple-100">
                         {tag}
                       </span>
