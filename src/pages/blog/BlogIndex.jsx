@@ -71,10 +71,20 @@ const BlogIndex = () => {
                   </div>
                 </div>
                 <div className="p-6">
-                  <h2 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300 line-clamp-2">
+                  <h2 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300" style={{
+                    display: '-webkit-box',
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: 'vertical',
+                    overflow: 'hidden'
+                  }}>
                     {post.title[i18n.language]}
                   </h2>
-                  <p className="text-muted-foreground text-sm mb-4 line-clamp-3 leading-relaxed">
+                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed" style={{
+                    display: '-webkit-box',
+                    WebkitLineClamp: 3,
+                    WebkitBoxOrient: 'vertical',
+                    overflow: 'hidden'
+                  }}>
                     {post.excerpt[i18n.language]}
                   </p>
                   <div className="flex flex-wrap gap-2 mb-4">
