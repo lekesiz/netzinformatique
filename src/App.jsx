@@ -7,6 +7,9 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import IntroAnimation from './components/IntroAnimation'
 import CookieBanner from './components/CookieBanner'
+import AppointmentWidget from './components/common/AppointmentWidget'
+import LiveChat from './components/common/LiveChat'
+import GoogleAnalytics from './components/common/GoogleAnalytics'
 
 // Loading component
 const PageLoader = () => (
@@ -51,6 +54,7 @@ const SectorPage = lazy(() => import('./pages/sectors/SectorPage'))
 const FAQ = lazy(() => import('./pages/FAQ'))
 const Legal = lazy(() => import('./pages/Legal'))
 const Privacy = lazy(() => import('./pages/Privacy'))
+const NotFound = lazy(() => import('./pages/NotFound'))
 
 function App() {
   const [showIntro, setShowIntro] = useState(true)
@@ -106,11 +110,17 @@ function App() {
               <Route path="/faq" element={<FAQ />} />
               <Route path="/mentions-legales" element={<Legal />} />
               <Route path="/politique-confidentialite" element={<Privacy />} />
+              
+              {/* 404 - Catch all */}
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
         </main>
         <Footer />
         <CookieBanner />
+        <AppointmentWidget />
+        <LiveChat />
+        <GoogleAnalytics />
       </div>
     </Router>
   )

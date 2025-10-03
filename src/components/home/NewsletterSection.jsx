@@ -22,15 +22,17 @@ const NewsletterSection = () => {
     setStatus('loading')
 
     try {
-      // TODO: Implement newsletter API call
-      // const response = await fetch('/api/newsletter', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ email })
-      // })
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      })
 
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to subscribe')
+      }
 
       setStatus('success')
       setMessage(t('newsletter.success', 'Merci ! Vous êtes maintenant inscrit à notre newsletter.'))
