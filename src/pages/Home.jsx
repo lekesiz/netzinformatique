@@ -1,53 +1,68 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
-import { Laptop, Shield, Cloud, Cpu, GraduationCap, Wrench, Users, Award, CheckCircle, ArrowRight, Star, Phone } from 'lucide-react'
+import { Laptop, Wrench, Users, Award, ArrowRight, Phone } from 'lucide-react'
+import ServicesSection from '@/components/home/ServicesSection'
+import TestimonialsSection from '@/components/home/TestimonialsSection'
+import WhyChooseUsSection from '@/components/home/WhyChooseUsSection'
+import PartnersSection from '@/components/home/PartnersSection'
+import NewsletterSection from '@/components/home/NewsletterSection'
+import SEO from '@/components/common/SEO'
+import StructuredData from '@/components/common/StructuredData'
 
 const Home = () => {
   const { t } = useTranslation()
   
   const stats = [
-    { icon: Wrench, value: '2772+', label: t('home.statsRepairs') },
-    { icon: Award, value: '20+', label: t('home.statsExperience') },
-    { icon: Users, value: '900+', label: t('home.statsClients') },
-    { icon: Award, value: '24/7', label: t('home.statsSupport') },
+    { icon: Wrench, value: '2772+', label: t('home.statsRepairs', 'Appareils Réparés') },
+    { icon: Award, value: '20+', label: t('home.statsExperience', 'Ans d\'Expérience') },
+    { icon: Users, value: '900+', label: t('home.statsClients', 'Clients Satisfaits') },
+    { icon: Award, value: '24-48h', label: t('home.statsSupport', 'Délai d\'Intervention') },
   ]
 
   return (
-    <div className="overflow-x-hidden">
+    <>
+      <SEO 
+        url="/"
+        type="website"
+      />
+      <StructuredData type="home" />
+      
+      <div className="overflow-x-hidden">
+        {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 py-20 md:py-32">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slideInLeft">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                {t('home.heroTitle')} <span className="text-primary">{t('home.heroTitleHighlight')}</span> {t('home.heroLocation')}
+                {t('home.heroTitle', 'Votre Expert')} <span className="text-primary">{t('home.heroTitleHighlight', 'Informatique')}</span> {t('home.heroLocation', 'à Haguenau')}
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8">
-                {t('home.heroDescription')}
+                {t('home.heroDescription', 'Dépannage, maintenance, solutions IA et formation professionnelle. Plus de 20 ans d\'expertise à votre service.')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/contact">
                   <Button size="lg" className="gradient-green text-white font-semibold w-full sm:w-auto">
-                    {t('home.getFreeQuote')}
+                    {t('home.getFreeQuote', 'Demander un Devis Gratuit')}
                     <ArrowRight className="ml-2" size={20} />
                   </Button>
                 </Link>
                 <Link to="/services">
                   <Button size="lg" variant="outline" className="w-full sm:w-auto">
-                    {t('home.discoverServices')}
+                    {t('home.discoverServices', 'Découvrir nos Services')}
                   </Button>
                 </Link>
               </div>
               <div className="mt-8 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
                 <div className="flex items-center gap-2">
                   <Phone className="text-primary" size={20} />
-                  <a href="tel:+33389992501" className="font-semibold hover:text-primary transition">
+                  <a href="tel:+33899250151" className="font-semibold hover:text-primary transition">
                     0 8 99 25 01 51
                   </a>
                 </div>
                 <span className="hidden sm:inline text-muted-foreground">•</span>
                 <span className="text-sm text-muted-foreground">
-                  {t('home.quickIntervention')}
+                  {t('home.quickIntervention', 'Intervention rapide 24-48h')}
                 </span>
               </div>
             </div>
@@ -66,6 +81,7 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Stats Section */}
       <section className="py-12 bg-foreground text-background">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -80,31 +96,48 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Services Section */}
+      <ServicesSection />
+
+      {/* Why Choose Us Section */}
+      <WhyChooseUsSection />
+
+      {/* Testimonials Section */}
+      <TestimonialsSection />
+
+      {/* Partners Section */}
+      <PartnersSection />
+
+      {/* Newsletter Section */}
+      <NewsletterSection />
+
+      {/* Final CTA Section */}
       <section className="py-20 gradient-purple text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            {t('home.ctaTitle')}
+            {t('home.ctaTitle', 'Prêt à Transformer Votre IT ?')}
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            {t('home.ctaDescription')}
+            {t('home.ctaDescription', 'Contactez-nous dès aujourd\'hui pour un diagnostic gratuit et découvrez comment nous pouvons optimiser votre infrastructure informatique.')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">
               <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-semibold w-full sm:w-auto">
-                {t('common.contactUs')}
+                {t('common.contactUs', 'Nous Contacter')}
                 <ArrowRight className="ml-2" size={20} />
               </Button>
             </Link>
-            <a href="tel:+33389992501">
+            <a href="tel:+33899250151">
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 w-full sm:w-auto">
                 <Phone className="mr-2" size={20} />
-                {t('common.callNow')}
+                {t('common.callNow', 'Appeler Maintenant')}
               </Button>
             </a>
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   )
 }
 

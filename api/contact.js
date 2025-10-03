@@ -21,17 +21,27 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { name, email, phone, subject, message } = req.body
+    const { firstName, lastName, name, email, phone, subject, message } = req.body
+
+    // Support both formats (firstName/lastName or name)
+    const fullName = name || `${firstName || ''} ${lastName || ''}`.trim()
+    const [fName, lName] = fullName.split(' ')
 
     // Basic validation
-    if (!name || !email || !message) {
-      return res.status(400).json({ error: 'Name, email, and message are required' })
+    if (!fullName || !email || !message) {
+      return res.status(400).json({ 
+        error: 'Missing required fields',
+        message: 'Veuillez remplir tous les champs obligatoires'
+      })
     }
 
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(email)) {
-      return res.status(400).json({ error: 'Invalid email format' })
+      return res.status(400).json({ 
+        error: 'Invalid email',
+        message: 'Adresse email invalide'
+      })
     }
 
     // Initialize SendGrid
@@ -43,7 +53,7 @@ export default async function handler(req, res) {
       console.error('SENDGRID_API_KEY is not configured')
       // Fallback to logging if SendGrid is not configured
       console.log('Contact form submission:', {
-        name,
+        name: fullName,
         email,
         phone,
         subject,
@@ -59,52 +69,118 @@ export default async function handler(req, res) {
 
     sgMail.setApiKey(sendgridApiKey)
 
+    // Prepare email HTML content for admin
+    const adminEmailHTML = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <meta charset="utf-8">
+        <style>
+          body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+          .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+          .header { background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
+          .content { background: #f9fafb; padding: 30px; border-radius: 0 0 10px 10px; }
+          .field { margin-bottom: 20px; }
+          .label { font-weight: bold; color: #4F46E5; margin-bottom: 5px; }
+          .value { background: white; padding: 10px; border-radius: 5px; border-left: 3px solid #10B981; }
+          .footer { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb; color: #6b7280; font-size: 14px; }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <div class="header">
+            <h1>📧 Nouvelle Demande de Contact</h1>
+            <p>NETZ Informatique</p>
+          </div>
+          <div class="content">
+            <div class="field">
+              <div class="label">👤 Nom Complet</div>
+              <div class="value">${fullName}</div>
+            </div>
+            <div class="field">
+              <div class="label">📧 Email</div>
+              <div class="value"><a href="mailto:${email}">${email}</a></div>
+            </div>
+            ${phone ? `
+            <div class="field">
+              <div class="label">📞 Téléphone</div>
+              <div class="value"><a href="tel:${phone}">${phone}</a></div>
+            </div>
+            ` : ''}
+            ${subject ? `
+            <div class="field">
+              <div class="label">📋 Sujet</div>
+              <div class="value">${subject}</div>
+            </div>
+            ` : ''}
+            <div class="field">
+              <div class="label">💬 Message</div>
+              <div class="value">${message.replace(/\n/g, '<br>')}</div>
+            </div>
+          </div>
+          <div class="footer">
+            <p>Reçu via le formulaire de contact de <strong>netzinformatique.fr</strong></p>
+            <p>Date: ${new Date().toLocaleString('fr-FR', { timeZone: 'Europe/Paris' })}</p>
+          </div>
+        </div>
+      </body>
+      </html>
+    `
+
+    // Auto-reply HTML for customer
+    const customerEmailHTML = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <meta charset="utf-8">
+        <style>
+          body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+          .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+          .header { background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
+          .content { background: #f9fafb; padding: 30px; border-radius: 0 0 10px 10px; }
+          .button { display: inline-block; background: #10B981; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; margin: 20px 0; }
+          .footer { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb; color: #6b7280; font-size: 14px; }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <div class="header">
+            <h1>✅ Merci pour votre message !</h1>
+            <p>NETZ Informatique</p>
+          </div>
+          <div class="content">
+            <p>Bonjour ${fName || fullName},</p>
+            <p>Nous avons bien reçu votre demande et nous vous remercions de l'intérêt que vous portez à NETZ Informatique.</p>
+            <p>Notre équipe va étudier votre demande et vous répondra dans les <strong>24 heures</strong>.</p>
+            <p><strong>Votre message :</strong></p>
+            <div style="background: white; padding: 15px; border-radius: 5px; border-left: 3px solid #10B981; margin: 20px 0;">
+              ${message.replace(/\n/g, '<br>')}
+            </div>
+            <p>En attendant, n'hésitez pas à nous contacter directement :</p>
+            <ul>
+              <li>📞 Téléphone : <a href="tel:+33899250151">0 8 99 25 01 51</a></li>
+              <li>📧 Email : <a href="mailto:contact@netzinformatique.fr">contact@netzinformatique.fr</a></li>
+              <li>📍 Adresse : 1a Route de Schweighouse, 67500 Haguenau</li>
+            </ul>
+            <div style="text-align: center;">
+              <a href="https://netzinformatique.fr" class="button">Visiter notre site</a>
+            </div>
+          </div>
+          <div class="footer">
+            <p><strong>NETZ Informatique</strong> - Votre expert IT depuis plus de 20 ans</p>
+            <p>1a Route de Schweighouse, 67500 Haguenau</p>
+          </div>
+        </div>
+      </body>
+      </html>
+    `
+
     // Email to admin
     const adminMsg = {
       to: toEmail,
       from: fromEmail,
-      subject: `[NETZ Contact] ${subject || 'Nouveau message de ' + name}`,
-      text: `
-Nouveau message reçu via le formulaire de contact:
-
-Nom: ${name}
-Email: ${email}
-Téléphone: ${phone || 'Non fourni'}
-Sujet: ${subject || 'Non spécifié'}
-
-Message:
-${message}
-
----
-Envoyé le: ${new Date().toLocaleString('fr-FR', { timeZone: 'Europe/Paris' })}
-      `,
-      html: `
-<h2>Nouveau message reçu via le formulaire de contact</h2>
-<table style="width: 100%; border-collapse: collapse;">
-  <tr>
-    <td style="padding: 10px; border-bottom: 1px solid #ddd;"><strong>Nom:</strong></td>
-    <td style="padding: 10px; border-bottom: 1px solid #ddd;">${name}</td>
-  </tr>
-  <tr>
-    <td style="padding: 10px; border-bottom: 1px solid #ddd;"><strong>Email:</strong></td>
-    <td style="padding: 10px; border-bottom: 1px solid #ddd;"><a href="mailto:${email}">${email}</a></td>
-  </tr>
-  <tr>
-    <td style="padding: 10px; border-bottom: 1px solid #ddd;"><strong>Téléphone:</strong></td>
-    <td style="padding: 10px; border-bottom: 1px solid #ddd;">${phone || 'Non fourni'}</td>
-  </tr>
-  <tr>
-    <td style="padding: 10px; border-bottom: 1px solid #ddd;"><strong>Sujet:</strong></td>
-    <td style="padding: 10px; border-bottom: 1px solid #ddd;">${subject || 'Non spécifié'}</td>
-  </tr>
-</table>
-<h3>Message:</h3>
-<p style="white-space: pre-wrap;">${message}</p>
-<hr>
-<p style="font-size: 12px; color: #666;">
-  Envoyé le: ${new Date().toLocaleString('fr-FR', { timeZone: 'Europe/Paris' })}
-</p>
-      `,
+      subject: `[NETZ Contact] ${subject || 'Nouveau message de ' + fullName}`,
+      html: adminEmailHTML
     }
 
     // Confirmation email to user
@@ -112,53 +188,7 @@ Envoyé le: ${new Date().toLocaleString('fr-FR', { timeZone: 'Europe/Paris' })}
       to: email,
       from: fromEmail,
       subject: 'Confirmation - Votre message a bien été reçu',
-      text: `
-Bonjour ${name},
-
-Nous avons bien reçu votre message et nous vous remercions de nous avoir contactés.
-
-Notre équipe reviendra vers vous dans les plus brefs délais.
-
-Voici un récapitulatif de votre message:
-${message}
-
-Cordialement,
-L'équipe NETZ Informatique
-
----
-NETZ Informatique
-1a Route de Schweighouse
-67500 Haguenau, France
-Tél: +(33) 0 8 99 25 01 51
-Email: contact@netzinformatique.fr
-      `,
-      html: `
-<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-  <h2 style="color: #8b5cf6;">Bonjour ${name},</h2>
-  
-  <p>Nous avons bien reçu votre message et nous vous remercions de nous avoir contactés.</p>
-  
-  <p>Notre équipe reviendra vers vous dans les plus brefs délais.</p>
-  
-  <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
-    <h3>Voici un récapitulatif de votre message:</h3>
-    <p style="white-space: pre-wrap;">${message}</p>
-  </div>
-  
-  <p>Cordialement,<br>
-  <strong>L'équipe NETZ Informatique</strong></p>
-  
-  <hr style="margin: 30px 0; border: none; border-top: 1px solid #ddd;">
-  
-  <div style="font-size: 12px; color: #666;">
-    <p><strong>NETZ Informatique</strong><br>
-    1a Route de Schweighouse<br>
-    67500 Haguenau, France<br>
-    Tél: +(33) 0 8 99 25 01 51<br>
-    Email: <a href="mailto:contact@netzinformatique.fr">contact@netzinformatique.fr</a></p>
-  </div>
-</div>
-      `,
+      html: customerEmailHTML
     }
 
     // Send emails
@@ -167,13 +197,14 @@ Email: contact@netzinformatique.fr
 
     return res.status(200).json({
       success: true,
-      message: 'Votre message a été envoyé avec succès. Nous vous répondrons dans les plus brefs délais.'
+      message: 'Votre message a été envoyé avec succès. Nous vous répondrons dans les 24 heures.'
     })
 
   } catch (error) {
     console.error('Contact form error:', error)
     return res.status(500).json({
-      error: 'Une erreur est survenue lors de l\'envoi de votre message. Veuillez réessayer plus tard.'
+      error: 'Internal server error',
+      message: 'Une erreur est survenue lors de l\'envoi de votre message. Veuillez réessayer ou nous contacter directement par téléphone.'
     })
   }
 }
