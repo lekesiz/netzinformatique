@@ -60,9 +60,9 @@ const Header = () => {
       <div className="bg-primary text-primary-foreground py-2 text-sm">
         <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-2">
           <div className="flex flex-wrap items-center gap-4 justify-center md:justify-start">
-            <a href="tel:+33389992501" className="flex items-center gap-2 hover:opacity-80 transition">
+            <a href="tel:+33367310201" className="flex items-center gap-2 hover:opacity-80 transition">
               <Phone size={16} />
-              <span>+(33) 0 8 99 25 01 51</span>
+              <span>03 67 31 02 01</span>
             </a>
             <a href="mailto:contact@netzinformatique.fr" className="flex items-center gap-2 hover:opacity-80 transition">
               <Mail size={16} />
