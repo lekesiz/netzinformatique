@@ -6,6 +6,7 @@ import './App.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import IntroAnimation from './components/IntroAnimation'
+import CookieBanner from './components/CookieBanner'
 
 // Loading component
 const PageLoader = () => (
@@ -67,6 +68,7 @@ function App() {
           </Suspense>
         </main>
         <Footer />
+        <CookieBanner />
       </div>
     </Router>
   )
