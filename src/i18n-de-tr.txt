@@ -1,0 +1,63 @@
+// Almanca (de) ve Türkçe (tr) çevirileri için ek içerik
+
+de: {
+  translation: {
+    nav: {
+      home: 'Startseite',
+      about: 'Über Uns',
+      services: 'Dienstleistungen',
+      solutions: 'Lösungen',
+      formation: 'Schulung',
+      materiel: 'Hardware',
+      boutique: 'Shop',
+      blog: 'Blog',
+      contact: 'Kontakt',
+      faq: 'FAQ'
+    },
+    common: {
+      getQuote: 'Angebot Anfordern',
+      learnMore: 'Mehr Erfahren',
+      contactUs: 'Kontaktieren Sie Uns',
+      callNow: 'Jetzt Anrufen',
+      readMore: 'Weiterlesen',
+      openingHours: 'Mo-Sa: 09:00-12:00 / 14:00-18:00'
+    },
+    home: {
+      heroTitle: 'Ihr Technologie',
+      heroTitleHighlight: 'Partner',
+      heroLocation: 'in Haguenau',
+      heroDescription: 'Seit über 20 Jahren unterstützt NETZ Informatique Privatpersonen und Unternehmen bei ihrer digitalen Transformation mit Expertise und Innovation.'
+    }
+  }
+},
+
+tr: {
+  translation: {
+    nav: {
+      home: 'Ana Sayfa',
+      about: 'Hakkımızda',
+      services: 'Hizmetler',
+      solutions: 'Çözümler',
+      formation: 'Eğitim',
+      materiel: 'Donanım',
+      boutique: 'Mağaza',
+      blog: 'Blog',
+      contact: 'İletişim',
+      faq: 'SSS'
+    },
+    common: {
+      getQuote: 'Teklif Al',
+      learnMore: 'Daha Fazla Bilgi',
+      contactUs: 'Bize Ulaşın',
+      callNow: 'Hemen Arayın',
+      readMore: 'Devamını Oku',
+      openingHours: 'Pzt-Cmt: 09:00-12:00 / 14:00-18:00'
+    },
+    home: {
+      heroTitle: 'Haguenau\'daki',
+      heroTitleHighlight: 'Teknoloji',
+      heroLocation: 'Ortağınız',
+      heroDescription: '20 yılı aşkın süredir NETZ Informatique, uzmanlık ve yenilikle bireylerin ve işletmelerin dijital dönüşümünde yanlarında.'
+    }
+  }
+}
