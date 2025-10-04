@@ -30,6 +30,7 @@ const SolutionWeb = lazy(() => import('./pages/SolutionWeb'))
 const SolutionCloud = lazy(() => import('./pages/SolutionCloud'))
 const Formation = lazy(() => import('./pages/Formation'))
 const BilanCompetences = lazy(() => import('./pages/BilanCompetences'))
+const Materiel = lazy(() => import('./pages/Materiel'))
 const Blog = lazy(() => import('./pages/Blog'))
 const Contact = lazy(() => import('./pages/Contact'))
 const MentionsLegales = lazy(() => import('./pages/MentionsLegales'))
@@ -97,6 +98,9 @@ function App() {
               {/* Formation */}
               <Route path="/formation" element={<Formation />} />
               <Route path="/formation/bilan-competences" element={<BilanCompetences />} />
+              
+              {/* Materiel */}
+              <Route path="/materiel" element={<Materiel />} />
               
               {/* Blog */}
               <Route path="/blog" element={<BlogIndex />} />

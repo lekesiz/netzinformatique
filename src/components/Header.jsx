@@ -50,6 +50,7 @@ const Header = () => {
         { name: 'Bilan de Compétences', path: '/formation/bilan-competences' },
       ]
     },
+    { name: 'Matériel', path: '/materiel' },
     { name: 'Blog', path: '/blog' },
     { name: 'Contact', path: '/contact' },
   ]
