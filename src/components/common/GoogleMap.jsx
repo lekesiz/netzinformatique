@@ -10,7 +10,7 @@ const GoogleMap = ({
   // NETZ Informatique address coordinates
   const address = '1a Route de Schweighouse, 67500 Haguenau, France'
   const latitude = 48.8156
-  const longitude = 7.8287
+  const longitude = 7.7905
 
   // Google Maps embed URL
   const mapUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2630.5!2d${longitude}!3d${latitude}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDjCsDQ4JzU2LjIiTiA3wrA0OSc0My4zIkU!5e0!3m2!1sfr!2sfr!4v1234567890123!5m2!1sfr!2sfr`

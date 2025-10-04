@@ -162,7 +162,7 @@ const Footer = () => {
                 Mentions Légales
               </Link>
               <span>•</span>
-              <Link to="/confidentialite" className="hover:text-background transition">
+              <Link to="/politique-confidentialite" className="hover:text-background transition">
                 Confidentialité
               </Link>
             </div>
