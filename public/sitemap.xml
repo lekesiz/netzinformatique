@@ -4,7 +4,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://netzinformatique.fr/</loc>
-    <lastmod>2025-10-03</lastmod>
+    <lastmod>2025-10-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://netzinformatique.fr/"/>
@@ -75,10 +75,18 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Materiel -->
+  <url>
+    <loc>https://netzinformatique.fr/materiel</loc>
+    <lastmod>2025-10-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Formation -->
   <url>
     <loc>https://netzinformatique.fr/formation</loc>
-    <lastmod>2025-01-06</lastmod>
+    <lastmod>2025-10-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

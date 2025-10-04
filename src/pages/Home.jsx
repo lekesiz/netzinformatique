@@ -10,6 +10,7 @@ import BoutiqueSection from '@/components/home/BoutiqueSection'
 import NewsletterSection from '@/components/home/NewsletterSection'
 import SEO from '@/components/common/SEO'
 import StructuredData from '@/components/common/StructuredData'
+import LocalBusinessSchema from '@/components/common/LocalBusinessSchema'
 
 const Home = () => {
   const { t } = useTranslation()
@@ -28,6 +29,7 @@ const Home = () => {
         type="website"
       />
       <StructuredData type="home" />
+      <LocalBusinessSchema />
       
       <div className="overflow-x-hidden">
         {/* Hero Section */}
