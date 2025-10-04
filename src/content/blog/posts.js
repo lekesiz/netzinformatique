@@ -2,7 +2,7 @@ export const posts = [
   {
     slug: "lintelligence-artificielle-pour-les-pme-un-levier-de-croissance-incontournable",
     date: "2025-10-04",
-    image: "/images/blog/lintelligence-artificielle-pour-les-pme-un-levier-de-croissance-incontournable.jpg",
+    image: "/images/blog/ia-pour-pme.jpg",
     title: {
       fr: "L'Intelligence Artificielle pour les PME : Un Levier de Croissance Incontournable",
       en: "AI for SMEs: An Essential Growth Lever",
