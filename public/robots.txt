@@ -1,15 +1,42 @@
 # https://www.robotstxt.org/robotstxt.html
+# NETZ Informatique - Robots.txt
+
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://netzinformatique.fr/sitemap.xml
+Sitemap: https://netzinformatique.vercel.app/sitemap.xml
 
-# Crawl-delay
+# Crawl-delay (polite crawling)
 Crawl-delay: 1
 
-# Disallow admin or private paths (if any)
+# Disallow admin, API, and private paths
 Disallow: /api/
 Disallow: /admin/
 Disallow: /.git/
 Disallow: /node_modules/
+Disallow: /_next/
+Disallow: /private/
+
+# Allow specific bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
