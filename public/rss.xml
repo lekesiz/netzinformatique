@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NETZ Informatique Blog</title>
+    <link>https://netzinformatique.vercel.app/blog</link>
+    <description>Actualités IT, conseils tech, IA et transformation digitale par NETZ Informatique</description>
+    <language>fr-FR</language>
+    <lastBuildDate>Sat, 04 Oct 2025 12:00:00 GMT</lastBuildDate>
+    <atom:link href="https://netzinformatique.vercel.app/rss.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>L'IA Offline : La Solution pour Protéger Vos Données Sensibles</title>
+      <link>https://netzinformatique.vercel.app/blog/ia-offline-protection-donnees</link>
+      <description>Découvrez comment l'intelligence artificielle offline permet de traiter vos données sensibles sans risque de fuite.</description>
+      <pubDate>Mon, 30 Sep 2025 10:00:00 GMT</pubDate>
+      <guid>https://netzinformatique.vercel.app/blog/ia-offline-protection-donnees</guid>
+      <category>Intelligence Artificielle</category>
+    </item>
+    
+    <item>
+      <title>Cybersécurité en 2025 : Les Menaces à Connaître</title>
+      <link>https://netzinformatique.vercel.app/blog/cybersecurite-2025-menaces</link>
+      <description>Tour d'horizon des principales menaces cyber en 2025 et comment s'en protéger efficacement.</description>
+      <pubDate>Wed, 25 Sep 2025 14:00:00 GMT</pubDate>
+      <guid>https://netzinformatique.vercel.app/blog/cybersecurite-2025-menaces</guid>
+      <category>Cybersécurité</category>
+    </item>
+    
+    <item>
+      <title>Migration Cloud : Guide Complet pour les PME</title>
+      <link>https://netzinformatique.vercel.app/blog/migration-cloud-guide-pme</link>
+      <description>Tout ce que vous devez savoir pour réussir votre migration vers le cloud en tant que PME.</description>
+      <pubDate>Fri, 20 Sep 2025 09:00:00 GMT</pubDate>
+      <guid>https://netzinformatique.vercel.app/blog/migration-cloud-guide-pme</guid>
+      <category>Cloud Computing</category>
+    </item>
+    
+    <item>
+      <title>SEO Local : Boostez Votre Visibilité à Haguenau</title>
+      <link>https://netzinformatique.vercel.app/blog/seo-local-haguenau</link>
+      <description>Stratégies SEO local pour améliorer votre visibilité sur Google dans la région de Haguenau.</description>
+      <pubDate>Tue, 17 Sep 2025 11:00:00 GMT</pubDate>
+      <guid>https://netzinformatique.vercel.app/blog/seo-local-haguenau</guid>
+      <category>Web & Digital</category>
+    </item>
+    
+    <item>
+      <title>Formation QUALIOPI : Pourquoi C'est Important ?</title>
+      <link>https://netzinformatique.vercel.app/blog/formation-qualiopi-importance</link>
+      <description>Comprendre l'importance de la certification QUALIOPI pour vos formations professionnelles.</description>
+      <pubDate>Thu, 12 Sep 2025 15:00:00 GMT</pubDate>
+      <guid>https://netzinformatique.vercel.app/blog/formation-qualiopi-importance</guid>
+      <category>Formation</category>
+    </item>
+    
+  </channel>
+</rss>
