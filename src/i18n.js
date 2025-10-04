@@ -38,6 +38,13 @@ const resources = {
         heroTitleHighlight: 'Technologique',
         heroLocation: 'à Haguenau',
         heroDescription: 'Depuis plus de 20 ans, NETZ Informatique accompagne particuliers et entreprises dans leur transformation digitale avec expertise et innovation.',
+        getFreeQuote: 'Demander un Devis Gratuit',
+        discoverServices: 'Découvrir nos Services',
+        quickIntervention: 'Intervention rapide 24-48h',
+        statsRepairs: 'Réparations Réussies',
+        statsExperience: 'Ans d\'Expérience',
+        statsClients: 'Clients Satisfaits',
+        statsSupport: 'Délai d\'Intervention',
         servicesTitle: 'Nos Services',
         partnersTitle: 'Nos Partenaires Technologiques'
       },
@@ -113,6 +120,13 @@ const resources = {
         heroTitleHighlight: 'Partner',
         heroLocation: 'in Haguenau',
         heroDescription: 'For over 20 years, NETZ Informatique has been supporting individuals and businesses in their digital transformation with expertise and innovation.',
+        getFreeQuote: 'Get a Free Quote',
+        discoverServices: 'Discover Our Services',
+        quickIntervention: 'Intervention within 24-48h',
+        statsRepairs: 'Successful Repairs',
+        statsExperience: 'Years of Experience',
+        statsClients: 'Satisfied Clients',
+        statsSupport: 'Support Available',
         servicesTitle: 'Our Services',
         partnersTitle: 'Our Technology Partners'
       },
@@ -310,8 +324,13 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
+    lng: 'fr', // Force French as default language
     fallbackLng: 'fr',
     debug: false,
+    detection: {
+      order: ['localStorage', 'navigator'],
+      caches: ['localStorage']
+    },
     interpolation: {
       escapeValue: false
     }
