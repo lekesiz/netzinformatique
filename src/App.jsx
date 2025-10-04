@@ -10,6 +10,7 @@ import CookieBanner from './components/CookieBanner'
 import AppointmentWidget from './components/common/AppointmentWidget'
 import LiveChat from './components/common/LiveChat'
 import GoogleAnalytics from './components/common/GoogleAnalytics'
+import GoogleTagManager from './components/common/GoogleTagManager'
 
 // Loading component
 const PageLoader = () => (
@@ -125,6 +126,7 @@ function App() {
         <AppointmentWidget />
         <LiveChat />
         <GoogleAnalytics />
+        <GoogleTagManager />
       </div>
     </Router>
   )
