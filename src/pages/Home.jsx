@@ -6,6 +6,7 @@ import ServicesSection from '@/components/home/ServicesSection'
 import TestimonialsSection from '@/components/home/TestimonialsSection'
 import WhyChooseUsSection from '@/components/home/WhyChooseUsSection'
 import PartnersSection from '@/components/home/PartnersSection'
+import BoutiqueSection from '@/components/home/BoutiqueSection'
 import NewsletterSection from '@/components/home/NewsletterSection'
 import SEO from '@/components/common/SEO'
 import StructuredData from '@/components/common/StructuredData'
@@ -107,6 +108,9 @@ const Home = () => {
 
       {/* Partners Section */}
       <PartnersSection />
+
+      {/* Boutique Section */}
+      <BoutiqueSection />
 
       {/* Newsletter Section */}
       <NewsletterSection />

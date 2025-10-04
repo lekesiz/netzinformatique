@@ -51,6 +51,11 @@ const Header = () => {
       ]
     },
     { name: 'Matériel', path: '/materiel' },
+    { 
+      name: 'Boutique', 
+      path: 'https://informatique-haguenau.fr/',
+      external: true 
+    },
     { name: 'Blog', path: '/blog' },
     { name: 'Contact', path: '/contact' },
   ]
@@ -104,15 +109,26 @@ const Header = () => {
                   onMouseEnter={() => item.dropdown && setOpenDropdown(item.name)}
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
-                  <Link
-                    to={item.path}
-                    className={`flex items-center gap-1 font-medium transition-colors hover:text-primary ${
-                      location.pathname === item.path ? 'text-primary' : 'text-foreground'
-                    }`}
-                  >
-                    {item.name}
-                    {item.dropdown && <ChevronDown size={16} />}
-                  </Link>
+                  {item.external ? (
+                    <a
+                      href={item.path}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 font-medium transition-colors hover:text-primary text-foreground"
+                    >
+                      {item.name}
+                    </a>
+                  ) : (
+                    <Link
+                      to={item.path}
+                      className={`flex items-center gap-1 font-medium transition-colors hover:text-primary ${
+                        location.pathname === item.path ? 'text-primary' : 'text-foreground'
+                      }`}
+                    >
+                      {item.name}
+                      {item.dropdown && <ChevronDown size={16} />}
+                    </Link>
+                  )}
                   
                   {/* Dropdown Menu */}
                   {item.dropdown && openDropdown === item.name && (
