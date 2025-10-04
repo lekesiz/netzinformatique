@@ -319,6 +319,11 @@ const resources = {
   }
 }
 
+// Force French language on initialization
+if (typeof window !== 'undefined') {
+  localStorage.setItem('i18nextLng', 'fr')
+}
+
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
@@ -329,11 +334,15 @@ i18n
     debug: false,
     detection: {
       order: ['localStorage', 'navigator'],
-      caches: ['localStorage']
+      caches: ['localStorage'],
+      lookupLocalStorage: 'i18nextLng'
     },
     interpolation: {
       escapeValue: false
     }
   })
+
+// Ensure French is always set after initialization
+i18n.changeLanguage('fr')
 
 export default i18n
