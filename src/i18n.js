@@ -1,6 +1,5 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
-import LanguageDetector from 'i18next-browser-languagedetector'
 
 // Comprehensive Translation resources for all languages
 const resources = {
@@ -319,16 +318,42 @@ const resources = {
   }
 }
 
+// Get language from localStorage or default to French
+const getInitialLanguage = () => {
+  try {
+    const savedLanguage = localStorage.getItem('i18nextLng')
+    if (savedLanguage && ['fr', 'en', 'de', 'tr'].includes(savedLanguage)) {
+      return savedLanguage
+    }
+  } catch (error) {
+    console.warn('Could not access localStorage:', error)
+  }
+  return 'fr'
+}
+
+// Initialize i18n synchronously
 i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: 'fr', // Default language is French
+    lng: getInitialLanguage(),
     fallbackLng: 'fr',
     debug: false,
     interpolation: {
       escapeValue: false
+    },
+    react: {
+      useSuspense: false // Disable suspense to avoid loading delays
     }
   })
+
+// Save language changes to localStorage
+i18n.on('languageChanged', (lng) => {
+  try {
+    localStorage.setItem('i18nextLng', lng)
+  } catch (error) {
+    console.warn('Could not save language to localStorage:', error)
+  }
+})
 
 export default i18n
