@@ -15,7 +15,7 @@ export const services = [
       de: 'Schneller Eingriff innerhalb von 24-48 Stunden für alle Ihre IT-Probleme. Vor-Ort- oder Werkstattreparatur.',
       tr: 'Tüm bilgisayar sorunlarınız için 24-48 saat içinde hızlı müdahale. Yerinde veya atölyede onarım.'
     },
-    link: '/services/particuliers',
+    link: '/services/depannage-maintenance',
     color: 'gradient-blue'
   },
   {
@@ -33,7 +33,7 @@ export const services = [
       de: 'Maßgeschneiderter PC, Gaming, professionell. Verkauf von hochwertiger Computerhardware und Peripheriegeräten.',
       tr: 'Özel PC, oyun, profesyonel. Kaliteli bilgisayar donanımı ve çevre birimleri satışı.'
     },
-    link: '/services/particuliers',
+    link: '/materiel',
     color: 'gradient-purple'
   },
   {
@@ -51,7 +51,7 @@ export const services = [
       de: 'Installation und Konfiguration von Unternehmensnetzwerken. Cisco-Lösungen, professionelles WLAN, IT-Audit.',
       tr: 'Kurumsal ağ kurulumu ve yapılandırması. Cisco çözümleri, profesyonel WiFi, BT denetimi.'
     },
-    link: '/services/entreprises',
+    link: '/services/cloud-reseau',
     color: 'gradient-green'
   },
   {
@@ -69,7 +69,7 @@ export const services = [
       de: 'Exklusive Offline-KI, DeepSeek Enterprise. KI-Lösungen für Gesundheitswesen, Automatisierung und strategische Beratung.',
       tr: 'Özel Çevrimdışı AI, DeepSeek Enterprise. Sağlık, otomasyon ve stratejik danışmanlık için AI çözümleri.'
     },
-    link: '/solutions/intelligence-artificielle',
+    link: '/services/ia-offline',
     color: 'gradient-purple',
     featured: true
   },
@@ -88,7 +88,7 @@ export const services = [
       de: 'Antivirenschutz, Firewall, DSGVO-Konformität. Sicherheitsaudit und Teamschulung.',
       tr: 'Antivirüs koruması, güvenlik duvarı, GDPR uyumluluğu. Güvenlik denetimi ve ekip eğitimi.'
     },
-    link: '/services/entreprises',
+    link: '/services/cybersecurite',
     color: 'gradient-blue'
   },
   {
@@ -106,7 +106,7 @@ export const services = [
       de: 'Cloud-Migration, Microsoft 365, Hosting. Unterstützung bei Ihrer digitalen Transformation.',
       tr: 'Bulut geçişi, Microsoft 365, barındırma. Dijital dönüşümünüzde destek.'
     },
-    link: '/solutions/cloud',
+    link: '/services/cloud-reseau',
     color: 'gradient-green'
   },
   {
@@ -124,7 +124,7 @@ export const services = [
       de: 'Website-Erstellung, E-Commerce, Anwendungen. Natürliche Referenzierung und Website-Wartung.',
       tr: 'Web sitesi oluşturma, e-ticaret, uygulamalar. Doğal referanslama ve site bakımı.'
     },
-    link: '/solutions/web-developpement',
+    link: '/services/web-digital',
     color: 'gradient-purple'
   },
   {
@@ -142,7 +142,7 @@ export const services = [
       de: 'QUALIOPI-zertifizierte Berufsausbildung. Kompetenzbewertung, KI, Cloud, digitale Werkzeuge.',
       tr: 'QUALIOPI sertifikalı profesyonel eğitim. Yetenek değerlendirmesi, AI, Bulut, dijital araçlar.'
     },
-    link: '/formation',
+    link: '/services/formation-professionnelle',
     color: 'gradient-green'
   }
 ]
