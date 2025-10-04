@@ -72,8 +72,23 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/materiel" className="text-background/80 hover:text-background transition">
+                  Matériel
+                </Link>
+              </li>
+              <li>
                 <Link to="/blog" className="text-background/80 hover:text-background transition">
                   Blog
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-background/80 hover:text-background transition">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link to="/faq" className="text-background/80 hover:text-background transition">
+                  FAQ
                 </Link>
               </li>
             </ul>
@@ -137,11 +152,47 @@ const Footer = () => {
               <li className="flex items-start gap-2">
                 <Clock size={18} className="mt-1 flex-shrink-0" />
                 <span className="text-background/80">
-                  Lundi - Samedi<br />
-                  09:00-12:00 / 14:00-18:00
+                  Lun-Ven: 09:00-12:00 / 14:00-18:00
                 </span>
               </li>
             </ul>
+          </div>
+        </div>
+
+        {/* Related Sites */}
+        <div className="mt-12 pt-8 border-t border-background/20">
+          <h3 className="font-bold text-lg mb-4 text-center">Nos Sites Partenaires</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+            <a 
+              href="https://informatique-haguenau.fr" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-background/10 rounded-lg p-4 hover:bg-background/20 transition text-center"
+            >
+              <div className="text-2xl mb-2">🛒</div>
+              <div className="font-semibold mb-1">Boutique en Ligne</div>
+              <div className="text-xs text-background/70">informatique-haguenau.fr</div>
+            </a>
+            <a 
+              href="https://formation-haguenau.fr" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-background/10 rounded-lg p-4 hover:bg-background/20 transition text-center"
+            >
+              <div className="text-2xl mb-2">🎓</div>
+              <div className="font-semibold mb-1">Plateforme Formation</div>
+              <div className="text-xs text-background/70">formation-haguenau.fr</div>
+            </a>
+            <a 
+              href="https://netz-blog.fr" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-background/10 rounded-lg p-4 hover:bg-background/20 transition text-center"
+            >
+              <div className="text-2xl mb-2">📝</div>
+              <div className="font-semibold mb-1">Blog Technique</div>
+              <div className="text-xs text-background/70">netz-blog.fr</div>
+            </a>
           </div>
         </div>
       </div>
