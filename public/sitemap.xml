@@ -5,153 +5,153 @@
   
   <!-- Homepage -->
   <url>
-    <loc>https://netzinformatique.vercel.app/</loc>
-    <lastmod>2025-10-04</lastmod>
+    <loc>https://netzinformatique.fr/</loc>
+    <lastmod>2025-11-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://netzinformatique.vercel.app/?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://netzinformatique.vercel.app/?lang=en"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://netzinformatique.vercel.app/?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://netzinformatique.vercel.app/?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://netzinformatique.fr/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://netzinformatique.fr/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://netzinformatique.fr/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://netzinformatique.fr/?lang=tr"/>
   </url>
 
   <!-- About -->
   <url>
-    <loc>https://netzinformatique.vercel.app/a-propos</loc>
-    <lastmod>2025-10-04</lastmod>
+    <loc>https://netzinformatique.fr/a-propos</loc>
+    <lastmod>2025-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://netzinformatique.vercel.app/a-propos?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://netzinformatique.vercel.app/a-propos?lang=en"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://netzinformatique.vercel.app/a-propos?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://netzinformatique.vercel.app/a-propos?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://netzinformatique.fr/a-propos?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://netzinformatique.fr/a-propos?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://netzinformatique.fr/a-propos?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://netzinformatique.fr/a-propos?lang=tr"/>
   </url>
 
   <!-- Services -->
   <url>
-    <loc>https://netzinformatique.vercel.app/services</loc>
-    <lastmod>2025-10-04</lastmod>
+    <loc>https://netzinformatique.fr/services</loc>
+    <lastmod>2025-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://netzinformatique.vercel.app/services?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://netzinformatique.vercel.app/services?lang=en"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://netzinformatique.vercel.app/services?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://netzinformatique.vercel.app/services?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://netzinformatique.fr/services?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://netzinformatique.fr/services?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://netzinformatique.fr/services?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://netzinformatique.fr/services?lang=tr"/>
   </url>
   
   <url>
-    <loc>https://netzinformatique.vercel.app/services/particuliers</loc>
-    <lastmod>2025-10-04</lastmod>
+    <loc>https://netzinformatique.fr/services/particuliers</loc>
+    <lastmod>2025-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://netzinformatique.vercel.app/services/entreprises</loc>
-    <lastmod>2025-10-04</lastmod>
+    <loc>https://netzinformatique.fr/services/entreprises</loc>
+    <lastmod>2025-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Solutions -->
   <url>
-    <loc>https://netzinformatique.vercel.app/solutions</loc>
-    <lastmod>2025-10-04</lastmod>
+    <loc>https://netzinformatique.fr/solutions</loc>
+    <lastmod>2025-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://netzinformatique.vercel.app/solutions?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://netzinformatique.vercel.app/solutions?lang=en"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://netzinformatique.vercel.app/solutions?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://netzinformatique.vercel.app/solutions?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://netzinformatique.fr/solutions?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://netzinformatique.fr/solutions?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://netzinformatique.fr/solutions?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://netzinformatique.fr/solutions?lang=tr"/>
   </url>
   
   <url>
-    <loc>https://netzinformatique.vercel.app/solutions/intelligence-artificielle</loc>
-    <lastmod>2025-10-04</lastmod>
+    <loc>https://netzinformatique.fr/solutions/intelligence-artificielle</loc>
+    <lastmod>2025-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://netzinformatique.vercel.app/solutions/web-developpement</loc>
-    <lastmod>2025-10-04</lastmod>
+    <loc>https://netzinformatique.fr/solutions/web-developpement</loc>
+    <lastmod>2025-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://netzinformatique.vercel.app/solutions/cloud</loc>
-    <lastmod>2025-10-04</lastmod>
+    <loc>https://netzinformatique.fr/solutions/cloud</loc>
+    <lastmod>2025-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Formation -->
   <url>
-    <loc>https://netzinformatique.vercel.app/formation</loc>
-    <lastmod>2025-10-04</lastmod>
+    <loc>https://netzinformatique.fr/formation</loc>
+    <lastmod>2025-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://netzinformatique.vercel.app/formation?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://netzinformatique.vercel.app/formation?lang=en"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://netzinformatique.vercel.app/formation?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://netzinformatique.vercel.app/formation?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://netzinformatique.fr/formation?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://netzinformatique.fr/formation?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://netzinformatique.fr/formation?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://netzinformatique.fr/formation?lang=tr"/>
   </url>
   
   <url>
-    <loc>https://netzinformatique.vercel.app/formation/bilan-competences</loc>
-    <lastmod>2025-10-04</lastmod>
+    <loc>https://netzinformatique.fr/formation/bilan-competences</loc>
+    <lastmod>2025-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Materiel -->
   <url>
-    <loc>https://netzinformatique.vercel.app/materiel</loc>
-    <lastmod>2025-10-04</lastmod>
+    <loc>https://netzinformatique.fr/materiel</loc>
+    <lastmod>2025-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://netzinformatique.vercel.app/materiel?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://netzinformatique.vercel.app/materiel?lang=en"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://netzinformatique.vercel.app/materiel?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://netzinformatique.vercel.app/materiel?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://netzinformatique.fr/materiel?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://netzinformatique.fr/materiel?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://netzinformatique.fr/materiel?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://netzinformatique.fr/materiel?lang=tr"/>
   </url>
 
   <!-- Blog -->
   <url>
-    <loc>https://netzinformatique.vercel.app/blog</loc>
-    <lastmod>2025-10-04</lastmod>
+    <loc>https://netzinformatique.fr/blog</loc>
+    <lastmod>2025-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://netzinformatique.vercel.app/blog?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://netzinformatique.vercel.app/blog?lang=en"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://netzinformatique.vercel.app/blog?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://netzinformatique.vercel.app/blog?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://netzinformatique.fr/blog?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://netzinformatique.fr/blog?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://netzinformatique.fr/blog?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://netzinformatique.fr/blog?lang=tr"/>
   </url>
 
   <!-- Contact -->
   <url>
-    <loc>https://netzinformatique.vercel.app/contact</loc>
-    <lastmod>2025-10-04</lastmod>
+    <loc>https://netzinformatique.fr/contact</loc>
+    <lastmod>2025-11-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://netzinformatique.vercel.app/contact?lang=fr"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://netzinformatique.vercel.app/contact?lang=en"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://netzinformatique.vercel.app/contact?lang=de"/>
-    <xhtml:link rel="alternate" hreflang="tr" href="https://netzinformatique.vercel.app/contact?lang=tr"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://netzinformatique.fr/contact?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://netzinformatique.fr/contact?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://netzinformatique.fr/contact?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://netzinformatique.fr/contact?lang=tr"/>
   </url>
 
   <!-- Legal Pages -->
   <url>
-    <loc>https://netzinformatique.vercel.app/mentions-legales</loc>
-    <lastmod>2025-10-04</lastmod>
+    <loc>https://netzinformatique.fr/mentions-legales</loc>
+    <lastmod>2025-11-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   
   <url>
-    <loc>https://netzinformatique.vercel.app/politique-confidentialite</loc>
-    <lastmod>2025-10-04</lastmod>
+    <loc>https://netzinformatique.fr/politique-confidentialite</loc>
+    <lastmod>2025-11-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

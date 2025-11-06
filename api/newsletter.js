@@ -1,15 +1,77 @@
+import DOMPurify from 'isomorphic-dompurify';
+import validator from 'validator';
+
+// Rate limiting - simple in-memory store
+const rateLimitMap = new Map();
+const RATE_LIMIT_WINDOW = 15 * 60 * 1000; // 15 minutes
+const RATE_LIMIT_MAX_REQUESTS = 3; // Max 3 newsletter subscriptions per window
+
+function checkRateLimit(identifier) {
+  const now = Date.now();
+  const userRequests = rateLimitMap.get(identifier) || [];
+
+  // Clean old requests
+  const validRequests = userRequests.filter(time => now - time < RATE_LIMIT_WINDOW);
+
+  if (validRequests.length >= RATE_LIMIT_MAX_REQUESTS) {
+    return false;
+  }
+
+  validRequests.push(now);
+  rateLimitMap.set(identifier, validRequests);
+  return true;
+}
+
 export default async function handler(req, res) {
+  // CORS - Whitelist allowed origins
+  const allowedOrigins = [
+    'https://netzinformatique.fr',
+    'https://www.netzinformatique.fr',
+    'https://netzinformatique.vercel.app',
+    'http://localhost:5173',
+    'http://localhost:3000'
+  ];
+
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+  }
+
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
+  }
+
   // Only allow POST
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  // Rate limiting
+  const identifier = req.headers['x-forwarded-for'] || req.connection.remoteAddress || 'unknown';
+  if (!checkRateLimit(identifier)) {
+    return res.status(429).json({
+      error: 'Too many requests',
+      message: 'Trop de demandes. Veuillez réessayer dans 15 minutes.'
+    });
+  }
+
   const { email } = req.body;
 
-  // Validation
-  if (!email || !email.includes('@')) {
-    return res.status(400).json({ error: 'Invalid email address' });
+  // Enhanced email validation
+  if (!email || !validator.isEmail(email)) {
+    return res.status(400).json({
+      error: 'Invalid email address',
+      message: 'Adresse email invalide'
+    });
   }
+
+  // Sanitize email
+  const sanitizedEmail = DOMPurify.sanitize(email.toLowerCase().trim());
 
   try {
     // Option 1: SendGrid Marketing Contacts API
@@ -31,7 +93,7 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         contacts: [
           {
-            email: email,
+            email: sanitizedEmail,
           }
         ]
       }),
@@ -48,7 +110,7 @@ export default async function handler(req, res) {
     sgMail.setApiKey(SENDGRID_API_KEY);
 
     const welcomeEmail = {
-      to: email,
+      to: sanitizedEmail,
       from: process.env.SENDGRID_FROM_EMAIL || 'contact@netzinformatique.fr',
       subject: 'Bienvenue dans notre newsletter ! 🎉',
       html: `
