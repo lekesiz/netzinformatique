@@ -817,3 +817,4 @@ export function searchPosts(query, locale = 'fr') {
 }
 
 export default blogPosts
+// Force rebuild - Thu Nov  6 14:14:02 EST 2025
