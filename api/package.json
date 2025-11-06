@@ -1,0 +1,10 @@
+{
+  "name": "netz-api",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "dependencies": {
+    "resend": "^4.0.1",
+    "isomorphic-dompurify": "^2.31.0",
+    "validator": "^13.15.20"
+  }
+}
