@@ -1,5 +1,5 @@
-// SendGrid integration for email sending
-import sgMail from '@sendgrid/mail';
+// Resend integration for email sending
+import { Resend } from 'resend';
 import DOMPurify from 'isomorphic-dompurify';
 import validator from 'validator';
 
@@ -111,14 +111,14 @@ export default async function handler(req, res) {
       });
     }
 
-    // Initialize SendGrid
-    const sendgridApiKey = process.env.SENDGRID_API_KEY
-    const fromEmail = process.env.SENDGRID_FROM_EMAIL || 'contact@netzinformatique.fr'
-    const toEmail = process.env.SENDGRID_TO_EMAIL || 'contact@netzinformatique.fr'
+    // Initialize Resend
+    const resendApiKey = process.env.RESEND_API_KEY
+    const fromEmail = process.env.RESEND_FROM_EMAIL || 'contact@netzinformatique.fr'
+    const toEmail = process.env.RESEND_TO_EMAIL || 'contact@netzinformatique.fr'
 
-    if (!sendgridApiKey) {
-      console.error('SENDGRID_API_KEY is not configured')
-      // Fallback to logging if SendGrid is not configured
+    if (!resendApiKey) {
+      console.error('RESEND_API_KEY is not configured')
+      // Fallback to logging if Resend is not configured
       console.log('Contact form submission:', {
         name: fullName,
         email,
@@ -134,7 +134,7 @@ export default async function handler(req, res) {
       })
     }
 
-    sgMail.setApiKey(sendgridApiKey)
+    const resend = new Resend(resendApiKey);
 
     // Sanitize all user inputs to prevent XSS
     const sanitizedFullName = DOMPurify.sanitize(fullName);
@@ -233,7 +233,7 @@ export default async function handler(req, res) {
             </div>
             <p>En attendant, n'hésitez pas à nous contacter directement :</p>
             <ul>
-              <li>📞 Téléphone : <a href="tel:+33899250151">0 8 99 25 01 51</a></li>
+              <li>📞 Téléphone : <a href="tel:+33367310201">03 67 31 02 01</a></li>
               <li>📧 Email : <a href="mailto:contact@netzinformatique.fr">contact@netzinformatique.fr</a></li>
               <li>📍 Adresse : 1a Route de Schweighouse, 67500 Haguenau</li>
             </ul>
@@ -250,30 +250,32 @@ export default async function handler(req, res) {
       </html>
     `
 
-    // Email to admin
-    const adminMsg = {
-      to: toEmail,
-      from: fromEmail,
-      subject: `[NETZ Contact] ${sanitizedSubject || 'Nouveau message de ' + sanitizedFullName}`,
-      html: adminEmailHTML
+    // Send emails using Resend
+    try {
+      // Email to admin
+      await resend.emails.send({
+        from: fromEmail,
+        to: toEmail,
+        subject: `[NETZ Contact] ${sanitizedSubject || 'Nouveau message de ' + sanitizedFullName}`,
+        html: adminEmailHTML,
+      });
+
+      // Confirmation email to user
+      await resend.emails.send({
+        from: fromEmail,
+        to: sanitizedEmail,
+        subject: 'Confirmation - Votre message a bien été reçu',
+        html: customerEmailHTML,
+      });
+
+      return res.status(200).json({
+        success: true,
+        message: 'Votre message a été envoyé avec succès. Nous vous répondrons dans les 24 heures.'
+      })
+    } catch (emailError) {
+      console.error('Resend email error:', emailError);
+      throw emailError;
     }
-
-    // Confirmation email to user
-    const userMsg = {
-      to: sanitizedEmail,
-      from: fromEmail,
-      subject: 'Confirmation - Votre message a bien été reçu',
-      html: customerEmailHTML
-    }
-
-    // Send emails
-    await sgMail.send(adminMsg)
-    await sgMail.send(userMsg)
-
-    return res.status(200).json({
-      success: true,
-      message: 'Votre message a été envoyé avec succès. Nous vous répondrons dans les 24 heures.'
-    })
 
   } catch (error) {
     console.error('Contact form error:', error)
