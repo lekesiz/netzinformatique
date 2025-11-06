@@ -26,7 +26,16 @@ dist-ssr
 # Environment variables
 .env
 .env.local
-.env.production.local
+.env.production
+
+# Test coverage
+coverage
+test-results
+*.lcov
+.nyc_output
+
+# Vitest
+vitest.config.js.timestamp-*.local
 .env.development.local
 
 # OS files
