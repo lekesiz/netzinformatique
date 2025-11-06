@@ -63,7 +63,12 @@ const resources = {
       },
       blog: {
         title: 'Blog & Actualités Tech',
-        searchPlaceholder: 'Rechercher un article...'
+        searchPlaceholder: 'Rechercher un article...',
+        categories: 'Catégories',
+        allCategories: 'Tous',
+        relatedPosts: 'Articles Connexes',
+        minRead: 'min de lecture',
+        'pagination.showing': 'Affichage de {{start}}-{{end}} sur {{total}} articles'
       },
       contact: {
         title: 'Contactez NETZ Informatique',
@@ -164,7 +169,12 @@ const resources = {
       },
       blog: {
         title: 'Tech Blog & News',
-        searchPlaceholder: 'Search for an article...'
+        searchPlaceholder: 'Search for an article...',
+        categories: 'Categories',
+        allCategories: 'All',
+        relatedPosts: 'Related Posts',
+        minRead: 'min read',
+        'pagination.showing': 'Showing {{start}}-{{end}} of {{total}} posts'
       },
       contact: {
         title: 'Contact NETZ Informatique',
@@ -258,7 +268,12 @@ const resources = {
       },
       blog: {
         title: 'Tech Blog & Neuigkeiten',
-        searchPlaceholder: 'Nach einem Artikel suchen...'
+        searchPlaceholder: 'Nach einem Artikel suchen...',
+        categories: 'Kategorien',
+        allCategories: 'Alle',
+        relatedPosts: 'Ähnliche Beiträge',
+        minRead: 'Min. Lesezeit',
+        'pagination.showing': 'Zeige {{start}}-{{end}} von {{total}} Beiträgen'
       },
       contact: {
         title: 'Kontaktieren Sie NETZ Informatique',
@@ -352,7 +367,12 @@ const resources = {
       },
       blog: {
         title: 'Teknoloji Blogu ve Haberler',
-        searchPlaceholder: 'Makale ara...'
+        searchPlaceholder: 'Makale ara...',
+        categories: 'Kategoriler',
+        allCategories: 'Tümü',
+        relatedPosts: 'İlgili Yazılar',
+        minRead: 'dk okuma',
+        'pagination.showing': '{{total}} yazıdan {{start}}-{{end}} arası gösteriliyor'
       },
       contact: {
         title: 'NETZ Informatique ile İletişime Geçin',
