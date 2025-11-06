@@ -1,11 +1,46 @@
 // SendGrid integration for email sending
 import sgMail from '@sendgrid/mail';
+import DOMPurify from 'isomorphic-dompurify';
+import validator from 'validator';
+
+// Rate limiting - simple in-memory store (use Redis for production)
+const rateLimitMap = new Map();
+const RATE_LIMIT_WINDOW = 15 * 60 * 1000; // 15 minutes
+const RATE_LIMIT_MAX_REQUESTS = 5; // Max 5 requests per window
+
+function checkRateLimit(identifier) {
+  const now = Date.now();
+  const userRequests = rateLimitMap.get(identifier) || [];
+
+  // Clean old requests
+  const validRequests = userRequests.filter(time => now - time < RATE_LIMIT_WINDOW);
+
+  if (validRequests.length >= RATE_LIMIT_MAX_REQUESTS) {
+    return false;
+  }
+
+  validRequests.push(now);
+  rateLimitMap.set(identifier, validRequests);
+  return true;
+}
 
 export default async function handler(req, res) {
-  // Enable CORS
-  res.setHeader('Access-Control-Allow-Credentials', true)
-  res.setHeader('Access-Control-Allow-Origin', '*')
-  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
+  // CORS - Whitelist allowed origins
+  const allowedOrigins = [
+    'https://netzinformatique.fr',
+    'https://www.netzinformatique.fr',
+    'https://netzinformatique.vercel.app',
+    'http://localhost:5173',
+    'http://localhost:3000'
+  ];
+
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+  }
+
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
   res.setHeader(
     'Access-Control-Allow-Headers',
     'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
@@ -20,6 +55,15 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' })
   }
 
+  // Rate limiting
+  const identifier = req.headers['x-forwarded-for'] || req.connection.remoteAddress || 'unknown';
+  if (!checkRateLimit(identifier)) {
+    return res.status(429).json({
+      error: 'Too many requests',
+      message: 'Trop de demandes. Veuillez réessayer dans 15 minutes.'
+    });
+  }
+
   try {
     const { firstName, lastName, name, email, phone, subject, message } = req.body
 
@@ -29,19 +73,42 @@ export default async function handler(req, res) {
 
     // Basic validation
     if (!fullName || !email || !message) {
-      return res.status(400).json({ 
+      return res.status(400).json({
         error: 'Missing required fields',
         message: 'Veuillez remplir tous les champs obligatoires'
       })
     }
 
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(email)) {
-      return res.status(400).json({ 
+    // Validate name length
+    if (fullName.length < 2 || fullName.length > 100) {
+      return res.status(400).json({
+        error: 'Invalid name',
+        message: 'Le nom doit contenir entre 2 et 100 caractères'
+      });
+    }
+
+    // Email validation - Enhanced with validator
+    if (!validator.isEmail(email)) {
+      return res.status(400).json({
         error: 'Invalid email',
         message: 'Adresse email invalide'
       })
+    }
+
+    // Validate message length
+    if (message.length < 10 || message.length > 5000) {
+      return res.status(400).json({
+        error: 'Invalid message',
+        message: 'Le message doit contenir entre 10 et 5000 caractères'
+      });
+    }
+
+    // Phone validation (optional field)
+    if (phone && !validator.isMobilePhone(phone, 'any', { strictMode: false })) {
+      return res.status(400).json({
+        error: 'Invalid phone',
+        message: 'Numéro de téléphone invalide'
+      });
     }
 
     // Initialize SendGrid
@@ -69,6 +136,13 @@ export default async function handler(req, res) {
 
     sgMail.setApiKey(sendgridApiKey)
 
+    // Sanitize all user inputs to prevent XSS
+    const sanitizedFullName = DOMPurify.sanitize(fullName);
+    const sanitizedEmail = DOMPurify.sanitize(email);
+    const sanitizedPhone = phone ? DOMPurify.sanitize(phone) : '';
+    const sanitizedSubject = subject ? DOMPurify.sanitize(subject) : '';
+    const sanitizedMessage = DOMPurify.sanitize(message);
+
     // Prepare email HTML content for admin
     const adminEmailHTML = `
       <!DOCTYPE html>
@@ -82,7 +156,7 @@ export default async function handler(req, res) {
           .content { background: #f9fafb; padding: 30px; border-radius: 0 0 10px 10px; }
           .field { margin-bottom: 20px; }
           .label { font-weight: bold; color: #4F46E5; margin-bottom: 5px; }
-          .value { background: white; padding: 10px; border-radius: 5px; border-left: 3px solid #10B981; }
+          .value { background: white; padding: 10px; border-radius: 5px; border-left: 3px solid #10B981; word-break: break-word; }
           .footer { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb; color: #6b7280; font-size: 14px; }
         </style>
       </head>
@@ -95,27 +169,27 @@ export default async function handler(req, res) {
           <div class="content">
             <div class="field">
               <div class="label">👤 Nom Complet</div>
-              <div class="value">${fullName}</div>
+              <div class="value">${sanitizedFullName}</div>
             </div>
             <div class="field">
               <div class="label">📧 Email</div>
-              <div class="value"><a href="mailto:${email}">${email}</a></div>
+              <div class="value"><a href="mailto:${sanitizedEmail}">${sanitizedEmail}</a></div>
             </div>
-            ${phone ? `
+            ${sanitizedPhone ? `
             <div class="field">
               <div class="label">📞 Téléphone</div>
-              <div class="value"><a href="tel:${phone}">${phone}</a></div>
+              <div class="value"><a href="tel:${sanitizedPhone}">${sanitizedPhone}</a></div>
             </div>
             ` : ''}
-            ${subject ? `
+            ${sanitizedSubject ? `
             <div class="field">
               <div class="label">📋 Sujet</div>
-              <div class="value">${subject}</div>
+              <div class="value">${sanitizedSubject}</div>
             </div>
             ` : ''}
             <div class="field">
               <div class="label">💬 Message</div>
-              <div class="value">${message.replace(/\n/g, '<br>')}</div>
+              <div class="value">${sanitizedMessage.replace(/\n/g, '<br>')}</div>
             </div>
           </div>
           <div class="footer">
@@ -140,6 +214,7 @@ export default async function handler(req, res) {
           .content { background: #f9fafb; padding: 30px; border-radius: 0 0 10px 10px; }
           .button { display: inline-block; background: #10B981; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; margin: 20px 0; }
           .footer { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb; color: #6b7280; font-size: 14px; }
+          .message-box { background: white; padding: 15px; border-radius: 5px; border-left: 3px solid #10B981; margin: 20px 0; word-break: break-word; }
         </style>
       </head>
       <body>
@@ -149,12 +224,12 @@ export default async function handler(req, res) {
             <p>NETZ Informatique</p>
           </div>
           <div class="content">
-            <p>Bonjour ${fName || fullName},</p>
+            <p>Bonjour ${DOMPurify.sanitize(fName || fullName)},</p>
             <p>Nous avons bien reçu votre demande et nous vous remercions de l'intérêt que vous portez à NETZ Informatique.</p>
             <p>Notre équipe va étudier votre demande et vous répondra dans les <strong>24 heures</strong>.</p>
             <p><strong>Votre message :</strong></p>
-            <div style="background: white; padding: 15px; border-radius: 5px; border-left: 3px solid #10B981; margin: 20px 0;">
-              ${message.replace(/\n/g, '<br>')}
+            <div class="message-box">
+              ${sanitizedMessage.replace(/\n/g, '<br>')}
             </div>
             <p>En attendant, n'hésitez pas à nous contacter directement :</p>
             <ul>
@@ -179,13 +254,13 @@ export default async function handler(req, res) {
     const adminMsg = {
       to: toEmail,
       from: fromEmail,
-      subject: `[NETZ Contact] ${subject || 'Nouveau message de ' + fullName}`,
+      subject: `[NETZ Contact] ${sanitizedSubject || 'Nouveau message de ' + sanitizedFullName}`,
       html: adminEmailHTML
     }
 
     // Confirmation email to user
     const userMsg = {
-      to: email,
+      to: sanitizedEmail,
       from: fromEmail,
       subject: 'Confirmation - Votre message a bien été reçu',
       html: customerEmailHTML

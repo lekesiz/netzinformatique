@@ -11,6 +11,7 @@ import AppointmentWidget from './components/common/AppointmentWidget'
 import LiveChat from './components/common/LiveChat'
 import GoogleAnalytics from './components/common/GoogleAnalytics'
 import GoogleTagManager from './components/common/GoogleTagManager'
+import ErrorBoundary from './components/common/ErrorBoundary'
 
 // Loading component
 const PageLoader = () => (
@@ -68,13 +69,14 @@ function App() {
   }
 
   return (
-    <Router>
-      {showIntro && <IntroAnimation onComplete={handleIntroComplete} />}
-      <div className={`min-h-screen flex flex-col ${!introComplete ? 'hidden' : ''}`}>
-        <Header />
-        <main className="flex-1">
-          <Suspense fallback={<PageLoader />}>
-            <Routes>
+    <ErrorBoundary>
+      <Router>
+        {showIntro && <IntroAnimation onComplete={handleIntroComplete} />}
+        <div className={`min-h-screen flex flex-col ${!introComplete ? 'hidden' : ''}`}>
+          <Header />
+          <main className="flex-1">
+            <Suspense fallback={<PageLoader />}>
+              <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/a-propos" element={<About />} />
               <Route path="/about" element={<About />} />
@@ -129,6 +131,7 @@ function App() {
         <GoogleTagManager />
       </div>
     </Router>
+    </ErrorBoundary>
   )
 }
 
