@@ -71,10 +71,53 @@
   body {
     @apply bg-background text-foreground;
   }
-  
+
   /* Smooth scrolling */
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Enhanced focus indicators for accessibility */
+  *:focus-visible {
+    outline: 3px solid oklch(0.50 0.20 300);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Button focus styles */
+  button:focus-visible,
+  a:focus-visible {
+    outline: 3px solid oklch(0.50 0.20 300);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px oklch(0.50 0.20 300 / 0.2);
+  }
+
+  /* Input focus styles */
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid oklch(0.50 0.20 300);
+    outline-offset: 0;
+    border-color: oklch(0.50 0.20 300);
+    box-shadow: 0 0 0 3px oklch(0.50 0.20 300 / 0.15);
+  }
+
+  /* Skip to content link */
+  .skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: oklch(0.50 0.20 300);
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 0 0 4px 0;
+    z-index: 100;
+    transition: top 0.2s ease;
+  }
+
+  .skip-to-content:focus {
+    top: 0;
   }
   
   /* Custom scrollbar */

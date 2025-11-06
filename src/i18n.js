@@ -63,7 +63,12 @@ const resources = {
       },
       blog: {
         title: 'Blog & Actualités Tech',
-        searchPlaceholder: 'Rechercher un article...'
+        searchPlaceholder: 'Rechercher un article...',
+        categories: 'Catégories',
+        allCategories: 'Tous',
+        relatedPosts: 'Articles Connexes',
+        minRead: 'min de lecture',
+        'pagination.showing': 'Affichage de {{start}}-{{end}} sur {{total}} articles'
       },
       contact: {
         title: 'Contactez NETZ Informatique',
@@ -100,6 +105,45 @@ const resources = {
         copyright: '© 2025 NETZ Informatique',
         legalNotice: 'Mentions Légales',
         privacy: 'Confidentialité'
+      },
+      cookies: {
+        banner: {
+          title: 'Nous utilisons des cookies',
+          description: 'Nous utilisons des cookies pour améliorer votre expérience, analyser notre trafic et personnaliser le contenu. Vous pouvez accepter tous les cookies, les refuser ou personnaliser vos préférences.',
+          acceptAll: 'Tout Accepter',
+          rejectAll: 'Tout Refuser',
+          customize: 'Personnaliser',
+          privacyPolicy: 'Politique de Confidentialité',
+          cookiePolicy: 'Politique des Cookies'
+        },
+        preferences: {
+          title: 'Préférences de Cookies',
+          description: 'Gérez vos préférences de cookies. Les cookies nécessaires sont toujours activés car ils sont essentiels au fonctionnement du site.',
+          save: 'Enregistrer les Préférences',
+          acceptAll: 'Tout Accepter'
+        },
+        necessary: {
+          title: 'Cookies Nécessaires',
+          description: 'Ces cookies sont essentiels au fonctionnement du site web et ne peuvent pas être désactivés.',
+          examples: 'Session, authentification, préférences de langue'
+        },
+        analytics: {
+          title: 'Cookies Analytiques',
+          description: 'Ces cookies nous aident à comprendre comment les visiteurs interagissent avec notre site web.',
+          examples: 'Google Analytics, mesures de performance, statistiques de visite'
+        },
+        functional: {
+          title: 'Cookies Fonctionnels',
+          description: 'Ces cookies permettent au site de fournir des fonctionnalités améliorées et une personnalisation.',
+          examples: 'Préférences utilisateur, paramètres de thème, contenu sauvegardé'
+        },
+        marketing: {
+          title: 'Cookies Marketing',
+          description: 'Ces cookies sont utilisés pour suivre les visiteurs sur les sites web afin d\'afficher des publicités pertinentes.',
+          examples: 'Publicités ciblées, remarketing, médias sociaux'
+        },
+        required: 'Requis',
+        examples: 'Exemples'
       }
     }
   },
@@ -164,7 +208,12 @@ const resources = {
       },
       blog: {
         title: 'Tech Blog & News',
-        searchPlaceholder: 'Search for an article...'
+        searchPlaceholder: 'Search for an article...',
+        categories: 'Categories',
+        allCategories: 'All',
+        relatedPosts: 'Related Posts',
+        minRead: 'min read',
+        'pagination.showing': 'Showing {{start}}-{{end}} of {{total}} posts'
       },
       contact: {
         title: 'Contact NETZ Informatique',
@@ -201,10 +250,49 @@ const resources = {
         copyright: '© 2025 NETZ Informatique',
         legalNotice: 'Legal Notice',
         privacy: 'Privacy'
+      },
+      cookies: {
+        banner: {
+          title: 'We use cookies',
+          description: 'We use cookies to enhance your experience, analyze our traffic, and personalize content. You can accept all cookies, reject them, or customize your preferences.',
+          acceptAll: 'Accept All',
+          rejectAll: 'Reject All',
+          customize: 'Customize',
+          privacyPolicy: 'Privacy Policy',
+          cookiePolicy: 'Cookie Policy'
+        },
+        preferences: {
+          title: 'Cookie Preferences',
+          description: 'Manage your cookie preferences. Necessary cookies are always enabled as they are essential for the website to function.',
+          save: 'Save Preferences',
+          acceptAll: 'Accept All'
+        },
+        necessary: {
+          title: 'Necessary Cookies',
+          description: 'These cookies are essential for the website to function and cannot be disabled.',
+          examples: 'Session, authentication, language preferences'
+        },
+        analytics: {
+          title: 'Analytics Cookies',
+          description: 'These cookies help us understand how visitors interact with our website.',
+          examples: 'Google Analytics, performance metrics, visit statistics'
+        },
+        functional: {
+          title: 'Functional Cookies',
+          description: 'These cookies enable the website to provide enhanced functionality and personalization.',
+          examples: 'User preferences, theme settings, saved content'
+        },
+        marketing: {
+          title: 'Marketing Cookies',
+          description: 'These cookies are used to track visitors across websites to display relevant advertisements.',
+          examples: 'Targeted ads, remarketing, social media'
+        },
+        required: 'Required',
+        examples: 'Examples'
       }
     }
   },
-  
+
   de: {
     translation: {
       nav: {
@@ -258,7 +346,12 @@ const resources = {
       },
       blog: {
         title: 'Tech Blog & Neuigkeiten',
-        searchPlaceholder: 'Nach einem Artikel suchen...'
+        searchPlaceholder: 'Nach einem Artikel suchen...',
+        categories: 'Kategorien',
+        allCategories: 'Alle',
+        relatedPosts: 'Ähnliche Beiträge',
+        minRead: 'Min. Lesezeit',
+        'pagination.showing': 'Zeige {{start}}-{{end}} von {{total}} Beiträgen'
       },
       contact: {
         title: 'Kontaktieren Sie NETZ Informatique',
@@ -295,10 +388,49 @@ const resources = {
         copyright: '© 2025 NETZ Informatique',
         legalNotice: 'Impressum',
         privacy: 'Datenschutz'
+      },
+      cookies: {
+        banner: {
+          title: 'Wir verwenden Cookies',
+          description: 'Wir verwenden Cookies, um Ihre Erfahrung zu verbessern, unseren Traffic zu analysieren und Inhalte zu personalisieren. Sie können alle Cookies akzeptieren, ablehnen oder Ihre Einstellungen anpassen.',
+          acceptAll: 'Alle Akzeptieren',
+          rejectAll: 'Alle Ablehnen',
+          customize: 'Anpassen',
+          privacyPolicy: 'Datenschutzrichtlinie',
+          cookiePolicy: 'Cookie-Richtlinie'
+        },
+        preferences: {
+          title: 'Cookie-Einstellungen',
+          description: 'Verwalten Sie Ihre Cookie-Einstellungen. Notwendige Cookies sind immer aktiviert, da sie für die Funktion der Website unerlässlich sind.',
+          save: 'Einstellungen Speichern',
+          acceptAll: 'Alle Akzeptieren'
+        },
+        necessary: {
+          title: 'Notwendige Cookies',
+          description: 'Diese Cookies sind für die Funktion der Website unerlässlich und können nicht deaktiviert werden.',
+          examples: 'Sitzung, Authentifizierung, Spracheinstellungen'
+        },
+        analytics: {
+          title: 'Analyse-Cookies',
+          description: 'Diese Cookies helfen uns zu verstehen, wie Besucher mit unserer Website interagieren.',
+          examples: 'Google Analytics, Leistungsmetriken, Besuchsstatistiken'
+        },
+        functional: {
+          title: 'Funktionale Cookies',
+          description: 'Diese Cookies ermöglichen es der Website, erweiterte Funktionen und Personalisierung bereitzustellen.',
+          examples: 'Benutzereinstellungen, Theme-Einstellungen, gespeicherte Inhalte'
+        },
+        marketing: {
+          title: 'Marketing-Cookies',
+          description: 'Diese Cookies werden verwendet, um Besucher über Websites hinweg zu verfolgen, um relevante Werbung anzuzeigen.',
+          examples: 'Gezielte Werbung, Remarketing, soziale Medien'
+        },
+        required: 'Erforderlich',
+        examples: 'Beispiele'
       }
     }
   },
-  
+
   tr: {
     translation: {
       nav: {
@@ -352,7 +484,12 @@ const resources = {
       },
       blog: {
         title: 'Teknoloji Blogu ve Haberler',
-        searchPlaceholder: 'Makale ara...'
+        searchPlaceholder: 'Makale ara...',
+        categories: 'Kategoriler',
+        allCategories: 'Tümü',
+        relatedPosts: 'İlgili Yazılar',
+        minRead: 'dk okuma',
+        'pagination.showing': '{{total}} yazıdan {{start}}-{{end}} arası gösteriliyor'
       },
       contact: {
         title: 'NETZ Informatique ile İletişime Geçin',
@@ -389,6 +526,45 @@ const resources = {
         copyright: '© 2025 NETZ Informatique',
         legalNotice: 'Yasal Bildirim',
         privacy: 'Gizlilik'
+      },
+      cookies: {
+        banner: {
+          title: 'Çerez Kullanıyoruz',
+          description: 'Deneyiminizi geliştirmek, trafiğimizi analiz etmek ve içeriği kişiselleştirmek için çerezler kullanıyoruz. Tüm çerezleri kabul edebilir, reddedebilir veya tercihlerinizi özelleştirebilirsiniz.',
+          acceptAll: 'Tümünü Kabul Et',
+          rejectAll: 'Tümünü Reddet',
+          customize: 'Özelleştir',
+          privacyPolicy: 'Gizlilik Politikası',
+          cookiePolicy: 'Çerez Politikası'
+        },
+        preferences: {
+          title: 'Çerez Tercihleri',
+          description: 'Çerez tercihlerinizi yönetin. Gerekli çerezler, web sitesinin çalışması için gerekli olduğundan her zaman etkindir.',
+          save: 'Tercihleri Kaydet',
+          acceptAll: 'Tümünü Kabul Et'
+        },
+        necessary: {
+          title: 'Gerekli Çerezler',
+          description: 'Bu çerezler web sitesinin çalışması için gereklidir ve devre dışı bırakılamazlar.',
+          examples: 'Oturum, kimlik doğrulama, dil tercihleri'
+        },
+        analytics: {
+          title: 'Analitik Çerezler',
+          description: 'Bu çerezler, ziyaretçilerin web sitemizle nasıl etkileşime girdiğini anlamamıza yardımcı olur.',
+          examples: 'Google Analytics, performans metrikleri, ziyaret istatistikleri'
+        },
+        functional: {
+          title: 'İşlevsel Çerezler',
+          description: 'Bu çerezler, web sitesinin gelişmiş işlevsellik ve kişiselleştirme sağlamasına olanak tanır.',
+          examples: 'Kullanıcı tercihleri, tema ayarları, kaydedilmiş içerik'
+        },
+        marketing: {
+          title: 'Pazarlama Çerezleri',
+          description: 'Bu çerezler, ilgili reklamları görüntülemek için ziyaretçileri web siteleri arasında takip etmek için kullanılır.',
+          examples: 'Hedefli reklamlar, yeniden pazarlama, sosyal medya'
+        },
+        required: 'Gerekli',
+        examples: 'Örnekler'
       }
     }
   }
