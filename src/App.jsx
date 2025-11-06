@@ -7,7 +7,7 @@ import './App.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import IntroAnimation from './components/IntroAnimation'
-import CookieBanner from './components/CookieBanner'
+import CookieConsent from './components/common/CookieConsent'
 import AppointmentWidget from './components/common/AppointmentWidget'
 import LiveChat from './components/common/LiveChat'
 import GoogleAnalytics from './components/common/GoogleAnalytics'
@@ -41,6 +41,7 @@ const Blog = lazy(() => import('./pages/Blog'))
 const Contact = lazy(() => import('./pages/Contact'))
 const MentionsLegales = lazy(() => import('./pages/MentionsLegales'))
 const PolitiqueConfidentialite = lazy(() => import('./pages/PolitiqueConfidentialite'))
+const CookiePolicy = lazy(() => import('./pages/CookiePolicy'))
 
 // New service detail pages
 const DepannageMaintenance = lazy(() => import('./pages/services/DepannageMaintenance'))
@@ -143,14 +144,15 @@ function App() {
               <Route path="/faq" element={<FAQ />} />
               <Route path="/mentions-legales" element={<Legal />} />
               <Route path="/politique-confidentialite" element={<Privacy />} />
-              
+              <Route path="/cookie-policy" element={<CookiePolicy />} />
+
               {/* 404 - Catch all */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
         </main>
         <Footer />
-        <CookieBanner />
+        <CookieConsent />
         <AppointmentWidget />
         <LiveChat />
         <BackToTop />
