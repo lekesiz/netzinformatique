@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { useState, lazy, Suspense } from 'react'
+import { useState, lazy, Suspense, useEffect } from 'react'
+import useStore from './store/useStore'
 import './App.css'
 
 // Components
@@ -12,6 +13,9 @@ import LiveChat from './components/common/LiveChat'
 import GoogleAnalytics from './components/common/GoogleAnalytics'
 import GoogleTagManager from './components/common/GoogleTagManager'
 import ErrorBoundary from './components/common/ErrorBoundary'
+import Breadcrumb from './components/common/Breadcrumb'
+import BackToTop from './components/common/BackToTop'
+import NotificationToast from './components/common/NotificationToast'
 
 // Loading component
 const PageLoader = () => (
@@ -60,21 +64,43 @@ const Privacy = lazy(() => import('./pages/Privacy'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
 function App() {
-  const [showIntro, setShowIntro] = useState(true)
-  const [introComplete, setIntroComplete] = useState(false)
+  // Use Zustand for intro state management
+  const introShown = useStore((state) => state.preferences.introShown)
+  const setPreference = useStore((state) => state.setPreference)
+
+  const [showIntro, setShowIntro] = useState(!introShown)
+  const [introComplete, setIntroComplete] = useState(introShown)
 
   const handleIntroComplete = () => {
     setIntroComplete(true)
+    setPreference('introShown', true)
     setTimeout(() => setShowIntro(false), 500)
   }
+
+  // Initialize theme on mount
+  const theme = useStore((state) => state.theme)
+  const setTheme = useStore((state) => state.setTheme)
+
+  useEffect(() => {
+    // Apply initial theme
+    setTheme(theme)
+  }, [])
 
   return (
     <ErrorBoundary>
       <Router>
         {showIntro && <IntroAnimation onComplete={handleIntroComplete} />}
         <div className={`min-h-screen flex flex-col ${!introComplete ? 'hidden' : ''}`}>
+          {/* Skip to main content link for accessibility */}
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-md focus:shadow-lg transition-all"
+          >
+            Skip to main content
+          </a>
           <Header />
-          <main className="flex-1">
+          <Breadcrumb />
+          <main id="main-content" className="flex-1">
             <Suspense fallback={<PageLoader />}>
               <Routes>
               <Route path="/" element={<Home />} />
@@ -127,6 +153,8 @@ function App() {
         <CookieBanner />
         <AppointmentWidget />
         <LiveChat />
+        <BackToTop />
+        <NotificationToast />
         <GoogleAnalytics />
         <GoogleTagManager />
       </div>

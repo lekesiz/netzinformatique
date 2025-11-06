@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom'
 import { Phone, Mail, MapPin, Facebook, Linkedin, Clock, ArrowUp } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const Footer = () => {
+  const { t } = useTranslation()
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -20,7 +23,7 @@ const Footer = () => {
               <span className="font-bold text-lg">NETZ Informatique</span>
             </div>
             <p className="text-sm text-background/80 mb-4">
-              Votre partenaire technologique de confiance depuis plus de 20 ans à Haguenau.
+              {t('footer.tagline')}
             </p>
             <div className="flex gap-3">
               <a
@@ -44,51 +47,51 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Liens Rapides</h3>
+            <h3 className="font-bold text-lg mb-4">{t('footer.quickLinks')}</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/" className="text-background/80 hover:text-background transition">
-                  Accueil
+                  {t('nav.home')}
                 </Link>
               </li>
               <li>
                 <Link to="/a-propos" className="text-background/80 hover:text-background transition">
-                  À Propos
+                  {t('nav.about')}
                 </Link>
               </li>
               <li>
                 <Link to="/services" className="text-background/80 hover:text-background transition">
-                  Services
+                  {t('nav.services')}
                 </Link>
               </li>
               <li>
                 <Link to="/solutions" className="text-background/80 hover:text-background transition">
-                  Solutions
+                  {t('nav.solutions')}
                 </Link>
               </li>
               <li>
                 <Link to="/formation" className="text-background/80 hover:text-background transition">
-                  Formation
+                  {t('nav.formation')}
                 </Link>
               </li>
               <li>
                 <Link to="/materiel" className="text-background/80 hover:text-background transition">
-                  Matériel
+                  {t('nav.materiel')}
                 </Link>
               </li>
               <li>
                 <Link to="/blog" className="text-background/80 hover:text-background transition">
-                  Blog
+                  {t('nav.blog')}
                 </Link>
               </li>
               <li>
                 <Link to="/contact" className="text-background/80 hover:text-background transition">
-                  Contact
+                  {t('nav.contact')}
                 </Link>
               </li>
               <li>
                 <Link to="/faq" className="text-background/80 hover:text-background transition">
-                  FAQ
+                  {t('nav.faq')}
                 </Link>
               </li>
             </ul>
@@ -96,31 +99,31 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Nos Services</h3>
+            <h3 className="font-bold text-lg mb-4">{t('footer.ourServices')}</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/services/particuliers" className="text-background/80 hover:text-background transition">
-                  Services Particuliers
+                  {t('services.individual')}
                 </Link>
               </li>
               <li>
                 <Link to="/services/entreprises" className="text-background/80 hover:text-background transition">
-                  Services Entreprises
+                  {t('services.enterprise')}
                 </Link>
               </li>
               <li>
                 <Link to="/solutions/intelligence-artificielle" className="text-background/80 hover:text-background transition">
-                  Intelligence Artificielle
+                  {t('solutions.ai')}
                 </Link>
               </li>
               <li>
                 <Link to="/solutions/web-developpement" className="text-background/80 hover:text-background transition">
-                  Développement Web
+                  {t('solutions.web')}
                 </Link>
               </li>
               <li>
                 <Link to="/formation/bilan-competences" className="text-background/80 hover:text-background transition">
-                  Bilan de Compétences
+                  {t('training.skillsAssessment')}
                 </Link>
               </li>
             </ul>
@@ -128,7 +131,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Contact</h3>
+            <h3 className="font-bold text-lg mb-4">{t('footer.contact')}</h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <MapPin size={18} className="mt-1 flex-shrink-0" />
@@ -152,7 +155,7 @@ const Footer = () => {
               <li className="flex items-start gap-2">
                 <Clock size={18} className="mt-1 flex-shrink-0" />
                 <span className="text-background/80">
-                  Lun-Ven: 09:00-12:00 / 14:00-18:00
+                  {t('footer.businessHours')}
                 </span>
               </li>
             </ul>
@@ -161,36 +164,36 @@ const Footer = () => {
 
         {/* Related Sites */}
         <div className="mt-12 pt-8 border-t border-background/20">
-          <h3 className="font-bold text-lg mb-4 text-center">Nos Sites Partenaires</h3>
+          <h3 className="font-bold text-lg mb-4 text-center">{t('footer.partnerSites')}</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
-            <a 
-              href="https://informatique-haguenau.fr" 
-              target="_blank" 
+            <a
+              href="https://informatique-haguenau.fr"
+              target="_blank"
               rel="noopener noreferrer"
               className="bg-background/10 rounded-lg p-4 hover:bg-background/20 transition text-center"
             >
               <div className="text-2xl mb-2">🛒</div>
-              <div className="font-semibold mb-1">Boutique en Ligne</div>
+              <div className="font-semibold mb-1">{t('footer.onlineShop')}</div>
               <div className="text-xs text-background/70">informatique-haguenau.fr</div>
             </a>
-            <a 
-              href="https://formation-haguenau.fr" 
-              target="_blank" 
+            <a
+              href="https://formation-haguenau.fr"
+              target="_blank"
               rel="noopener noreferrer"
               className="bg-background/10 rounded-lg p-4 hover:bg-background/20 transition text-center"
             >
               <div className="text-2xl mb-2">🎓</div>
-              <div className="font-semibold mb-1">Plateforme Formation</div>
+              <div className="font-semibold mb-1">{t('footer.trainingPlatform')}</div>
               <div className="text-xs text-background/70">formation-haguenau.fr</div>
             </a>
-            <a 
-              href="https://netz-blog.fr" 
-              target="_blank" 
+            <a
+              href="https://netz-blog.fr"
+              target="_blank"
               rel="noopener noreferrer"
               className="bg-background/10 rounded-lg p-4 hover:bg-background/20 transition text-center"
             >
               <div className="text-2xl mb-2">📝</div>
-              <div className="font-semibold mb-1">Blog Technique</div>
+              <div className="font-semibold mb-1">{t('footer.techBlog')}</div>
               <div className="text-xs text-background/70">netz-blog.fr</div>
             </a>
           </div>
@@ -202,33 +205,26 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-background/70">
             <div className="flex flex-wrap justify-center md:justify-start gap-4">
-              <span>© 2025 NETZ Informatique</span>
+              <span>{t('footer.copyright')}</span>
               <span>•</span>
-              <span>RCS Strasbourg 818 347 346</span>
+              <span>{t('footer.rcs')}</span>
               <span>•</span>
-              <span>Certification QUALIOPI</span>
+              <span>{t('footer.qualiopi')}</span>
             </div>
             <div className="flex gap-4">
               <Link to="/mentions-legales" className="hover:text-background transition">
-                Mentions Légales
+                {t('footer.legalNotice')}
               </Link>
               <span>•</span>
               <Link to="/politique-confidentialite" className="hover:text-background transition">
-                Confidentialité
+                {t('footer.privacy')}
               </Link>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Scroll to Top Button */}
-      <button
-        onClick={scrollToTop}
-        className="fixed bottom-8 right-8 w-12 h-12 bg-primary text-primary-foreground rounded-full shadow-lg hover:bg-primary/90 transition flex items-center justify-center hover-lift"
-        aria-label="Retour en haut"
-      >
-        <ArrowUp size={24} />
-      </button>
+      {/* Scroll to Top Button - Removed as it's now handled by BackToTop component */}
     </footer>
   )
 }

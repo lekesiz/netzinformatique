@@ -3,8 +3,15 @@
 <div align="center">
   <img src="https://img.shields.io/badge/React-19.1.0-61DAFB?style=for-the-badge&logo=react&logoColor=white" alt="React" />
   <img src="https://img.shields.io/badge/Vite-6.3.5-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
-  <img src="https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-4.1.7-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
   <img src="https://img.shields.io/badge/Vercel-Deployed-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel" />
+</div>
+
+<div align="center" style="margin-top: 10px;">
+  <img src="https://img.shields.io/badge/Tests-52_Passing-success?style=for-the-badge&logo=vitest&logoColor=white" alt="Tests" />
+  <img src="https://img.shields.io/badge/Coverage-60%25-yellow?style=for-the-badge&logo=codecov&logoColor=white" alt="Coverage" />
+  <img src="https://img.shields.io/badge/Security-0_Vulnerabilities-brightgreen?style=for-the-badge&logo=security&logoColor=white" alt="Security" />
+  <img src="https://img.shields.io/badge/CI%2FCD-Automated-blue?style=for-the-badge&logo=githubactions&logoColor=white" alt="CI/CD" />
 </div>
 
 <div align="center">
@@ -220,9 +227,13 @@ pnpm format       # Formatage avec Prettier
 pnpm type-check   # Vérification TypeScript
 
 # Tests
-pnpm test         # Tests unitaires
-pnpm test:e2e     # Tests end-to-end
-pnpm test:a11y    # Tests d'accessibilité
+pnpm test                  # Run all tests
+pnpm test:watch            # Watch mode (development)
+pnpm test:ui               # Visual test dashboard
+pnpm test:coverage         # Generate coverage report
+
+# Optimization
+pnpm optimize:images       # Optimize images (WebP conversion)
 ```
 
 ---

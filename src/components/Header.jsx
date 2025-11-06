@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
 import { Menu, X, Phone, Mail, Clock, ChevronDown } from 'lucide-react'
 import LanguageSwitcher from './LanguageSwitcher'
+import ThemeToggle from './common/ThemeToggle'
 
 const Header = () => {
   const { t } = useTranslation()
@@ -148,8 +149,9 @@ const Header = () => {
               ))}
             </nav>
 
-            {/* Language Switcher */}
-            <div className="hidden lg:block">
+            {/* Theme Toggle & Language Switcher */}
+            <div className="hidden lg:flex items-center gap-2">
+              <ThemeToggle />
               <LanguageSwitcher />
             </div>
 
