@@ -1,7 +1,7 @@
-// Resend integration for email sending
-import { Resend } from 'resend';
-import DOMPurify from 'isomorphic-dompurify';
-import validator from 'validator';
+// Resend integration for email sending - CommonJS format for Vercel
+const { Resend } = require('resend');
+const DOMPurify = require('isomorphic-dompurify');
+const validator = require('validator');
 
 // Rate limiting - simple in-memory store (use Redis for production)
 const rateLimitMap = new Map();
@@ -24,7 +24,7 @@ function checkRateLimit(identifier) {
   return true;
 }
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   // CORS - Whitelist allowed origins
   const allowedOrigins = [
     'https://netzinformatique.fr',
@@ -195,55 +195,6 @@ export default async function handler(req, res) {
           <div class="footer">
             <p>Reçu via le formulaire de contact de <strong>netzinformatique.fr</strong></p>
             <p>Date: ${new Date().toLocaleString('fr-FR', { timeZone: 'Europe/Paris' })}</p>
-          </div>
-        </div>
-      </body>
-      </html>
-    `
-
-    // Auto-reply HTML for customer
-    const customerEmailHTML = `
-      <!DOCTYPE html>
-      <html>
-      <head>
-        <meta charset="utf-8">
-        <style>
-          body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-          .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-          .header { background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
-          .content { background: #f9fafb; padding: 30px; border-radius: 0 0 10px 10px; }
-          .button { display: inline-block; background: #10B981; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; margin: 20px 0; }
-          .footer { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb; color: #6b7280; font-size: 14px; }
-          .message-box { background: white; padding: 15px; border-radius: 5px; border-left: 3px solid #10B981; margin: 20px 0; word-break: break-word; }
-        </style>
-      </head>
-      <body>
-        <div class="container">
-          <div class="header">
-            <h1>✅ Merci pour votre message !</h1>
-            <p>NETZ Informatique</p>
-          </div>
-          <div class="content">
-            <p>Bonjour ${DOMPurify.sanitize(fName || fullName)},</p>
-            <p>Nous avons bien reçu votre demande et nous vous remercions de l'intérêt que vous portez à NETZ Informatique.</p>
-            <p>Notre équipe va étudier votre demande et vous répondra dans les <strong>24 heures</strong>.</p>
-            <p><strong>Votre message :</strong></p>
-            <div class="message-box">
-              ${sanitizedMessage.replace(/\n/g, '<br>')}
-            </div>
-            <p>En attendant, n'hésitez pas à nous contacter directement :</p>
-            <ul>
-              <li>📞 Téléphone : <a href="tel:+33367310201">03 67 31 02 01</a></li>
-              <li>📧 Email : <a href="mailto:contact@netzinformatique.fr">contact@netzinformatique.fr</a></li>
-              <li>📍 Adresse : 1a Route de Schweighouse, 67500 Haguenau</li>
-            </ul>
-            <div style="text-align: center;">
-              <a href="https://netzinformatique.fr" class="button">Visiter notre site</a>
-            </div>
-          </div>
-          <div class="footer">
-            <p><strong>NETZ Informatique</strong> - Votre expert IT depuis plus de 20 ans</p>
-            <p>1a Route de Schweighouse, 67500 Haguenau</p>
           </div>
         </div>
       </body>
