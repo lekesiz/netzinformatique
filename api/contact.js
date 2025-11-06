@@ -260,13 +260,13 @@ export default async function handler(req, res) {
         html: adminEmailHTML,
       });
 
-      // Confirmation email to user
-      await resend.emails.send({
-        from: fromEmail,
-        to: sanitizedEmail,
-        subject: 'Confirmation - Votre message a bien été reçu',
-        html: customerEmailHTML,
-      });
+      // Confirmation email to user - DISABLED until domain is verified
+      // await resend.emails.send({
+      //   from: fromEmail,
+      //   to: sanitizedEmail,
+      //   subject: 'Confirmation - Votre message a bien été reçu',
+      //   html: customerEmailHTML,
+      // });
 
       return res.status(200).json({
         success: true,
