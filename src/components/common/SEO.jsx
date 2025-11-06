@@ -28,10 +28,9 @@ const SEO = ({
   }
 
   const defaultDescription = {
-    fr: 'NETZ Informatique : Dépannage informatique, solutions IA Offline, formation professionnelle certifiée QUALIOPI. Plus de 20 ans d\'expertise à Haguenau. Intervention rapide 24-48h.',
-    en: 'NETZ Informatique: IT repair, Offline AI solutions, QUALIOPI certified professional training. Over 20 years of expertise in Haguenau. Fast intervention 24-48h.',
-    de: 'NETZ Informatique: IT-Reparatur, Offline-KI-Lösungen, QUALIOPI-zertifizierte Berufsausbildung. Über 20 Jahre Erfahrung in Haguenau. Schneller Eingriff 24-48 Stunden.',
-    tr: 'NETZ Informatique: BT onarımı, Çevrimdışı AI çözümleri, QUALIOPI sertifikalı profesyonel eğitim. Haguenau\'da 20 yılı aşkın deneyim. Hızlı müdahale 24-48 saat.'
+    fr: 'NETZ Informatique : Dépannage informatique, solutions IA Offline, formation professionnelle certifiée QUALIOPI. Fondé en 2016, fort de 20 ans d\'expérience IT à Haguenau. Intervention rapide 24-48h.',
+    en: 'NETZ Informatique: IT repair, Offline AI solutions, QUALIOPI certified professional training. Founded in 2016, 20 years of IT experience in Haguenau. Fast intervention 24-48h.',
+    de: 'NETZ Informatique: IT-Reparatur, Offline-KI-Lösungen, QUALIOPI-zertifizierte Berufsausbildung. Gegründet 2016, 20 Jahre IT-Erfahrung in Haguenau. Schneller Eingriff 24-48 Stunden.',    tr: 'NETZ Informatique: BT onarımı, Çevrimiçişi AI çözümleri, QUALIOPI sertifikalı profesyonel eğitim. 2016\'da kuruldu, Haguenau\'da 20 yıl BT deneyimi. Hızlı müdahale 24-48 saat.'
   }
 
   const defaultKeywords = {

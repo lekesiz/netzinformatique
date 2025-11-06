@@ -36,7 +36,7 @@ const resources = {
         heroTitle: 'Votre Partenaire',
         heroTitleHighlight: 'Technologique',
         heroLocation: 'à Haguenau',
-        heroDescription: 'Depuis plus de 20 ans, NETZ Informatique accompagne particuliers et entreprises dans leur transformation digitale avec expertise et innovation.',
+        heroDescription: 'Fort de 20 ans d\'expérience dans le secteur IT, Mikail Lekesiz a fondé NETZ Informatique en 2016 pour accompagner particuliers et entreprises dans leur transformation digitale avec expertise et innovation.',
         getFreeQuote: 'Demander un Devis Gratuit',
         discoverServices: 'Découvrir nos Services',
         quickIntervention: 'Intervention rapide 24-48h',
@@ -90,7 +90,7 @@ const resources = {
         skillsAssessment: 'Bilan de Compétences'
       },
       footer: {
-        tagline: 'Votre partenaire technologique de confiance depuis plus de 20 ans à Haguenau.',
+        tagline: 'Votre partenaire technologique de confiance à Haguenau. Fondé en 2016 par Mikail Lekesiz, fort de 20 ans d\'expérience IT.',
         quickLinks: 'Liens Rapides',
         ourServices: 'Nos Services',
         contact: 'Contact',
@@ -181,7 +181,7 @@ const resources = {
         heroTitle: 'Your Technology',
         heroTitleHighlight: 'Partner',
         heroLocation: 'in Haguenau',
-        heroDescription: 'For over 20 years, NETZ Informatique has been supporting individuals and businesses in their digital transformation with expertise and innovation.',
+        heroDescription: 'With 20 years of experience in the IT sector, Mikail Lekesiz founded NETZ Informatique in 2016 to support individuals and businesses in their digital transformation with expertise and innovation.',
         getFreeQuote: 'Get a Free Quote',
         discoverServices: 'Discover Our Services',
         quickIntervention: 'Intervention within 24-48h',
@@ -235,7 +235,7 @@ const resources = {
         skillsAssessment: 'Skills Assessment'
       },
       footer: {
-        tagline: 'Your trusted technology partner for over 20 years in Haguenau.',
+        tagline: 'Your trusted technology partner in Haguenau. Founded in 2016 by Mikail Lekesiz, with 20 years of IT experience.',
         quickLinks: 'Quick Links',
         ourServices: 'Our Services',
         contact: 'Contact',

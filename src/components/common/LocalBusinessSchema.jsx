@@ -10,7 +10,7 @@ const LocalBusinessSchema = () => {
     "url": "https://netzinformatique.fr",
     "logo": "https://netzinformatique.fr/logo.png",
     "image": "https://netzinformatique.fr/images/og-image.jpg",
-    "description": "Expert informatique à Haguenau depuis plus de 20 ans. Dépannage, maintenance, solutions IA Offline, formation professionnelle certifiée QUALIOPI.",
+    "description": "Expert informatique à Haguenau. Fondé en 2016 par Mikail Lekesiz, fort de 20 ans d'expérience IT. Dépannage, maintenance, solutions IA Offline, formation professionnelle certifiée QUALIOPI.",
     "telephone": "+33367310201",
     "email": "contact@netzinformatique.fr",
     "address": {
@@ -61,9 +61,9 @@ const LocalBusinessSchema = () => {
     ],
     "founder": {
       "@type": "Person",
-      "name": "NETZ Informatique Team"
+      "name": "Mikail Lekesiz"
     },
-    "foundingDate": "2003",
+    "foundingDate": "2016",
     "numberOfEmployees": {
       "@type": "QuantitativeValue",
       "value": "5-10"

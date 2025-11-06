@@ -13,7 +13,7 @@ const StructuredData = ({ type = 'all', data = {} }) => {
     "url": siteUrl,
     "logo": `${siteUrl}/logo.png`,
     "image": `${siteUrl}/images/og-image.jpg`,
-    "description": "Expert informatique à Haguenau : dépannage, maintenance, solutions IA Offline, formation professionnelle certifiée QUALIOPI. Plus de 20 ans d'expertise.",
+    "description": "Expert informatique à Haguenau : dépannage, maintenance, solutions IA Offline, formation professionnelle certifiée QUALIOPI. Fondé en 2016 par Mikail Lekesiz, fort de 20 ans d'expérience IT.",
     "telephone": "+33899250151",
     "email": "contact@netzinformatique.fr",
     "priceRange": "€€",
