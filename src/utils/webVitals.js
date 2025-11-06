@@ -1,4 +1,4 @@
-import { onCLS, onFID, onFCP, onLCP, onTTFB, onINP } from 'web-vitals'
+import { onCLS, onFCP, onLCP, onTTFB, onINP } from 'web-vitals'
 
 /**
  * Initialize Web Vitals monitoring
@@ -44,11 +44,10 @@ export function initWebVitals() {
 
   // Measure Core Web Vitals
   onCLS(sendToAnalytics)  // Cumulative Layout Shift
-  onFID(sendToAnalytics)  // First Input Delay (deprecated, use INP)
   onFCP(sendToAnalytics)  // First Contentful Paint
   onLCP(sendToAnalytics)  // Largest Contentful Paint
   onTTFB(sendToAnalytics) // Time to First Byte
-  onINP(sendToAnalytics)  // Interaction to Next Paint (new metric)
+  onINP(sendToAnalytics)  // Interaction to Next Paint (replaces deprecated FID)
 
   console.log('✅ Web Vitals monitoring initialized')
 }
@@ -193,14 +192,15 @@ export function monitorLongTasks(callback) {
 
 /**
  * Get Web Vitals thresholds and ratings
+ * Based on Google's Core Web Vitals recommendations
+ * FID is deprecated in web-vitals v5, replaced by INP
  */
 export const WEB_VITALS_THRESHOLDS = {
-  FCP: { good: 1800, poor: 3000 },    // First Contentful Paint
-  LCP: { good: 2500, poor: 4000 },    // Largest Contentful Paint
-  FID: { good: 100, poor: 300 },      // First Input Delay
-  INP: { good: 200, poor: 500 },      // Interaction to Next Paint
-  CLS: { good: 0.1, poor: 0.25 },     // Cumulative Layout Shift
-  TTFB: { good: 800, poor: 1800 },    // Time to First Byte
+  FCP: { good: 1800, poor: 3000 },    // First Contentful Paint (ms)
+  LCP: { good: 2500, poor: 4000 },    // Largest Contentful Paint (ms)
+  INP: { good: 200, poor: 500 },      // Interaction to Next Paint (ms) - replaces FID
+  CLS: { good: 0.1, poor: 0.25 },     // Cumulative Layout Shift (score)
+  TTFB: { good: 800, poor: 1800 },    // Time to First Byte (ms)
 }
 
 /**
