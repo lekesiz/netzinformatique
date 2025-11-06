@@ -6,7 +6,20 @@
     <link rel="manifest" href="/manifest.json" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#4F46E5" />
-    
+
+    <!-- DNS Prefetch & Preconnect for critical third-party resources -->
+    <link rel="dns-prefetch" href="//www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="//www.google-analytics.com" />
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+
+    <!-- Preload critical resources -->
+    <link rel="modulepreload" href="/src/main.jsx" />
+
+    <!-- Prefetch for likely navigation targets -->
+    <link rel="prefetch" href="/src/pages/Services.jsx" as="script" />
+    <link rel="prefetch" href="/src/pages/About.jsx" as="script" />
+
     <!-- SEO Meta Tags -->
     <meta name="description" content="NETZ Informatique - Votre partenaire technologique à Haguenau depuis plus de 20 ans. Services informatiques, dépannage, formation, solutions IA et cybersécurité pour particuliers et entreprises." />
     <meta name="keywords" content="informatique Haguenau, dépannage PC, formation informatique, cybersécurité, IA, NETZ Informatique, services IT, cloud computing, développement web" />

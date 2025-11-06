@@ -6,6 +6,12 @@
 const CACHE_VERSION = 'v1.0.0'
 const CACHE_NAME = `netz-cache-${CACHE_VERSION}`
 const RUNTIME_CACHE = `netz-runtime-${CACHE_VERSION}`
+const IMAGE_CACHE = `netz-images-${CACHE_VERSION}`
+
+// Cache expiration settings
+const MAX_RUNTIME_CACHE_SIZE = 50 // Maximum number of items in runtime cache
+const MAX_IMAGE_CACHE_SIZE = 60 // Maximum number of images to cache
+const IMAGE_CACHE_EXPIRATION = 30 * 24 * 60 * 60 * 1000 // 30 days
 
 // Assets to cache on install
 const PRECACHE_ASSETS = [
@@ -100,11 +106,16 @@ self.addEventListener('fetch', (event) => {
     return
   }
 
-  // Static assets (JS, CSS, images) - cache first
+  // Images - stale while revalidate (for better performance)
+  if (request.destination === 'image') {
+    event.respondWith(staleWhileRevalidate(request, IMAGE_CACHE, MAX_IMAGE_CACHE_SIZE))
+    return
+  }
+
+  // Static assets (JS, CSS, fonts) - cache first
   if (
     request.destination === 'script' ||
     request.destination === 'style' ||
-    request.destination === 'image' ||
     request.destination === 'font'
   ) {
     event.respondWith(cacheFirst(request))
@@ -237,6 +248,51 @@ self.addEventListener('sync', (event) => {
 async function syncForms() {
   // Implement background form sync if needed
   console.log('[SW] Background sync triggered')
+}
+
+/**
+ * Stale-while-revalidate strategy
+ * Serve from cache immediately, update cache in background
+ */
+async function staleWhileRevalidate(request, cacheName, maxSize) {
+  const cache = await caches.open(cacheName)
+  const cached = await cache.match(request)
+
+  // Fetch in background
+  const fetchPromise = fetch(request)
+    .then(async (response) => {
+      if (response.status === 200) {
+        // Limit cache size
+        const keys = await cache.keys()
+        if (keys.length >= maxSize) {
+          await cache.delete(keys[0]) // Delete oldest
+        }
+
+        cache.put(request, response.clone())
+      }
+      return response
+    })
+    .catch((error) => {
+      console.error('[SW] Fetch failed:', error)
+      return cached // Return cached if network fails
+    })
+
+  // Return cached immediately if available, otherwise wait for network
+  return cached || fetchPromise
+}
+
+/**
+ * Limit cache size
+ */
+async function limitCacheSize(cacheName, maxSize) {
+  const cache = await caches.open(cacheName)
+  const keys = await cache.keys()
+
+  if (keys.length > maxSize) {
+    // Delete oldest items
+    const deletePromises = keys.slice(0, keys.length - maxSize).map((key) => cache.delete(key))
+    await Promise.all(deletePromises)
+  }
 }
 
 console.log('[SW] Service worker loaded')
