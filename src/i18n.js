@@ -72,12 +72,31 @@ const resources = {
       faq: {
         title: 'Questions Fréquentes'
       },
+      services: {
+        individual: 'Services Particuliers',
+        enterprise: 'Services Entreprises'
+      },
+      solutions: {
+        ai: 'Intelligence Artificielle',
+        web: 'Développement Web',
+        cloud: 'Cloud'
+      },
+      training: {
+        skillsAssessment: 'Bilan de Compétences'
+      },
       footer: {
         tagline: 'Votre partenaire technologique de confiance depuis plus de 20 ans à Haguenau.',
         quickLinks: 'Liens Rapides',
         ourServices: 'Nos Services',
         contact: 'Contact',
         partnerSites: 'Nos Sites Partenaires',
+        onlineShop: 'Boutique en Ligne',
+        trainingPlatform: 'Plateforme Formation',
+        techBlog: 'Blog Technique',
+        businessHours: 'Lun-Ven: 09:00-12:00 / 14:00-18:00',
+        rcs: 'RCS Strasbourg 818 347 346',
+        qualiopi: 'Certification QUALIOPI',
+        backToTop: 'Retour en haut',
         copyright: '© 2025 NETZ Informatique',
         legalNotice: 'Mentions Légales',
         privacy: 'Confidentialité'
@@ -154,12 +173,31 @@ const resources = {
       faq: {
         title: 'Frequently Asked Questions'
       },
+      services: {
+        individual: 'Individual Services',
+        enterprise: 'Business Services'
+      },
+      solutions: {
+        ai: 'Artificial Intelligence',
+        web: 'Web Development',
+        cloud: 'Cloud'
+      },
+      training: {
+        skillsAssessment: 'Skills Assessment'
+      },
       footer: {
         tagline: 'Your trusted technology partner for over 20 years in Haguenau.',
         quickLinks: 'Quick Links',
         ourServices: 'Our Services',
         contact: 'Contact',
         partnerSites: 'Our Partner Sites',
+        onlineShop: 'Online Shop',
+        trainingPlatform: 'Training Platform',
+        techBlog: 'Tech Blog',
+        businessHours: 'Mon-Fri: 09:00-12:00 / 14:00-18:00',
+        rcs: 'RCS Strasbourg 818 347 346',
+        qualiopi: 'QUALIOPI Certification',
+        backToTop: 'Back to top',
         copyright: '© 2025 NETZ Informatique',
         legalNotice: 'Legal Notice',
         privacy: 'Privacy'
@@ -229,12 +267,31 @@ const resources = {
       faq: {
         title: 'Häufig Gestellte Fragen'
       },
+      services: {
+        individual: 'Privatdienste',
+        enterprise: 'Unternehmensdienste'
+      },
+      solutions: {
+        ai: 'Künstliche Intelligenz',
+        web: 'Webentwicklung',
+        cloud: 'Cloud'
+      },
+      training: {
+        skillsAssessment: 'Kompetenzbilanz'
+      },
       footer: {
         tagline: 'Ihr vertrauenswürdiger Technologiepartner seit über 20 Jahren in Haguenau.',
         quickLinks: 'Schnelllinks',
         ourServices: 'Unsere Dienstleistungen',
         contact: 'Kontakt',
         partnerSites: 'Unsere Partner-Websites',
+        onlineShop: 'Online-Shop',
+        trainingPlatform: 'Schulungsplattform',
+        techBlog: 'Tech-Blog',
+        businessHours: 'Mo-Fr: 09:00-12:00 / 14:00-18:00',
+        rcs: 'RCS Straßburg 818 347 346',
+        qualiopi: 'QUALIOPI-Zertifizierung',
+        backToTop: 'Nach oben',
         copyright: '© 2025 NETZ Informatique',
         legalNotice: 'Impressum',
         privacy: 'Datenschutz'
@@ -304,12 +361,31 @@ const resources = {
       faq: {
         title: 'Sık Sorulan Sorular'
       },
+      services: {
+        individual: 'Bireysel Hizmetler',
+        enterprise: 'Kurumsal Hizmetler'
+      },
+      solutions: {
+        ai: 'Yapay Zeka',
+        web: 'Web Geliştirme',
+        cloud: 'Bulut'
+      },
+      training: {
+        skillsAssessment: 'Yetkinlik Değerlendirmesi'
+      },
       footer: {
         tagline: 'Haguenau\'da 20 yılı aşkın süredir güvenilir teknoloji ortağınız.',
         quickLinks: 'Hızlı Bağlantılar',
         ourServices: 'Hizmetlerimiz',
         contact: 'İletişim',
         partnerSites: 'Partner Sitelerimiz',
+        onlineShop: 'Online Mağaza',
+        trainingPlatform: 'Eğitim Platformu',
+        techBlog: 'Teknoloji Blogu',
+        businessHours: 'Pzt-Cum: 09:00-12:00 / 14:00-18:00',
+        rcs: 'RCS Strasbourg 818 347 346',
+        qualiopi: 'QUALIOPI Sertifikası',
+        backToTop: 'Yukarı çık',
         copyright: '© 2025 NETZ Informatique',
         legalNotice: 'Yasal Bildirim',
         privacy: 'Gizlilik'

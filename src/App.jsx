@@ -12,6 +12,8 @@ import LiveChat from './components/common/LiveChat'
 import GoogleAnalytics from './components/common/GoogleAnalytics'
 import GoogleTagManager from './components/common/GoogleTagManager'
 import ErrorBoundary from './components/common/ErrorBoundary'
+import Breadcrumb from './components/common/Breadcrumb'
+import BackToTop from './components/common/BackToTop'
 
 // Loading component
 const PageLoader = () => (
@@ -60,11 +62,17 @@ const Privacy = lazy(() => import('./pages/Privacy'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
 function App() {
-  const [showIntro, setShowIntro] = useState(true)
-  const [introComplete, setIntroComplete] = useState(false)
+  // Only show intro once per session
+  const [showIntro, setShowIntro] = useState(() => {
+    return !sessionStorage.getItem('introShown')
+  })
+  const [introComplete, setIntroComplete] = useState(() => {
+    return !!sessionStorage.getItem('introShown')
+  })
 
   const handleIntroComplete = () => {
     setIntroComplete(true)
+    sessionStorage.setItem('introShown', 'true')
     setTimeout(() => setShowIntro(false), 500)
   }
 
@@ -73,8 +81,16 @@ function App() {
       <Router>
         {showIntro && <IntroAnimation onComplete={handleIntroComplete} />}
         <div className={`min-h-screen flex flex-col ${!introComplete ? 'hidden' : ''}`}>
+          {/* Skip to main content link for accessibility */}
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-md focus:shadow-lg transition-all"
+          >
+            Skip to main content
+          </a>
           <Header />
-          <main className="flex-1">
+          <Breadcrumb />
+          <main id="main-content" className="flex-1">
             <Suspense fallback={<PageLoader />}>
               <Routes>
               <Route path="/" element={<Home />} />
@@ -127,6 +143,7 @@ function App() {
         <CookieBanner />
         <AppointmentWidget />
         <LiveChat />
+        <BackToTop />
         <GoogleAnalytics />
         <GoogleTagManager />
       </div>
