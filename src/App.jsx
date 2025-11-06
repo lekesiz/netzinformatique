@@ -9,7 +9,7 @@ import Footer from './components/Footer'
 import IntroAnimation from './components/IntroAnimation'
 import CookieConsent from './components/common/CookieConsent'
 import AppointmentWidget from './components/common/AppointmentWidget'
-import LiveChat from './components/common/LiveChat'
+import HybridChat from './components/common/HybridChat'
 import GoogleAnalytics from './components/common/GoogleAnalytics'
 import GoogleTagManager from './components/common/GoogleTagManager'
 import ErrorBoundary from './components/common/ErrorBoundary'
@@ -154,7 +154,7 @@ function App() {
         <Footer />
         <CookieConsent />
         <AppointmentWidget />
-        <LiveChat />
+        <HybridChat />
         <BackToTop />
         <NotificationToast />
         <GoogleAnalytics />
