@@ -530,7 +530,7 @@ export default function IntroAnimation({ onComplete }) {
                   className="mt-8 flex items-center justify-center gap-4"
                 >
                   <Sparkles className="w-6 h-6 text-purple-400" />
-                  <span className="text-sm text-gray-400 tracking-widest">DEPUIS 2003</span>
+                  <span className="text-sm text-gray-400 tracking-widest">DEPUIS 2009</span>
                   <Sparkles className="w-6 h-6 text-blue-400" />
                 </motion.div>
               </div>

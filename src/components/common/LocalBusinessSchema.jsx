@@ -4,13 +4,13 @@ const LocalBusinessSchema = () => {
   const schema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://netzinformatique.fr/#organization",
+    "@id": "https://www.netzinformatique.fr/#organization",
     "name": "NETZ Informatique",
     "alternateName": "NETZ IT",
-    "url": "https://netzinformatique.fr",
-    "logo": "https://netzinformatique.fr/logo.png",
-    "image": "https://netzinformatique.fr/images/og-image.jpg",
-    "description": "Expert informatique à Haguenau. Fondé en 2016 par Mikail Lekesiz, fort de 20 ans d'expérience IT. Dépannage, maintenance, solutions IA Offline, formation professionnelle certifiée QUALIOPI.",
+    "url": "https://www.netzinformatique.fr",
+    "logo": "https://www.netzinformatique.fr/logo.png",
+    "image": "https://www.netzinformatique.fr/images/og-image.jpg",
+    "description": "Expert informatique à Haguenau. Fondée en 2016 par Mikail Lekesiz, dans la continuité d'une activité présente en France depuis 2009 (anciennement Orditeur), 35 ans d'expérience IT. Dépannage, maintenance, solutions IA Offline, formation professionnelle certifiée QUALIOPI.",
     "telephone": "+33367310201",
     "email": "contact@netzinformatique.fr",
     "address": {
@@ -23,8 +23,8 @@ const LocalBusinessSchema = () => {
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 48.8156,
-      "longitude": 7.8287
+      "latitude": 48.8166,
+      "longitude": 7.7906
     },
     "openingHoursSpecification": [
       {
@@ -47,8 +47,8 @@ const LocalBusinessSchema = () => {
       "@type": "GeoCircle",
       "geoMidpoint": {
         "@type": "GeoCoordinates",
-        "latitude": 48.8156,
-        "longitude": 7.8287
+        "latitude": 48.8166,
+        "longitude": 7.7906
       },
       "geoRadius": "50000"
     },

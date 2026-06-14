@@ -56,7 +56,7 @@ const resources = {
         heroTitle: 'Votre Partenaire',
         heroTitleHighlight: 'Technologique',
         heroLocation: 'à Haguenau',
-        heroDescription: 'Fort de 20 ans d\'expérience dans le secteur IT, Mikail Lekesiz a fondé NETZ Informatique en 2016 pour accompagner particuliers et entreprises dans leur transformation digitale avec expertise et innovation.',
+        heroDescription: 'Fort de 35 ans d\'expérience dans le secteur IT, Mikail Lekesiz a fondé NETZ Informatique en 2016 pour accompagner particuliers et entreprises dans leur transformation digitale avec expertise et innovation.',
         quickIntervention: 'Intervention sous 24-48h',
         statsRepairs: 'Réparations Réussies',
         statsExperience: 'Années d\'Expérience',
@@ -65,7 +65,7 @@ const resources = {
         servicesTitle: 'Nos Services',
         servicesSubtitle: 'Des solutions informatiques complètes pour particuliers et entreprises',
         whyChooseTitle: 'Pourquoi Choisir NETZ ?',
-        whyChooseSubtitle: 'Votre partenaire IT de confiance, fondé en 2016 avec 20 ans d\'expérience',
+        whyChooseSubtitle: 'Votre partenaire IT de confiance, fondé en 2016 avec 35 ans d\'expérience',
         testimonialsTitle: 'Ils Nous Font Confiance',
         testimonialsSubtitle: 'Découvrez les témoignages de nos clients satisfaits',
         partnersTitle: 'Nos Partenaires Technologiques',
@@ -77,9 +77,9 @@ const resources = {
       // About Page
       about: {
         title: 'À Propos de NETZ Informatique',
-        subtitle: 'Votre partenaire technologique de confiance depuis 2003',
+        subtitle: 'Votre partenaire technologique de confiance depuis 2009',
         historyTitle: 'Notre Histoire',
-        historyDescription: 'Fondée en 2003 à Haguenau, NETZ Informatique est née de la passion de Mikail Lekesiz pour l\'informatique et de sa volonté d\'accompagner les particuliers et entreprises dans leur transformation digitale.',
+        historyDescription: 'Fondée en 2016 à Haguenau par Mikail Lekesiz, NETZ Informatique s\'inscrit dans la continuité d\'une activité informatique présente en France depuis 2009 (anciennement Orditeur). Forte de 35 ans d\'expérience dans le secteur, elle accompagne particuliers et entreprises dans leur transformation digitale.',
         missionTitle: 'Notre Mission',
         missionDescription: 'Rendre la technologie accessible à tous en proposant des solutions sur mesure, un service de proximité et un accompagnement personnalisé.',
         visionTitle: 'Notre Vision',
@@ -184,7 +184,7 @@ const resources = {
       
       // Footer
       footer: {
-        tagline: 'Votre partenaire technologique de confiance à Haguenau. Fondé en 2016 par Mikail Lekesiz, fort de 20 ans d\'expérience IT.',
+        tagline: 'Votre partenaire technologique de confiance à Haguenau. Fondé en 2016 par Mikail Lekesiz, fort de 35 ans d\'expérience IT.',
         quickLinks: 'Liens Rapides',
         ourServices: 'Nos Services',
         contact: 'Contact',
@@ -256,7 +256,7 @@ const resources = {
         heroTitle: 'Your Technology',
         heroTitleHighlight: 'Partner',
         heroLocation: 'in Haguenau',
-        heroDescription: 'With 20 years of experience in the IT sector, Mikail Lekesiz founded NETZ Informatique in 2016 to support individuals and businesses in their digital transformation with expertise and innovation.',
+        heroDescription: 'With 35 years of experience in the IT sector, Mikail Lekesiz founded NETZ Informatique in 2016 to support individuals and businesses in their digital transformation with expertise and innovation.',
         quickIntervention: 'Intervention within 24-48h',
         statsRepairs: 'Successful Repairs',
         statsExperience: 'Years of Experience',
@@ -265,7 +265,7 @@ const resources = {
         servicesTitle: 'Our Services',
         servicesSubtitle: 'Complete IT solutions for individuals and businesses',
         whyChooseTitle: 'Why Choose NETZ?',
-        whyChooseSubtitle: 'Your trusted IT partner, founded in 2016 with 20 years of experience',
+        whyChooseSubtitle: 'Your trusted IT partner, founded in 2016 with 35 years of experience',
         testimonialsTitle: 'They Trust Us',
         testimonialsSubtitle: 'Discover testimonials from our satisfied clients',
         partnersTitle: 'Our Technology Partners',
@@ -277,9 +277,9 @@ const resources = {
       // About Page
       about: {
         title: 'About NETZ Informatique',
-        subtitle: 'Your trusted technology partner since 2003',
+        subtitle: 'Your trusted technology partner since 2009',
         historyTitle: 'Our History',
-        historyDescription: 'Founded in 2003 in Haguenau, NETZ Informatique was born from Mikail Lekesiz\'s passion for IT and his desire to support individuals and businesses in their digital transformation.',
+        historyDescription: 'Founded in 2016 in Haguenau by Mikail Lekesiz, NETZ Informatique continues an IT business that has operated in France since 2009 (formerly Orditeur). With 35 years of industry experience, it supports individuals and businesses in their digital transformation.',
         missionTitle: 'Our Mission',
         missionDescription: 'Making technology accessible to everyone by offering tailored solutions, local service, and personalized support.',
         visionTitle: 'Our Vision',
@@ -384,7 +384,7 @@ const resources = {
       
       // Footer
       footer: {
-        tagline: 'Your trusted technology partner in Haguenau. Founded in 2016 by Mikail Lekesiz, with 20 years of IT experience.',
+        tagline: 'Your trusted technology partner in Haguenau. Founded in 2016 by Mikail Lekesiz, with 35 years of IT experience.',
         quickLinks: 'Quick Links',
         ourServices: 'Our Services',
         contact: 'Contact',

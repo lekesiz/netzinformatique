@@ -18,7 +18,7 @@ const WhyChooseUsSection = () => {
             {t('home.whyChooseUsTitle', 'Pourquoi Choisir')} <span className="text-primary">{t('home.whyChooseUsTitleHighlight', 'NETZ ?')}</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            {t('home.whyChooseUsDescription', 'Votre partenaire IT de confiance depuis plus de 20 ans')}
+            {t('home.whyChooseUsDescription', 'Votre partenaire IT de confiance depuis plus de 35 ans')}
           </p>
         </div>
 

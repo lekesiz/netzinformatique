@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import SEO from '@/components/common/SEO';
+import StructuredData from '@/components/common/StructuredData';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, HelpCircle, MessageCircle, Phone } from 'lucide-react';
 import {
@@ -46,7 +47,7 @@ const FAQ = () => {
       questions: [
         { 
           question: t('faq.q3', 'Intervenez-vous sur Mac et PC ?'), 
-          answer: t('faq.a3', 'Oui, nous intervenons sur tous types d\'ordinateurs : PC (Windows, Linux) et Mac (macOS). Nous sommes également compétents sur les serveurs, NAS, équipements réseau, imprimantes et périphériques. Plus de 20 ans d\'expérience multi-plateforme.')
+          answer: t('faq.a3', 'Oui, nous intervenons sur tous types d\'ordinateurs : PC (Windows, Linux) et Mac (macOS). Nous sommes également compétents sur les serveurs, NAS, équipements réseau, imprimantes et périphériques. Plus de 35 ans d\'expérience multi-plateforme.')
         },
         { 
           question: 'Mon ordinateur est très lent, que faire ?', 
@@ -200,14 +201,27 @@ const FAQ = () => {
     }
   ];
 
+  // Flatten all categories into a single list for FAQPage structured data
+  const allFaqs = faqCategories.flatMap((category) => category.questions);
+
   return (
     <>
-      <SEO 
-        title="FAQ - Questions Fréquentes | NETZ Informatique" 
-        description="Toutes les réponses à vos questions sur nos services : dépannage, formation, IA, développement web, sécurité, matériel. Plus de 40 questions répondues." 
-        url="/faq" 
+      <SEO
+        title="FAQ - Questions Fréquentes | NETZ Informatique"
+        description="Toutes les réponses à vos questions sur nos services : dépannage, formation, IA, développement web, sécurité, matériel. Plus de 40 questions répondues."
+        url="/faq"
       />
-      
+      <StructuredData
+        type="faq"
+        data={{
+          faqs: allFaqs,
+          breadcrumbs: [
+            { name: 'Accueil', url: '/' },
+            { name: 'FAQ', url: '/faq' },
+          ],
+        }}
+      />
+
       <div className="bg-gradient-to-b from-primary/5 to-white">
         {/* Hero Section */}
         <section className="py-20 text-center">

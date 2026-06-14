@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 
 const StructuredData = ({ type = 'all', data = {} }) => {
-  const siteUrl = 'https://netzinformatique.fr'
+  const siteUrl = 'https://www.netzinformatique.fr'
 
   // LocalBusiness Schema
   const localBusinessSchema = {
@@ -13,8 +13,8 @@ const StructuredData = ({ type = 'all', data = {} }) => {
     "url": siteUrl,
     "logo": `${siteUrl}/logo.png`,
     "image": `${siteUrl}/images/og-image.jpg`,
-    "description": "Expert informatique à Haguenau : dépannage, maintenance, solutions IA Offline, formation professionnelle certifiée QUALIOPI. Fondé en 2016 par Mikail Lekesiz, fort de 20 ans d'expérience IT.",
-    "telephone": "+33899250151",
+    "description": "Expert informatique à Haguenau : dépannage, maintenance, solutions IA Offline, formation professionnelle certifiée QUALIOPI. NETZ Informatique a été fondée en 2016 par Mikail Lekesiz, dans la continuité d'une activité informatique présente en France depuis 2009 (anciennement Orditeur). Mikail Lekesiz cumule 35 ans d'expérience dans le secteur.",
+    "telephone": "+33367310201",
     "email": "contact@netzinformatique.fr",
     "priceRange": "€€",
     "address": {
@@ -48,11 +48,12 @@ const StructuredData = ({ type = 'all', data = {} }) => {
       "@type": "GeoCircle",
       "geoMidpoint": {
         "@type": "GeoCoordinates",
-        "latitude": 48.8156,
-        "longitude": 7.8287
+        "latitude": 48.8166,
+        "longitude": 7.7906
       },
-      "geoRadius": "30000"
+      "geoRadius": "50000"
     },
+    "knowsLanguage": ["fr", "en", "de", "tr"],
     "sameAs": [
       "https://www.facebook.com/informatiquehaguenau",
       "https://fr.linkedin.com/company/netz-informatique"
@@ -115,6 +116,7 @@ const StructuredData = ({ type = 'all', data = {} }) => {
       "name": "Mikail Lekesiz"
     },
     "foundingDate": "2016",
+    "slogan": "35 ans d'expérience IT — présent en France depuis 2009",
     "numberOfEmployees": {
       "@type": "QuantitativeValue",
       "value": "2-10"
@@ -136,7 +138,7 @@ const StructuredData = ({ type = 'all', data = {} }) => {
     },
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+33899250151",
+      "telephone": "+33367310201",
       "contactType": "customer service",
       "email": "contact@netzinformatique.fr",
       "areaServed": "FR",

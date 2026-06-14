@@ -140,7 +140,7 @@ const DepannageMaintenance = () => {
     },
     {
       question: 'Intervenez-vous sur Mac et PC ?',
-      answer: 'Oui, nous intervenons sur tous types d\'ordinateurs : PC Windows, Mac (macOS), Linux, ainsi que sur les serveurs et NAS. Plus de 20 ans d\'expérience multi-plateforme.'
+      answer: 'Oui, nous intervenons sur tous types d\'ordinateurs : PC Windows, Mac (macOS), Linux, ainsi que sur les serveurs et NAS. Plus de 35 ans d\'expérience multi-plateforme.'
     },
     {
       question: 'Proposez-vous un service à distance ?',

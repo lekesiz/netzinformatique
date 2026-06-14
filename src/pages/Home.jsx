@@ -41,7 +41,7 @@ const Home = () => {
                 {t('home.heroTitle', 'Votre Expert')} <span className="text-primary">{t('home.heroTitleHighlight', 'Informatique')}</span> {t('home.heroLocation', 'à Haguenau')}
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8">
-                {t('home.heroDescription', 'Dépannage, maintenance, solutions IA et formation professionnelle. Plus de 20 ans d\'expertise à votre service.')}
+                {t('home.heroDescription', 'Dépannage, maintenance, solutions IA et formation professionnelle. Plus de 35 ans d\'expertise à votre service.')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/contact">

@@ -1,0 +1,40 @@
+# NETZ Informatique
+
+> Entreprise de services informatiques basée à Haguenau (Alsace, France), au service des particuliers et des entreprises du Grand Est. Spécialités : dépannage et maintenance, solutions d'Intelligence Artificielle Offline (données 100 % locales), cybersécurité, cloud, développement web et formation professionnelle certifiée QUALIOPI. NETZ Informatique a été fondée en 2016 par Mikail Lekesiz, dans la continuité d'une activité informatique présente en France depuis 2009 (anciennement Orditeur). Mikail Lekesiz cumule 35 ans d'expérience dans le secteur.
+
+Informations clés :
+- Création : NETZ Informatique fondée en 2016 ; activité commerciale en France depuis 2009 (anciennement Orditeur) ; 35 ans d'expérience dans le secteur
+- Localisation : 1a Route de Schweighouse, 67500 Haguenau, France
+- Zone d'intervention : Haguenau et un rayon de ~50 km dans le Grand Est (Strasbourg, Saverne, Wissembourg…) + interventions à distance
+- Téléphone : 03 67 31 02 01 (+33 3 67 31 02 01)
+- Email : contact@netzinformatique.fr
+- Horaires : Lundi–Vendredi 9h–12h / 14h–18h, Samedi 9h–12h
+- Langues : français, anglais, allemand, turc
+- Délai d'intervention : 24–48h (jour même selon disponibilité pour les urgences)
+- Certifications & partenaires : QUALIOPI, TOSA, Microsoft Partner, Cisco Partner, Google Partner
+
+## Services
+
+- [Dépannage & Maintenance](https://www.netzinformatique.fr/services/depannage-maintenance) : Intervention rapide sous 24–48h, sur site ou en atelier, pour PC, Mac, serveurs et périphériques. Réparations garanties 3 mois.
+- [Intelligence Artificielle Offline](https://www.netzinformatique.fr/services/ia-offline) : Serveurs d'IA installés dans vos locaux, données 100 % confidentielles sans transit cloud. Idéal pour santé, juridique, finance, R&D. Conformité RGPD.
+- [Cybersécurité](https://www.netzinformatique.fr/services/cybersecurite) : Audit de sécurité, pare-feu, antivirus professionnel, sauvegardes, conformité RGPD, formation des équipes, surveillance 24/7.
+- [Cloud & Réseaux](https://www.netzinformatique.fr/services/cloud-reseau) : Migration cloud, Microsoft 365, hébergement, installation et configuration de réseaux d'entreprise (Cisco, WiFi pro), audit IT.
+- [Développement Web & SEO](https://www.netzinformatique.fr/services/web-digital) : Sites vitrine (dès 990€), sites business, e-commerce, référencement naturel et maintenance.
+- [Matériel & Assemblage](https://www.netzinformatique.fr/materiel) : Vente de matériel, PC sur mesure (bureautique, gaming, CAO), périphériques et consommables.
+- [Formation Professionnelle](https://www.netzinformatique.fr/services/formation-professionnelle) : Organisme certifié QUALIOPI — bureautique, IA, cybersécurité, marketing digital. Éligible CPF, OPCO, Pôle Emploi.
+- [Bilan de Compétences](https://www.netzinformatique.fr/formation/bilan-competences) : Accompagnement de 24h sur 2–3 mois pour définir un projet professionnel. Finançable CPF.
+
+## Ressources
+
+- [Foire Aux Questions (FAQ)](https://www.netzinformatique.fr/faq) : Plus de 30 réponses sur les délais, tarifs, dépannage, formation, IA, sécurité et matériel.
+- [Blog](https://www.netzinformatique.fr/blog) : Articles sur l'IA en entreprise, la cybersécurité, le cloud, la formation et le développement web.
+- [À propos](https://www.netzinformatique.fr/a-propos) : Histoire, mission et équipe de NETZ Informatique.
+- [Contact](https://www.netzinformatique.fr/contact) : Formulaire, téléphone et prise de rendez-vous en ligne.
+- [Résumé complet pour IA](https://www.netzinformatique.fr/llms-full.txt) : Version étendue avec FAQ détaillée et données structurées.
+- [Données structurées (JSON)](https://www.netzinformatique.fr/data/netz-informatique.json) : Fiche entreprise et services au format machine.
+
+## Optional
+
+- [Mentions légales](https://www.netzinformatique.fr/mentions-legales)
+- [Politique de confidentialité](https://www.netzinformatique.fr/politique-confidentialite)
+- [Plan du site (sitemap)](https://www.netzinformatique.fr/sitemap.xml)

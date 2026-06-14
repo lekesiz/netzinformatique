@@ -26,7 +26,7 @@ de: {
       heroTitle: 'Ihr Technologie',
       heroTitleHighlight: 'Partner',
       heroLocation: 'in Haguenau',
-      heroDescription: 'Seit über 20 Jahren unterstützt NETZ Informatique Privatpersonen und Unternehmen bei ihrer digitalen Transformation mit Expertise und Innovation.'
+      heroDescription: 'Seit über 35 Jahren unterstützt NETZ Informatique Privatpersonen und Unternehmen bei ihrer digitalen Transformation mit Expertise und Innovation.'
     }
   }
 },
@@ -57,7 +57,7 @@ tr: {
       heroTitle: 'Haguenau\'daki',
       heroTitleHighlight: 'Teknoloji',
       heroLocation: 'Ortağınız',
-      heroDescription: '20 yılı aşkın süredir NETZ Informatique, uzmanlık ve yenilikle bireylerin ve işletmelerin dijital dönüşümünde yanlarında.'
+      heroDescription: '35 yılı aşkın süredir NETZ Informatique, uzmanlık ve yenilikle bireylerin ve işletmelerin dijital dönüşümünde yanlarında.'
     }
   }
 }

@@ -1,0 +1,192 @@
+# NETZ Informatique — Fiche complète
+
+> Entreprise de services informatiques à Haguenau (Alsace, France) pour particuliers et entreprises. Dépannage, IA Offline, cybersécurité, cloud, développement web et formation certifiée QUALIOPI. NETZ Informatique a été fondée en 2016 par Mikail Lekesiz, dans la continuité d'une activité informatique présente en France depuis 2009 (anciennement Orditeur). 35 ans d'expérience dans le secteur.
+
+## Histoire
+
+NETZ Informatique (Haguenau) a été créée en 2016 par Mikail Lekesiz. Elle s'inscrit dans la continuité d'une activité commerciale informatique présente en France depuis 2009, exercée auparavant sous le nom d'Orditeur (entreprise individuelle). Mikail Lekesiz cumule au total 35 ans d'expérience dans le secteur informatique.
+
+## Coordonnées
+
+- Raison sociale : NETZ Informatique
+- Fondateur : Mikail Lekesiz
+- Année de création (NETZ Informatique) : 2016
+- Activité commerciale en France depuis : 2009 (anciennement Orditeur, entreprise individuelle)
+- Expérience du fondateur : 35 ans dans le secteur informatique
+- Adresse : 1a Route de Schweighouse, 67500 Haguenau, Alsace, France
+- Téléphone : 03 67 31 02 01 (+33 3 67 31 02 01)
+- Email : contact@netzinformatique.fr
+- Site web : https://www.netzinformatique.fr
+- Boutique matériel : https://www.informatique-haguenau.fr
+- Horaires : Lundi–Vendredi 9h00–12h00 et 14h00–18h00 ; Samedi 9h00–12h00. Astreinte 24/7 sur demande pour les entreprises.
+- Zone d'intervention : Haguenau et rayon de ~50 km dans le Grand Est (Strasbourg, Saverne, Wissembourg…) ; interventions à distance disponibles.
+- Langues : français, anglais, allemand, turc
+- Certifications & partenariats : QUALIOPI, TOSA, ICDL, Microsoft Partner, Cisco Partner, Google Partner
+- Réseaux sociaux : Facebook (facebook.com/informatiquehaguenau), LinkedIn (linkedin.com/company/netz-informatique)
+
+## Chiffres clés
+
+- 2772+ appareils réparés
+- 900+ clients satisfaits
+- 670+ participants formés
+- Note moyenne : 4,9/5
+
+## Mission
+
+Transformer la technologie en véritable atout stratégique pour nos clients, en proposant des solutions sur mesure, sécurisées et évolutives. Vision : devenir le pilier technologique incontournable de la région Grand Est.
+
+## Services détaillés
+
+### Dépannage & Maintenance — /services/depannage-maintenance
+Intervention rapide sous 24–48h pour tous problèmes informatiques, sur site ou en atelier. PC (Windows, Linux), Mac (macOS), serveurs, NAS, équipements réseau, imprimantes et périphériques. Récupération de données (taux de réussite ~85 %). Contrats de maintenance mensuels (mises à jour, sauvegardes, surveillance 24/7, support prioritaire) à partir de 79€/mois. Réparations garanties 3 mois.
+
+### Intelligence Artificielle Offline — /services/ia-offline
+Installation d'un serveur d'IA directement dans vos locaux : données 100 % confidentielles, sans transit par le cloud. Idéal pour secteurs sensibles (santé, juridique, R&D, finance). Avantages : confidentialité totale, pas d'abonnement, pas de limite d'usage, latence réduite, conformité RGPD. Coût indicatif : de 5 000€ (station de travail) à 50 000€+ (serveur haute performance) ; location avec option d'achat possible.
+
+### Cybersécurité — /services/cybersecurite
+Audit de sécurité complet, pare-feu, antivirus professionnel, sauvegardes automatiques, authentification à deux facteurs, formation des employés, surveillance 24/7. Accompagnement à la conformité RGPD (audit, documentation, DPO externalisé). Réponse d'urgence ransomware.
+
+### Cloud & Réseaux — /services/cloud-reseau
+Migration cloud, Microsoft 365, hébergement, transformation digitale. Installation et configuration de réseaux d'entreprise (Cisco, WiFi professionnel), audit IT.
+
+### Développement Web & SEO — /services/web-digital
+Sites vitrine (à partir de 990€), sites business (1990€), e-commerce (sur devis). Référencement naturel (SEO), hébergement et maintenance (79€/mois). CMS intuitifs avec formation. Plus de 150 sites créés.
+
+### Matériel & Assemblage — /materiel
+Vente de matériel informatique et PC sur mesure (bureautique, gaming, CAO/DAO, montage vidéo) via la boutique informatique-haguenau.fr. Composants, périphériques, imprimantes, cartouches (originales et compatibles). Garantie 2 ans sur les PC assemblés.
+
+### Formation Professionnelle — /services/formation-professionnelle
+Organisme de formation certifié QUALIOPI. Bureautique (Word, Excel, PowerPoint), IA, cybersécurité, marketing digital. Formations certifiantes (TOSA, ICDL) éligibles CPF, OPCO et Pôle Emploi. Formations intra-entreprise sur mesure. Plus de 670 participants formés.
+
+### Bilan de Compétences — /formation/bilan-competences
+Analyse des compétences, aptitudes et motivations pour définir un projet professionnel ou de formation. Durée : 24h réparties sur 2–3 mois. Finançable par le CPF.
+
+## FAQ
+
+### Services généraux
+
+Q : Quels sont vos délais d'intervention ?
+R : Généralement sous 24 à 48h pour les urgences à Haguenau et ses environs (rayon de 30 km). Interventions planifiées selon votre agenda ; jour même possible en urgence critique selon disponibilité.
+
+Q : Quels sont vos tarifs ?
+R : Variables selon l'intervention. Diagnostic gratuit puis devis détaillé avant toute intervention. Forfaits entreprises à partir de 79€/mois. Devis personnalisé sur demande.
+
+Q : Intervenez-vous uniquement à Haguenau ?
+R : Non, tout le Grand Est avec un focus sur Haguenau et un rayon de 50 km (Strasbourg, Saverne, Wissembourg…). Solutions à distance pour les cas plus éloignés.
+
+Q : Proposez-vous un contrat de maintenance ?
+R : Oui : mises à jour automatiques, sauvegardes quotidiennes, surveillance 24/7, support prioritaire, interventions illimitées. Tarifs dégressifs selon le nombre de postes, à partir de 79€/mois.
+
+Q : Quels sont vos horaires d'ouverture ?
+R : Lundi au vendredi 9h–12h et 14h–18h. Astreinte 24/7 sur demande pour les urgences entreprises.
+
+### Dépannage & réparation
+
+Q : Intervenez-vous sur Mac et PC ?
+R : Oui, sur tous types d'ordinateurs (PC Windows/Linux, Mac macOS), ainsi que serveurs, NAS, équipements réseau, imprimantes et périphériques. 35 ans d'expérience multi-plateforme.
+
+Q : Mon ordinateur est très lent, que faire ?
+R : Causes possibles : virus, disque saturé, RAM insuffisante, programmes au démarrage. Diagnostic complet gratuit puis solution optimale (nettoyage, upgrade RAM/SSD, réinstallation).
+
+Q : Récupérez-vous les données perdues ?
+R : Oui, sur disques durs, SSD, clés USB et cartes mémoire. Taux de réussite ~85 %. Diagnostic gratuit, à partir de 150€. Aucun frais si la récupération est impossible.
+
+Q : Comment se passe une intervention à distance ?
+R : Outils sécurisés (TeamViewer, AnyDesk) avec votre autorisation, connexion cryptée, aucune donnée stockée. Tarif horaire : 60€/h.
+
+Q : Garantissez-vous vos réparations ?
+R : Oui, garanties 3 mois pièces et main d'œuvre. Pièces neuves sous garantie constructeur (1 à 2 ans).
+
+### Formation professionnelle
+
+Q : Proposez-vous des formations ?
+R : Oui, organisme certifié QUALIOPI. Bureautique, IA, cybersécurité, marketing digital. Éligibles OPCO, Pôle Emploi et CPF. Plus de 670 participants formés.
+
+Q : Mes formations sont-elles finançables par le CPF ?
+R : Oui, les formations certifiantes (TOSA, ICDL) sont éligibles au CPF. Accompagnement administratif inclus. Solde CPF consultable sur moncompteformation.gouv.fr.
+
+Q : Proposez-vous des formations en entreprise ?
+R : Oui, formations intra-entreprise sur mesure, formateurs sur site. Financement OPCO possible, tarifs dégressifs pour les groupes.
+
+Q : Qu'est-ce qu'un bilan de compétences ?
+R : Analyse de vos compétences, aptitudes et motivations pour définir un projet professionnel ou de formation. Durée 24h sur 2–3 mois. Finançable CPF.
+
+Q : Délivrez-vous des certificats ?
+R : Oui, attestation de formation pour toutes les formations ; certification reconnue (TOSA, ICDL) pour les formations certifiantes.
+
+### Intelligence artificielle
+
+Q : Qu'est-ce que l'IA Offline ?
+R : Un serveur d'IA installé dans vos locaux ; vos données restent 100 % confidentielles sans transit cloud. Idéal pour santé, juridique, R&D, finance. Conformité RGPD garantie.
+
+Q : Quels sont les avantages de l'IA Offline ?
+R : Confidentialité totale, pas d'abonnement, pas de limite d'usage, latence réduite, indépendance vis-à-vis du cloud, conformité RGPD facilitée. Investissement unique avec ROI rapide pour les usages intensifs.
+
+Q : Quel est le coût d'une solution IA Offline ?
+R : De 5 000€ (station de travail) à 50 000€+ (serveur haute performance). Location avec option d'achat possible. Devis gratuit après analyse des besoins.
+
+Q : L'IA peut-elle remplacer mes employés ?
+R : Non. L'IA assiste et automatise les tâches répétitives pour libérer du temps à plus forte valeur. L'humain reste indispensable pour la créativité, l'empathie et la décision stratégique.
+
+### Développement web
+
+Q : Faites-vous de la création de sites web ?
+R : Oui : sites vitrine (dès 990€), business (1990€), e-commerce (sur devis), avec SEO, hébergement et maintenance (79€/mois). Plus de 150 sites créés.
+
+Q : Combien de temps faut-il pour créer un site web ?
+R : Vitrine 2–4 semaines, business 4–8 semaines, e-commerce 8–12 semaines, selon la complexité et la rapidité des retours.
+
+Q : Puis-je modifier mon site moi-même après la livraison ?
+R : Oui, CMS intuitifs (WordPress…) avec formation. Modifications complexes incluses dans l'abonnement maintenance (79€/mois).
+
+Q : Mon site sera-t-il bien référencé sur Google ?
+R : Oui, optimisation SEO dès la création (structure, balises, vitesse, mobile-first). Accompagnement SEO avancé disponible. Résultats visibles sous 3–6 mois.
+
+### Sécurité & RGPD
+
+Q : Êtes-vous conformes RGPD ?
+R : Oui, conformité totale. Accompagnement à la mise en conformité (audit, documentation, formation, DPO externalisé) pour éviter les sanctions (jusqu'à 4 % du CA).
+
+Q : Comment protéger mon entreprise des cyberattaques ?
+R : Audit de sécurité puis firewall, antivirus professionnel, sauvegardes automatiques, formation des employés, politique de mots de passe, authentification à deux facteurs. Surveillance 24/7 en option.
+
+Q : Que faire en cas de ransomware ?
+R : Ne payez pas la rançon. Déconnectez le poste du réseau et contactez-nous en urgence. Analyse de l'infection, restauration des données depuis les sauvegardes, sécurisation de l'infrastructure.
+
+Q : Mes données sont-elles en sécurité chez vous ?
+R : Oui : chiffrement, accès restreints, serveurs sécurisés, destruction sécurisée après intervention, NDA sur demande. Aucune donnée conservée sans votre accord.
+
+### Matériel & boutique
+
+Q : Vendez-vous du matériel informatique ?
+R : Oui, sur la boutique informatique-haguenau.fr : PC, portables, composants, périphériques, imprimantes, cartouches. Garantie constructeur, livraison ou retrait en magasin.
+
+Q : Puis-je commander un PC sur mesure ?
+R : Oui, assemblage sur mesure (bureautique, gaming, CAO/DAO, montage vidéo). Garantie 2 ans, support technique inclus.
+
+Q : Où trouver des cartouches d'encre pas chères ?
+R : Sur informatique-haguenau.fr : cartouches originales et compatibles (HP, Canon, Epson, Brother) à prix compétitifs. Livraison gratuite dès 50€.
+
+### Divers
+
+Q : Travaillez-vous avec les associations ?
+R : Oui, tarifs préférentiels (jusqu'à -20 %), solutions open-source et économiques, mécénat de compétences pour des associations locales.
+
+Q : Acceptez-vous les paiements en plusieurs fois ?
+R : Oui, paiement en 2 ou 3 fois sans frais au-delà de 500€. Paiement à 30 jours sur facture pour les entreprises.
+
+Q : Puis-je obtenir une facture ?
+R : Oui, facture détaillée conforme à la législation française, envoyée par email en fin d'intervention pour les entreprises.
+
+Q : Comment prendre rendez-vous ?
+R : Par téléphone (03 67 31 02 01), email (contact@netzinformatique.fr), formulaire de contact ou prise de rendez-vous en ligne (Calendly). Réponse sous 2h en moyenne.
+
+## Liens utiles
+
+- Accueil : https://www.netzinformatique.fr/
+- Services : https://www.netzinformatique.fr/services
+- FAQ : https://www.netzinformatique.fr/faq
+- Blog : https://www.netzinformatique.fr/blog
+- À propos : https://www.netzinformatique.fr/a-propos
+- Contact : https://www.netzinformatique.fr/contact
+- Données structurées (JSON) : https://www.netzinformatique.fr/data/netz-informatique.json

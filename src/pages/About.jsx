@@ -21,8 +21,8 @@ const About = () => {
   ]
 
   const milestones = [
-    { year: '2003', title: 'Création', description: 'Fondation de NETZ Informatique à Haguenau' },
-    { year: '2008', title: 'Expansion', description: 'Ouverture de notre boutique en ligne' },
+    { year: '2009', title: 'Les Débuts', description: 'Début de l\'activité informatique en France (anciennement Orditeur)' },
+    { year: '2016', title: 'Création', description: 'Fondation de NETZ Informatique à Haguenau par Mikail Lekesiz' },
     { year: '2015', title: 'Certification', description: 'Obtention de la certification QUALIOPI' },
     { year: '2020', title: 'Innovation', description: 'Lancement des solutions IA offline' },
     { year: '2025', title: 'Leadership', description: 'Plus de 900 clients satisfaits dans le Grand Est' }
@@ -31,7 +31,7 @@ const About = () => {
   const team = [
     { 
       role: 'Direction', 
-      description: 'Plus de 20 ans d\'expérience en informatique et gestion d\'entreprise',
+      description: 'Plus de 35 ans d\'expérience en informatique et gestion d\'entreprise',
       expertise: ['Stratégie IT', 'Gestion de projet', 'Conseil']
     },
     { 
@@ -61,7 +61,7 @@ const About = () => {
               À Propos de <span className="text-primary">NETZ Informatique</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8">
-              Plus de 20 ans d'expertise au service de votre transformation digitale dans le Grand Est
+              Plus de 35 ans d'expertise au service de votre transformation digitale dans le Grand Est
             </p>
             <div className="flex gap-4 justify-center flex-wrap text-sm">
               <div className="flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-md">
@@ -70,7 +70,7 @@ const About = () => {
               </div>
               <div className="flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-md">
                 <Calendar size={16} className="text-primary" />
-                <span>Depuis 2003</span>
+                <span>Depuis 2009</span>
               </div>
               <div className="flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-md">
                 <Briefcase size={16} className="text-primary" />
@@ -96,10 +96,11 @@ const About = () => {
 
             <div className="prose prose-lg max-w-none">
               <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-8 md:p-12 mb-8">
-                <h3 className="text-2xl font-bold mb-4">Les Débuts (2003)</h3>
+                <h3 className="text-2xl font-bold mb-4">Les Débuts (2009)</h3>
                 <p className="text-muted-foreground mb-4">
-                  NETZ Informatique a été fondée en 2003 à Haguenau, dans le Bas-Rhin, avec une vision claire : 
-                  rendre la technologie accessible et utile pour tous. Dès le départ, notre approche s'est distinguée 
+                  L'aventure a démarré en 2009 avec une activité informatique en France (anciennement Orditeur), avec une vision claire :
+                  rendre la technologie accessible et utile pour tous. NETZ Informatique a ensuite été fondée en 2016 à Haguenau, dans le Bas-Rhin.
+                  Dès le départ, notre approche s'est distinguée
                   par une proximité avec nos clients et une expertise technique de haut niveau.
                 </p>
                 <p className="text-muted-foreground">

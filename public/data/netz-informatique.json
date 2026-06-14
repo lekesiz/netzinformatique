@@ -1,0 +1,106 @@
+{
+  "$schema": "https://schema.org/",
+  "name": "NETZ Informatique",
+  "legalName": "NETZ Informatique",
+  "description": "Entreprise de services informatiques à Haguenau (Alsace, France) pour particuliers et entreprises : dépannage, IA Offline, cybersécurité, cloud, développement web et formation certifiée QUALIOPI.",
+  "founder": "Mikail Lekesiz",
+  "foundingYear": 2016,
+  "commercialActivityInFranceSince": 2009,
+  "predecessor": "Orditeur (entreprise individuelle)",
+  "founderExperienceYears": 35,
+  "url": "https://www.netzinformatique.fr",
+  "lastUpdated": "2026-06-14",
+  "contact": {
+    "phone": "+33367310201",
+    "phoneDisplay": "03 67 31 02 01",
+    "email": "contact@netzinformatique.fr",
+    "address": {
+      "street": "1a Route de Schweighouse",
+      "postalCode": "67500",
+      "city": "Haguenau",
+      "region": "Alsace",
+      "country": "France",
+      "countryCode": "FR",
+      "geo": { "latitude": 48.8166, "longitude": 7.7906 }
+    },
+    "openingHours": [
+      { "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "12:00" },
+      { "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "14:00", "closes": "18:00" },
+      { "days": ["Saturday"], "opens": "09:00", "closes": "12:00" }
+    ],
+    "emergencySupport": "24/7 sur demande (entreprises)"
+  },
+  "serviceArea": "Haguenau et rayon de ~50 km dans le Grand Est (Strasbourg, Saverne, Wissembourg), interventions à distance disponibles",
+  "languages": ["fr", "en", "de", "tr"],
+  "certifications": ["QUALIOPI", "TOSA", "ICDL"],
+  "partnerships": ["Microsoft Partner", "Cisco Partner", "Google Partner"],
+  "responseTime": "24-48h (jour même selon disponibilité en urgence)",
+  "stats": {
+    "devicesRepaired": "2772+",
+    "clients": "900+",
+    "traineesTrained": "670+",
+    "rating": 4.9
+  },
+  "socialProfiles": [
+    "https://www.facebook.com/informatiquehaguenau",
+    "https://fr.linkedin.com/company/netz-informatique"
+  ],
+  "shop": "https://www.informatique-haguenau.fr",
+  "services": [
+    {
+      "name": "Dépannage & Maintenance",
+      "url": "https://www.netzinformatique.fr/services/depannage-maintenance",
+      "description": "Intervention rapide sous 24-48h sur site ou en atelier (PC, Mac, serveurs, périphériques). Récupération de données. Contrats de maintenance dès 79€/mois. Réparations garanties 3 mois.",
+      "audience": ["particuliers", "entreprises"]
+    },
+    {
+      "name": "Intelligence Artificielle Offline",
+      "url": "https://www.netzinformatique.fr/services/ia-offline",
+      "description": "Serveur d'IA installé en local, données 100% confidentielles sans transit cloud. Pour santé, juridique, finance, R&D. Conformité RGPD. De 5 000€ à 50 000€+, location possible.",
+      "audience": ["entreprises"]
+    },
+    {
+      "name": "Cybersécurité",
+      "url": "https://www.netzinformatique.fr/services/cybersecurite",
+      "description": "Audit, pare-feu, antivirus professionnel, sauvegardes, 2FA, formation, surveillance 24/7, conformité RGPD, réponse ransomware.",
+      "audience": ["particuliers", "entreprises"]
+    },
+    {
+      "name": "Cloud & Réseaux",
+      "url": "https://www.netzinformatique.fr/services/cloud-reseau",
+      "description": "Migration cloud, Microsoft 365, hébergement, réseaux d'entreprise (Cisco, WiFi pro), audit IT, transformation digitale.",
+      "audience": ["entreprises"]
+    },
+    {
+      "name": "Développement Web & SEO",
+      "url": "https://www.netzinformatique.fr/services/web-digital",
+      "description": "Sites vitrine (dès 990€), business (1990€), e-commerce (sur devis), SEO, hébergement et maintenance (79€/mois). 150+ sites créés.",
+      "audience": ["particuliers", "entreprises"]
+    },
+    {
+      "name": "Matériel & Assemblage",
+      "url": "https://www.netzinformatique.fr/materiel",
+      "description": "Vente de matériel et PC sur mesure (bureautique, gaming, CAO), périphériques et consommables via informatique-haguenau.fr. Garantie 2 ans.",
+      "audience": ["particuliers", "entreprises"]
+    },
+    {
+      "name": "Formation Professionnelle",
+      "url": "https://www.netzinformatique.fr/services/formation-professionnelle",
+      "description": "Organisme certifié QUALIOPI : bureautique, IA, cybersécurité, marketing digital. Certifiantes (TOSA, ICDL) éligibles CPF, OPCO, Pôle Emploi.",
+      "audience": ["particuliers", "entreprises"]
+    },
+    {
+      "name": "Bilan de Compétences",
+      "url": "https://www.netzinformatique.fr/formation/bilan-competences",
+      "description": "Accompagnement de 24h sur 2-3 mois pour définir un projet professionnel. Finançable CPF.",
+      "audience": ["particuliers"]
+    }
+  ],
+  "resources": {
+    "faq": "https://www.netzinformatique.fr/faq",
+    "blog": "https://www.netzinformatique.fr/blog",
+    "llms": "https://www.netzinformatique.fr/llms.txt",
+    "llmsFull": "https://www.netzinformatique.fr/llms-full.txt",
+    "sitemap": "https://www.netzinformatique.fr/sitemap.xml"
+  }
+}

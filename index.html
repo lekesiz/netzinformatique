@@ -8,7 +8,7 @@
     <meta name="theme-color" content="#4F46E5" />
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="NETZ Informatique - Votre partenaire technologique à Haguenau depuis plus de 20 ans. Services informatiques, dépannage, formation, solutions IA et cybersécurité pour particuliers et entreprises." />
+    <meta name="description" content="NETZ Informatique - Votre partenaire technologique à Haguenau. Fondée en 2016 (activité en France depuis 2009), 35 ans d'expérience IT. Dépannage, formation, solutions IA et cybersécurité pour particuliers et entreprises." />
     <meta name="keywords" content="informatique Haguenau, dépannage PC, formation informatique, cybersécurité, IA, NETZ Informatique, services IT, cloud computing, développement web" />
     <meta name="author" content="NETZ Informatique" />
     <meta name="robots" content="index, follow" />
@@ -32,38 +32,93 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "NETZ Informatique",
-      "image": "https://www.netzinformatique.fr/logo.png",
-      "url": "https://www.netzinformatique.fr",
-      "telephone": "+33899250151",
-      "email": "contact@netzinformatique.fr",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "1a Route de Schweighouse",
-        "addressLocality": "Haguenau",
-        "postalCode": "67500",
-        "addressCountry": "FR"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 48.8166,
-        "longitude": 7.7906
-      },
-      "openingHoursSpecification": [{
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        "opens": "09:00",
-        "closes": "12:00"
-      }, {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        "opens": "14:00",
-        "closes": "18:00"
-      }],
-      "sameAs": [
-        "https://www.facebook.com/netzinformatique",
-        "https://www.linkedin.com/company/netz-informatique"
+      "@graph": [
+        {
+          "@type": ["LocalBusiness", "ComputerStore", "ProfessionalService"],
+          "@id": "https://www.netzinformatique.fr/#organization",
+          "name": "NETZ Informatique",
+          "alternateName": ["NETZ", "Orditeur"],
+          "image": "https://www.netzinformatique.fr/logo.png",
+          "logo": "https://www.netzinformatique.fr/logo.png",
+          "url": "https://www.netzinformatique.fr",
+          "telephone": "+33367310201",
+          "email": "contact@netzinformatique.fr",
+          "description": "Expert informatique à Haguenau : dépannage, maintenance, solutions IA Offline, cybersécurité, cloud, développement web et formation professionnelle certifiée QUALIOPI. Fondée en 2016 par Mikail Lekesiz, dans la continuité d'une activité présente en France depuis 2009 (anciennement Orditeur). 35 ans d'expérience dans le secteur.",
+          "priceRange": "€€",
+          "foundingDate": "2003",
+          "founder": { "@type": "Person", "name": "Mikail Lekesiz" },
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "1a Route de Schweighouse",
+            "addressLocality": "Haguenau",
+            "addressRegion": "Alsace",
+            "postalCode": "67500",
+            "addressCountry": "FR"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 48.8166,
+            "longitude": 7.7906
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              "opens": "09:00",
+              "closes": "12:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              "opens": "14:00",
+              "closes": "18:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Saturday",
+              "opens": "09:00",
+              "closes": "12:00"
+            }
+          ],
+          "areaServed": {
+            "@type": "GeoCircle",
+            "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 48.8166, "longitude": 7.7906 },
+            "geoRadius": "50000"
+          },
+          "knowsLanguage": ["fr", "en", "de", "tr"],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Services Informatiques",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Dépannage & Maintenance", "description": "Intervention rapide sous 24-48h pour tous vos problèmes informatiques.", "url": "https://www.netzinformatique.fr/services/depannage-maintenance" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Intelligence Artificielle Offline", "description": "IA installée en local, données 100% confidentielles, conformité RGPD.", "url": "https://www.netzinformatique.fr/services/ia-offline" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cybersécurité", "description": "Audit, pare-feu, antivirus, conformité RGPD, surveillance 24/7.", "url": "https://www.netzinformatique.fr/services/cybersecurite" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cloud & Réseaux", "description": "Migration cloud, Microsoft 365, réseaux d'entreprise, audit IT.", "url": "https://www.netzinformatique.fr/services/cloud-reseau" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Développement Web & SEO", "description": "Sites vitrine, business et e-commerce, référencement naturel.", "url": "https://www.netzinformatique.fr/services/web-digital" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Formation Professionnelle QUALIOPI", "description": "Formations certifiées éligibles CPF, OPCO et Pôle Emploi.", "url": "https://www.netzinformatique.fr/services/formation-professionnelle" } }
+            ]
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "127",
+            "bestRating": "5",
+            "worstRating": "1"
+          },
+          "sameAs": [
+            "https://www.facebook.com/informatiquehaguenau",
+            "https://fr.linkedin.com/company/netz-informatique"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://www.netzinformatique.fr/#website",
+          "url": "https://www.netzinformatique.fr",
+          "name": "NETZ Informatique",
+          "description": "Expert informatique à Haguenau",
+          "publisher": { "@id": "https://www.netzinformatique.fr/#organization" },
+          "inLanguage": ["fr-FR", "en-US", "de-DE", "tr-TR"]
+        }
       ]
     }
     </script>

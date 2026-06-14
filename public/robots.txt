@@ -1,15 +1,12 @@
 # https://www.robotstxt.org/robotstxt.html
 # NETZ Informatique - Robots.txt
-# Last Updated: 2025-01-06
+# Last Updated: 2026-06-14
 
+# ---------------------------------------------------------------------------
+# Default rule for all crawlers
+# ---------------------------------------------------------------------------
 User-agent: *
 Allow: /
-
-# Sitemap
-Sitemap: https://www.netzinformatique.fr/sitemap.xml
-
-# Crawl-delay (polite crawling)
-Crawl-delay: 1
 
 # Disallow admin, API, and private paths
 Disallow: /api/
@@ -19,7 +16,9 @@ Disallow: /node_modules/
 Disallow: /_next/
 Disallow: /private/
 
-# Allow specific bots
+# ---------------------------------------------------------------------------
+# Search engine bots
+# ---------------------------------------------------------------------------
 User-agent: Googlebot
 Allow: /
 
@@ -29,7 +28,71 @@ Allow: /
 User-agent: Slurp
 Allow: /
 
-# Block bad bots
+User-agent: DuckDuckBot
+Allow: /
+
+# ---------------------------------------------------------------------------
+# AI / LLM crawlers — explicitly allowed for visibility in answer engines
+# (ChatGPT, Claude, Perplexity, Google AI Overviews, Apple Intelligence, etc.)
+# See /llms.txt and /llms-full.txt for a curated, machine-readable summary.
+# ---------------------------------------------------------------------------
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+# ---------------------------------------------------------------------------
+# Aggressive SEO / scraping bots — blocked
+# ---------------------------------------------------------------------------
 User-agent: AhrefsBot
 Disallow: /
 
@@ -41,3 +104,8 @@ Disallow: /
 
 User-agent: DotBot
 Disallow: /
+
+# ---------------------------------------------------------------------------
+# Sitemap
+# ---------------------------------------------------------------------------
+Sitemap: https://www.netzinformatique.fr/sitemap.xml
