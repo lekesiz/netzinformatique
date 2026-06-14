@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import SEO from '@/components/common/SEO';
 import StructuredData from '@/components/common/StructuredData';
-import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle, Award, Users, Clock, TrendingUp, BookOpen, Phone, GraduationCap, FileText, Euro, Building } from 'lucide-react';
 import {
@@ -12,8 +11,6 @@ import {
 } from "@/components/ui/accordion"
 
 const FormationProfessionnelle = () => {
-  const { t } = useTranslation();
-
   const pageTitle = 'Formation Professionnelle Certifiée QUALIOPI';
   const pageDescription = 'Formations informatiques certifiées QUALIOPI. Bureautique, IA, cybersécurité, web. Financement OPCO, CPF, Pôle Emploi. Présentiel ou distanciel.';
 

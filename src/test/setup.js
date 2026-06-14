@@ -15,6 +15,20 @@ vi.stubEnv('VITE_GTM_ID', 'GTM-TEST123')
 // Mock fetch for API tests
 global.fetch = vi.fn()
 
+// Run requestAnimationFrame synchronously so react-helmet-async flushes
+// head/meta updates during render() instead of deferring to the next frame
+// (otherwise document.head is empty when assertions run synchronously).
+const syncRaf = (cb) => {
+  cb(typeof performance !== 'undefined' ? performance.now() : 0)
+  return 0
+}
+global.requestAnimationFrame = syncRaf
+global.cancelAnimationFrame = () => {}
+if (typeof window !== 'undefined') {
+  window.requestAnimationFrame = syncRaf
+  window.cancelAnimationFrame = () => {}
+}
+
 // Mock window.matchMedia
 Object.defineProperty(window, 'matchMedia', {
   writable: true,

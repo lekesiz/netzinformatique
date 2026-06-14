@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import SEO from '@/components/common/SEO';
 import StructuredData from '@/components/common/StructuredData';
-import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle, BrainCircuit, Lock, Building, Zap, DollarSign, Users, Shield, Server, Cpu, HardDrive, Phone, TrendingUp, FileText, MessageSquare } from 'lucide-react';
 import {
@@ -12,8 +11,6 @@ import {
 } from "@/components/ui/accordion"
 
 const IAOffline = () => {
-  const { t } = useTranslation();
-
   const pageTitle = 'IA Offline : Intelligence Artificielle 100% Confidentielle';
   const pageDescription = 'Déployez l\'IA dans vos locaux. Vos données restent chez vous, 100% confidentielles. LLM privés (Llama, Mistral), génération de texte, analyse de documents. Conformité RGPD garantie.';
 

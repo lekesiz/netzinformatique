@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import SEO from '@/components/common/SEO';
 import StructuredData from '@/components/common/StructuredData';
-import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Shield, Lock, FileText, AlertTriangle, Eye, Key, Database, Users, CheckCircle, Phone, ShieldAlert, Bug, Fingerprint } from 'lucide-react';
 import {
@@ -12,8 +11,6 @@ import {
 } from "@/components/ui/accordion"
 
 const Cybersecurite = () => {
-  const { t } = useTranslation();
-
   const pageTitle = 'Cybersécurité & Protection des Données';
   const pageDescription = 'Protégez votre entreprise contre les cyberattaques. Audit de sécurité, antivirus professionnel, firewall, sauvegardes, conformité RGPD. Expertise certifiée.';
 

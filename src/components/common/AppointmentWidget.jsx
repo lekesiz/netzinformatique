@@ -4,7 +4,6 @@ import { Calendar, X } from 'lucide-react';
 
 const AppointmentWidget = () => {
   const { t } = useTranslation();
-  const [isOpen, setIsOpen] = useState(false);
   const [isScriptLoaded, setIsScriptLoaded] = useState(false);
 
   // Calendly username from environment or default
@@ -51,10 +50,6 @@ const AppointmentWidget = () => {
       // Fallback: open in new tab
       window.open(calendlyUrl, '_blank');
     }
-  };
-
-  const closeCalendly = () => {
-    setIsOpen(false);
   };
 
   return (

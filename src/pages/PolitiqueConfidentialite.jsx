@@ -1,10 +1,7 @@
-import { useTranslation } from 'react-i18next'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Shield, Lock, Eye, Database, UserCheck, Mail } from 'lucide-react'
 
 export default function PolitiqueConfidentialite() {
-  const { t } = useTranslation()
-
   const sections = [
     {
       icon: Shield,

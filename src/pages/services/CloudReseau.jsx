@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import SEO from '@/components/common/SEO';
 import StructuredData from '@/components/common/StructuredData';
-import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Cloud, Wifi, Server, Shield, Zap, Users, CheckCircle, Phone, Database, Network, HardDrive } from 'lucide-react';
 import {
@@ -12,8 +11,6 @@ import {
 } from "@/components/ui/accordion"
 
 const CloudReseau = () => {
-  const { t } = useTranslation();
-
   const pageTitle = 'Solutions Cloud & Infrastructure Réseau';
   const pageDescription = 'Modernisez votre infrastructure IT avec nos solutions Cloud et réseau. Migration Microsoft 365, serveurs, WiFi professionnel. Fiabilité et performance garanties.';
 

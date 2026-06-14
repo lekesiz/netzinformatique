@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import handler from './newsletter.js'
+import handler, { __resetRateLimit } from './newsletter.js'
 
 // Mock dependencies
 vi.mock('isomorphic-dompurify', () => ({
@@ -14,8 +14,18 @@ vi.mock('validator', () => ({
   }
 }))
 
-// Mock global fetch
-global.fetch = vi.fn()
+// Mock Resend
+const mockSend = vi.fn()
+const mockContactsCreate = vi.fn()
+vi.mock('resend', () => ({
+  // Must be a real function (not arrow) so `new Resend()` works
+  Resend: vi.fn(function () {
+    return {
+      emails: { send: mockSend },
+      contacts: { create: mockContactsCreate },
+    }
+  }),
+}))
 
 describe('Newsletter API Handler', () => {
   let mockReq
@@ -23,6 +33,8 @@ describe('Newsletter API Handler', () => {
 
   beforeEach(() => {
     vi.clearAllMocks()
+    // Reset rate-limit state so each test starts clean
+    __resetRateLimit()
 
     mockReq = {
       method: 'POST',
@@ -45,14 +57,12 @@ describe('Newsletter API Handler', () => {
       end: vi.fn(),
     }
 
-    process.env.SENDGRID_API_KEY = 'test_api_key'
-    process.env.SENDGRID_FROM_EMAIL = 'newsletter@example.com'
+    process.env.RESEND_API_KEY = 'test_api_key'
+    process.env.RESEND_FROM_EMAIL = 'newsletter@example.com'
 
-    // Mock successful fetch response
-    global.fetch.mockResolvedValue({
-      ok: true,
-      json: async () => ({ success: true }),
-    })
+    // Mock successful email send
+    mockSend.mockResolvedValue({ id: 'email_123' })
+    mockContactsCreate.mockResolvedValue({ id: 'contact_123' })
   })
 
   it('should handle OPTIONS request', async () => {
@@ -105,24 +115,29 @@ describe('Newsletter API Handler', () => {
     )
   })
 
+  it('should subscribe successfully and send a welcome email', async () => {
+    await handler(mockReq, mockRes)
+
+    expect(mockSend).toHaveBeenCalledWith(
+      expect.objectContaining({ to: 'test@example.com' })
+    )
+    expect(mockRes.status).toHaveBeenCalledWith(200)
+    expect(mockRes.json).toHaveBeenCalledWith(
+      expect.objectContaining({ success: true })
+    )
+  })
+
   it('should enforce rate limiting', async () => {
-    // Make 4 requests (limit is 3)
+    // Limit is 3 per window; the 4th request from the same IP is rejected
     for (let i = 0; i < 4; i++) {
-      // Use different IPs to avoid rate limit collision
-      mockReq.headers['x-forwarded-for'] = `127.0.0.${i}`
-      if (i === 3) {
-        // Fourth request with same IP should be rate limited
-        mockReq.headers['x-forwarded-for'] = '127.0.0.0'
-      }
       await handler(mockReq, mockRes)
     }
 
-    // Last request should be rate limited
     expect(mockRes.status).toHaveBeenLastCalledWith(429)
   })
 
-  it('should return error when SENDGRID_API_KEY is missing', async () => {
-    delete process.env.SENDGRID_API_KEY
+  it('should return error when RESEND_API_KEY is missing', async () => {
+    delete process.env.RESEND_API_KEY
 
     await handler(mockReq, mockRes)
 
@@ -132,16 +147,14 @@ describe('Newsletter API Handler', () => {
     )
   })
 
-  it('should handle SendGrid API errors', async () => {
-    process.env.SENDGRID_API_KEY = 'test_key'
-
-    global.fetch.mockResolvedValue({
-      ok: false,
-      json: async () => ({ error: 'SendGrid error' }),
-    })
+  it('should handle Resend API errors', async () => {
+    mockSend.mockRejectedValue(new Error('Resend error'))
 
     await handler(mockReq, mockRes)
 
     expect(mockRes.status).toHaveBeenCalledWith(500)
+    expect(mockRes.json).toHaveBeenCalledWith(
+      expect.objectContaining({ error: 'Failed to subscribe to newsletter' })
+    )
   })
 })

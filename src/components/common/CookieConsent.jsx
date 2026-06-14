@@ -17,7 +17,6 @@ const CookieConsent = () => {
   const [showBanner, setShowBanner] = useState(false)
   const [showPreferences, setShowPreferences] = useState(false)
 
-  const cookieConsent = useStore((state) => state.preferences.cookieConsentGiven)
   const setPreference = useStore((state) => state.setPreference)
 
   // Cookie categories state

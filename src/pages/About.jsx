@@ -1,11 +1,8 @@
 import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
-import { useTranslation } from 'react-i18next'
 import { Award, Users, Target, Heart, TrendingUp, Shield, CheckCircle, MapPin, Calendar, Briefcase, ArrowRight, Star } from 'lucide-react'
 
 const About = () => {
-  const { t } = useTranslation()
-  
   const values = [
     { icon: Award, title: 'Excellence', description: 'Recherche permanente de la qualité supérieure dans chaque intervention' },
     { icon: Users, title: 'Partenariat', description: 'Relations durables basées sur la confiance mutuelle' },

@@ -1,5 +1,6 @@
 import DOMPurify from 'isomorphic-dompurify';
 import validator from 'validator';
+import { Resend } from 'resend';
 
 // Rate limiting - simple in-memory store
 const rateLimitMap = new Map();
@@ -11,7 +12,7 @@ function checkRateLimit(identifier) {
   const userRequests = rateLimitMap.get(identifier) || [];
 
   // Clean old requests
-  const validRequests = userRequests.filter(time => now - time < RATE_LIMIT_WINDOW);
+  const validRequests = userRequests.filter((time) => now - time < RATE_LIMIT_WINDOW);
 
   if (validRequests.length >= RATE_LIMIT_MAX_REQUESTS) {
     return false;
@@ -20,6 +21,56 @@ function checkRateLimit(identifier) {
   validRequests.push(now);
   rateLimitMap.set(identifier, validRequests);
   return true;
+}
+
+// Exposed for tests to reset rate-limit state between cases
+export function __resetRateLimit() {
+  rateLimitMap.clear();
+}
+
+function welcomeEmailHtml() {
+  return `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="UTF-8">
+    </head>
+    <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
+      <div style="background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%); padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
+        <h1 style="color: white; margin: 0;">Bienvenue chez NETZ Informatique !</h1>
+      </div>
+
+      <div style="background: #f9fafb; padding: 30px; border-radius: 0 0 10px 10px;">
+        <p style="font-size: 16px;">Bonjour,</p>
+
+        <p style="font-size: 16px;">Merci de vous être inscrit à notre newsletter ! 🎉</p>
+
+        <p style="font-size: 16px;">Vous recevrez désormais :</p>
+        <ul style="font-size: 16px;">
+          <li>Nos dernières actualités IT</li>
+          <li>Des conseils et tutoriels exclusifs</li>
+          <li>Des offres spéciales réservées à nos abonnés</li>
+        </ul>
+
+        <div style="text-align: center; margin: 30px 0;">
+          <a href="https://www.netzinformatique.fr/blog" style="background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%); color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">Découvrir notre blog</a>
+        </div>
+
+        <p style="font-size: 14px; color: #666; margin-top: 30px;">
+          À très bientôt,<br>
+          <strong>L'équipe NETZ Informatique</strong>
+        </p>
+
+        <hr style="border: none; border-top: 1px solid #ddd; margin: 30px 0;">
+
+        <p style="font-size: 12px; color: #999; text-align: center;">
+          Vous recevez cet email car vous vous êtes inscrit à notre newsletter.<br>
+          <a href="https://www.netzinformatique.fr" style="color: #4F46E5;">netzinformatique.fr</a>
+        </p>
+      </div>
+    </body>
+    </html>
+  `;
 }
 
 export default async function handler(req, res) {
@@ -52,7 +103,7 @@ export default async function handler(req, res) {
   }
 
   // Rate limiting
-  const identifier = req.headers['x-forwarded-for'] || req.connection.remoteAddress || 'unknown';
+  const identifier = req.headers['x-forwarded-for'] || req.connection?.remoteAddress || 'unknown';
   if (!checkRateLimit(identifier)) {
     return res.status(429).json({
       error: 'Too many requests',
@@ -73,99 +124,42 @@ export default async function handler(req, res) {
   // Sanitize email
   const sanitizedEmail = DOMPurify.sanitize(email.toLowerCase().trim());
 
+  // Newsletter delivery via Resend (same provider as the contact form)
+  const RESEND_API_KEY = process.env.RESEND_API_KEY;
+
+  if (!RESEND_API_KEY) {
+    console.error('RESEND_API_KEY not configured');
+    return res.status(500).json({ error: 'Newsletter service not configured' });
+  }
+
   try {
-    // Option 1: SendGrid Marketing Contacts API
-    // https://docs.sendgrid.com/api-reference/contacts/add-or-update-a-contact
-    
-    const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY;
-    
-    if (!SENDGRID_API_KEY) {
-      console.error('SENDGRID_API_KEY not configured');
-      return res.status(500).json({ error: 'Newsletter service not configured' });
+    const resend = new Resend(RESEND_API_KEY);
+
+    // Add the subscriber to a Resend Audience when one is configured
+    const audienceId = process.env.RESEND_AUDIENCE_ID;
+    if (audienceId) {
+      await resend.contacts.create({
+        email: sanitizedEmail,
+        unsubscribed: false,
+        audienceId
+      });
     }
 
-    const response = await fetch('https://api.sendgrid.com/v3/marketing/contacts', {
-      method: 'PUT',
-      headers: {
-        'Authorization': `Bearer ${SENDGRID_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        contacts: [
-          {
-            email: sanitizedEmail,
-          }
-        ]
-      }),
-    });
-
-    if (!response.ok) {
-      const errorData = await response.json();
-      console.error('SendGrid error:', errorData);
-      return res.status(500).json({ error: 'Failed to subscribe to newsletter' });
-    }
-
-    // Send welcome email
-    const sgMail = require('@sendgrid/mail');
-    sgMail.setApiKey(SENDGRID_API_KEY);
-
-    const welcomeEmail = {
+    // Send the welcome email
+    const fromEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
+    await resend.emails.send({
+      from: fromEmail,
       to: sanitizedEmail,
-      from: process.env.SENDGRID_FROM_EMAIL || 'contact@netzinformatique.fr',
       subject: 'Bienvenue dans notre newsletter ! 🎉',
-      html: `
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <meta charset="UTF-8">
-        </head>
-        <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
-          <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
-            <h1 style="color: white; margin: 0;">Bienvenue chez NETZ Informatique !</h1>
-          </div>
-          
-          <div style="background: #f9f9f9; padding: 30px; border-radius: 0 0 10px 10px;">
-            <p style="font-size: 16px;">Bonjour,</p>
-            
-            <p style="font-size: 16px;">Merci de vous être inscrit à notre newsletter ! 🎉</p>
-            
-            <p style="font-size: 16px;">Vous recevrez désormais :</p>
-            <ul style="font-size: 16px;">
-              <li>Nos dernières actualités IT</li>
-              <li>Des conseils et tutoriels exclusifs</li>
-              <li>Des offres spéciales réservées à nos abonnés</li>
-            </ul>
-            
-            <div style="text-align: center; margin: 30px 0;">
-              <a href="https://netzinformatique.fr/blog" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">Découvrir notre blog</a>
-            </div>
-            
-            <p style="font-size: 14px; color: #666; margin-top: 30px;">
-              À très bientôt,<br>
-              <strong>L'équipe NETZ Informatique</strong>
-            </p>
-            
-            <hr style="border: none; border-top: 1px solid #ddd; margin: 30px 0;">
-            
-            <p style="font-size: 12px; color: #999; text-align: center;">
-              Vous recevez cet email car vous vous êtes inscrit à notre newsletter.<br>
-              <a href="https://netzinformatique.fr" style="color: #667eea;">netzinformatique.fr</a>
-            </p>
-          </div>
-        </body>
-        </html>
-      `,
-    };
-
-    await sgMail.send(welcomeEmail);
-
-    return res.status(200).json({ 
-      success: true, 
-      message: 'Successfully subscribed to newsletter' 
+      html: welcomeEmailHtml()
     });
 
+    return res.status(200).json({
+      success: true,
+      message: 'Successfully subscribed to newsletter'
+    });
   } catch (error) {
     console.error('Newsletter subscription error:', error);
-    return res.status(500).json({ error: 'Internal server error' });
+    return res.status(500).json({ error: 'Failed to subscribe to newsletter' });
   }
 }

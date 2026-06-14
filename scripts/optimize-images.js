@@ -60,7 +60,6 @@ async function optimizeImage(filePath) {
 
   try {
     const image = sharp(filePath)
-    const metadata = await image.metadata()
 
     // Get file size before optimization
     const statsBefore = await fs.stat(filePath)
@@ -141,7 +140,7 @@ async function main() {
   try {
     // Check if images directory exists
     await fs.access(IMAGES_DIR)
-  } catch (error) {
+  } catch {
     console.error(`❌ Images directory not found: ${IMAGES_DIR}`)
     process.exit(1)
   }

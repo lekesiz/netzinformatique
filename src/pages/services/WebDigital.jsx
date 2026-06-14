@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import SEO from '@/components/common/SEO';
 import StructuredData from '@/components/common/StructuredData';
-import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Globe, Search, ShoppingCart, Smartphone, Palette, Code, TrendingUp, Users, CheckCircle, Phone, Zap, Eye, BarChart } from 'lucide-react';
 import {
@@ -12,8 +11,6 @@ import {
 } from "@/components/ui/accordion"
 
 const WebDigital = () => {
-  const { t } = useTranslation();
-
   const pageTitle = 'Création Site Web & Marketing Digital';
   const pageDescription = 'Site vitrine, e-commerce, application web sur mesure. Référencement SEO, Google Ads, réseaux sociaux. Augmentez votre visibilité et vos ventes en ligne.';
 

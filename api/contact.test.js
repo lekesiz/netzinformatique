@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import handler from './contact.js'
+import handler, { __resetRateLimit } from './contact.js'
 
 // Mock dependencies
 vi.mock('@sendgrid/mail', () => ({
@@ -29,6 +29,8 @@ describe('Contact API Handler', () => {
   beforeEach(() => {
     // Reset mocks
     vi.clearAllMocks()
+    // Reset rate-limit state so each test starts clean
+    __resetRateLimit()
 
     // Mock request
     mockReq = {

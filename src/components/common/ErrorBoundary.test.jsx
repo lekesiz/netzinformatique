@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest'
+import { describe, it, expect, vi, beforeAll, afterAll } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import ErrorBoundary from './ErrorBoundary'
@@ -79,16 +79,18 @@ describe('ErrorBoundary', () => {
     // Error UI should be visible
     expect(screen.getByText(/Oups ! Une erreur s'est produite/i)).toBeInTheDocument()
 
-    // Click reset button
-    const resetButton = screen.getByRole('button', { name: /Réessayer/i })
-    await user.click(resetButton)
-
-    // Re-render without error
+    // Swap children to a non-throwing version BEFORE resetting, otherwise
+    // clearing the error state would immediately re-render the throwing child
+    // and the boundary would catch the same error again.
     rerender(
       <ErrorBoundary>
         <ThrowError shouldThrow={false} />
       </ErrorBoundary>
     )
+
+    // Click reset button to clear the error state
+    const resetButton = screen.getByRole('button', { name: /Réessayer/i })
+    await user.click(resetButton)
 
     expect(screen.getByText('No error')).toBeInTheDocument()
   })
@@ -104,8 +106,9 @@ describe('ErrorBoundary', () => {
       </ErrorBoundary>
     )
 
-    // Should show error details
-    expect(screen.getByText(/Error:/i)).toBeInTheDocument()
+    // Should show error details ("Error:" label appears in both the <strong>
+    // label and the stringified error, so assert at least one match)
+    expect(screen.getAllByText(/Error:/i).length).toBeGreaterThan(0)
     expect(screen.getByText(/Test error/i)).toBeInTheDocument()
 
     // Restore environment

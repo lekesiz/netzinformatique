@@ -15,7 +15,7 @@ const SEO = ({
   const { i18n } = useTranslation()
   const currentLang = i18n.language
   
-  const siteUrl = 'https://netzinformatique.fr'
+  const siteUrl = 'https://www.netzinformatique.fr'
   const defaultImage = `${siteUrl}/images/og-image.jpg`
   const canonicalUrl = url ? `${siteUrl}${url}` : siteUrl
 

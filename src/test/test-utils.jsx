@@ -63,7 +63,7 @@ export function mockApiResponse(data, options = {}) {
 }
 
 // Mock API error helper
-export function mockApiError(error = 'API Error', status = 500) {
+export function mockApiError(error = 'API Error') {
   return Promise.reject(new Error(error))
 }
 

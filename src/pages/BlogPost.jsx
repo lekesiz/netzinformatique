@@ -8,8 +8,8 @@ import {
   Facebook, Twitter, Linkedin, Link as LinkIcon,
   Eye, Heart, Bookmark
 } from 'lucide-react'
-import { getPostBySlug, getPostsByCategory, getPostsByTag } from '../data/blogPosts'
-import { formatDate, formatRelativeTime } from '../utils/formatters'
+import { getPostBySlug, getPostsByCategory } from '../data/blogPosts'
+import { formatDate } from '../utils/formatters'
 import ReadingProgressBar from '../components/blog/ReadingProgressBar'
 import SocialShareButtons from '../components/blog/SocialShareButtons'
 import RelatedPosts from '../components/blog/RelatedPosts'

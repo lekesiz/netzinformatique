@@ -1,4 +1,23 @@
-module.exports = async function handler(req, res) {
+// Rate limiting - simple in-memory store
+const rateLimitMap = new Map();
+const RATE_LIMIT_WINDOW = 15 * 60 * 1000; // 15 minutes
+const RATE_LIMIT_MAX_REQUESTS = 5; // Max 5 contact submissions per window
+
+function checkRateLimit(identifier) {
+  const now = Date.now();
+  const userRequests = rateLimitMap.get(identifier) || [];
+  const validRequests = userRequests.filter((time) => now - time < RATE_LIMIT_WINDOW);
+
+  if (validRequests.length >= RATE_LIMIT_MAX_REQUESTS) {
+    return false;
+  }
+
+  validRequests.push(now);
+  rateLimitMap.set(identifier, validRequests);
+  return true;
+}
+
+async function handler(req, res) {
   // CORS headers
   const allowedOrigins = [
     'https://netzinformatique.fr',
@@ -29,6 +48,15 @@ module.exports = async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  // Rate limiting
+  const identifier = req.headers['x-forwarded-for'] || req.connection?.remoteAddress || 'unknown';
+  if (!checkRateLimit(identifier)) {
+    return res.status(429).json({
+      error: 'Too many requests',
+      message: 'Trop de demandes. Veuillez réessayer dans 15 minutes.'
+    });
+  }
+
   try {
     const { firstName, lastName, name, email, phone, subject, message } = req.body;
 
@@ -49,6 +77,21 @@ module.exports = async function handler(req, res) {
       return res.status(400).json({
         error: 'Invalid email',
         message: 'Adresse email invalide'
+      });
+    }
+
+    // Length validation
+    if (fullName.length < 2) {
+      return res.status(400).json({
+        error: 'Invalid name',
+        message: 'Le nom doit contenir au moins 2 caractères'
+      });
+    }
+
+    if (message.length < 10) {
+      return res.status(400).json({
+        error: 'Invalid message',
+        message: 'Le message doit contenir au moins 10 caractères'
       });
     }
 
@@ -174,4 +217,8 @@ module.exports = async function handler(req, res) {
       message: 'Une erreur est survenue lors de l\'envoi de votre message. Veuillez réessayer ou nous contacter directement par téléphone.'
     });
   }
-};
+}
+
+module.exports = handler;
+// Exposed for tests to reset rate-limit state between cases
+module.exports.__resetRateLimit = () => rateLimitMap.clear();

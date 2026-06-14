@@ -1,11 +1,8 @@
-import { useTranslation } from 'react-i18next';
 import { CheckCircle, Clock, Users, Award, TrendingUp, Target, FileText, Calendar } from 'lucide-react';
 import SEO from '../components/common/SEO';
 import StructuredData from '../components/common/StructuredData';
 
 const BilanCompetences = () => {
-  const { t } = useTranslation();
-
   const phases = [
     {
       number: "01",

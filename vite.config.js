@@ -54,8 +54,6 @@ export default defineConfig({
         },
         // Asset file names
         assetFileNames: (assetInfo) => {
-          const info = assetInfo.name.split('.')
-          const ext = info[info.length - 1]
           if (/\.(png|jpe?g|svg|gif|tiff|bmp|ico|webp)$/i.test(assetInfo.name)) {
             return `assets/images/[name]-[hash][extname]`
           } else if (/\.(woff2?|eot|ttf|otf)$/i.test(assetInfo.name)) {

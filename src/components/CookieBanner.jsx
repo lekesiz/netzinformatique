@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
 export default function CookieBanner() {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
   const cookieTexts = {
     fr: {
