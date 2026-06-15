@@ -7,6 +7,9 @@
  * trackPageView('/about');
  */
 
+// GA4 Measurement ID — must match the gtag snippet hardcoded in index.html <head>.
+export const GA_MEASUREMENT_ID = 'G-1P3QYCN1MJ'
+
 /**
  * Generate or retrieve anonymous user ID
  * Stored in localStorage for consistent tracking across sessions
@@ -32,7 +35,7 @@ export function initUserIdTracking() {
   const userId = getOrCreateUserId()
 
   if (window.gtag) {
-    window.gtag('config', 'G-RXFKWB8YQJ', {
+    window.gtag('config', GA_MEASUREMENT_ID, {
       user_id: userId,
       cookie_flags: 'SameSite=None;Secure'
     })
@@ -106,7 +109,7 @@ export const trackNewsletterSignup = (email) => {
 
 export const trackPageView = (path) => {
   if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('config', import.meta.env.VITE_GA4_MEASUREMENT_ID, {
+    window.gtag('config', GA_MEASUREMENT_ID, {
       page_path: path,
     });
   }
