@@ -3,7 +3,7 @@
  * Provides offline support, caching, and background sync
  */
 
-const CACHE_VERSION = 'v1.0.0'
+const CACHE_VERSION = 'v1.1.0'
 const CACHE_NAME = `netz-cache-${CACHE_VERSION}`
 const RUNTIME_CACHE = `netz-runtime-${CACHE_VERSION}`
 
@@ -130,8 +130,25 @@ async function cacheFirst(request) {
   try {
     const response = await fetch(request)
 
-    // Cache successful responses
-    if (response.status === 200) {
+    // Guard: during a deploy/propagation race, the SPA rewrite can return
+    // index.html (text/html, 200) for a missing hashed asset. Never cache an
+    // HTML response under a script/style/font URL — it would poison the cache
+    // and break the site with a MIME-type error.
+    const contentType = response.headers.get('content-type') || ''
+    const isHtml = contentType.includes('text/html')
+    const isAsset =
+      request.destination === 'script' ||
+      request.destination === 'style' ||
+      request.destination === 'font'
+
+    if (isAsset && isHtml) {
+      // Bad fallback response — return it without caching so the browser errors
+      // transiently (and recovers on next load) instead of permanently.
+      return response
+    }
+
+    // Cache successful, same-origin, basic responses only
+    if (response.status === 200 && response.type === 'basic') {
       cache.put(request, response.clone())
     }
 
