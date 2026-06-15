@@ -8,6 +8,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import CookieConsent from './components/common/CookieConsent'
 import AppointmentWidget from './components/common/AppointmentWidget'
+import WhatsAppButton from './components/common/WhatsAppButton'
 import LiveChat from './components/common/LiveChat'
 import GoogleAnalytics from './components/common/GoogleAnalytics'
 import GoogleTagManager from './components/common/GoogleTagManager'
@@ -143,6 +144,7 @@ function App() {
         <Footer />
         <CookieConsent />
         <AppointmentWidget />
+        <WhatsAppButton />
         <LiveChat />
         <BackToTop />
         <NotificationToast />

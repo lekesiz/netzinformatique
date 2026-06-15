@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { contactSchema } from '@/schemas/contactSchema'
 import { Button } from '@/components/ui/button'
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle, AlertCircle } from 'lucide-react'
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle, AlertCircle, MessageCircle } from 'lucide-react'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import GoogleMap from '@/components/common/GoogleMap'
 import SEO from '@/components/common/SEO'
@@ -20,7 +20,8 @@ const Contact = () => {
     formState: { errors },
     reset
   } = useForm({
-    resolver: zodResolver(contactSchema)
+    resolver: zodResolver(contactSchema),
+    mode: 'onTouched'
   })
 
   const onSubmit = async (data) => {
@@ -88,7 +89,7 @@ const Contact = () => {
                 </h2>
                 
                 {submitStatus === 'success' && (
-                  <Alert className="mb-6 border-green-200 bg-green-50">
+                  <Alert role="status" aria-live="polite" className="mb-6 border-green-200 bg-green-50">
                     <CheckCircle className="h-4 w-4 text-green-600" />
                     <AlertDescription className="text-green-800">
                       {t('contact.successMessage', 'Votre message a été envoyé avec succès! Nous vous répondrons dans les plus brefs délais.')}
@@ -97,7 +98,7 @@ const Contact = () => {
                 )}
                 
                 {submitStatus === 'error' && (
-                  <Alert className="mb-6 border-red-200 bg-red-50">
+                  <Alert role="alert" aria-live="assertive" className="mb-6 border-red-200 bg-red-50">
                     <AlertCircle className="h-4 w-4 text-red-600" />
                     <AlertDescription className="text-red-800">
                       {t('contact.errorMessage', 'Une erreur s\'est produite. Veuillez réessayer ou nous contacter directement par téléphone.')}
@@ -115,12 +116,12 @@ const Contact = () => {
                       type="text" 
                       {...register('name')}
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary transition ${
-                        errors.name ? 'border-red-500' : 'border-border'
+                        errors.name ? 'border-destructive' : 'border-border'
                       }`}
                       placeholder={t('contact.namePlaceholder', 'Votre nom')}
                     />
                     {errors.name && (
-                      <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+                      <p role="alert" className="text-destructive text-sm mt-1">{errors.name.message}</p>
                     )}
                   </div>
 
@@ -133,12 +134,12 @@ const Contact = () => {
                       type="email" 
                       {...register('email')}
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary transition ${
-                        errors.email ? 'border-red-500' : 'border-border'
+                        errors.email ? 'border-destructive' : 'border-border'
                       }`}
                       placeholder={t('contact.emailPlaceholder', 'votre@email.com')}
                     />
                     {errors.email && (
-                      <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+                      <p role="alert" className="text-destructive text-sm mt-1">{errors.email.message}</p>
                     )}
                   </div>
 
@@ -151,12 +152,12 @@ const Contact = () => {
                       type="tel" 
                       {...register('phone')}
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary transition ${
-                        errors.phone ? 'border-red-500' : 'border-border'
+                        errors.phone ? 'border-destructive' : 'border-border'
                       }`}
                       placeholder={t('contact.phonePlaceholder', '+33 6 XX XX XX XX')}
                     />
                     {errors.phone && (
-                      <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>
+                      <p role="alert" className="text-destructive text-sm mt-1">{errors.phone.message}</p>
                     )}
                   </div>
 
@@ -169,12 +170,12 @@ const Contact = () => {
                       type="text" 
                       {...register('subject')}
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary transition ${
-                        errors.subject ? 'border-red-500' : 'border-border'
+                        errors.subject ? 'border-destructive' : 'border-border'
                       }`}
                       placeholder={t('contact.subjectPlaceholder', 'Sujet de votre message')}
                     />
                     {errors.subject && (
-                      <p className="text-red-500 text-sm mt-1">{errors.subject.message}</p>
+                      <p role="alert" className="text-destructive text-sm mt-1">{errors.subject.message}</p>
                     )}
                   </div>
 
@@ -187,12 +188,12 @@ const Contact = () => {
                       {...register('message')}
                       rows="5" 
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary transition ${
-                        errors.message ? 'border-red-500' : 'border-border'
+                        errors.message ? 'border-destructive' : 'border-border'
                       }`}
                       placeholder={t('contact.messagePlaceholder', 'Votre message...')}
                     ></textarea>
                     {errors.message && (
-                      <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
+                      <p role="alert" className="text-destructive text-sm mt-1">{errors.message.message}</p>
                     )}
                   </div>
 
@@ -241,6 +242,20 @@ const Contact = () => {
                       </div>
                     </div>
                     <div className="flex items-start gap-4">
+                      <MessageCircle className="text-[#25D366]" size={24} />
+                      <div>
+                        <h3 className="font-bold mb-1">WhatsApp</h3>
+                        <a
+                          href="https://wa.me/33766638040"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-muted-foreground hover:text-primary transition"
+                        >
+                          +33 7 66 63 80 40
+                        </a>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-4">
                       <MapPin className="text-accent" size={24} />
                       <div>
                         <h3 className="font-bold mb-1">{t('contact.address', 'Adresse')}</h3>
@@ -275,6 +290,12 @@ const Contact = () => {
                       <Button size="lg" className="w-full bg-white text-primary hover:bg-white/90">
                         <Phone className="mr-2" size={20} />
                         {t('contact.callNow', 'Appeler Maintenant')}
+                      </Button>
+                    </a>
+                    <a href="https://wa.me/33766638040" target="_blank" rel="noopener noreferrer">
+                      <Button size="lg" className="w-full bg-[#25D366] text-white hover:bg-[#25D366]/90">
+                        <MessageCircle className="mr-2" size={20} />
+                        WhatsApp
                       </Button>
                     </a>
                     <a href="mailto:contact@netzinformatique.fr">
