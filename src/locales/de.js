@@ -360,7 +360,9 @@ export default {
   "ctaTitle": "Schließen Sie sich über 900 zufriedenen Kunden an",
   "ctaSubtitle": "Vertrauen Sie für Ihre digitale Transformation auf die Expertise von NETZ Informatique",
   "ctaContact": "Kontaktieren Sie uns",
-  "ctaServices": "Unsere Leistungen entdecken"
+  "ctaServices": "Unsere Leistungen entdecken",
+  "seoTitle": "Über NETZ Informatique | IT-Experte in Haguenau",
+  "seoDescription": "Über 35 Jahre IT-Expertise im Dienste Ihrer digitalen Transformation in der Region Grand Est. Entdecken Sie unsere Geschichte, unsere Werte und unser Team."
  },
  "bilan": {
   "phase1Title": "Vorbereitungsphase",
@@ -474,7 +476,9 @@ export default {
   "ctaTitle": "Bereit, Ihre Kompetenzen auszubauen?",
   "ctaSubtitle": "Kontaktieren Sie uns, um Ihr Weiterbildungsvorhaben zu besprechen und passende Finanzierungslösungen zu entdecken",
   "ctaContact": "Kontaktieren Sie uns",
-  "ctaAllFormations": "Alle Weiterbildungen ansehen"
+  "ctaAllFormations": "Alle Weiterbildungen ansehen",
+  "seoTitle": "QUALIOPI-Schulungen & Kompetenzbilanz | NETZ Informatique",
+  "seoDescription": "QUALIOPI-zertifizierte Schulungen und Kompetenzbilanzen, finanziert durch CPF, OPCO und Pôle Emploi. Entwickeln Sie Ihre digitalen Kompetenzen in Haguenau."
  },
  "legal": {
   "editorDenomination": "Firmenbezeichnung",
@@ -576,7 +580,9 @@ export default {
   "ctaTitle": "Brauchen Sie Beratung?",
   "ctaSubtitle": "Unser Expertenteam steht Ihnen zur Verfügung, um Sie bei der Auswahl Ihrer IT-Hardware zu beraten und zu begleiten",
   "ctaContact": "Kontaktieren Sie uns",
-  "ctaShop": "Online-Shop besuchen"
+  "ctaShop": "Online-Shop besuchen",
+  "metaTitle": "IT-Hardware | NETZ Informatique",
+  "metaDesc": "Maßgeschneiderte PCs, Server, Laptops, Peripheriegeräte und Drucker renommierter Marken in Haguenau. Beratung, Montage und Garantie durch NETZ Informatique."
  },
  "privacy": {
   "heroBadge": "DSGVO-konform",
@@ -763,7 +769,9 @@ export default {
   "entDesc": "Umfassende IT-Lösungen zur Optimierung Ihrer Geschäftstätigkeit",
   "entFeat1": "IT-Wartung und Verträge",
   "entFeat2": "Netzwerkinfrastruktur",
-  "entFeat3": "Fortschrittliche Cybersicherheit"
+  "entFeat3": "Fortschrittliche Cybersicherheit",
+  "seoTitle": "Unsere IT-Dienstleistungen | NETZ Informatique",
+  "seoDescription": "Umfassende technologische Lösungen für Privatpersonen und Unternehmen: Reparatur, IT-Wartung, Netzwerkinfrastruktur und Cybersicherheit."
  },
  "solAI": {
   "pageTitle": "Offline-KI | KI-Server vor Ort - NETZ",
@@ -1024,7 +1032,9 @@ export default {
   "statYears": "Jahre Erfahrung",
   "ctaTitle": "Bereit, Ihr Web-Projekt zu starten?",
   "ctaSubtitle": "Sprechen wir über Ihr Projekt und finden gemeinsam die ideale Lösung für Ihr Unternehmen",
-  "ctaQuote": "Kostenloses Angebot anfordern"
+  "ctaQuote": "Kostenloses Angebot anfordern",
+  "seoTitle": "Webentwicklung & SEO | NETZ Informatique",
+  "seoDescription": "Erstellung moderner Websites (Präsentation, Business, E-Commerce) und SEO-Optimierung in Haguenau. Optimierte, leistungsstarke und sichere Websites."
  },
  "solutions": {
   "heroTitlePre": "Unsere",
@@ -1036,7 +1046,9 @@ export default {
   "webTitle": "Web & SEO",
   "webDesc": "Moderne Websites und optimale Suchmaschinenplatzierung",
   "cloudTitle": "Cloud Computing",
-  "cloudDesc": "Cloud-Migration und -Optimierung"
+  "cloudDesc": "Cloud-Migration und -Optimierung",
+  "seoTitle": "Unsere IT-Lösungen: KI, Web, Cloud | NETZ Informatique",
+  "seoDescription": "Innovative technologische Lösungen: Offline-Künstliche-Intelligenz, Webentwicklung & SEO, Cloud Computing. Für Privatpersonen und Unternehmen in Haguenau."
  },
  "tarifs": {
   "part1Name": "Pannenhilfe vor Ort",
@@ -1912,5 +1924,30 @@ export default {
   "ctaTitle": "Bereit, Ihr Web-Projekt zu starten?",
   "ctaSubtitle": "Kostenloses Angebot • Modernes Design • Schnelle Lieferung • Support inklusive",
   "ctaQuote": "Angebot anfordern"
+ },
+ "cases": {
+  "c1Sector": "Industrielles KMU · Haguenau",
+  "c1Challenge": "Häufige IT-Ausfälle und keine zuverlässige Datensicherung, wodurch die Produktion zum Stillstand kam.",
+  "c1Solution": "Proaktiver Wartungsvertrag + automatische Backups und 24/7-Überwachung.",
+  "c1Result": "an Störungen, kein Datenverlust",
+  "c2Sector": "Anwaltskanzlei",
+  "c2Challenge": "Bedarf an KI zur Zeitersparnis, ohne vertrauliche Daten in die Cloud zu senden.",
+  "c2Solution": "Bereitstellung einer zu 100 % lokalen Offline-KI, DSGVO-konform.",
+  "c2Result": "der Daten werden lokal verarbeitet, DSGVO-Konformität",
+  "c3Sector": "Lokaler Einzelhandel",
+  "c3Challenge": "Sehr geringe Online-Sichtbarkeit und keine digitale Geschäftspräsenz.",
+  "c3Solution": "Erstellung einer SEO-optimierten Präsentationswebsite + lokale Suchmaschinenoptimierung.",
+  "c3Result": "Besucher in 6 Monaten",
+  "c4Sector": "Berufliche Weiterbildung",
+  "c4Challenge": "Kompetenzaufbau der Teams im Umgang mit digitalen Werkzeugen und KI.",
+  "c4Solution": "QUALIOPI-zertifizierte Schulungen, finanzierbar über CPF/OPCO.",
+  "c4Result": "geschulte Teilnehmer",
+  "badge": "Konkrete Ergebnisse",
+  "title": "Unsere",
+  "titleHighlight": "Referenzen",
+  "subtitle": "Konkrete Beispiele für die Wirkung unserer Lösungen für unsere Kunden in der Region Grand Est.",
+  "challengeLabel": "Herausforderung:",
+  "solutionLabel": "Lösung:",
+  "cta": "Sprechen wir über Ihr Projekt"
  }
 }

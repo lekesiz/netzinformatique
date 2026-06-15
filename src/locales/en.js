@@ -360,7 +360,9 @@ export default {
   "ctaTitle": "Join Over 900 Satisfied Clients",
   "ctaSubtitle": "Trust NETZ Informatique's expertise for your digital transformation",
   "ctaContact": "Contact Us",
-  "ctaServices": "Discover Our Services"
+  "ctaServices": "Discover Our Services",
+  "seoTitle": "About NETZ Informatique | IT Expert in Haguenau",
+  "seoDescription": "Over 35 years of IT expertise serving your digital transformation in the Grand Est region. Discover our story, our values, and our team."
  },
  "bilan": {
   "phase1Title": "Preliminary Phase",
@@ -474,7 +476,9 @@ export default {
   "ctaTitle": "Ready to Develop Your Skills?",
   "ctaSubtitle": "Contact us to discuss your training project and discover the funding options that suit you",
   "ctaContact": "Contact Us",
-  "ctaAllFormations": "View All Courses"
+  "ctaAllFormations": "View All Courses",
+  "seoTitle": "QUALIOPI Training & Skills Assessment | NETZ Informatique",
+  "seoDescription": "QUALIOPI-certified training and skills assessments funded by CPF, OPCO, and Pôle Emploi. Develop your digital skills in Haguenau."
  },
  "legal": {
   "editorDenomination": "Company name",
@@ -576,7 +580,9 @@ export default {
   "ctaTitle": "Need Advice?",
   "ctaSubtitle": "Our team of experts is available to advise you and guide you in choosing your IT hardware",
   "ctaContact": "Contact Us",
-  "ctaShop": "Visit the Online Store"
+  "ctaShop": "Visit the Online Store",
+  "metaTitle": "IT Hardware | NETZ Informatique",
+  "metaDesc": "Custom-built PCs, servers, laptops, peripherals, and printers from trusted brands in Haguenau. Advice, assembly, and warranty by NETZ Informatique."
  },
  "privacy": {
   "heroBadge": "GDPR Compliant",
@@ -763,7 +769,9 @@ export default {
   "entDesc": "Complete IT solutions to optimize your professional operations",
   "entFeat1": "IT maintenance and contracts",
   "entFeat2": "Network infrastructure",
-  "entFeat3": "Advanced cybersecurity"
+  "entFeat3": "Advanced cybersecurity",
+  "seoTitle": "Our IT Services | NETZ Informatique",
+  "seoDescription": "Comprehensive technology solutions for individuals and businesses: troubleshooting, IT maintenance, network infrastructure, and cybersecurity."
  },
  "solAI": {
   "pageTitle": "Offline Artificial Intelligence | On-site AI Servers - NETZ",
@@ -1024,7 +1032,9 @@ export default {
   "statYears": "Years of Experience",
   "ctaTitle": "Ready to Launch Your Web Project?",
   "ctaSubtitle": "Let's discuss your project and find the ideal solution for your business together",
-  "ctaQuote": "Request a Free Quote"
+  "ctaQuote": "Request a Free Quote",
+  "seoTitle": "Web Development & SEO | NETZ Informatique",
+  "seoDescription": "Creation of modern websites (showcase, business, e-commerce) and SEO in Haguenau. Optimized, high-performance, and secure websites."
  },
  "solutions": {
   "heroTitlePre": "Our",
@@ -1036,7 +1046,9 @@ export default {
   "webTitle": "Web & SEO",
   "webDesc": "Modern websites and optimal search ranking",
   "cloudTitle": "Cloud Computing",
-  "cloudDesc": "Cloud migration and optimization"
+  "cloudDesc": "Cloud migration and optimization",
+  "seoTitle": "Our IT Solutions: AI, Web, Cloud | NETZ Informatique",
+  "seoDescription": "Innovative technology solutions: Offline Artificial Intelligence, web development & SEO, cloud computing. For individuals and businesses in Haguenau."
  },
  "tarifs": {
   "part1Name": "On-site troubleshooting",
@@ -1912,5 +1924,30 @@ export default {
   "ctaTitle": "Ready to Launch Your Web Project?",
   "ctaSubtitle": "Free quote • Modern design • Fast delivery • Support included",
   "ctaQuote": "Request a Quote"
+ },
+ "cases": {
+  "c1Sector": "Industrial SME · Haguenau",
+  "c1Challenge": "Frequent IT failures and no reliable backup, bringing production to a halt.",
+  "c1Solution": "Proactive maintenance contract + automatic backups and 24/7 monitoring.",
+  "c1Result": "fewer incidents, zero data loss",
+  "c2Sector": "Law firm",
+  "c2Challenge": "Need for AI to save time, without sending confidential data to the cloud.",
+  "c2Solution": "Deployment of a 100% local Offline AI, GDPR-compliant.",
+  "c2Result": "of data processed locally, GDPR compliance",
+  "c3Sector": "Local retail",
+  "c3Challenge": "Very low online visibility and no digital commercial presence.",
+  "c3Solution": "Creation of an SEO-optimized showcase website + local search ranking.",
+  "c3Result": "visitors in 6 months",
+  "c4Sector": "Professional training",
+  "c4Challenge": "Upskilling teams on digital tools and AI.",
+  "c4Solution": "QUALIOPI-certified training, fundable via CPF/OPCO.",
+  "c4Result": "participants trained",
+  "badge": "Concrete results",
+  "title": "Our",
+  "titleHighlight": "case studies",
+  "subtitle": "Concrete examples of the impact of our solutions for our clients across the Grand Est region.",
+  "challengeLabel": "Challenge:",
+  "solutionLabel": "Solution:",
+  "cta": "Let's discuss your project"
  }
 }

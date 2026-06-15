@@ -11,6 +11,7 @@ import WhyChooseUsSection from '@/components/home/WhyChooseUsSection'
 import PartnersSection from '@/components/home/PartnersSection'
 import BoutiqueSection from '@/components/home/BoutiqueSection'
 import NewsletterSection from '@/components/home/NewsletterSection'
+import CaseStudiesSection from '@/components/home/CaseStudiesSection'
 import SEO from '@/components/common/SEO'
 import StructuredData from '@/components/common/StructuredData'
 import Reveal from '@/components/common/Reveal'
@@ -147,6 +148,9 @@ const Home = () => {
 
         {/* Why Choose Us Section */}
         <Reveal><WhyChooseUsSection /></Reveal>
+
+        {/* Case Studies / Réalisations */}
+        <CaseStudiesSection />
 
         {/* Testimonials Section */}
         <Reveal><TestimonialsSection /></Reveal>

@@ -360,7 +360,9 @@ export default {
   "ctaTitle": "900'den Fazla Memnun Müşteriye Katılın",
   "ctaSubtitle": "Dijital dönüşümünüz için NETZ Informatique uzmanlığına güvenin",
   "ctaContact": "Bize Ulaşın",
-  "ctaServices": "Hizmetlerimizi Keşfedin"
+  "ctaServices": "Hizmetlerimizi Keşfedin",
+  "seoTitle": "NETZ Informatique Hakkında | Haguenau'da BT Uzmanı",
+  "seoDescription": "Grand Est bölgesindeki dijital dönüşümünüzün hizmetinde 35 yılı aşkın BT uzmanlığı. Hikayemizi, değerlerimizi ve ekibimizi keşfedin."
  },
  "bilan": {
   "phase1Title": "Ön Aşama",
@@ -474,7 +476,9 @@ export default {
   "ctaTitle": "Becerilerinizi Geliştirmeye Hazır mısınız?",
   "ctaSubtitle": "Eğitim projenizi görüşmek ve size uygun finansman çözümlerini keşfetmek için bize ulaşın",
   "ctaContact": "Bize Ulaşın",
-  "ctaAllFormations": "Tüm Eğitimleri Görün"
+  "ctaAllFormations": "Tüm Eğitimleri Görün",
+  "seoTitle": "QUALIOPI Eğitimleri ve Yetkinlik Değerlendirmesi | NETZ Informatique",
+  "seoDescription": "QUALIOPI sertifikalı eğitimler ve CPF, OPCO ile Pôle Emploi tarafından finanse edilen yetkinlik değerlendirmesi. Dijital becerilerinizi Haguenau'da geliştirin."
  },
  "legal": {
   "editorDenomination": "Ticari unvan",
@@ -576,7 +580,9 @@ export default {
   "ctaTitle": "Tavsiyeye mi İhtiyacınız Var?",
   "ctaSubtitle": "Uzman ekibimiz, bilişim donanımınızın seçiminde size danışmanlık yapmak ve eşlik etmek için emrinizde",
   "ctaContact": "Bize Ulaşın",
-  "ctaShop": "Çevrimiçi Mağazayı Ziyaret Edin"
+  "ctaShop": "Çevrimiçi Mağazayı Ziyaret Edin",
+  "metaTitle": "Bilişim donanımı | NETZ Informatique",
+  "metaDesc": "Haguenau'da tanınmış markalardan kişiye özel PC'ler, sunucular, dizüstü bilgisayarlar, çevre birimleri ve yazıcılar. NETZ Informatique tarafından danışmanlık, kurulum ve garanti."
  },
  "privacy": {
   "heroBadge": "GDPR (RGPD) Uyumlu",
@@ -763,7 +769,9 @@ export default {
   "entDesc": "Faaliyetinizi optimize etmek için eksiksiz BT çözümleri",
   "entFeat1": "BT bakımı ve sözleşmeler",
   "entFeat2": "Ağ altyapısı",
-  "entFeat3": "Gelişmiş siber güvenlik"
+  "entFeat3": "Gelişmiş siber güvenlik",
+  "seoTitle": "Bilişim Hizmetlerimiz | NETZ Informatique",
+  "seoDescription": "Bireyler ve işletmeler için eksiksiz teknoloji çözümleri: arıza giderme, BT bakımı, ağ altyapısı ve siber güvenlik."
  },
  "solAI": {
   "pageTitle": "Çevrimdışı Yapay Zeka | Yerinde YZ Sunucuları - NETZ",
@@ -1024,7 +1032,9 @@ export default {
   "statYears": "Yıllık Deneyim",
   "ctaTitle": "Web Projenizi Başlatmaya Hazır mısınız?",
   "ctaSubtitle": "Projenizi konuşalım ve şirketiniz için ideal çözümü birlikte bulalım",
-  "ctaQuote": "Ücretsiz Teklif İsteyin"
+  "ctaQuote": "Ücretsiz Teklif İsteyin",
+  "seoTitle": "Web Geliştirme ve SEO | NETZ Informatique",
+  "seoDescription": "Haguenau'da modern web sitelerinin oluşturulması (tanıtım, kurumsal, e-ticaret) ve SEO arama motoru optimizasyonu. Optimize edilmiş, yüksek performanslı ve güvenli siteler."
  },
  "solutions": {
   "heroTitlePre": "Yenilikçi",
@@ -1036,7 +1046,9 @@ export default {
   "webTitle": "Web ve SEO",
   "webDesc": "Modern web siteleri ve optimum arama sıralaması",
   "cloudTitle": "Bulut Bilişim",
-  "cloudDesc": "Buluta geçiş ve optimizasyon"
+  "cloudDesc": "Buluta geçiş ve optimizasyon",
+  "seoTitle": "BT Çözümlerimiz: Yapay Zeka, Web, Bulut | NETZ Informatique",
+  "seoDescription": "Yenilikçi teknoloji çözümleri: Çevrimdışı Yapay Zeka, web geliştirme ve SEO, bulut bilişim. Haguenau'daki bireyler ve işletmeler için."
  },
  "tarifs": {
   "part1Name": "Yerinde arıza giderme",
@@ -1912,5 +1924,30 @@ export default {
   "ctaTitle": "Web Projenizi Başlatmaya Hazır mısınız?",
   "ctaSubtitle": "Ücretsiz teklif • Modern tasarım • Hızlı teslimat • Destek dahil",
   "ctaQuote": "Teklif İste"
+ },
+ "cases": {
+  "c1Sector": "Sanayi KOBİ'si · Haguenau",
+  "c1Challenge": "Sık yaşanan bilişim arızaları ve güvenilir yedeklemenin olmaması, üretimi durma noktasına getiriyordu.",
+  "c1Solution": "Proaktif bakım sözleşmesi + otomatik yedeklemeler ve 7/24 izleme.",
+  "c1Result": "daha az olay, sıfır veri kaybı",
+  "c2Sector": "Hukuk bürosu",
+  "c2Challenge": "Gizli verileri buluta göndermeden zamandan tasarruf etmek için yapay zeka ihtiyacı.",
+  "c2Solution": "GDPR (RGPD) uyumlu, %100 yerel Çevrimdışı Yapay Zeka kurulumu.",
+  "c2Result": "verilerin yerel olarak işlenmesi, GDPR (RGPD) uyumluluğu",
+  "c3Sector": "Yerel ticaret",
+  "c3Challenge": "Çevrimiçi görünürlüğün çok düşük olması ve hiçbir dijital ticari varlığın bulunmaması.",
+  "c3Solution": "SEO için optimize edilmiş bir tanıtım sitesinin oluşturulması + yerel arama motoru optimizasyonu.",
+  "c3Result": "6 ayda ziyaretçi artışı",
+  "c4Sector": "Mesleki eğitim",
+  "c4Challenge": "Ekiplerin dijital araçlar ve yapay zeka konusundaki yetkinliklerinin geliştirilmesi.",
+  "c4Solution": "CPF/OPCO ile finanse edilebilen QUALIOPI sertifikalı eğitimler.",
+  "c4Result": "eğitilen katılımcı",
+  "badge": "Somut sonuçlar",
+  "title": "Gerçekleştirdiğimiz",
+  "titleHighlight": "projeler",
+  "subtitle": "Grand Est bölgesindeki müşterilerimiz için çözümlerimizin etkisine dair somut örnekler.",
+  "challengeLabel": "Zorluk:",
+  "solutionLabel": "Çözüm:",
+  "cta": "Projenizi konuşalım"
  }
 }
