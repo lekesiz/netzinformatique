@@ -65,15 +65,15 @@ const About = () => {
               Plus de 35 ans d'expertise au service de votre transformation digitale dans le Grand Est
             </p>
             <div className="flex gap-4 justify-center flex-wrap text-sm">
-              <div className="flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-md">
+              <div className="flex items-center gap-2 bg-card rounded-full px-4 py-2 shadow-md">
                 <MapPin size={16} className="text-primary" />
                 <span>Haguenau, Alsace</span>
               </div>
-              <div className="flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-md">
+              <div className="flex items-center gap-2 bg-card rounded-full px-4 py-2 shadow-md">
                 <Calendar size={16} className="text-primary" />
                 <span>Depuis 2009</span>
               </div>
-              <div className="flex items-center gap-2 bg-white rounded-full px-4 py-2 shadow-md">
+              <div className="flex items-center gap-2 bg-card rounded-full px-4 py-2 shadow-md">
                 <Briefcase size={16} className="text-primary" />
                 <span>900+ Clients</span>
               </div>
@@ -161,7 +161,7 @@ const About = () => {
                   <div className="flex-shrink-0 w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold text-lg">
                     {milestone.year}
                   </div>
-                  <div className="flex-1 bg-white rounded-xl p-6 shadow-lg">
+                  <div className="flex-1 bg-card rounded-xl p-6 shadow-lg">
                     <h3 className="text-xl font-bold mb-2">{milestone.title}</h3>
                     <p className="text-muted-foreground">{milestone.description}</p>
                   </div>
@@ -241,7 +241,7 @@ const About = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {values.map((value, index) => (
-              <div key={index} className="bg-white rounded-xl p-8 shadow-lg hover-lift">
+              <div key={index} className="bg-card rounded-xl p-8 shadow-lg hover-lift">
                 <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
                   <value.icon size={32} className="text-primary" />
                 </div>
@@ -272,7 +272,7 @@ const About = () => {
                 <p className="text-muted-foreground mb-4">{member.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {member.expertise.map((skill, idx) => (
-                    <span key={idx} className="bg-white px-3 py-1 rounded-full text-sm font-semibold text-primary">
+                    <span key={idx} className="bg-card px-3 py-1 rounded-full text-sm font-semibold text-primary">
                       {skill}
                     </span>
                   ))}
@@ -297,7 +297,7 @@ const About = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {certifications.map((cert, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 shadow-lg text-center">
+              <div key={index} className="bg-card rounded-xl p-6 shadow-lg text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4">
                   <Star size={32} className="text-white" />
                 </div>

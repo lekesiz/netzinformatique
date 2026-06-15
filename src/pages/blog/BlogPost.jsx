@@ -45,7 +45,7 @@ const BlogPost = () => {
         url={`/blog/${post.slug}`}
       />
 
-      <div className="bg-gray-50 py-16">
+      <div className="bg-muted py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             {/* Back to blog */}
@@ -58,7 +58,7 @@ const BlogPost = () => {
             </Link>
 
             {/* Article Header */}
-            <article className="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <article className="bg-card rounded-2xl shadow-lg overflow-hidden">
               {/* Featured Image */}
               <div className="aspect-video overflow-hidden">
                 <img 
@@ -82,7 +82,7 @@ const BlogPost = () => {
                 </h1>
 
                 {/* Meta Info */}
-                <div className="flex flex-wrap items-center gap-6 text-gray-600 mb-8 pb-8 border-b">
+                <div className="flex flex-wrap items-center gap-6 text-muted-foreground mb-8 pb-8 border-b">
                   <div className="flex items-center gap-2">
                     <Calendar size={18} />
                     <span>{new Date(post.date).toLocaleDateString(i18n.language, { 

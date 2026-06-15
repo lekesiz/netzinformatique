@@ -266,7 +266,7 @@ const IAOffline = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {benefits.map((benefit, index) => (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-lg hover-lift">
+                <div key={index} className="bg-card rounded-xl p-6 shadow-lg hover-lift">
                   <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
                     <benefit.icon size={24} className="text-purple-600" />
                   </div>
@@ -292,7 +292,7 @@ const IAOffline = () => {
 
             <div className="grid md:grid-cols-2 gap-8">
               {useCases.map((useCase, index) => (
-                <div key={index} className="bg-white rounded-2xl p-8 shadow-xl">
+                <div key={index} className="bg-card rounded-2xl p-8 shadow-xl">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="text-5xl">{useCase.icon}</div>
                     <h3 className="text-2xl font-bold">{useCase.sector}</h3>
@@ -328,7 +328,7 @@ const IAOffline = () => {
 
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               {features.map((feature, index) => (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-lg">
+                <div key={index} className="bg-card rounded-xl p-6 shadow-lg">
                   <h3 className="text-xl font-bold mb-3 text-purple-600">{feature.title}</h3>
                   <p className="text-muted-foreground mb-4 text-sm">{feature.description}</p>
                   <div className="flex flex-wrap gap-2">
@@ -358,7 +358,7 @@ const IAOffline = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {models.map((model, index) => (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-lg">
+                <div key={index} className="bg-card rounded-xl p-6 shadow-lg">
                   <h3 className="font-bold text-lg mb-2">{model.name}</h3>
                   <div className="text-sm text-muted-foreground mb-3">{model.size}</div>
                   <div className="mb-3">
@@ -391,7 +391,7 @@ const IAOffline = () => {
               {configurations.map((config, index) => (
                 <div 
                   key={index}
-                  className={`bg-white rounded-2xl shadow-xl overflow-hidden ${
+                  className={`bg-card rounded-2xl shadow-xl overflow-hidden ${
                     config.popular ? 'ring-4 ring-purple-500 transform scale-105' : ''
                   }`}
                 >
@@ -449,7 +449,7 @@ const IAOffline = () => {
               </p>
             </div>
 
-            <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div className="max-w-4xl mx-auto bg-card rounded-2xl shadow-xl overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead className="bg-purple-600 text-white">
@@ -488,7 +488,7 @@ const IAOffline = () => {
 
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               {roi.map((scenario, index) => (
-                <div key={index} className="bg-white rounded-2xl p-8 shadow-xl">
+                <div key={index} className="bg-card rounded-2xl p-8 shadow-xl">
                   <h3 className="text-xl font-bold mb-6 text-purple-600">{scenario.scenario}</h3>
                   <div className="space-y-4">
                     <div className="flex justify-between items-center py-2 border-b">
@@ -544,7 +544,7 @@ const IAOffline = () => {
 
             <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
               {faq.map((item, index) => (
-                <AccordionItem value={`item-${index}`} key={index} className="bg-white rounded-lg mb-3 px-6 border shadow-sm">
+                <AccordionItem value={`item-${index}`} key={index} className="bg-card rounded-lg mb-3 px-6 border shadow-sm">
                   <AccordionTrigger className="text-lg font-semibold text-left hover:text-purple-600">
                     {item.question}
                   </AccordionTrigger>

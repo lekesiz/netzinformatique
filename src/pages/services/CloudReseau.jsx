@@ -227,7 +227,7 @@ const CloudReseau = () => {
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {features.map((feature, index) => (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-lg hover-lift">
+                <div key={index} className="bg-card rounded-xl p-6 shadow-lg hover-lift">
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                     <feature.icon size={24} className="text-blue-600" />
                   </div>
@@ -253,7 +253,7 @@ const CloudReseau = () => {
 
             <div className="grid md:grid-cols-3 gap-8">
               {cloudSolutions.map((solution, index) => (
-                <div key={index} className="bg-white rounded-2xl shadow-xl p-8">
+                <div key={index} className="bg-card rounded-2xl shadow-xl p-8">
                   <div className="text-5xl mb-4 text-center">{solution.icon}</div>
                   <h3 className="text-2xl font-bold mb-2 text-center">{solution.name}</h3>
                   <p className="text-muted-foreground text-center mb-6">{solution.description}</p>
@@ -291,7 +291,7 @@ const CloudReseau = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {networkServices.map((service, index) => (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-lg">
+                <div key={index} className="bg-card rounded-xl p-6 shadow-lg">
                   <h3 className="font-bold text-xl mb-3 text-blue-600">{service.title}</h3>
                   <p className="text-muted-foreground mb-4 text-sm">{service.description}</p>
                   <div className="flex items-center justify-between">
@@ -317,7 +317,7 @@ const CloudReseau = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
               {benefits.map((benefit, index) => (
-                <div key={index} className="bg-white rounded-xl p-6 text-center shadow-lg">
+                <div key={index} className="bg-card rounded-xl p-6 text-center shadow-lg">
                   <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <benefit.icon size={32} className="text-blue-600" />
                   </div>
@@ -369,7 +369,7 @@ const CloudReseau = () => {
 
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               {caseStudies.map((study, index) => (
-                <div key={index} className="bg-white rounded-2xl p-8 shadow-xl">
+                <div key={index} className="bg-card rounded-2xl p-8 shadow-xl">
                   <div className="text-sm text-blue-600 font-semibold mb-2">{study.company}</div>
                   <div className="mb-4">
                     <div className="font-bold mb-1">Problématique:</div>
@@ -400,7 +400,7 @@ const CloudReseau = () => {
 
             <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
               {faq.map((item, index) => (
-                <AccordionItem value={`item-${index}`} key={index} className="bg-white rounded-lg mb-3 px-6 border shadow-sm">
+                <AccordionItem value={`item-${index}`} key={index} className="bg-card rounded-lg mb-3 px-6 border shadow-sm">
                   <AccordionTrigger className="text-lg font-semibold text-left hover:text-blue-600">
                     {item.question}
                   </AccordionTrigger>

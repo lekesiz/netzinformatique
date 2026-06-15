@@ -180,7 +180,7 @@ const DepannageMaintenance = () => {
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
                 Dépannage & Maintenance <span className="text-blue-600">Informatique</span>
               </h1>
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="text-xl text-muted-foreground mb-8">
                 Intervention rapide sous 24-48h pour tous vos problèmes informatiques. 
                 Plus de 2772 appareils réparés avec succès.
               </p>
@@ -203,7 +203,7 @@ const DepannageMaintenance = () => {
         </section>
 
         {/* Features Section */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-card">
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {features.map((feature, index) => (
@@ -212,7 +212,7 @@ const DepannageMaintenance = () => {
                     <feature.icon size={32} className="text-blue-600" />
                   </div>
                   <h3 className="font-bold text-lg mb-2">{feature.title}</h3>
-                  <p className="text-gray-600 text-sm">{feature.description}</p>
+                  <p className="text-muted-foreground text-sm">{feature.description}</p>
                 </div>
               ))}
             </div>
@@ -220,26 +220,26 @@ const DepannageMaintenance = () => {
         </section>
 
         {/* Services Grid */}
-        <section className="py-20 bg-gray-50">
+        <section className="py-20 bg-muted">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Nos Services de Dépannage
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl text-muted-foreground">
                 Une expertise complète pour tous vos équipements
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {services.map((service, index) => (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-lg hover-lift">
+                <div key={index} className="bg-card rounded-xl p-6 shadow-lg hover-lift">
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                     <service.icon size={24} className="text-blue-600" />
                   </div>
                   <h3 className="font-bold text-xl mb-4">{service.title}</h3>
                   <ul className="space-y-2">
                     {service.items.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-gray-600">
+                      <li key={idx} className="flex items-start gap-2 text-muted-foreground">
                         <CheckCircle size={16} className="text-green-500 mt-1 flex-shrink-0" />
                         <span className="text-sm">{item}</span>
                       </li>
@@ -252,13 +252,13 @@ const DepannageMaintenance = () => {
         </section>
 
         {/* Pricing Section */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-card">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Tarifs Transparents
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl text-muted-foreground">
                 Pas de mauvaise surprise, devis gratuit avant intervention
               </p>
             </div>
@@ -269,16 +269,16 @@ const DepannageMaintenance = () => {
                   className={`rounded-2xl p-8 ${
                     plan.highlighted 
                       ? 'bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-2xl scale-105' 
-                      : 'bg-white border-2 border-gray-200'
+                      : 'bg-card border-2 border-border'
                   }`}
                 >
-                  <h3 className={`font-bold text-2xl mb-2 ${plan.highlighted ? 'text-white' : 'text-gray-900'}`}>
+                  <h3 className={`font-bold text-2xl mb-2 ${plan.highlighted ? 'text-white' : 'text-foreground'}`}>
                     {plan.name}
                   </h3>
                   <div className={`text-3xl font-bold mb-2 ${plan.highlighted ? 'text-white' : 'text-blue-600'}`}>
                     {plan.price}
                   </div>
-                  <p className={`mb-6 ${plan.highlighted ? 'text-blue-100' : 'text-gray-600'}`}>
+                  <p className={`mb-6 ${plan.highlighted ? 'text-blue-100' : 'text-muted-foreground'}`}>
                     {plan.description}
                   </p>
                   <ul className="space-y-3 mb-8">
@@ -288,7 +288,7 @@ const DepannageMaintenance = () => {
                           size={20} 
                           className={plan.highlighted ? 'text-green-300' : 'text-green-500'} 
                         />
-                        <span className={`text-sm ${plan.highlighted ? 'text-blue-50' : 'text-gray-600'}`}>
+                        <span className={`text-sm ${plan.highlighted ? 'text-blue-50' : 'text-muted-foreground'}`}>
                           {feature}
                         </span>
                       </li>
@@ -312,7 +312,7 @@ const DepannageMaintenance = () => {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-20 bg-gray-50">
+        <section className="py-20 bg-muted">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
@@ -320,11 +320,11 @@ const DepannageMaintenance = () => {
               </h2>
               <div className="space-y-6">
                 {faq.map((item, index) => (
-                  <div key={index} className="bg-white rounded-xl p-6 shadow-md">
+                  <div key={index} className="bg-card rounded-xl p-6 shadow-md">
                     <h3 className="font-bold text-lg mb-3 text-blue-600">
                       {item.question}
                     </h3>
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="text-muted-foreground leading-relaxed">
                       {item.answer}
                     </p>
                   </div>

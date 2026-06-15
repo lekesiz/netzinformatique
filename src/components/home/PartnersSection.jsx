@@ -22,7 +22,7 @@ const PartnersSection = () => {
   ]
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-muted">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -37,7 +37,7 @@ const PartnersSection = () => {
           {partners.map((partner, index) => (
             <div
               key={index}
-              className="flex items-center justify-center p-8 bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300"
+              className="flex items-center justify-center p-8 bg-card rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300"
             >
               <img
                 src={partner.logo}

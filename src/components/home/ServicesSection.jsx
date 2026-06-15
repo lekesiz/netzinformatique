@@ -32,7 +32,7 @@ const ServicesSection = () => {
             return (
               <div
                 key={service.id}
-                className="bg-white rounded-2xl p-6 shadow-lg hover-lift transition-all duration-300 border border-gray-100 hover:border-primary/30"
+                className="bg-card rounded-2xl p-6 shadow-lg hover-lift transition-all duration-300 border border-border hover:border-primary/30"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className={`w-16 h-16 ${service.color} rounded-xl flex items-center justify-center mb-4`}>

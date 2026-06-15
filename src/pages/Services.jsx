@@ -19,7 +19,7 @@ const Services = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12">
-            <div className="bg-white rounded-2xl p-8 shadow-xl hover-lift">
+            <div className="bg-card rounded-2xl p-8 shadow-xl hover-lift">
               <div className="w-20 h-20 gradient-purple rounded-xl flex items-center justify-center mb-6">
                 <Users size={40} className="text-white" />
               </div>
@@ -48,7 +48,7 @@ const Services = () => {
               </Link>
             </div>
             
-            <div className="bg-white rounded-2xl p-8 shadow-xl hover-lift">
+            <div className="bg-card rounded-2xl p-8 shadow-xl hover-lift">
               <div className="w-20 h-20 gradient-blue rounded-xl flex items-center justify-center mb-6">
                 <Building2 size={40} className="text-white" />
               </div>

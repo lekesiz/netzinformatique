@@ -260,7 +260,7 @@ const WebDigital = () => {
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {features.map((feature, index) => (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-lg hover-lift">
+                <div key={index} className="bg-card rounded-xl p-6 shadow-lg hover-lift">
                   <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
                     <feature.icon size={24} className="text-purple-600" />
                   </div>
@@ -288,7 +288,7 @@ const WebDigital = () => {
               {webPackages.map((pkg, index) => (
                 <div 
                   key={index}
-                  className={`bg-white rounded-2xl shadow-xl overflow-hidden ${
+                  className={`bg-card rounded-2xl shadow-xl overflow-hidden ${
                     pkg.popular ? 'ring-4 ring-purple-500 transform scale-105' : ''
                   }`}
                 >
@@ -343,7 +343,7 @@ const WebDigital = () => {
 
             <div className="grid md:grid-cols-2 gap-8">
               {digitalServices.map((service, index) => (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-lg">
+                <div key={index} className="bg-card rounded-xl p-6 shadow-lg">
                   <h3 className="text-xl font-bold mb-3 text-purple-600">{service.title}</h3>
                   <p className="text-muted-foreground mb-4 text-sm">{service.description}</p>
                   <div className="mb-4">
@@ -380,7 +380,7 @@ const WebDigital = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {seoTips.map((tip, index) => (
-                <div key={index} className="bg-white rounded-xl p-6 text-center shadow-lg">
+                <div key={index} className="bg-card rounded-xl p-6 text-center shadow-lg">
                   <div className="text-4xl mb-4">{index + 1}</div>
                   <h3 className="font-bold text-lg mb-2">{tip.title}</h3>
                   <p className="text-sm text-muted-foreground">{tip.description}</p>
@@ -401,7 +401,7 @@ const WebDigital = () => {
 
             <div className="flex flex-wrap gap-4 justify-center max-w-4xl mx-auto">
               {technologies.map((tech, index) => (
-                <div key={index} className="bg-white rounded-lg px-6 py-3 shadow-md flex items-center gap-3">
+                <div key={index} className="bg-card rounded-lg px-6 py-3 shadow-md flex items-center gap-3">
                   <span className="text-2xl">{tech.icon}</span>
                   <div>
                     <div className="font-bold">{tech.name}</div>
@@ -447,7 +447,7 @@ const WebDigital = () => {
 
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               {caseStudies.map((study, index) => (
-                <div key={index} className="bg-white rounded-2xl p-8 shadow-xl">
+                <div key={index} className="bg-card rounded-2xl p-8 shadow-xl">
                   <div className="text-sm text-purple-600 font-semibold mb-2">{study.client}</div>
                   <div className="mb-4">
                     <div className="font-bold mb-1">Défi:</div>
@@ -478,7 +478,7 @@ const WebDigital = () => {
 
             <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
               {faq.map((item, index) => (
-                <AccordionItem value={`item-${index}`} key={index} className="bg-white rounded-lg mb-3 px-6 border shadow-sm">
+                <AccordionItem value={`item-${index}`} key={index} className="bg-card rounded-lg mb-3 px-6 border shadow-sm">
                   <AccordionTrigger className="text-lg font-semibold text-left hover:text-purple-600">
                     {item.question}
                   </AccordionTrigger>

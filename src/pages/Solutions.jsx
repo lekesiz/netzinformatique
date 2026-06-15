@@ -16,7 +16,7 @@ const Solutions = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
             <Link to="/solutions/intelligence-artificielle" className="group">
-              <div className="bg-white rounded-xl p-8 shadow-lg hover-lift h-full">
+              <div className="bg-card rounded-xl p-8 shadow-lg hover-lift h-full">
                 <Cpu size={48} className="text-primary mb-4 group-hover:scale-110 transition" />
                 <h3 className="text-2xl font-bold mb-4">Intelligence Artificielle</h3>
                 <p className="text-muted-foreground mb-6">Solutions IA offline ultra-sécurisées</p>
@@ -24,7 +24,7 @@ const Solutions = () => {
               </div>
             </Link>
             <Link to="/solutions/web-developpement" className="group">
-              <div className="bg-white rounded-xl p-8 shadow-lg hover-lift h-full">
+              <div className="bg-card rounded-xl p-8 shadow-lg hover-lift h-full">
                 <Globe size={48} className="text-secondary mb-4 group-hover:scale-110 transition" />
                 <h3 className="text-2xl font-bold mb-4">Web & SEO</h3>
                 <p className="text-muted-foreground mb-6">Sites web modernes et référencement optimal</p>
@@ -32,7 +32,7 @@ const Solutions = () => {
               </div>
             </Link>
             <Link to="/solutions/cloud" className="group">
-              <div className="bg-white rounded-xl p-8 shadow-lg hover-lift h-full">
+              <div className="bg-card rounded-xl p-8 shadow-lg hover-lift h-full">
                 <Cloud size={48} className="text-accent mb-4 group-hover:scale-110 transition" />
                 <h3 className="text-2xl font-bold mb-4">Cloud Computing</h3>
                 <p className="text-muted-foreground mb-6">Migration et optimisation cloud</p>

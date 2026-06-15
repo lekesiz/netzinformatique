@@ -254,7 +254,7 @@ const FormationProfessionnelle = () => {
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {features.map((feature, index) => (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-lg hover-lift">
+                <div key={index} className="bg-card rounded-xl p-6 shadow-lg hover-lift">
                   <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
                     <feature.icon size={24} className="text-green-600" />
                   </div>
@@ -280,7 +280,7 @@ const FormationProfessionnelle = () => {
 
             <div className="space-y-8">
               {trainingCategories.map((category, index) => (
-                <div key={index} className="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div key={index} className="bg-card rounded-2xl shadow-xl overflow-hidden">
                   <div className="bg-gradient-to-r from-green-600 to-blue-600 text-white p-6">
                     <div className="flex items-center gap-4">
                       <div className="text-5xl">{category.icon}</div>
@@ -343,7 +343,7 @@ const FormationProfessionnelle = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {fundingOptions.map((option, index) => (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-lg">
+                <div key={index} className="bg-card rounded-xl p-6 shadow-lg">
                   <div className="text-5xl mb-4 text-center">{option.icon}</div>
                   <h3 className="font-bold text-xl mb-2 text-center">{option.name}</h3>
                   <div className="text-sm text-center text-green-600 font-semibold mb-3">{option.target}</div>
@@ -373,7 +373,7 @@ const FormationProfessionnelle = () => {
 
             <div className="grid md:grid-cols-3 gap-8">
               {formats.map((format, index) => (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-lg">
+                <div key={index} className="bg-card rounded-xl p-6 shadow-lg">
                   <h3 className="font-bold text-xl mb-3 text-green-600">{format.type}</h3>
                   <p className="text-sm text-muted-foreground mb-4">{format.description}</p>
                   <div className="mb-4">
@@ -428,7 +428,7 @@ const FormationProfessionnelle = () => {
 
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               {testimonials.map((testimonial, index) => (
-                <div key={index} className="bg-white rounded-2xl p-8 shadow-xl">
+                <div key={index} className="bg-card rounded-2xl p-8 shadow-xl">
                   <div className="text-sm text-green-600 font-semibold mb-4">{testimonial.company}</div>
                   <p className="text-muted-foreground mb-4 italic">"{testimonial.text}"</p>
                   <div className="font-semibold">— {testimonial.author}</div>
@@ -449,7 +449,7 @@ const FormationProfessionnelle = () => {
 
             <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
               {faq.map((item, index) => (
-                <AccordionItem value={`item-${index}`} key={index} className="bg-white rounded-lg mb-3 px-6 border shadow-sm">
+                <AccordionItem value={`item-${index}`} key={index} className="bg-card rounded-lg mb-3 px-6 border shadow-sm">
                   <AccordionTrigger className="text-lg font-semibold text-left hover:text-green-600">
                     {item.question}
                   </AccordionTrigger>

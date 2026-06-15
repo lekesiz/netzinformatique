@@ -82,7 +82,7 @@ const Contact = () => {
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12">
               {/* Contact Form */}
-              <div className="bg-white rounded-2xl p-8 shadow-xl">
+              <div className="bg-card rounded-2xl p-8 shadow-xl">
                 <h2 className="text-3xl font-bold mb-6">
                   {t('contact.formTitle', 'Envoyez-nous un Message')}
                 </h2>
@@ -217,7 +217,7 @@ const Contact = () => {
 
               {/* Contact Information */}
               <div className="space-y-8">
-                <div className="bg-white rounded-2xl p-8 shadow-xl">
+                <div className="bg-card rounded-2xl p-8 shadow-xl">
                   <h2 className="text-3xl font-bold mb-6">
                     {t('contact.infoTitle', 'Informations')}
                   </h2>
@@ -291,7 +291,7 @@ const Contact = () => {
         </section>
 
         {/* Google Maps Section */}
-        <section className="py-12 bg-gray-50">
+        <section className="py-12 bg-muted">
           <div className="container mx-auto px-4">
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold mb-4">

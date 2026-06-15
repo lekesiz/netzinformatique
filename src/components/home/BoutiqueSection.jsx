@@ -64,7 +64,7 @@ const BoutiqueSection = () => {
               ))}
             </div>
 
-            <div className="mt-8 p-6 bg-white rounded-xl shadow-lg">
+            <div className="mt-8 p-6 bg-card rounded-xl shadow-lg">
               <div className="flex items-center gap-3 mb-4">
                 <ShoppingCart size={32} className="text-accent" />
                 <div>
@@ -95,7 +95,7 @@ const BoutiqueSection = () => {
 
           {/* Right: Categories */}
           <div>
-            <div className="bg-white rounded-2xl shadow-xl p-8">
+            <div className="bg-card rounded-2xl shadow-xl p-8">
               <h3 className="text-2xl font-bold mb-6">
                 Nos Catégories
               </h3>

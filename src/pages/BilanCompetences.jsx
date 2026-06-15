@@ -159,7 +159,7 @@ const BilanCompetences = () => {
       </section>
 
       {/* Qu'est-ce qu'un bilan de compétences */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-card">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center">
@@ -188,7 +188,7 @@ const BilanCompetences = () => {
             </h2>
             <div className="grid md:grid-cols-2 gap-8">
               {reasons.map((reason, index) => (
-                <div key={index} className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                <div key={index} className="bg-card p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
                       <CheckCircle className="w-6 h-6 text-primary" />
@@ -206,7 +206,7 @@ const BilanCompetences = () => {
       </section>
 
       {/* Déroulement du bilan */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-card">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
@@ -233,7 +233,7 @@ const BilanCompetences = () => {
                         <div className="flex items-center gap-3 mb-4">
                           <Icon className="w-6 h-6 text-primary" />
                           <h3 className="text-2xl font-bold">{phase.title}</h3>
-                          <span className="ml-auto text-sm text-muted-foreground bg-white px-3 py-1 rounded-full">
+                          <span className="ml-auto text-sm text-muted-foreground bg-card px-3 py-1 rounded-full">
                             <Clock className="inline-block w-4 h-4 mr-1" />
                             {phase.duration}
                           </span>
@@ -267,7 +267,7 @@ const BilanCompetences = () => {
               {benefits.map((benefit, index) => {
                 const Icon = benefit.icon;
                 return (
-                  <div key={index} className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
+                  <div key={index} className="bg-card p-6 rounded-xl shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
                     <div className="w-14 h-14 bg-gradient-to-br from-primary to-purple-600 rounded-xl flex items-center justify-center mb-4">
                       <Icon className="w-7 h-7 text-white" />
                     </div>
@@ -282,7 +282,7 @@ const BilanCompetences = () => {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-card">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold mb-12 text-center">
@@ -290,7 +290,7 @@ const BilanCompetences = () => {
             </h2>
             <div className="space-y-6">
               {faq.map((item, index) => (
-                <div key={index} className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl border border-gray-100">
+                <div key={index} className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl border border-border">
                   <h3 className="text-lg font-semibold mb-3 text-primary">{item.question}</h3>
                   <p className="text-muted-foreground leading-relaxed">{item.answer}</p>
                 </div>

@@ -54,7 +54,7 @@ const BlogIndex = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredPosts && filteredPosts.length > 0 ? (
             filteredPosts.map(post => (
-              <Link to={`/blog/${post.slug}`} key={post.slug} className="group block bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:-translate-y-1">
+              <Link to={`/blog/${post.slug}`} key={post.slug} className="group block bg-card rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-border hover:-translate-y-1">
                 <div className="relative w-full h-56 bg-gradient-to-br from-violet-500 via-purple-500 to-fuchsia-500 overflow-hidden">
                   <div className="absolute inset-0 bg-black/10"></div>
                   <div className="absolute inset-0 flex items-center justify-center">

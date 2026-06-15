@@ -20,21 +20,21 @@ const ServiceIndividual = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl p-8 shadow-lg hover-lift">
+            <div className="bg-card rounded-xl p-8 shadow-lg hover-lift">
               <Laptop size={48} className="text-primary mb-4" />
               <h3 className="text-2xl font-bold mb-4">PC Sur Mesure</h3>
               <p className="text-muted-foreground mb-6">
                 Configuration personnalisée adaptée à vos besoins gaming, bureautique ou multimédia
               </p>
             </div>
-            <div className="bg-white rounded-xl p-8 shadow-lg hover-lift">
+            <div className="bg-card rounded-xl p-8 shadow-lg hover-lift">
               <Wrench size={48} className="text-secondary mb-4" />
               <h3 className="text-2xl font-bold mb-4">Dépannage Rapide</h3>
               <p className="text-muted-foreground mb-6">
                 Intervention sous 24-48h pour tous vos problèmes informatiques
               </p>
             </div>
-            <div className="bg-white rounded-xl p-8 shadow-lg hover-lift">
+            <div className="bg-card rounded-xl p-8 shadow-lg hover-lift">
               <HardDrive size={48} className="text-accent mb-4" />
               <h3 className="text-2xl font-bold mb-4">Récupération de Données</h3>
               <p className="text-muted-foreground mb-6">

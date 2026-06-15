@@ -67,7 +67,7 @@ const Materiel = () => (
             </Link>
           </div>
           <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl p-8">
-            <div className="bg-white rounded-xl p-6 shadow-lg">
+            <div className="bg-card rounded-xl p-6 shadow-lg">
               <h3 className="font-bold text-xl mb-4">Configurations Populaires</h3>
               <div className="space-y-4">
                 <div className="border-l-4 border-primary pl-4">
@@ -103,7 +103,7 @@ const Materiel = () => (
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Serveurs */}
-          <div className="bg-white rounded-xl p-8 shadow-lg hover-lift">
+          <div className="bg-card rounded-xl p-8 shadow-lg hover-lift">
             <Server size={48} className="text-primary mb-4" />
             <h3 className="text-2xl font-bold mb-4">Serveurs</h3>
             <p className="text-muted-foreground mb-6">
@@ -135,7 +135,7 @@ const Materiel = () => (
           </div>
 
           {/* Portables */}
-          <div className="bg-white rounded-xl p-8 shadow-lg hover-lift">
+          <div className="bg-card rounded-xl p-8 shadow-lg hover-lift">
             <Laptop size={48} className="text-secondary mb-4" />
             <h3 className="text-2xl font-bold mb-4">PC Portables</h3>
             <p className="text-muted-foreground mb-6">
@@ -167,7 +167,7 @@ const Materiel = () => (
           </div>
 
           {/* Périphériques */}
-          <div className="bg-white rounded-xl p-8 shadow-lg hover-lift">
+          <div className="bg-card rounded-xl p-8 shadow-lg hover-lift">
             <HardDrive size={48} className="text-accent mb-4" />
             <h3 className="text-2xl font-bold mb-4">Périphériques</h3>
             <p className="text-muted-foreground mb-6">
@@ -203,7 +203,7 @@ const Materiel = () => (
           </div>
 
           {/* PC Gaming */}
-          <div className="bg-white rounded-xl p-8 shadow-lg hover-lift">
+          <div className="bg-card rounded-xl p-8 shadow-lg hover-lift">
             <Cpu size={48} className="text-primary mb-4" />
             <h3 className="text-2xl font-bold mb-4">PC Gaming</h3>
             <p className="text-muted-foreground mb-6">
@@ -235,7 +235,7 @@ const Materiel = () => (
           </div>
 
           {/* Imprimantes */}
-          <div className="bg-white rounded-xl p-8 shadow-lg hover-lift">
+          <div className="bg-card rounded-xl p-8 shadow-lg hover-lift">
             <Printer size={48} className="text-secondary mb-4" />
             <h3 className="text-2xl font-bold mb-4">Imprimantes & Consommables</h3>
             <p className="text-muted-foreground mb-6">

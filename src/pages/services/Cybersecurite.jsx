@@ -221,7 +221,7 @@ const Cybersecurite = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {features.map((feature, index) => (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-lg hover-lift">
+                <div key={index} className="bg-card rounded-xl p-6 shadow-lg hover-lift">
                   <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
                     <feature.icon size={24} className="text-red-600" />
                   </div>
@@ -247,7 +247,7 @@ const Cybersecurite = () => {
 
             <div className="grid md:grid-cols-2 gap-8">
               {threats.map((threat, index) => (
-                <div key={index} className="bg-white rounded-2xl p-8 shadow-xl">
+                <div key={index} className="bg-card rounded-2xl p-8 shadow-xl">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="text-5xl">{threat.icon}</div>
                     <h3 className="text-2xl font-bold">{threat.name}</h3>
@@ -281,7 +281,7 @@ const Cybersecurite = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {securityServices.map((service, index) => (
-                <div key={index} className="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div key={index} className="bg-card rounded-2xl shadow-xl overflow-hidden">
                   <div className="p-6">
                     <h3 className="text-xl font-bold mb-3 text-red-600">{service.title}</h3>
                     <p className="text-muted-foreground mb-4 text-sm">{service.description}</p>
@@ -346,7 +346,7 @@ const Cybersecurite = () => {
 
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               {testimonials.map((testimonial, index) => (
-                <div key={index} className="bg-white rounded-2xl p-8 shadow-xl">
+                <div key={index} className="bg-card rounded-2xl p-8 shadow-xl">
                   <div className="text-sm text-red-600 font-semibold mb-4">{testimonial.company}</div>
                   <p className="text-muted-foreground mb-4 italic">"{testimonial.text}"</p>
                   <div className="font-semibold">— {testimonial.author}</div>
@@ -367,7 +367,7 @@ const Cybersecurite = () => {
 
             <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
               {faq.map((item, index) => (
-                <AccordionItem value={`item-${index}`} key={index} className="bg-white rounded-lg mb-3 px-6 border shadow-sm">
+                <AccordionItem value={`item-${index}`} key={index} className="bg-card rounded-lg mb-3 px-6 border shadow-sm">
                   <AccordionTrigger className="text-lg font-semibold text-left hover:text-red-600">
                     {item.question}
                   </AccordionTrigger>

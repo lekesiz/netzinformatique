@@ -14,15 +14,15 @@ const Formation = () => (
           Formations certifiées et bilan de compétences financés par CPF, OPCO et Pôle Emploi
         </p>
         <div className="flex justify-center gap-4 flex-wrap">
-          <div className="bg-white rounded-lg px-6 py-3 shadow-md">
+          <div className="bg-card rounded-lg px-6 py-3 shadow-md">
             <p className="text-sm text-muted-foreground">Certification</p>
             <p className="font-bold text-primary">QUALIOPI</p>
           </div>
-          <div className="bg-white rounded-lg px-6 py-3 shadow-md">
+          <div className="bg-card rounded-lg px-6 py-3 shadow-md">
             <p className="text-sm text-muted-foreground">Certification</p>
             <p className="font-bold text-primary">TOSA</p>
           </div>
-          <div className="bg-white rounded-lg px-6 py-3 shadow-md">
+          <div className="bg-card rounded-lg px-6 py-3 shadow-md">
             <p className="text-sm text-muted-foreground">Éligible</p>
             <p className="font-bold text-primary">Mon Compte Formation</p>
           </div>
@@ -44,7 +44,7 @@ const Formation = () => (
 
         <div className="grid md:grid-cols-3 gap-8">
           {/* CPF Card - Particuliers */}
-          <div className="bg-white rounded-xl p-8 shadow-lg hover-lift border-2 border-transparent hover:border-primary transition-all">
+          <div className="bg-card rounded-xl p-8 shadow-lg hover-lift border-2 border-transparent hover:border-primary transition-all">
             <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
               <User size={32} className="text-primary" />
             </div>
@@ -83,7 +83,7 @@ const Formation = () => (
           </div>
 
           {/* OPCO Card - Professionnels */}
-          <div className="bg-white rounded-xl p-8 shadow-lg hover-lift border-2 border-transparent hover:border-primary transition-all">
+          <div className="bg-card rounded-xl p-8 shadow-lg hover-lift border-2 border-transparent hover:border-primary transition-all">
             <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mb-6">
               <Building2 size={32} className="text-secondary" />
             </div>
@@ -123,7 +123,7 @@ const Formation = () => (
 
           {/* Bilan de Compétences */}
           <Link to="/formation/bilan-competences">
-            <div className="bg-white rounded-xl p-8 shadow-lg hover-lift h-full border-2 border-transparent hover:border-primary transition-all">
+            <div className="bg-card rounded-xl p-8 shadow-lg hover-lift h-full border-2 border-transparent hover:border-primary transition-all">
               <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6">
                 <Award size={32} className="text-accent" />
               </div>
@@ -172,21 +172,21 @@ const Formation = () => (
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          <div className="bg-white rounded-xl p-8 shadow-lg text-center">
+          <div className="bg-card rounded-xl p-8 shadow-lg text-center">
             <Users size={48} className="text-primary mx-auto mb-4" />
             <div className="text-4xl font-bold text-primary mb-2">670+</div>
             <p className="text-muted-foreground">Participants formés</p>
             <p className="text-sm text-muted-foreground mt-2">depuis notre création</p>
           </div>
 
-          <div className="bg-white rounded-xl p-8 shadow-lg text-center">
+          <div className="bg-card rounded-xl p-8 shadow-lg text-center">
             <TrendingUp size={48} className="text-accent mx-auto mb-4" />
             <div className="text-4xl font-bold text-accent mb-2">95%</div>
             <p className="text-muted-foreground">Taux de réalisation</p>
             <p className="text-sm text-muted-foreground mt-2">objectifs atteints à 6 mois</p>
           </div>
 
-          <div className="bg-white rounded-xl p-8 shadow-lg text-center">
+          <div className="bg-card rounded-xl p-8 shadow-lg text-center">
             <Award size={48} className="text-secondary mx-auto mb-4" />
             <div className="text-4xl font-bold text-secondary mb-2">98%</div>
             <p className="text-muted-foreground">Satisfaction</p>

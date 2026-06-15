@@ -143,7 +143,7 @@ const SolutionWeb = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 shadow-lg hover-lift">
+              <div key={index} className="bg-card rounded-xl p-6 shadow-lg hover-lift">
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                   <feature.icon size={24} className="text-primary" />
                 </div>
@@ -171,7 +171,7 @@ const SolutionWeb = () => {
             {packages.map((pkg, index) => (
               <div 
                 key={index}
-                className={`bg-white rounded-2xl shadow-xl overflow-hidden ${
+                className={`bg-card rounded-2xl shadow-xl overflow-hidden ${
                   pkg.popular ? 'ring-4 ring-primary transform scale-105' : ''
                 }`}
               >
@@ -313,17 +313,17 @@ const SolutionWeb = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto text-center">
-            <div className="bg-white rounded-xl p-8 shadow-lg">
+            <div className="bg-card rounded-xl p-8 shadow-lg">
               <TrendingUp size={48} className="text-primary mx-auto mb-4" />
               <div className="text-4xl font-bold text-primary mb-2">150+</div>
               <p className="text-muted-foreground">Sites Web Créés</p>
             </div>
-            <div className="bg-white rounded-xl p-8 shadow-lg">
+            <div className="bg-card rounded-xl p-8 shadow-lg">
               <Users size={48} className="text-accent mx-auto mb-4" />
               <div className="text-4xl font-bold text-accent mb-2">98%</div>
               <p className="text-muted-foreground">Clients Satisfaits</p>
             </div>
-            <div className="bg-white rounded-xl p-8 shadow-lg">
+            <div className="bg-card rounded-xl p-8 shadow-lg">
               <Award size={48} className="text-secondary mx-auto mb-4" />
               <div className="text-4xl font-bold text-secondary mb-2">20+</div>
               <p className="text-muted-foreground">Ans d'Expérience</p>

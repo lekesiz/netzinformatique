@@ -12,7 +12,7 @@ const SectorPage = ({ sector }) => {
   return (
     <>
       <SEO title={name} description={description} />
-      <div className="bg-white">
+      <div className="bg-card">
         {/* Hero Section */}
         <section 
           className="py-24 text-white text-center bg-cover bg-center"

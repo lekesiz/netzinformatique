@@ -24,11 +24,11 @@ const NotFound = () => {
           </div>
 
           {/* Error Message */}
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             {t('notFound.heading', 'Oups ! Page Non Trouvée')}
           </h2>
           
-          <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
+          <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
             {t('notFound.message', 'La page que vous recherchez n`existe pas, a été déplacée ou n`est plus disponible. Retournez à l`accueil ou utilisez la recherche.')}
           </p>
 
@@ -50,8 +50,8 @@ const NotFound = () => {
           </div>
 
           {/* Popular Links */}
-          <div className="mt-12 pt-8 border-t border-gray-200">
-            <p className="text-sm text-gray-500 mb-4">
+          <div className="mt-12 pt-8 border-t border-border">
+            <p className="text-sm text-muted-foreground mb-4">
               {t('notFound.popularPages', 'Pages populaires :')}
             </p>
             <div className="flex flex-wrap gap-3 justify-center">

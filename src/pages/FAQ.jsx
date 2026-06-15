@@ -256,7 +256,7 @@ const FAQ = () => {
                 
                 <Accordion type="single" collapsible className="w-full">
                   {category.questions.map((faq, index) => (
-                    <AccordionItem value={`item-${catIndex}-${index}`} key={index} className="bg-white rounded-lg mb-3 px-6 border shadow-sm">
+                    <AccordionItem value={`item-${catIndex}-${index}`} key={index} className="bg-card rounded-lg mb-3 px-6 border shadow-sm">
                       <AccordionTrigger className="text-lg font-semibold text-left hover:text-primary">
                         {faq.question}
                       </AccordionTrigger>
@@ -305,17 +305,17 @@ const FAQ = () => {
               <h3 className="text-2xl font-bold mb-4">Découvrez Nos Services</h3>
             </div>
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              <Link to="/services" className="bg-white rounded-xl p-6 shadow-lg hover-lift text-center">
+              <Link to="/services" className="bg-card rounded-xl p-6 shadow-lg hover-lift text-center">
                 <div className="text-3xl mb-3">💼</div>
                 <h4 className="font-bold mb-2">Nos Services</h4>
                 <p className="text-sm text-muted-foreground">Dépannage, maintenance, solutions IT</p>
               </Link>
-              <Link to="/formation" className="bg-white rounded-xl p-6 shadow-lg hover-lift text-center">
+              <Link to="/formation" className="bg-card rounded-xl p-6 shadow-lg hover-lift text-center">
                 <div className="text-3xl mb-3">🎓</div>
                 <h4 className="font-bold mb-2">Formations</h4>
                 <p className="text-sm text-muted-foreground">Certifications QUALIOPI, CPF, OPCO</p>
               </Link>
-              <Link to="/materiel" className="bg-white rounded-xl p-6 shadow-lg hover-lift text-center">
+              <Link to="/materiel" className="bg-card rounded-xl p-6 shadow-lg hover-lift text-center">
                 <div className="text-3xl mb-3">🛒</div>
                 <h4 className="font-bold mb-2">Boutique</h4>
                 <p className="text-sm text-muted-foreground">Matériel, PC sur mesure, cartouches</p>
