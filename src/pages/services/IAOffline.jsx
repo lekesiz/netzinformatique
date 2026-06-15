@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import SEO from '@/components/common/SEO';
 import StructuredData from '@/components/common/StructuredData';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, CheckCircle, BrainCircuit, Lock, Building, Zap, DollarSign, Users, Shield, Server, Cpu, HardDrive, Phone, TrendingUp, FileText, MessageSquare } from 'lucide-react';
+import { ArrowRight, CheckCircle, BrainCircuit, Lock, Building, Zap, DollarSign, Users, Shield, Server, Cpu, HardDrive, Phone, TrendingUp, FileText, MessageSquare, Stethoscope, Scale, Microscope, Wallet, Star, XCircle, CheckCircle2, AlertTriangle } from 'lucide-react';
 import {
   Accordion,
   AccordionContent,
@@ -41,28 +41,28 @@ const IAOffline = () => {
   const useCases = [
     {
       sector: 'Santé',
-      icon: '🏥',
+      icon: Stethoscope,
       challenge: 'Analyser dossiers patients sans exposer données médicales',
       solution: 'IA Offline pour résumés médicaux, aide au diagnostic, génération de comptes-rendus',
       benefit: 'Confidentialité patients garantie, gain de temps 50%'
     },
     {
       sector: 'Juridique',
-      icon: '⚖️',
+      icon: Scale,
       challenge: 'Analyser contrats et jurisprudence sans risque de fuite',
       solution: 'IA pour analyse contractuelle, recherche jurisprudentielle, rédaction d\'actes',
       benefit: 'Secret professionnel préservé, productivité x3'
     },
     {
       sector: 'R&D / Industrie',
-      icon: '🔬',
+      icon: Microscope,
       challenge: 'Protéger secrets industriels et innovations',
       solution: 'IA pour analyse de brevets, génération de documentation technique, veille',
       benefit: 'Propriété intellectuelle sécurisée, innovation accélérée'
     },
     {
       sector: 'Finance / Comptabilité',
-      icon: '💰',
+      icon: Wallet,
       challenge: 'Traiter données financières sensibles en toute sécurité',
       solution: 'IA pour analyse financière, détection d\'anomalies, reporting automatisé',
       benefit: 'Conformité bancaire, détection fraude temps réel'
@@ -153,14 +153,19 @@ const IAOffline = () => {
   ];
 
   const comparison = [
-    { feature: 'Confidentialité', cloud: '❌ Données dans le cloud', offline: '✅ Données en local' },
-    { feature: 'Coût mensuel', cloud: '💰 20-100€/utilisateur/mois', offline: '✅ 0€ après investissement' },
-    { feature: 'Limite d\'utilisation', cloud: '❌ Quotas, rate limits', offline: '✅ Illimité' },
-    { feature: 'Latence', cloud: '⚠️ 200-500ms (réseau)', offline: '✅ <50ms (local)' },
-    { feature: 'Conformité RGPD', cloud: '⚠️ Complexe (DPA, etc.)', offline: '✅ Simplifiée' },
-    { feature: 'Dépendance fournisseur', cloud: '❌ Oui (OpenAI, etc.)', offline: '✅ Indépendant' },
-    { feature: 'Disponibilité', cloud: '⚠️ Dépend d\'Internet', offline: '✅ 100% même hors ligne' }
+    { feature: 'Confidentialité', cloudStatus: 'bad', cloud: 'Données dans le cloud', offline: 'Données en local' },
+    { feature: 'Coût mensuel', cloudStatus: 'warn', cloud: '20-100€/utilisateur/mois', offline: '0€ après investissement' },
+    { feature: 'Limite d\'utilisation', cloudStatus: 'bad', cloud: 'Quotas, rate limits', offline: 'Illimité' },
+    { feature: 'Latence', cloudStatus: 'warn', cloud: '200-500ms (réseau)', offline: '<50ms (local)' },
+    { feature: 'Conformité RGPD', cloudStatus: 'warn', cloud: 'Complexe (DPA, etc.)', offline: 'Simplifiée' },
+    { feature: 'Dépendance fournisseur', cloudStatus: 'bad', cloud: 'Oui (OpenAI, etc.)', offline: 'Indépendant' },
+    { feature: 'Disponibilité', cloudStatus: 'warn', cloud: 'Dépend d\'Internet', offline: '100% même hors ligne' }
   ];
+
+  const cloudStatusIcon = {
+    bad: <XCircle size={16} className="text-destructive flex-shrink-0" />,
+    warn: <AlertTriangle size={16} className="text-amber-500 flex-shrink-0" />
+  };
 
   const process = [
     { step: '1', title: 'Audit', description: 'Analyse de vos besoins et cas d\'usage' },
@@ -246,8 +251,12 @@ const IAOffline = () => {
                 </Button>
               </a>
             </div>
-            <p className="text-sm text-muted-foreground">
-              🔒 Déjà déployé chez 15+ entreprises • 🏥 Santé • ⚖️ Juridique • 🔬 R&D • 💰 Finance
+            <p className="text-sm text-muted-foreground flex items-center justify-center gap-x-3 gap-y-1 flex-wrap">
+              <span className="flex items-center gap-1.5"><Lock size={16} className="text-purple-600" /> Déjà déployé chez 15+ entreprises</span>
+              <span className="flex items-center gap-1.5"><Stethoscope size={16} className="text-purple-600" /> Santé</span>
+              <span className="flex items-center gap-1.5"><Scale size={16} className="text-purple-600" /> Juridique</span>
+              <span className="flex items-center gap-1.5"><Microscope size={16} className="text-purple-600" /> R&D</span>
+              <span className="flex items-center gap-1.5"><Wallet size={16} className="text-purple-600" /> Finance</span>
             </p>
           </div>
         </section>
@@ -294,7 +303,7 @@ const IAOffline = () => {
               {useCases.map((useCase, index) => (
                 <div key={index} className="bg-card rounded-2xl p-8 shadow-xl">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="text-5xl">{useCase.icon}</div>
+                    <useCase.icon size={48} className="text-purple-600 flex-shrink-0" />
                     <h3 className="text-2xl font-bold">{useCase.sector}</h3>
                   </div>
                   <div className="space-y-4">
@@ -396,8 +405,8 @@ const IAOffline = () => {
                   }`}
                 >
                   {config.popular && (
-                    <div className="bg-purple-600 text-white text-center py-2 font-semibold">
-                      ⭐ Le Plus Populaire
+                    <div className="bg-purple-600 text-white text-center py-2 font-semibold flex items-center justify-center gap-2">
+                      <Star size={18} className="fill-current" /> Le Plus Populaire
                     </div>
                   )}
                   <div className="p-8">
@@ -463,8 +472,18 @@ const IAOffline = () => {
                     {comparison.map((row, index) => (
                       <tr key={index} className="border-b">
                         <td className="px-6 py-4 font-semibold">{row.feature}</td>
-                        <td className="px-6 py-4 text-sm">{row.cloud}</td>
-                        <td className="px-6 py-4 text-sm font-semibold text-green-600">{row.offline}</td>
+                        <td className="px-6 py-4 text-sm">
+                          <span className="flex items-center gap-2">
+                            {cloudStatusIcon[row.cloudStatus]}
+                            {row.cloud}
+                          </span>
+                        </td>
+                        <td className="px-6 py-4 text-sm font-semibold text-green-600">
+                          <span className="flex items-center gap-2">
+                            <CheckCircle2 size={16} className="text-green-600 flex-shrink-0" />
+                            {row.offline}
+                          </span>
+                        </td>
                       </tr>
                     ))}
                   </tbody>

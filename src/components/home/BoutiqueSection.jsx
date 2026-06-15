@@ -1,4 +1,4 @@
-import { ShoppingCart, Package, Truck, Shield, ArrowRight } from 'lucide-react'
+import { ShoppingCart, Package, Truck, Shield, ArrowRight, Laptop, Wrench, Mouse, Printer, Palette, Headphones, Phone, Mail, CreditCard, Gift } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const BoutiqueSection = () => {
@@ -21,12 +21,12 @@ const BoutiqueSection = () => {
   ]
 
   const categories = [
-    { name: 'PC & Portables', emoji: '💻' },
-    { name: 'Composants', emoji: '🔧' },
-    { name: 'Périphériques', emoji: '🖱️' },
-    { name: 'Imprimantes', emoji: '🖨️' },
-    { name: 'Cartouches', emoji: '🎨' },
-    { name: 'Accessoires', emoji: '🎧' }
+    { name: 'PC & Portables', icon: Laptop },
+    { name: 'Composants', icon: Wrench },
+    { name: 'Périphériques', icon: Mouse },
+    { name: 'Imprimantes', icon: Printer },
+    { name: 'Cartouches', icon: Palette },
+    { name: 'Accessoires', icon: Headphones }
   ]
 
   return (
@@ -34,7 +34,7 @@ const BoutiqueSection = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <div className="inline-block bg-accent/10 rounded-full px-6 py-2 mb-4">
-            <span className="text-accent font-semibold">🛒 Boutique en Ligne</span>
+            <span className="text-accent font-semibold inline-flex items-center gap-2"><ShoppingCart size={18} /> Boutique en Ligne</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Achetez Votre Matériel Informatique
@@ -78,7 +78,7 @@ const BoutiqueSection = () => {
                   className="flex-1"
                 >
                   <Button variant="outline" className="w-full">
-                    📞 03 67 31 02 01
+                    <Phone size={16} className="mr-2" /> 03 67 31 02 01
                   </Button>
                 </a>
                 <a 
@@ -86,7 +86,7 @@ const BoutiqueSection = () => {
                   className="flex-1"
                 >
                   <Button variant="outline" className="w-full">
-                    📧 Email
+                    <Mail size={16} className="mr-2" /> Email
                   </Button>
                 </a>
               </div>
@@ -105,7 +105,7 @@ const BoutiqueSection = () => {
                     key={index}
                     className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-xl p-4 hover:shadow-md transition-shadow cursor-pointer"
                   >
-                    <div className="text-3xl mb-2">{category.emoji}</div>
+                    <category.icon size={32} className="text-primary mb-2" />
                     <p className="font-semibold">{category.name}</p>
                   </div>
                 ))}
@@ -123,8 +123,10 @@ const BoutiqueSection = () => {
                 </Button>
               </a>
 
-              <p className="text-sm text-muted-foreground text-center mt-4">
-                💳 Paiement sécurisé • 🚚 Livraison gratuite dès 50€
+              <p className="text-sm text-muted-foreground text-center mt-4 inline-flex items-center justify-center gap-1.5 w-full flex-wrap">
+                <CreditCard size={16} className="text-accent" /> Paiement sécurisé
+                <span className="mx-1">•</span>
+                <Truck size={16} className="text-accent" /> Livraison gratuite dès 50€
               </p>
             </div>
           </div>
@@ -132,8 +134,8 @@ const BoutiqueSection = () => {
 
         {/* Bottom Banner */}
         <div className="bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 text-white text-center">
-          <h3 className="text-2xl font-bold mb-2">
-            🎉 Offre Spéciale : Cartouches d'Encre à Prix Compétitifs
+          <h3 className="text-2xl font-bold mb-2 inline-flex items-center justify-center gap-2">
+            <Gift size={24} /> Offre Spéciale : Cartouches d'Encre à Prix Compétitifs
           </h3>
           <p className="text-lg opacity-90 mb-4">
             Économisez jusqu'à 30% sur nos cartouches compatibles de toutes les grandes marques

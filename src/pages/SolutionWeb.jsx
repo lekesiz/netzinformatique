@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
-import { Globe, Code, Search, Smartphone, Zap, Shield, CheckCircle, ArrowRight, TrendingUp, Users, Award } from 'lucide-react'
+import { Globe, Code, Search, Smartphone, Zap, Shield, CheckCircle, ArrowRight, TrendingUp, Users, Award, Star, RefreshCw, Lightbulb, Wallet, Phone } from 'lucide-react'
 
 const SolutionWeb = () => {
   const features = [
@@ -176,8 +176,8 @@ const SolutionWeb = () => {
                 }`}
               >
                 {pkg.popular && (
-                  <div className="bg-primary text-white text-center py-2 font-semibold">
-                    ⭐ Le Plus Populaire
+                  <div className="bg-primary text-white text-center py-2 font-semibold flex items-center justify-center gap-2">
+                    <Star size={16} className="fill-current" /> Le Plus Populaire
                   </div>
                 )}
                 <div className="p-8">
@@ -215,8 +215,8 @@ const SolutionWeb = () => {
           </div>
 
           <div className="text-center mt-8">
-            <p className="text-muted-foreground">
-              💡 Tous nos forfaits incluent une garantie satisfait ou remboursé de 30 jours
+            <p className="text-muted-foreground inline-flex items-center gap-2">
+              <Lightbulb size={18} className="text-accent" /> Tous nos forfaits incluent une garantie satisfait ou remboursé de 30 jours
             </p>
           </div>
         </div>
@@ -228,7 +228,7 @@ const SolutionWeb = () => {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <div className="inline-block bg-accent/10 rounded-full px-6 py-2 mb-4">
-                <span className="text-accent font-semibold">🔄 Abonnement Maintenance</span>
+                <span className="text-accent font-semibold inline-flex items-center gap-2"><RefreshCw size={18} /> Abonnement Maintenance</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Maintenance et Évolution Continue
@@ -268,8 +268,9 @@ const SolutionWeb = () => {
                   ))}
                 </ul>
                 <div className="mt-6 p-4 bg-accent/10 rounded-lg">
-                  <p className="text-sm">
-                    <strong>💰 Économisez jusqu'à 40%</strong> par rapport à des interventions ponctuelles
+                  <p className="text-sm inline-flex items-center gap-2">
+                    <Wallet size={18} className="text-accent flex-shrink-0" />
+                    <span><strong>Économisez jusqu'à 40%</strong> par rapport à des interventions ponctuelles</span>
                   </p>
                 </div>
               </div>
@@ -349,7 +350,7 @@ const SolutionWeb = () => {
             </Link>
             <a href="tel:+33367310201">
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                📞 03 67 31 02 01
+                <Phone className="mr-2" size={18} /> 03 67 31 02 01
               </Button>
             </a>
           </div>

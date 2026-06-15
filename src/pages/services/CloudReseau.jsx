@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import SEO from '@/components/common/SEO';
 import StructuredData from '@/components/common/StructuredData';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Cloud, Wifi, Server, Shield, Zap, Users, CheckCircle, Phone, Database, Network, HardDrive } from 'lucide-react';
+import { ArrowRight, Cloud, Wifi, Server, Shield, Zap, Users, CheckCircle, Phone, Database, Network, HardDrive, Globe, Lock } from 'lucide-react';
 import {
   Accordion,
   AccordionContent,
@@ -41,7 +41,7 @@ const CloudReseau = () => {
   const cloudSolutions = [
     {
       name: 'Microsoft 365',
-      icon: '☁️',
+      icon: Cloud,
       description: 'Suite bureautique complète dans le cloud',
       features: [
         'Office (Word, Excel, PowerPoint, Outlook)',
@@ -55,7 +55,7 @@ const CloudReseau = () => {
     },
     {
       name: 'Google Workspace',
-      icon: '🌐',
+      icon: Globe,
       description: 'Productivité et collaboration Google',
       features: [
         'Gmail professionnel',
@@ -69,7 +69,7 @@ const CloudReseau = () => {
     },
     {
       name: 'Cloud Privé',
-      icon: '🔒',
+      icon: Lock,
       description: 'Solution cloud hébergée dans vos locaux',
       features: [
         'Contrôle total de vos données',
@@ -254,7 +254,9 @@ const CloudReseau = () => {
             <div className="grid md:grid-cols-3 gap-8">
               {cloudSolutions.map((solution, index) => (
                 <div key={index} className="bg-card rounded-2xl shadow-xl p-8">
-                  <div className="text-5xl mb-4 text-center">{solution.icon}</div>
+                  <div className="flex justify-center mb-4">
+                    <solution.icon size={48} className="text-blue-600" />
+                  </div>
                   <h3 className="text-2xl font-bold mb-2 text-center">{solution.name}</h3>
                   <p className="text-muted-foreground text-center mb-6">{solution.description}</p>
                   <ul className="space-y-3 mb-6">

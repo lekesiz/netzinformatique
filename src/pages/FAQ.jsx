@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import SEO from '@/components/common/SEO';
 import StructuredData from '@/components/common/StructuredData';
 import { useTranslation } from 'react-i18next';
-import { ArrowRight, HelpCircle, MessageCircle, Phone, Briefcase, Wrench, GraduationCap, Bot, Globe, ShieldCheck, ShoppingCart } from 'lucide-react';
+import { ArrowRight, HelpCircle, MessageCircle, Phone, Briefcase, Wrench, GraduationCap, Bot, Globe, ShieldCheck, ShoppingCart, Lightbulb } from 'lucide-react';
 import {
   Accordion,
   AccordionContent,
@@ -238,8 +238,8 @@ const FAQ = () => {
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
               Plus de 40 questions fréquentes sur nos services informatiques, formations et solutions
             </p>
-            <p className="text-sm text-muted-foreground">
-              💡 Vous ne trouvez pas votre réponse ? <Link to="/contact" className="text-primary font-semibold hover:underline">Contactez-nous</Link>
+            <p className="text-sm text-muted-foreground inline-flex items-center gap-2">
+              <Lightbulb size={16} className="text-accent flex-shrink-0" /> Vous ne trouvez pas votre réponse ? <Link to="/contact" className="text-primary font-semibold hover:underline">Contactez-nous</Link>
             </p>
           </div>
         </section>
@@ -308,17 +308,17 @@ const FAQ = () => {
             </div>
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               <Link to="/services" className="bg-card rounded-xl p-6 shadow-lg hover-lift text-center">
-                <div className="text-3xl mb-3">💼</div>
+                <Briefcase size={32} className="text-primary mx-auto mb-3" />
                 <h4 className="font-bold mb-2">Nos Services</h4>
                 <p className="text-sm text-muted-foreground">Dépannage, maintenance, solutions IT</p>
               </Link>
               <Link to="/formation" className="bg-card rounded-xl p-6 shadow-lg hover-lift text-center">
-                <div className="text-3xl mb-3">🎓</div>
+                <GraduationCap size={32} className="text-primary mx-auto mb-3" />
                 <h4 className="font-bold mb-2">Formations</h4>
                 <p className="text-sm text-muted-foreground">Certifications QUALIOPI, CPF, OPCO</p>
               </Link>
               <Link to="/materiel" className="bg-card rounded-xl p-6 shadow-lg hover-lift text-center">
-                <div className="text-3xl mb-3">🛒</div>
+                <ShoppingCart size={32} className="text-primary mx-auto mb-3" />
                 <h4 className="font-bold mb-2">Boutique</h4>
                 <p className="text-sm text-muted-foreground">Matériel, PC sur mesure, cartouches</p>
               </Link>

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import SEO from '@/components/common/SEO';
 import StructuredData from '@/components/common/StructuredData';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Shield, Lock, FileText, AlertTriangle, Eye, Key, Database, Users, CheckCircle, Phone, ShieldAlert, Bug, Fingerprint } from 'lucide-react';
+import { ArrowRight, Shield, Lock, FileText, AlertTriangle, Eye, Key, Database, Users, CheckCircle, Phone, ShieldAlert, Bug, Fingerprint, Fish, Droplets, Zap } from 'lucide-react';
 import {
   Accordion,
   AccordionContent,
@@ -41,28 +41,28 @@ const Cybersecurite = () => {
   const threats = [
     {
       name: 'Ransomware',
-      icon: '🔒',
+      icon: Lock,
       description: 'Chiffrement de vos données avec demande de rançon',
       impact: 'Perte de données, arrêt d\'activité, rançon de 5000€ à 500000€',
       prevention: 'Sauvegardes isolées, antivirus avancé, formation utilisateurs'
     },
     {
       name: 'Phishing',
-      icon: '🎣',
+      icon: Fish,
       description: 'Emails frauduleux pour voler identifiants et données',
       impact: 'Vol de données bancaires, usurpation d\'identité, espionnage',
       prevention: 'Formation anti-phishing, filtrage emails, authentification 2FA'
     },
     {
       name: 'Fuite de Données',
-      icon: '💧',
+      icon: Droplets,
       description: 'Exposition de données confidentielles (clients, employés)',
       impact: 'Amende RGPD jusqu\'à 4% du CA, perte de confiance, poursuites',
       prevention: 'Chiffrement, contrôle d\'accès, audit régulier, conformité RGPD'
     },
     {
       name: 'Attaque DDoS',
-      icon: '⚡',
+      icon: Zap,
       description: 'Saturation de vos serveurs pour rendre services indisponibles',
       impact: 'Site web inaccessible, perte de chiffre d\'affaires, image dégradée',
       prevention: 'Protection DDoS, CDN, infrastructure redondante'
@@ -249,7 +249,7 @@ const Cybersecurite = () => {
               {threats.map((threat, index) => (
                 <div key={index} className="bg-card rounded-2xl p-8 shadow-xl">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="text-5xl">{threat.icon}</div>
+                    <threat.icon size={48} className="text-red-600 flex-shrink-0" />
                     <h3 className="text-2xl font-bold">{threat.name}</h3>
                   </div>
                   <p className="text-muted-foreground mb-4">{threat.description}</p>

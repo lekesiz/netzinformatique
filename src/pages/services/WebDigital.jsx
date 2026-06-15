@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import SEO from '@/components/common/SEO';
 import StructuredData from '@/components/common/StructuredData';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Globe, Search, ShoppingCart, Smartphone, Palette, Code, TrendingUp, Users, CheckCircle, Phone, Zap, Eye, BarChart } from 'lucide-react';
+import { ArrowRight, Globe, Search, ShoppingCart, Smartphone, Palette, Code, TrendingUp, Users, CheckCircle, Phone, Zap, Eye, BarChart, Briefcase, Star, Clock, Server, FileText, Database } from 'lucide-react';
 import {
   Accordion,
   AccordionContent,
@@ -41,7 +41,7 @@ const WebDigital = () => {
   const webPackages = [
     {
       name: 'Site Vitrine',
-      icon: '🌐',
+      icon: Globe,
       target: 'TPE, artisans, professions libérales',
       pages: '5-10 pages',
       features: [
@@ -59,7 +59,7 @@ const WebDigital = () => {
     },
     {
       name: 'Site Business',
-      icon: '💼',
+      icon: Briefcase,
       target: 'PME, cabinets, agences',
       pages: '10-20 pages',
       features: [
@@ -78,7 +78,7 @@ const WebDigital = () => {
     },
     {
       name: 'E-commerce',
-      icon: '🛒',
+      icon: ShoppingCart,
       target: 'Boutiques en ligne',
       pages: 'Illimité',
       features: [
@@ -124,12 +124,12 @@ const WebDigital = () => {
   ];
 
   const technologies = [
-    { name: 'React', category: 'Frontend', icon: '⚛️' },
-    { name: 'Node.js', category: 'Backend', icon: '🟢' },
-    { name: 'WordPress', category: 'CMS', icon: '📝' },
-    { name: 'WooCommerce', category: 'E-commerce', icon: '🛒' },
-    { name: 'Tailwind CSS', category: 'Design', icon: '🎨' },
-    { name: 'PostgreSQL', category: 'Database', icon: '🐘' }
+    { name: 'React', category: 'Frontend', icon: Code },
+    { name: 'Node.js', category: 'Backend', icon: Server },
+    { name: 'WordPress', category: 'CMS', icon: FileText },
+    { name: 'WooCommerce', category: 'E-commerce', icon: ShoppingCart },
+    { name: 'Tailwind CSS', category: 'Design', icon: Palette },
+    { name: 'PostgreSQL', category: 'Database', icon: Database }
   ];
 
   const process = [
@@ -293,18 +293,22 @@ const WebDigital = () => {
                   }`}
                 >
                   {pkg.popular && (
-                    <div className="bg-purple-600 text-white text-center py-2 font-semibold">
-                      ⭐ Le Plus Populaire
+                    <div className="bg-purple-600 text-white text-center py-2 font-semibold flex items-center justify-center gap-2">
+                      <Star size={18} className="fill-current" /> Le Plus Populaire
                     </div>
                   )}
                   <div className="p-8">
-                    <div className="text-5xl mb-4 text-center">{pkg.icon}</div>
+                    <div className="flex justify-center mb-4">
+                      <pkg.icon size={48} className="text-purple-600" />
+                    </div>
                     <h3 className="text-2xl font-bold mb-2 text-center">{pkg.name}</h3>
                     <div className="text-sm text-muted-foreground text-center mb-4">{pkg.target}</div>
                     <div className="text-center mb-6">
                       <div className="text-3xl font-bold text-purple-600 mb-1">{pkg.price}</div>
                       <div className="text-sm text-muted-foreground">{pkg.monthly}</div>
-                      <div className="text-xs text-green-600 mt-2">⏱️ {pkg.deliveryTime}</div>
+                      <div className="text-xs text-green-600 mt-2 flex items-center justify-center gap-1">
+                        <Clock size={14} /> {pkg.deliveryTime}
+                      </div>
                     </div>
                     <div className="mb-4">
                       <div className="font-semibold mb-2 text-sm">{pkg.pages}</div>
@@ -402,7 +406,7 @@ const WebDigital = () => {
             <div className="flex flex-wrap gap-4 justify-center max-w-4xl mx-auto">
               {technologies.map((tech, index) => (
                 <div key={index} className="bg-card rounded-lg px-6 py-3 shadow-md flex items-center gap-3">
-                  <span className="text-2xl">{tech.icon}</span>
+                  <tech.icon size={28} className="text-purple-600" />
                   <div>
                     <div className="font-bold">{tech.name}</div>
                     <div className="text-xs text-muted-foreground">{tech.category}</div>

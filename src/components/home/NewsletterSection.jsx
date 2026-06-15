@@ -5,7 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { newsletterSchema } from '@/schemas/contactSchema'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Mail, CheckCircle, AlertCircle } from 'lucide-react'
+import { Mail, CheckCircle, AlertCircle, Loader2, Newspaper, Lightbulb, Gift } from 'lucide-react'
 
 const NewsletterSection = () => {
   const { t } = useTranslation()
@@ -94,7 +94,7 @@ const NewsletterSection = () => {
             >
               {status === 'loading' ? (
                 <span className="flex items-center gap-2">
-                  <span className="animate-spin">⏳</span>
+                  <Loader2 size={18} className="animate-spin" />
                   {t('newsletter.subscribing', 'Inscription...')}
                 </span>
               ) : (
@@ -124,21 +124,21 @@ const NewsletterSection = () => {
           {/* Benefits */}
           <div className="grid md:grid-cols-3 gap-6 mt-12 text-left">
             <div className="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
-              <div className="text-3xl mb-3">📰</div>
+              <Newspaper size={32} className="text-accent mb-3" />
               <h3 className="font-bold mb-2">{t('newsletter.benefit1Title', 'Actualités IT')}</h3>
               <p className="text-sm opacity-80">
                 {t('newsletter.benefit1Description', 'Les dernières tendances et innovations technologiques')}
               </p>
             </div>
             <div className="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
-              <div className="text-3xl mb-3">💡</div>
+              <Lightbulb size={32} className="text-accent mb-3" />
               <h3 className="font-bold mb-2">{t('newsletter.benefit2Title', 'Conseils Experts')}</h3>
               <p className="text-sm opacity-80">
                 {t('newsletter.benefit2Description', 'Astuces et bonnes pratiques pour optimiser votre IT')}
               </p>
             </div>
             <div className="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
-              <div className="text-3xl mb-3">🎁</div>
+              <Gift size={32} className="text-accent mb-3" />
               <h3 className="font-bold mb-2">{t('newsletter.benefit3Title', 'Offres Exclusives')}</h3>
               <p className="text-sm opacity-80">
                 {t('newsletter.benefit3Description', 'Promotions et réductions réservées aux abonnés')}

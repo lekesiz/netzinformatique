@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import SEO from '@/components/common/SEO';
 import { useTranslation } from 'react-i18next';
 import { Input } from '@/components/ui/input';
-import { Search } from 'lucide-react';
+import { Search, FileText, ArrowRight } from 'lucide-react';
 
 // Dummy blog posts data - replace with dynamic import
 import { posts as allPosts } from '@/content/blog/posts';
@@ -60,7 +60,7 @@ const BlogIndex = () => {
                   <div className="absolute inset-0 bg-black/10"></div>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center text-white p-6">
-                      <div className="text-5xl mb-3">📝</div>
+                      <FileText size={48} className="mx-auto mb-3" />
                       <div className="text-xs font-semibold uppercase tracking-wider opacity-90">
                         {new Date(post.date).toLocaleDateString(lang, { day: 'numeric', month: 'short', year: 'numeric' })}
                       </div>
@@ -100,7 +100,7 @@ const BlogIndex = () => {
                   </div>
                   <div className="flex items-center text-primary font-semibold text-sm group-hover:gap-2 transition-all">
                     <span>{t('blog.readMore', 'Lire la suite')}</span>
-                    <span className="group-hover:translate-x-1 transition-transform">→</span>
+                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
               </Link>

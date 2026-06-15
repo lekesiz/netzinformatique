@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import SEO from '@/components/common/SEO';
 import StructuredData from '@/components/common/StructuredData';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, CheckCircle, Award, Users, Clock, TrendingUp, BookOpen, Phone, GraduationCap, FileText, Euro, Building } from 'lucide-react';
+import { ArrowRight, CheckCircle, Award, Users, Clock, TrendingUp, BookOpen, Phone, GraduationCap, FileText, Euro, Building, Briefcase, Bot, ShieldCheck, Globe, User, Target, ClipboardList, Star } from 'lucide-react';
 import {
   Accordion,
   AccordionContent,
@@ -41,7 +41,7 @@ const FormationProfessionnelle = () => {
   const trainingCategories = [
     {
       name: 'Bureautique',
-      icon: '💼',
+      icon: Briefcase,
       description: 'Maîtrisez les outils essentiels du quotidien',
       courses: [
         { name: 'Excel : Initiation', duration: '2 jours', level: 'Débutant', price: '600€' },
@@ -54,7 +54,7 @@ const FormationProfessionnelle = () => {
     },
     {
       name: 'Intelligence Artificielle',
-      icon: '🤖',
+      icon: Bot,
       description: 'Exploitez la puissance de l\'IA dans votre métier',
       courses: [
         { name: 'IA Générative pour Professionnels', duration: '1 jour', level: 'Débutant', price: '450€' },
@@ -65,7 +65,7 @@ const FormationProfessionnelle = () => {
     },
     {
       name: 'Cybersécurité',
-      icon: '🔒',
+      icon: ShieldCheck,
       description: 'Protégez votre entreprise des cybermenaces',
       courses: [
         { name: 'Sensibilisation Cybersécurité', duration: '0.5 jour', level: 'Tous niveaux', price: '250€' },
@@ -76,7 +76,7 @@ const FormationProfessionnelle = () => {
     },
     {
       name: 'Web & Digital',
-      icon: '🌐',
+      icon: Globe,
       description: 'Développez votre présence en ligne',
       courses: [
         { name: 'WordPress : Créer son Site', duration: '2 jours', level: 'Débutant', price: '600€' },
@@ -90,7 +90,7 @@ const FormationProfessionnelle = () => {
   const fundingOptions = [
     {
       name: 'OPCO',
-      icon: '🏢',
+      icon: Building,
       target: 'Entreprises',
       description: 'Opérateurs de Compétences financent les formations de vos salariés',
       coverage: 'Jusqu\'à 100% du coût',
@@ -98,7 +98,7 @@ const FormationProfessionnelle = () => {
     },
     {
       name: 'CPF',
-      icon: '👤',
+      icon: User,
       target: 'Particuliers & Salariés',
       description: 'Compte Personnel de Formation pour financer votre montée en compétences',
       coverage: 'Selon vos droits acquis',
@@ -106,7 +106,7 @@ const FormationProfessionnelle = () => {
     },
     {
       name: 'Pôle Emploi',
-      icon: '🎯',
+      icon: Target,
       target: 'Demandeurs d\'Emploi',
       description: 'AIF (Aide Individuelle à la Formation) pour votre retour à l\'emploi',
       coverage: 'Jusqu\'à 100% selon situation',
@@ -114,7 +114,7 @@ const FormationProfessionnelle = () => {
     },
     {
       name: 'Plan de Formation',
-      icon: '📋',
+      icon: ClipboardList,
       target: 'Entreprises',
       description: 'Budget formation de l\'entreprise pour développer les compétences',
       coverage: '100% pris en charge par l\'entreprise',
@@ -229,8 +229,10 @@ const FormationProfessionnelle = () => {
                 </Button>
               </Link>
             </div>
-            <p className="text-sm text-muted-foreground">
-              🎓 670+ stagiaires formés • ⭐ 98% satisfaction • 🏆 Certifié QUALIOPI
+            <p className="text-sm text-muted-foreground flex items-center justify-center gap-x-4 gap-y-1 flex-wrap">
+              <span className="flex items-center gap-1.5"><GraduationCap size={16} className="text-green-600" /> 670+ stagiaires formés</span>
+              <span className="flex items-center gap-1.5"><Star size={16} className="text-green-600 fill-current" /> 98% satisfaction</span>
+              <span className="flex items-center gap-1.5"><Award size={16} className="text-green-600" /> Certifié QUALIOPI</span>
             </p>
           </div>
         </section>
@@ -283,7 +285,7 @@ const FormationProfessionnelle = () => {
                 <div key={index} className="bg-card rounded-2xl shadow-xl overflow-hidden">
                   <div className="bg-gradient-to-r from-green-600 to-blue-600 text-white p-6">
                     <div className="flex items-center gap-4">
-                      <div className="text-5xl">{category.icon}</div>
+                      <category.icon size={48} className="flex-shrink-0" />
                       <div>
                         <h3 className="text-2xl font-bold">{category.name}</h3>
                         <p className="opacity-90">{category.description}</p>
@@ -344,7 +346,9 @@ const FormationProfessionnelle = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {fundingOptions.map((option, index) => (
                 <div key={index} className="bg-card rounded-xl p-6 shadow-lg">
-                  <div className="text-5xl mb-4 text-center">{option.icon}</div>
+                  <div className="flex justify-center mb-4">
+                    <option.icon size={48} className="text-green-600" />
+                  </div>
                   <h3 className="font-bold text-xl mb-2 text-center">{option.name}</h3>
                   <div className="text-sm text-center text-green-600 font-semibold mb-3">{option.target}</div>
                   <p className="text-sm text-muted-foreground mb-3">{option.description}</p>

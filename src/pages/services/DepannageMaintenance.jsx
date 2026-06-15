@@ -3,7 +3,7 @@ import SEO from '@/components/common/SEO';
 import StructuredData from '@/components/common/StructuredData';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, CheckCircle, Phone, Wrench, Clock, Shield, TrendingUp, AlertCircle, Laptop } from 'lucide-react';
+import { ArrowRight, CheckCircle, Phone, Wrench, Clock, Shield, TrendingUp, AlertCircle, Laptop, Star, Lightbulb } from 'lucide-react';
 import {
   Accordion,
   AccordionContent,
@@ -285,8 +285,9 @@ const DepannageMaintenance = () => {
                 ))}
               </div>
               <div className="mt-6 p-4 bg-accent/10 rounded-lg">
-                <p className="text-sm text-center">
-                  💡 <strong>Diagnostic gratuit</strong> - Devis détaillé avant toute intervention - Paiement après réparation
+                <p className="text-sm text-center inline-flex items-center justify-center gap-2 w-full">
+                  <Lightbulb size={18} className="text-accent flex-shrink-0" />
+                  <span><strong>Diagnostic gratuit</strong> - Devis détaillé avant toute intervention - Paiement après réparation</span>
                 </p>
               </div>
             </div>
@@ -314,8 +315,8 @@ const DepannageMaintenance = () => {
                   }`}
                 >
                   {pkg.popular && (
-                    <div className="bg-primary text-white text-center py-2 font-semibold">
-                      ⭐ Le Plus Populaire
+                    <div className="bg-primary text-white text-center py-2 font-semibold flex items-center justify-center gap-2">
+                      <Star size={16} className="fill-current" /> Le Plus Populaire
                     </div>
                   )}
                   <div className="p-8">
