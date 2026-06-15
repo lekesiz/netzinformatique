@@ -1,5 +1,6 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
+import translationSupplement from './i18n-supplement'
 
 // Comprehensive Translation resources for all languages
 const resources = {
@@ -612,6 +613,13 @@ i18n
       useSuspense: false // Disable suspense to avoid loading delays
     }
   })
+
+// Merge supplementary translations (keys used via t('x','défaut FR') but absent
+// from the bundle). Deep-merge WITHOUT overwriting existing curated keys, so
+// EN/DE/TR stop falling back to French for ~120 strings.
+Object.entries(translationSupplement).forEach(([lng, bundle]) => {
+  i18n.addResourceBundle(lng, 'translation', bundle.translation, true, false)
+})
 
 // Save language changes to localStorage
 i18n.on('languageChanged', (lng) => {
