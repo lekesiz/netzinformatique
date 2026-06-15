@@ -323,7 +323,7 @@ const About = () => {
               <div className="text-lg opacity-90">Appareils Réparés</div>
             </div>
             <div>
-              <div className="text-5xl font-bold mb-2">20+</div>
+              <div className="text-5xl font-bold mb-2">35+</div>
               <div className="text-lg opacity-90">Années d'Expérience</div>
             </div>
             <div>

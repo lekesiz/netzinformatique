@@ -325,7 +325,7 @@ const SolutionWeb = () => {
             </div>
             <div className="bg-card rounded-xl p-8 shadow-lg">
               <Award size={48} className="text-secondary mx-auto mb-4" />
-              <div className="text-4xl font-bold text-secondary mb-2">20+</div>
+              <div className="text-4xl font-bold text-secondary mb-2">35+</div>
               <p className="text-muted-foreground">Ans d'Expérience</p>
             </div>
           </div>

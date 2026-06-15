@@ -14,25 +14,25 @@ const ArticleSchema = ({
     "@type": "Article",
     "headline": title,
     "description": description,
-    "image": image || "https://netzinformatique.vercel.app/images/og-image.jpg",
+    "image": image || "https://www.netzinformatique.fr/images/og-image.jpg",
     "author": {
       "@type": "Organization",
       "name": author,
-      "url": "https://netzinformatique.vercel.app"
+      "url": "https://www.netzinformatique.fr"
     },
     "publisher": {
       "@type": "Organization",
       "name": "NETZ Informatique",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://netzinformatique.vercel.app/logo.png"
+        "url": "https://www.netzinformatique.fr/logo.png"
       }
     },
     "datePublished": datePublished,
     "dateModified": dateModified || datePublished,
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": url ? `https://netzinformatique.vercel.app${url}` : "https://netzinformatique.vercel.app"
+      "@id": url ? `https://www.netzinformatique.fr${url}` : "https://www.netzinformatique.fr"
     }
   }
 

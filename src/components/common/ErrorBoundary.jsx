@@ -45,8 +45,8 @@ class ErrorBoundary extends Component {
     if (this.state.hasError) {
       // Fallback UI
       return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-50 to-blue-50 px-4">
-          <div className="max-w-2xl w-full bg-white rounded-2xl shadow-2xl p-8 md:p-12">
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/5 to-secondary/5 px-4">
+          <div className="max-w-2xl w-full bg-card rounded-2xl shadow-2xl p-8 md:p-12">
             <div className="text-center">
               {/* Icon */}
               <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-red-100 mb-6">
@@ -54,12 +54,12 @@ class ErrorBoundary extends Component {
               </div>
 
               {/* Title */}
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                 Oups ! Une erreur s'est produite
               </h1>
 
               {/* Description */}
-              <p className="text-lg text-gray-600 mb-8">
+              <p className="text-lg text-muted-foreground mb-8">
                 Nous sommes désolés pour la gêne occasionnée. Une erreur inattendue s'est produite.
               </p>
 
@@ -94,7 +94,7 @@ class ErrorBoundary extends Component {
 
                 <button
                   onClick={this.handleGoHome}
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gray-100 text-gray-800 rounded-lg hover:bg-gray-200 transition-colors font-medium"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-muted text-foreground rounded-lg hover:bg-gray-200 transition-colors font-medium"
                 >
                   <Home className="w-5 h-5" />
                   Retour à l'accueil
@@ -102,8 +102,8 @@ class ErrorBoundary extends Component {
               </div>
 
               {/* Contact Info */}
-              <div className="mt-12 pt-8 border-t border-gray-200">
-                <p className="text-sm text-gray-600 mb-4">
+              <div className="mt-12 pt-8 border-t border-border">
+                <p className="text-sm text-muted-foreground mb-4">
                   Si le problème persiste, n'hésitez pas à nous contacter :
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center text-sm">

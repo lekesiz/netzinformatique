@@ -2,7 +2,7 @@ import { Facebook, Twitter, Linkedin, Link as LinkIcon, Mail } from 'lucide-reac
 import { Button } from '@/components/ui/button'
 
 const SocialShare = ({ url, title, description }) => {
-  const fullUrl = `https://netzinformatique.vercel.app${url}`
+  const fullUrl = `https://www.netzinformatique.fr${url}`
   
   const shareLinks = {
     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(fullUrl)}`,
@@ -18,7 +18,7 @@ const SocialShare = ({ url, title, description }) => {
 
   return (
     <div className="flex items-center gap-2 flex-wrap">
-      <span className="text-sm font-semibold text-gray-600 mr-2">Partager:</span>
+      <span className="text-sm font-semibold text-muted-foreground mr-2">Partager:</span>
       
       <a href={shareLinks.facebook} target="_blank" rel="noopener noreferrer">
         <Button variant="outline" size="sm" className="gap-2">
