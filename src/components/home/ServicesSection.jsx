@@ -15,7 +15,7 @@ const ServicesSection = () => {
   const currentLang = i18n.language
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-20 bg-gradient-to-b from-background to-muted">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -44,8 +44,8 @@ const ServicesSection = () => {
                 <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
                   {service.description[currentLang] || service.description.fr}
                 </p>
-                <Link to={service.link}>
-                  <Button variant="ghost" className="p-0 h-auto font-semibold text-primary hover:text-primary/80">
+                <Link to={service.link} className="inline-flex">
+                  <Button variant="ghost" className="h-11 px-2 -ml-2 font-semibold text-accent hover:text-accent/80 hover:bg-accent/5">
                     {t('common.learnMore', 'En savoir plus')}
                     <ArrowRight className="ml-2" size={16} />
                   </Button>

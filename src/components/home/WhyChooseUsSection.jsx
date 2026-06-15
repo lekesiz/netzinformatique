@@ -28,7 +28,7 @@ const WhyChooseUsSection = () => {
             return (
               <div
                 key={index}
-                className="group p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-white border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300"
+                className="group p-8 rounded-2xl bg-gradient-to-br from-muted to-card border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300"
               >
                 <div className="w-16 h-16 gradient-green rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   {IconComponent && <IconComponent size={32} className="text-white" />}
