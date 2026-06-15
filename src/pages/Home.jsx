@@ -12,6 +12,7 @@ import PartnersSection from '@/components/home/PartnersSection'
 import BoutiqueSection from '@/components/home/BoutiqueSection'
 import NewsletterSection from '@/components/home/NewsletterSection'
 import CaseStudiesSection from '@/components/home/CaseStudiesSection'
+import ProcessSection from '@/components/home/ProcessSection'
 import SEO from '@/components/common/SEO'
 import StructuredData from '@/components/common/StructuredData'
 import Reveal from '@/components/common/Reveal'
@@ -148,6 +149,9 @@ const Home = () => {
 
         {/* Why Choose Us Section */}
         <Reveal><WhyChooseUsSection /></Reveal>
+
+        {/* Process / Comment ça marche */}
+        <ProcessSection />
 
         {/* Case Studies / Réalisations */}
         <CaseStudiesSection />

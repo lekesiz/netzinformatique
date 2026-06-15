@@ -1,5 +1,19 @@
 // Auto-généré : traductions TR (lazy-loaded). FR = defaultValue inline des t().
 export default {
+  "process": {
+    "badge": "Yöntemimiz",
+    "titlePre": "Nasıl",
+    "titleHighlight": "çalışıyoruz",
+    "subtitle": "İlk telefonunuzdan takip aşamasına kadar basit ve şeffaf bir yaklaşım.",
+    "s1Title": "Görüşme & teşhis",
+    "s1Desc": "İhtiyacınızı bize anlatırsınız. Ücretsiz, taahhütsüz bir teşhis yaparız.",
+    "s2Title": "Şeffaf teklif",
+    "s2Desc": "Net ve ayrıntılı bir teklif alırsınız — sürpriz yok, gizli ücret yok.",
+    "s3Title": "Uzman müdahale",
+    "s3Desc": "Sertifikalı teknisyenlerimiz yerinde veya uzaktan hızlıca müdahale eder.",
+    "s4Title": "Takip & garanti",
+    "s4Desc": "Müdahale sonrası, içiniz rahat olsun diye ulaşılabilir kalırız."
+  },
  "nav": {
   "services": "Hizmetler",
   "solutions": "Çözümler",

@@ -1,5 +1,19 @@
 // Auto-généré : traductions DE (lazy-loaded). FR = defaultValue inline des t().
 export default {
+  "process": {
+    "badge": "Unsere Methode",
+    "titlePre": "So",
+    "titleHighlight": "arbeiten wir",
+    "subtitle": "Ein einfacher, transparenter Ablauf — von Ihrem ersten Anruf bis zur Nachbetreuung.",
+    "s1Title": "Gespräch & Diagnose",
+    "s1Desc": "Sie schildern uns Ihren Bedarf. Wir führen eine kostenlose, unverbindliche Diagnose durch.",
+    "s2Title": "Transparentes Angebot",
+    "s2Desc": "Sie erhalten ein klares, detailliertes Angebot — ohne Überraschungen oder versteckte Kosten.",
+    "s3Title": "Fachgerechter Einsatz",
+    "s3Desc": "Unsere zertifizierten Techniker handeln schnell, vor Ort oder per Fernzugriff.",
+    "s4Title": "Nachbetreuung & Garantie",
+    "s4Desc": "Wir bleiben auch nach dem Einsatz für Sie erreichbar — für Ihre Sorgenfreiheit."
+  },
  "nav": {
   "services": "Leistungen",
   "solutions": "Lösungen",
