@@ -1,5 +1,31 @@
 // Auto-généré : traductions DE (lazy-loaded). FR = defaultValue inline des t().
 export default {
+  "header": {
+    "hours": "Mo–Fr: 9–12 / 14–18 Uhr · Sa: 9–12 Uhr"
+  },
+  "megaMenu": {
+    "depTitle": "Reparatur & Wartung",
+    "depDesc": "Reparatur, Optimierung, Support",
+    "cyberTitle": "Cybersicherheit",
+    "cyberDesc": "Schutz, Audit, Compliance",
+    "cloudTitle": "Cloud & Netzwerk",
+    "cloudDesc": "Migration, Infrastruktur",
+    "iaTitle": "Offline-KI",
+    "iaDesc": "100% private lokale KI",
+    "webTitle": "Web & Digital",
+    "webDesc": "Websites, SEO, Online-Präsenz",
+    "formTitle": "Profi-Schulungen",
+    "formDesc": "QUALIOPI, CPF/OPCO-Förderung",
+    "solAiTitle": "Künstliche Intelligenz",
+    "solAiDesc": "Sichere Offline-KI-Lösungen",
+    "solWebTitle": "Web & SEO",
+    "solWebDesc": "Moderne Websites, Suchmaschinen",
+    "solCloudTitle": "Cloud Computing",
+    "solCloudDesc": "Cloud-Migration & -Optimierung",
+    "formAll": "Alle Schulungen",
+    "formBilan": "Kompetenzbilanz",
+    "ctaText": "Nicht sicher, was Sie brauchen? Kostenlose Diagnose."
+  },
   "homeFaq": {
     "badge": "Häufige Fragen",
     "titlePre": "Haben Sie",
@@ -22,6 +48,11 @@ export default {
     "s4Desc": "Wir bleiben auch nach dem Einsatz für Sie erreichbar — für Ihre Sorgenfreiheit."
   },
  "nav": {
+  "home": "Startseite",
+  "about": "Über uns",
+  "materiel": "Hardware",
+  "boutique": "Shop",
+  "contact": "Kontakt",
   "services": "Leistungen",
   "solutions": "Lösungen",
   "formation": "Schulungen",

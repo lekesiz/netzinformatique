@@ -1,5 +1,31 @@
 // Auto-généré : traductions EN (lazy-loaded). FR = defaultValue inline des t().
 export default {
+  "header": {
+    "hours": "Mon–Fri: 9am–12pm / 2pm–6pm · Sat: 9am–12pm"
+  },
+  "megaMenu": {
+    "depTitle": "Repair & Maintenance",
+    "depDesc": "Repair, optimization, support",
+    "cyberTitle": "Cybersecurity",
+    "cyberDesc": "Protection, audit, compliance",
+    "cloudTitle": "Cloud & Network",
+    "cloudDesc": "Migration, infrastructure",
+    "iaTitle": "Offline AI",
+    "iaDesc": "100% private local AI",
+    "webTitle": "Web & Digital",
+    "webDesc": "Websites, SEO, online presence",
+    "formTitle": "Pro Training",
+    "formDesc": "QUALIOPI, CPF/OPCO funding",
+    "solAiTitle": "Artificial Intelligence",
+    "solAiDesc": "Secure offline AI solutions",
+    "solWebTitle": "Web & SEO",
+    "solWebDesc": "Modern sites, search ranking",
+    "solCloudTitle": "Cloud Computing",
+    "solCloudDesc": "Cloud migration & optimization",
+    "formAll": "All training courses",
+    "formBilan": "Skills Assessment",
+    "ctaText": "Not sure what you need? Free diagnosis."
+  },
   "homeFaq": {
     "badge": "Frequently asked questions",
     "titlePre": "Do you have",
@@ -22,6 +48,11 @@ export default {
     "s4Desc": "We stay available after the work to ensure your peace of mind."
   },
  "nav": {
+  "home": "Home",
+  "about": "About",
+  "materiel": "Hardware",
+  "boutique": "Shop",
+  "contact": "Contact",
   "services": "Services",
   "solutions": "Solutions",
   "formation": "Training",

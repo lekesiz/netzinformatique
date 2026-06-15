@@ -1,5 +1,31 @@
 // Auto-généré : traductions TR (lazy-loaded). FR = defaultValue inline des t().
 export default {
+  "header": {
+    "hours": "Pzt–Cum: 9–12 / 14–18 · Cmt: 9–12"
+  },
+  "megaMenu": {
+    "depTitle": "Onarım & Bakım",
+    "depDesc": "Onarım, optimizasyon, destek",
+    "cyberTitle": "Siber Güvenlik",
+    "cyberDesc": "Koruma, denetim, uyumluluk",
+    "cloudTitle": "Bulut & Ağ",
+    "cloudDesc": "Geçiş, altyapı",
+    "iaTitle": "Çevrimdışı YZ",
+    "iaDesc": "%100 gizli yerel YZ",
+    "webTitle": "Web & Dijital",
+    "webDesc": "Web siteleri, SEO, çevrimiçi varlık",
+    "formTitle": "Profesyonel Eğitim",
+    "formDesc": "QUALIOPI, CPF/OPCO finansmanı",
+    "solAiTitle": "Yapay Zekâ",
+    "solAiDesc": "Güvenli çevrimdışı YZ çözümleri",
+    "solWebTitle": "Web & SEO",
+    "solWebDesc": "Modern siteler, arama sıralaması",
+    "solCloudTitle": "Bulut Bilişim",
+    "solCloudDesc": "Bulut geçişi ve optimizasyon",
+    "formAll": "Tüm eğitimler",
+    "formBilan": "Yetkinlik Değerlendirmesi",
+    "ctaText": "Ne gerektiğinden emin değil misiniz? Ücretsiz teşhis."
+  },
   "homeFaq": {
     "badge": "Sıkça sorulan sorular",
     "titlePre": "Aklınıza takılan",
@@ -22,6 +48,11 @@ export default {
     "s4Desc": "Müdahale sonrası, içiniz rahat olsun diye ulaşılabilir kalırız."
   },
  "nav": {
+  "home": "Ana Sayfa",
+  "about": "Hakkımızda",
+  "materiel": "Donanım",
+  "boutique": "Mağaza",
+  "contact": "İletişim",
   "services": "Hizmetler",
   "solutions": "Çözümler",
   "formation": "Eğitim",

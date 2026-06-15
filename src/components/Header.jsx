@@ -2,7 +2,10 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
-import { Menu, X, Phone, Mail, Clock, ChevronDown, ArrowRight } from 'lucide-react'
+import {
+  Menu, X, Phone, Mail, Clock, ChevronDown, ArrowRight,
+  Wrench, ShieldCheck, Cloud, Bot, Globe, GraduationCap, Cpu, Sparkles,
+} from 'lucide-react'
 import LanguageSwitcher from './LanguageSwitcher'
 import ThemeToggle from './common/ThemeToggle'
 
@@ -24,44 +27,45 @@ const Header = () => {
     setIsMobileMenuOpen(false)
   }, [location.pathname])
 
+  // Mega-menu content for Services & Solutions
+  const megaServices = [
+    { icon: Wrench, title: t('megaMenu.depTitle', 'Dépannage & Maintenance'), desc: t('megaMenu.depDesc', 'Réparation, optimisation, support'), path: '/services/depannage-maintenance' },
+    { icon: ShieldCheck, title: t('megaMenu.cyberTitle', 'Cybersécurité'), desc: t('megaMenu.cyberDesc', 'Protection, audit, conformité'), path: '/services/cybersecurite' },
+    { icon: Cloud, title: t('megaMenu.cloudTitle', 'Cloud & Réseau'), desc: t('megaMenu.cloudDesc', 'Migration, infrastructure'), path: '/services/cloud-reseau' },
+    { icon: Bot, title: t('megaMenu.iaTitle', 'IA Offline'), desc: t('megaMenu.iaDesc', 'IA locale 100% confidentielle'), path: '/services/ia-offline' },
+    { icon: Globe, title: t('megaMenu.webTitle', 'Web & Digital'), desc: t('megaMenu.webDesc', 'Sites web, SEO, présence en ligne'), path: '/services/web-digital' },
+    { icon: GraduationCap, title: t('megaMenu.formTitle', 'Formation Pro'), desc: t('megaMenu.formDesc', 'QUALIOPI, finançable CPF/OPCO'), path: '/services/formation-professionnelle' },
+  ]
+
+  const megaSolutions = [
+    { icon: Cpu, title: t('megaMenu.solAiTitle', 'Intelligence Artificielle'), desc: t('megaMenu.solAiDesc', 'Solutions IA offline sécurisées'), path: '/solutions/intelligence-artificielle' },
+    { icon: Globe, title: t('megaMenu.solWebTitle', 'Web & SEO'), desc: t('megaMenu.solWebDesc', 'Sites modernes, référencement'), path: '/solutions/web-developpement' },
+    { icon: Cloud, title: t('megaMenu.solCloudTitle', 'Cloud Computing'), desc: t('megaMenu.solCloudDesc', 'Migration et optimisation cloud'), path: '/solutions/cloud' },
+  ]
+
   const navItems = [
-    { name: 'Accueil', path: '/' },
-    { name: 'À Propos', path: '/a-propos' },
+    { name: t('nav.home', 'Accueil'), path: '/' },
+    { name: t('nav.about', 'À Propos'), path: '/a-propos' },
+    { name: t('nav.services', 'Services'), path: '/services', mega: 'services' },
+    { name: t('nav.solutions', 'Solutions'), path: '/solutions', mega: 'solutions' },
     {
-      name: 'Services',
-      path: '/services',
-      dropdown: [
-        { name: 'Tous les Services', path: '/services' },
-        { name: 'Pour Particuliers', path: '/services/particuliers' },
-        { name: 'Pour Entreprises', path: '/services/entreprises' },
-      ],
-    },
-    {
-      name: 'Solutions',
-      path: '/solutions',
-      dropdown: [
-        { name: 'Toutes les Solutions', path: '/solutions' },
-        { name: 'Intelligence Artificielle', path: '/solutions/intelligence-artificielle' },
-        { name: 'Web & SEO', path: '/solutions/web-developpement' },
-        { name: 'Cloud Computing', path: '/solutions/cloud' },
-      ],
-    },
-    {
-      name: 'Formation',
+      name: t('nav.formation', 'Formation'),
       path: '/formation',
       dropdown: [
-        { name: 'Formations', path: '/formation' },
-        { name: 'Bilan de Compétences', path: '/formation/bilan-competences' },
+        { name: t('megaMenu.formAll', 'Toutes les formations'), path: '/formation' },
+        { name: t('megaMenu.formBilan', 'Bilan de Compétences'), path: '/formation/bilan-competences' },
       ],
     },
-    { name: 'Matériel', path: '/materiel' },
-    { name: 'Tarifs', path: '/tarifs' },
-    { name: 'Boutique', path: 'https://informatique-haguenau.fr/', external: true },
-    { name: 'Blog', path: '/blog' },
-    { name: 'Contact', path: '/contact' },
+    { name: t('nav.materiel', 'Matériel'), path: '/materiel' },
+    { name: t('nav.tarifs', 'Tarifs'), path: '/tarifs' },
+    { name: t('nav.boutique', 'Boutique'), path: 'https://informatique-haguenau.fr/', external: true },
+    { name: t('nav.blog', 'Blog'), path: '/blog' },
+    { name: t('nav.contact', 'Contact'), path: '/contact' },
   ]
 
   const isActive = (path) => location.pathname === path
+
+  const megaItemsFor = (key) => (key === 'services' ? megaServices : key === 'solutions' ? megaSolutions : [])
 
   return (
     <>
@@ -80,7 +84,7 @@ const Header = () => {
           </div>
           <div className="flex items-center gap-2 text-primary-foreground/90">
             <Clock size={15} />
-            <span>Lun–Ven : 9h–12h / 14h–18h · Sam : 9h–12h</span>
+            <span>{t('header.hours', 'Lun–Ven : 9h–12h / 14h–18h · Sam : 9h–12h')}</span>
           </div>
         </div>
       </div>
@@ -112,7 +116,7 @@ const Header = () => {
                 <div
                   key={item.name}
                   className="relative"
-                  onMouseEnter={() => item.dropdown && setOpenDropdown(item.name)}
+                  onMouseEnter={() => (item.mega || item.dropdown) && setOpenDropdown(item.name)}
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
                   {item.external ? (
@@ -132,11 +136,48 @@ const Header = () => {
                       }`}
                     >
                       {item.name}
-                      {item.dropdown && <ChevronDown size={15} className="opacity-70" />}
+                      {(item.mega || item.dropdown) && <ChevronDown size={15} className="opacity-70" />}
                     </Link>
                   )}
 
-                  {/* Dropdown Menu */}
+                  {/* Mega Menu (Services / Solutions) */}
+                  {item.mega && openDropdown === item.name && (
+                    <div className="absolute top-full left-0 pt-2">
+                      <div className="w-[640px] max-w-[90vw] bg-popover text-popover-foreground rounded-2xl shadow-2xl border border-border p-4 animate-fadeIn">
+                        <div className="grid sm:grid-cols-2 gap-1">
+                          {megaItemsFor(item.mega).map((m) => (
+                            <Link
+                              key={m.path}
+                              to={m.path}
+                              className="group flex items-start gap-3 rounded-xl p-3 hover:bg-muted transition-colors"
+                            >
+                              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
+                                <m.icon size={20} />
+                              </span>
+                              <span>
+                                <span className="block text-sm font-semibold">{m.title}</span>
+                                <span className="block text-xs text-muted-foreground">{m.desc}</span>
+                              </span>
+                            </Link>
+                          ))}
+                        </div>
+                        <div className="mt-3 flex items-center justify-between gap-3 rounded-xl bg-primary p-4 text-primary-foreground">
+                          <span className="flex items-center gap-2 text-sm">
+                            <Sparkles size={18} className="text-accent" />
+                            {t('megaMenu.ctaText', 'Pas sûr de ce qu\'il vous faut ? Diagnostic gratuit.')}
+                          </span>
+                          <Link to="/contact">
+                            <Button size="sm" className="bg-accent text-accent-foreground hover:bg-accent/90 gap-1.5 shrink-0">
+                              {t('common.getQuote', 'Devis gratuit')}
+                              <ArrowRight size={15} />
+                            </Button>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Simple Dropdown (Formation) */}
                   {item.dropdown && openDropdown === item.name && (
                     <div className="absolute top-full left-0 pt-2">
                       <div className="w-60 bg-popover text-popover-foreground rounded-xl shadow-xl border border-border py-2 animate-fadeIn">
@@ -205,15 +246,15 @@ const Header = () => {
                     >
                       {item.name}
                     </Link>
-                    {item.dropdown && (
+                    {(item.mega || item.dropdown) && (
                       <div className="ml-3 mt-1 space-y-0.5 border-l border-border pl-3">
-                        {item.dropdown.map((subItem) => (
+                        {(item.mega ? megaItemsFor(item.mega) : item.dropdown).map((subItem) => (
                           <Link
-                            key={subItem.name}
+                            key={subItem.path}
                             to={subItem.path}
                             className="block py-2 px-3 text-sm rounded-lg text-muted-foreground hover:bg-muted hover:text-accent transition"
                           >
-                            {subItem.name}
+                            {subItem.title || subItem.name}
                           </Link>
                         ))}
                       </div>
