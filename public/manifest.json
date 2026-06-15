@@ -4,7 +4,7 @@
   "description": "Services informatiques, dépannage et formation à Haguenau",
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#8b5cf6",
+  "theme_color": "#0F172A",
   "background_color": "#ffffff",
   "icons": [
     {
