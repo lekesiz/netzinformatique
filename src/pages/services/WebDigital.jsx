@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import SEO from '@/components/common/SEO';
 import StructuredData from '@/components/common/StructuredData';
 import { Button } from '@/components/ui/button';
@@ -11,12 +12,13 @@ import {
 } from "@/components/ui/accordion"
 
 const WebDigital = () => {
-  const pageTitle = 'Création Site Web & Marketing Digital';
-  const pageDescription = 'Site vitrine, e-commerce, application web sur mesure. Référencement SEO, Google Ads, réseaux sociaux. Augmentez votre visibilité et vos ventes en ligne.';
+  const { t } = useTranslation();
+  const pageTitle = t('webDigital.pageTitle', 'Création Site Web & Marketing Digital');
+  const pageDescription = t('webDigital.pageDescription', 'Site vitrine, e-commerce, application web sur mesure. Référencement SEO, Google Ads, réseaux sociaux. Augmentez votre visibilité et vos ventes en ligne.');
 
   const breadcrumbs = [
-    { name: 'Accueil', url: '/' },
-    { name: 'Services', url: '/services' },
+    { name: t('webDigital.breadcrumbHome', 'Accueil'), url: '/' },
+    { name: t('webDigital.breadcrumbServices', 'Services'), url: '/services' },
     { name: pageTitle, url: '/services/web-digital' },
   ];
 
@@ -30,178 +32,178 @@ const WebDigital = () => {
   };
 
   const features = [
-    { icon: Globe, title: 'Site Vitrine', description: 'Présentation professionnelle de votre activité' },
-    { icon: ShoppingCart, title: 'E-commerce', description: 'Boutique en ligne performante et sécurisée' },
-    { icon: Code, title: 'Application Web', description: 'Développement sur mesure (React, Node.js)' },
-    { icon: Smartphone, title: 'Responsive', description: 'Adapté mobile, tablette, desktop' },
-    { icon: Search, title: 'SEO', description: 'Référencement naturel Google' },
-    { icon: TrendingUp, title: 'Marketing Digital', description: 'Google Ads, réseaux sociaux, emailing' }
+    { icon: Globe, title: t('webDigital.feature1Title', 'Site Vitrine'), description: t('webDigital.feature1Desc', 'Présentation professionnelle de votre activité') },
+    { icon: ShoppingCart, title: t('webDigital.feature2Title', 'E-commerce'), description: t('webDigital.feature2Desc', 'Boutique en ligne performante et sécurisée') },
+    { icon: Code, title: t('webDigital.feature3Title', 'Application Web'), description: t('webDigital.feature3Desc', 'Développement sur mesure (React, Node.js)') },
+    { icon: Smartphone, title: t('webDigital.feature4Title', 'Responsive'), description: t('webDigital.feature4Desc', 'Adapté mobile, tablette, desktop') },
+    { icon: Search, title: t('webDigital.feature5Title', 'SEO'), description: t('webDigital.feature5Desc', 'Référencement naturel Google') },
+    { icon: TrendingUp, title: t('webDigital.feature6Title', 'Marketing Digital'), description: t('webDigital.feature6Desc', 'Google Ads, réseaux sociaux, emailing') }
   ];
 
   const webPackages = [
     {
-      name: 'Site Vitrine',
+      name: t('webDigital.pkg1Name', 'Site Vitrine'),
       icon: Globe,
-      target: 'TPE, artisans, professions libérales',
-      pages: '5-10 pages',
+      target: t('webDigital.pkg1Target', 'TPE, artisans, professions libérales'),
+      pages: t('webDigital.pkg1Pages', '5-10 pages'),
       features: [
-        'Design moderne et responsive',
-        'Formulaire de contact',
-        'Google Maps intégré',
-        'Optimisation SEO de base',
-        'Hébergement 1 an inclus',
-        'Formation à la gestion',
-        'Support 3 mois'
+        t('webDigital.pkg1Feat1', 'Design moderne et responsive'),
+        t('webDigital.pkg1Feat2', 'Formulaire de contact'),
+        t('webDigital.pkg1Feat3', 'Google Maps intégré'),
+        t('webDigital.pkg1Feat4', 'Optimisation SEO de base'),
+        t('webDigital.pkg1Feat5', 'Hébergement 1 an inclus'),
+        t('webDigital.pkg1Feat6', 'Formation à la gestion'),
+        t('webDigital.pkg1Feat7', 'Support 3 mois')
       ],
       price: '990€',
-      monthly: 'ou 79€/mois (maintenance incluse)',
-      deliveryTime: '2-3 semaines'
+      monthly: t('webDigital.pkg1Monthly', 'ou 79€/mois (maintenance incluse)'),
+      deliveryTime: t('webDigital.pkg1Delivery', '2-3 semaines')
     },
     {
-      name: 'Site Business',
+      name: t('webDigital.pkg2Name', 'Site Business'),
       icon: Briefcase,
-      target: 'PME, cabinets, agences',
-      pages: '10-20 pages',
+      target: t('webDigital.pkg2Target', 'PME, cabinets, agences'),
+      pages: t('webDigital.pkg2Pages', '10-20 pages'),
       features: [
-        'Design premium sur mesure',
-        'Blog intégré',
-        'Espace client sécurisé',
-        'Multilingue (2-3 langues)',
-        'SEO avancé',
-        'Analytics et reporting',
-        'Support 6 mois'
+        t('webDigital.pkg2Feat1', 'Design premium sur mesure'),
+        t('webDigital.pkg2Feat2', 'Blog intégré'),
+        t('webDigital.pkg2Feat3', 'Espace client sécurisé'),
+        t('webDigital.pkg2Feat4', 'Multilingue (2-3 langues)'),
+        t('webDigital.pkg2Feat5', 'SEO avancé'),
+        t('webDigital.pkg2Feat6', 'Analytics et reporting'),
+        t('webDigital.pkg2Feat7', 'Support 6 mois')
       ],
       price: '1990€',
-      monthly: 'ou 149€/mois (maintenance incluse)',
-      deliveryTime: '4-6 semaines',
+      monthly: t('webDigital.pkg2Monthly', 'ou 149€/mois (maintenance incluse)'),
+      deliveryTime: t('webDigital.pkg2Delivery', '4-6 semaines'),
       popular: true
     },
     {
-      name: 'E-commerce',
+      name: t('webDigital.pkg3Name', 'E-commerce'),
       icon: ShoppingCart,
-      target: 'Boutiques en ligne',
-      pages: 'Illimité',
+      target: t('webDigital.pkg3Target', 'Boutiques en ligne'),
+      pages: t('webDigital.pkg3Pages', 'Illimité'),
       features: [
-        'WooCommerce ou PrestaShop',
-        'Paiement sécurisé (Stripe, PayPal)',
-        'Gestion stocks et commandes',
-        'Facturation automatique',
-        'SEO e-commerce',
-        'Formation vendeur',
-        'Support 12 mois'
+        t('webDigital.pkg3Feat1', 'WooCommerce ou PrestaShop'),
+        t('webDigital.pkg3Feat2', 'Paiement sécurisé (Stripe, PayPal)'),
+        t('webDigital.pkg3Feat3', 'Gestion stocks et commandes'),
+        t('webDigital.pkg3Feat4', 'Facturation automatique'),
+        t('webDigital.pkg3Feat5', 'SEO e-commerce'),
+        t('webDigital.pkg3Feat6', 'Formation vendeur'),
+        t('webDigital.pkg3Feat7', 'Support 12 mois')
       ],
       price: 'Sur devis',
-      monthly: 'À partir de 2990€',
-      deliveryTime: '6-10 semaines'
+      monthly: t('webDigital.pkg3Monthly', 'À partir de 2990€'),
+      deliveryTime: t('webDigital.pkg3Delivery', '6-10 semaines')
     }
   ];
 
   const digitalServices = [
     {
-      title: 'Référencement SEO',
-      description: 'Positionnement dans les premiers résultats Google pour attirer du trafic qualifié.',
-      includes: ['Audit SEO complet', 'Optimisation technique', 'Contenu optimisé', 'Netlinking', 'Suivi mensuel'],
-      price: 'À partir de 500€/mois'
+      title: t('webDigital.digital1Title', 'Référencement SEO'),
+      description: t('webDigital.digital1Desc', 'Positionnement dans les premiers résultats Google pour attirer du trafic qualifié.'),
+      includes: [t('webDigital.digital1Inc1', 'Audit SEO complet'), t('webDigital.digital1Inc2', 'Optimisation technique'), t('webDigital.digital1Inc3', 'Contenu optimisé'), t('webDigital.digital1Inc4', 'Netlinking'), t('webDigital.digital1Inc5', 'Suivi mensuel')],
+      price: t('webDigital.digital1Price', 'À partir de 500€/mois')
     },
     {
-      title: 'Google Ads (SEA)',
-      description: 'Campagnes publicitaires ciblées pour générer des leads et ventes rapidement.',
-      includes: ['Stratégie de campagne', 'Création annonces', 'Gestion quotidienne', 'Optimisation ROI', 'Reporting hebdo'],
-      price: 'À partir de 300€/mois + budget pub'
+      title: t('webDigital.digital2Title', 'Google Ads (SEA)'),
+      description: t('webDigital.digital2Desc', 'Campagnes publicitaires ciblées pour générer des leads et ventes rapidement.'),
+      includes: [t('webDigital.digital2Inc1', 'Stratégie de campagne'), t('webDigital.digital2Inc2', 'Création annonces'), t('webDigital.digital2Inc3', 'Gestion quotidienne'), t('webDigital.digital2Inc4', 'Optimisation ROI'), t('webDigital.digital2Inc5', 'Reporting hebdo')],
+      price: t('webDigital.digital2Price', 'À partir de 300€/mois + budget pub')
     },
     {
-      title: 'Réseaux Sociaux',
-      description: 'Gestion de vos pages Facebook, Instagram, LinkedIn pour développer votre communauté.',
-      includes: ['Stratégie éditoriale', 'Création de contenu', 'Publication régulière', 'Community management', 'Statistiques'],
-      price: 'À partir de 400€/mois'
+      title: t('webDigital.digital3Title', 'Réseaux Sociaux'),
+      description: t('webDigital.digital3Desc', 'Gestion de vos pages Facebook, Instagram, LinkedIn pour développer votre communauté.'),
+      includes: [t('webDigital.digital3Inc1', 'Stratégie éditoriale'), t('webDigital.digital3Inc2', 'Création de contenu'), t('webDigital.digital3Inc3', 'Publication régulière'), t('webDigital.digital3Inc4', 'Community management'), t('webDigital.digital3Inc5', 'Statistiques')],
+      price: t('webDigital.digital3Price', 'À partir de 400€/mois')
     },
     {
-      title: 'Emailing',
-      description: 'Campagnes d\'emailing pour fidéliser clients et prospects.',
-      includes: ['Design template', 'Rédaction contenu', 'Envoi et suivi', 'A/B testing', 'Analytics'],
-      price: 'À partir de 200€/campagne'
+      title: t('webDigital.digital4Title', 'Emailing'),
+      description: t('webDigital.digital4Desc', 'Campagnes d\'emailing pour fidéliser clients et prospects.'),
+      includes: [t('webDigital.digital4Inc1', 'Design template'), t('webDigital.digital4Inc2', 'Rédaction contenu'), t('webDigital.digital4Inc3', 'Envoi et suivi'), t('webDigital.digital4Inc4', 'A/B testing'), t('webDigital.digital4Inc5', 'Analytics')],
+      price: t('webDigital.digital4Price', 'À partir de 200€/campagne')
     }
   ];
 
   const technologies = [
-    { name: 'React', category: 'Frontend', icon: Code },
-    { name: 'Node.js', category: 'Backend', icon: Server },
-    { name: 'WordPress', category: 'CMS', icon: FileText },
-    { name: 'WooCommerce', category: 'E-commerce', icon: ShoppingCart },
-    { name: 'Tailwind CSS', category: 'Design', icon: Palette },
-    { name: 'PostgreSQL', category: 'Database', icon: Database }
+    { name: 'React', category: t('webDigital.techCatFrontend', 'Frontend'), icon: Code },
+    { name: 'Node.js', category: t('webDigital.techCatBackend', 'Backend'), icon: Server },
+    { name: 'WordPress', category: t('webDigital.techCatCMS', 'CMS'), icon: FileText },
+    { name: 'WooCommerce', category: t('webDigital.techCatEcommerce', 'E-commerce'), icon: ShoppingCart },
+    { name: 'Tailwind CSS', category: t('webDigital.techCatDesign', 'Design'), icon: Palette },
+    { name: 'PostgreSQL', category: t('webDigital.techCatDatabase', 'Database'), icon: Database }
   ];
 
   const process = [
-    { step: '1', title: 'Cahier des Charges', description: 'Définition de vos besoins et objectifs' },
-    { step: '2', title: 'Maquette', description: 'Design et validation de l\'interface' },
-    { step: '3', title: 'Développement', description: 'Codage et intégration des fonctionnalités' },
-    { step: '4', title: 'Tests', description: 'Vérification sur tous les navigateurs et appareils' },
-    { step: '5', title: 'Mise en Ligne', description: 'Déploiement et configuration serveur' },
-    { step: '6', title: 'Formation', description: 'Accompagnement à la gestion du site' }
+    { step: '1', title: t('webDigital.process1Title', 'Cahier des Charges'), description: t('webDigital.process1Desc', 'Définition de vos besoins et objectifs') },
+    { step: '2', title: t('webDigital.process2Title', 'Maquette'), description: t('webDigital.process2Desc', 'Design et validation de l\'interface') },
+    { step: '3', title: t('webDigital.process3Title', 'Développement'), description: t('webDigital.process3Desc', 'Codage et intégration des fonctionnalités') },
+    { step: '4', title: t('webDigital.process4Title', 'Tests'), description: t('webDigital.process4Desc', 'Vérification sur tous les navigateurs et appareils') },
+    { step: '5', title: t('webDigital.process5Title', 'Mise en Ligne'), description: t('webDigital.process5Desc', 'Déploiement et configuration serveur') },
+    { step: '6', title: t('webDigital.process6Title', 'Formation'), description: t('webDigital.process6Desc', 'Accompagnement à la gestion du site') }
   ];
 
   const stats = [
-    { value: '150+', label: 'Sites créés' },
-    { value: '98%', label: 'Clients satisfaits' },
-    { value: '<3s', label: 'Temps de chargement' },
-    { value: '100%', label: 'Mobile-friendly' }
+    { value: '150+', label: t('webDigital.stat1Label', 'Sites créés') },
+    { value: '98%', label: t('webDigital.stat2Label', 'Clients satisfaits') },
+    { value: '<3s', label: t('webDigital.stat3Label', 'Temps de chargement') },
+    { value: '100%', label: t('webDigital.stat4Label', 'Mobile-friendly') }
   ];
 
   const seoTips = [
     {
-      title: 'Contenu de Qualité',
-      description: 'Articles de blog réguliers, mots-clés pertinents, contenu unique'
+      title: t('webDigital.seoTip1Title', 'Contenu de Qualité'),
+      description: t('webDigital.seoTip1Desc', 'Articles de blog réguliers, mots-clés pertinents, contenu unique')
     },
     {
-      title: 'Technique',
-      description: 'Vitesse de chargement, HTTPS, sitemap XML, balises meta'
+      title: t('webDigital.seoTip2Title', 'Technique'),
+      description: t('webDigital.seoTip2Desc', 'Vitesse de chargement, HTTPS, sitemap XML, balises meta')
     },
     {
-      title: 'Popularité',
-      description: 'Backlinks de qualité, partages sociaux, avis clients'
+      title: t('webDigital.seoTip3Title', 'Popularité'),
+      description: t('webDigital.seoTip3Desc', 'Backlinks de qualité, partages sociaux, avis clients')
     },
     {
-      title: 'Expérience Utilisateur',
-      description: 'Navigation intuitive, design responsive, temps de visite'
+      title: t('webDigital.seoTip4Title', 'Expérience Utilisateur'),
+      description: t('webDigital.seoTip4Desc', 'Navigation intuitive, design responsive, temps de visite')
     }
   ];
 
   const caseStudies = [
     {
-      client: 'Restaurant Gastronomique',
-      challenge: 'Augmenter les réservations en ligne',
-      solution: 'Site vitrine + SEO local + Google Ads',
-      results: '+250% de réservations en 6 mois, 1ère page Google "restaurant Haguenau"'
+      client: t('webDigital.case1Client', 'Restaurant Gastronomique'),
+      challenge: t('webDigital.case1Challenge', 'Augmenter les réservations en ligne'),
+      solution: t('webDigital.case1Solution', 'Site vitrine + SEO local + Google Ads'),
+      results: t('webDigital.case1Results', '+250% de réservations en 6 mois, 1ère page Google "restaurant Haguenau"')
     },
     {
-      client: 'Boutique Mode',
-      challenge: 'Lancer la vente en ligne',
-      solution: 'E-commerce WooCommerce + SEO + Instagram Ads',
-      results: '15000€ CA/mois après 3 mois, 500+ commandes'
+      client: t('webDigital.case2Client', 'Boutique Mode'),
+      challenge: t('webDigital.case2Challenge', 'Lancer la vente en ligne'),
+      solution: t('webDigital.case2Solution', 'E-commerce WooCommerce + SEO + Instagram Ads'),
+      results: t('webDigital.case2Results', '15000€ CA/mois après 3 mois, 500+ commandes')
     }
   ];
 
   const faq = [
     {
-      question: 'Combien de temps pour créer un site web ?',
-      answer: 'Site vitrine : 2-3 semaines. Site business : 4-6 semaines. E-commerce : 6-10 semaines. Délai dépend de la complexité, du nombre de pages, et de la rapidité de vos retours sur les maquettes et contenus.'
+      question: t('webDigital.faqQ1', 'Combien de temps pour créer un site web ?'),
+      answer: t('webDigital.faqA1', 'Site vitrine : 2-3 semaines. Site business : 4-6 semaines. E-commerce : 6-10 semaines. Délai dépend de la complexité, du nombre de pages, et de la rapidité de vos retours sur les maquettes et contenus.')
     },
     {
-      question: 'Puis-je modifier mon site moi-même après la livraison ?',
-      answer: 'OUI ! Nous créons des sites avec CMS (WordPress, etc.) faciles à gérer. Formation incluse pour que vous puissiez modifier textes, images, ajouter des pages. Pour des modifications complexes, nous restons disponibles.'
+      question: t('webDigital.faqQ2', 'Puis-je modifier mon site moi-même après la livraison ?'),
+      answer: t('webDigital.faqA2', 'OUI ! Nous créons des sites avec CMS (WordPress, etc.) faciles à gérer. Formation incluse pour que vous puissiez modifier textes, images, ajouter des pages. Pour des modifications complexes, nous restons disponibles.')
     },
     {
-      question: 'Le référencement SEO est-il inclus ?',
-      answer: 'SEO de base OUI (structure, balises, sitemap, vitesse). Pour un référencement avancé (contenu optimisé, netlinking, suivi mensuel), nous proposons des forfaits SEO à partir de 500€/mois.'
+      question: t('webDigital.faqQ3', 'Le référencement SEO est-il inclus ?'),
+      answer: t('webDigital.faqA3', 'SEO de base OUI (structure, balises, sitemap, vitesse). Pour un référencement avancé (contenu optimisé, netlinking, suivi mensuel), nous proposons des forfaits SEO à partir de 500€/mois.')
     },
     {
-      question: 'Proposez-vous l\'hébergement et la maintenance ?',
-      answer: 'OUI. Hébergement inclus 1ère année. Ensuite : 10-30€/mois selon taille du site. Maintenance (mises à jour, sauvegardes, support) : 79-149€/mois selon formule. Ou achat unique sans abonnement.'
+      question: t('webDigital.faqQ4', 'Proposez-vous l\'hébergement et la maintenance ?'),
+      answer: t('webDigital.faqA4', 'OUI. Hébergement inclus 1ère année. Ensuite : 10-30€/mois selon taille du site. Maintenance (mises à jour, sauvegardes, support) : 79-149€/mois selon formule. Ou achat unique sans abonnement.')
     },
     {
-      question: 'Combien coûte une campagne Google Ads ?',
-      answer: 'Gestion : 300€/mois. Budget publicitaire : à définir selon vos objectifs (minimum 300€/mois recommandé). Exemple : 300€ gestion + 500€ pub = 800€/mois. ROI généralement positif dès le 2ème mois.'
+      question: t('webDigital.faqQ5', 'Combien coûte une campagne Google Ads ?'),
+      answer: t('webDigital.faqA5', 'Gestion : 300€/mois. Budget publicitaire : à définir selon vos objectifs (minimum 300€/mois recommandé). Exemple : 300€ gestion + 500€ pub = 800€/mois. ROI généralement positif dès le 2ème mois.')
     }
   ];
 
@@ -217,19 +219,19 @@ const WebDigital = () => {
             <div className="inline-block bg-purple-100 rounded-full px-6 py-2 mb-4">
               <span className="text-purple-600 font-semibold flex items-center gap-2">
                 <Globe size={20} />
-                Web & Digital
+                {t('webDigital.heroBadge', 'Web & Digital')}
               </span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Création <span className="text-purple-600">Site Web</span> & <span className="text-blue-600">Marketing Digital</span>
+              {t('webDigital.heroTitlePrefix', 'Création')} <span className="text-purple-600">{t('webDigital.heroTitleHl1', 'Site Web')}</span> & <span className="text-blue-600">{t('webDigital.heroTitleHl2', 'Marketing Digital')}</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-              Augmentez votre visibilité et vos ventes en ligne. Site vitrine, e-commerce, SEO, Google Ads. Solutions clé en main.
+              {t('webDigital.heroSubtitle', 'Augmentez votre visibilité et vos ventes en ligne. Site vitrine, e-commerce, SEO, Google Ads. Solutions clé en main.')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link to="/contact">
                 <Button size="lg" className="gradient-purple text-white">
-                  Demander un Devis Gratuit <ArrowRight className="ml-2" />
+                  {t('webDigital.heroCtaQuote', 'Demander un Devis Gratuit')} <ArrowRight className="ml-2" />
                 </Button>
               </Link>
               <a href="tel:+33367310201">
@@ -277,10 +279,10 @@ const WebDigital = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Nos Formules de Création de Site Web
+                {t('webDigital.packagesTitle', 'Nos Formules de Création de Site Web')}
               </h2>
               <p className="text-xl text-muted-foreground">
-                Choisissez la solution adaptée à votre projet
+                {t('webDigital.packagesSubtitle', 'Choisissez la solution adaptée à votre projet')}
               </p>
             </div>
 
@@ -294,7 +296,7 @@ const WebDigital = () => {
                 >
                   {pkg.popular && (
                     <div className="bg-purple-600 text-white text-center py-2 font-semibold flex items-center justify-center gap-2">
-                      <Star size={18} className="fill-current" /> Le Plus Populaire
+                      <Star size={18} className="fill-current" /> {t('webDigital.popularBadge', 'Le Plus Populaire')}
                     </div>
                   )}
                   <div className="p-8">
@@ -323,7 +325,7 @@ const WebDigital = () => {
                     </ul>
                     <Link to="/contact">
                       <Button className="w-full gradient-purple text-white">
-                        Demander un Devis
+                        {t('webDigital.pkgCtaQuote', 'Demander un Devis')}
                       </Button>
                     </Link>
                   </div>
@@ -338,10 +340,10 @@ const WebDigital = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Services Marketing Digital
+                {t('webDigital.digitalTitle', 'Services Marketing Digital')}
               </h2>
               <p className="text-xl text-muted-foreground">
-                Boostez votre visibilité et générez des leads
+                {t('webDigital.digitalSubtitle', 'Boostez votre visibilité et générez des leads')}
               </p>
             </div>
 
@@ -351,7 +353,7 @@ const WebDigital = () => {
                   <h3 className="text-xl font-bold mb-3 text-purple-600">{service.title}</h3>
                   <p className="text-muted-foreground mb-4 text-sm">{service.description}</p>
                   <div className="mb-4">
-                    <div className="font-semibold mb-2 text-sm">Inclus:</div>
+                    <div className="font-semibold mb-2 text-sm">{t('webDigital.includesLabel', 'Inclus:')}</div>
                     <ul className="space-y-1">
                       {service.includes.map((item, idx) => (
                         <li key={idx} className="flex items-start gap-2">
@@ -364,7 +366,7 @@ const WebDigital = () => {
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-purple-600">{service.price}</span>
                     <Link to="/contact">
-                      <Button size="sm" variant="outline">Devis</Button>
+                      <Button size="sm" variant="outline">{t('webDigital.btnQuoteShort', 'Devis')}</Button>
                     </Link>
                   </div>
                 </div>
@@ -378,7 +380,7 @@ const WebDigital = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Les 4 Piliers du Référencement SEO
+                {t('webDigital.seoTitle', 'Les 4 Piliers du Référencement SEO')}
               </h2>
             </div>
 
@@ -399,7 +401,7 @@ const WebDigital = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Technologies Utilisées
+                {t('webDigital.techTitle', 'Technologies Utilisées')}
               </h2>
             </div>
 
@@ -422,7 +424,7 @@ const WebDigital = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Notre Processus de Création
+                {t('webDigital.processTitle', 'Notre Processus de Création')}
               </h2>
             </div>
 
@@ -445,7 +447,7 @@ const WebDigital = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Cas Clients
+                {t('webDigital.caseTitle', 'Cas Clients')}
               </h2>
             </div>
 
@@ -454,15 +456,15 @@ const WebDigital = () => {
                 <div key={index} className="bg-card rounded-2xl p-8 shadow-xl">
                   <div className="text-sm text-purple-600 font-semibold mb-2">{study.client}</div>
                   <div className="mb-4">
-                    <div className="font-bold mb-1">Défi:</div>
+                    <div className="font-bold mb-1">{t('webDigital.caseChallengeLabel', 'Défi:')}</div>
                     <p className="text-sm text-muted-foreground">{study.challenge}</p>
                   </div>
                   <div className="mb-4">
-                    <div className="font-bold mb-1">Solution:</div>
+                    <div className="font-bold mb-1">{t('webDigital.caseSolutionLabel', 'Solution:')}</div>
                     <p className="text-sm text-muted-foreground">{study.solution}</p>
                   </div>
                   <div>
-                    <div className="font-bold mb-1">Résultats:</div>
+                    <div className="font-bold mb-1">{t('webDigital.caseResultsLabel', 'Résultats:')}</div>
                     <p className="text-sm text-green-600 font-semibold">{study.results}</p>
                   </div>
                 </div>
@@ -476,7 +478,7 @@ const WebDigital = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Questions Fréquentes
+                {t('webDigital.faqTitle', 'Questions Fréquentes')}
               </h2>
             </div>
 
@@ -499,15 +501,15 @@ const WebDigital = () => {
         <section className="py-20 bg-gradient-to-br from-purple-600 to-blue-700 text-white">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Prêt à Lancer Votre Projet Web ?
+              {t('webDigital.ctaTitle', 'Prêt à Lancer Votre Projet Web ?')}
             </h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-              Devis gratuit • Design moderne • Livraison rapide • Support inclus
+              {t('webDigital.ctaSubtitle', 'Devis gratuit • Design moderne • Livraison rapide • Support inclus')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link to="/contact">
                 <Button size="lg" className="bg-white text-purple-600 hover:bg-white/90">
-                  Demander un Devis
+                  {t('webDigital.ctaQuote', 'Demander un Devis')}
                   <ArrowRight className="ml-2" />
                 </Button>
               </Link>

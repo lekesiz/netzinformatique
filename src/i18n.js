@@ -1,6 +1,5 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
-import translationSupplement from './i18n-supplement'
 
 // Comprehensive Translation resources for all languages
 const resources = {
@@ -614,15 +613,37 @@ i18n
     }
   })
 
-// Merge supplementary translations (keys used via t('x','défaut FR') but absent
-// from the bundle). Deep-merge WITHOUT overwriting existing curated keys, so
-// EN/DE/TR stop falling back to French for ~120 strings.
-Object.entries(translationSupplement).forEach(([lng, bundle]) => {
-  i18n.addResourceBundle(lng, 'translation', bundle.translation, true, false)
-})
+// Lazy-load full EN/DE/TR translation bundles only when needed (FR is the
+// fallback and is already provided by the inline t('key','défaut') defaults,
+// so it never needs a bundle). Each locale file is ~110KB and is fetched on
+// demand — keeps the initial bundle small. Deep-merge WITHOUT overwriting any
+// curated keys already in i18n.js.
+const localeLoaders = {
+  en: () => import('./locales/en.js'),
+  de: () => import('./locales/de.js'),
+  tr: () => import('./locales/tr.js'),
+}
+const loadedLocales = new Set(['fr'])
 
-// Save language changes to localStorage
+async function ensureLocale(lng) {
+  if (loadedLocales.has(lng) || !localeLoaders[lng]) return
+  loadedLocales.add(lng)
+  try {
+    const mod = await localeLoaders[lng]()
+    i18n.addResourceBundle(lng, 'translation', mod.default, true, false)
+    if (i18n.language === lng) i18n.changeLanguage(lng) // re-render with new bundle
+  } catch (error) {
+    loadedLocales.delete(lng)
+    console.warn('Could not load locale bundle:', lng, error)
+  }
+}
+
+// Load the initially-selected language's bundle (no-op for FR)
+ensureLocale(i18n.language)
+
+// Save language changes to localStorage + load the bundle on switch
 i18n.on('languageChanged', (lng) => {
+  ensureLocale(lng)
   try {
     localStorage.setItem('i18nextLng', lng)
   } catch (error) {

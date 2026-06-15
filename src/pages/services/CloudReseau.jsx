@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import SEO from '@/components/common/SEO';
 import StructuredData from '@/components/common/StructuredData';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Cloud, Wifi, Server, Shield, Zap, Users, CheckCircle, Phone, Database, Network, HardDrive, Globe, Lock } from 'lucide-react';
 import {
@@ -11,12 +12,14 @@ import {
 } from "@/components/ui/accordion"
 
 const CloudReseau = () => {
-  const pageTitle = 'Solutions Cloud & Infrastructure Réseau';
-  const pageDescription = 'Modernisez votre infrastructure IT avec nos solutions Cloud et réseau. Migration Microsoft 365, serveurs, WiFi professionnel. Fiabilité et performance garanties.';
+  const { t } = useTranslation();
+
+  const pageTitle = t('cloudReseau.title', 'Solutions Cloud & Infrastructure Réseau');
+  const pageDescription = t('cloudReseau.description', 'Modernisez votre infrastructure IT avec nos solutions Cloud et réseau. Migration Microsoft 365, serveurs, WiFi professionnel. Fiabilité et performance garanties.');
 
   const breadcrumbs = [
-    { name: 'Accueil', url: '/' },
-    { name: 'Services', url: '/services' },
+    { name: t('breadcrumbs.home', 'Accueil'), url: '/' },
+    { name: t('breadcrumbs.services', 'Services'), url: '/services' },
     { name: pageTitle, url: '/services/cloud-reseau' },
   ];
 
@@ -30,159 +33,159 @@ const CloudReseau = () => {
   };
 
   const features = [
-    { icon: Cloud, title: 'Migration Cloud', description: 'Passage vers Microsoft 365, Google Workspace ou solutions privées' },
-    { icon: Server, title: 'Serveurs', description: 'Installation et gestion de serveurs physiques ou virtuels (Windows Server, Linux)' },
-    { icon: Wifi, title: 'Réseau WiFi', description: 'Déploiement de réseaux WiFi professionnels performants et sécurisés' },
-    { icon: Network, title: 'Infrastructure Réseau', description: 'Câblage, switchs, routeurs, firewall pour une connectivité optimale' },
-    { icon: Database, title: 'Stockage NAS', description: 'Solutions de stockage en réseau pour sauvegardes et partage de fichiers' },
-    { icon: Shield, title: 'Sécurité Réseau', description: 'Firewall, VPN, segmentation réseau pour protéger vos données' }
+    { icon: Cloud, title: t('cloudReseau.feature1Title', 'Migration Cloud'), description: t('cloudReseau.feature1Desc', 'Passage vers Microsoft 365, Google Workspace ou solutions privées') },
+    { icon: Server, title: t('cloudReseau.feature2Title', 'Serveurs'), description: t('cloudReseau.feature2Desc', 'Installation et gestion de serveurs physiques ou virtuels (Windows Server, Linux)') },
+    { icon: Wifi, title: t('cloudReseau.feature3Title', 'Réseau WiFi'), description: t('cloudReseau.feature3Desc', 'Déploiement de réseaux WiFi professionnels performants et sécurisés') },
+    { icon: Network, title: t('cloudReseau.feature4Title', 'Infrastructure Réseau'), description: t('cloudReseau.feature4Desc', 'Câblage, switchs, routeurs, firewall pour une connectivité optimale') },
+    { icon: Database, title: t('cloudReseau.feature5Title', 'Stockage NAS'), description: t('cloudReseau.feature5Desc', 'Solutions de stockage en réseau pour sauvegardes et partage de fichiers') },
+    { icon: Shield, title: t('cloudReseau.feature6Title', 'Sécurité Réseau'), description: t('cloudReseau.feature6Desc', 'Firewall, VPN, segmentation réseau pour protéger vos données') }
   ];
 
   const cloudSolutions = [
     {
       name: 'Microsoft 365',
       icon: Cloud,
-      description: 'Suite bureautique complète dans le cloud',
+      description: t('cloudReseau.sol1Desc', 'Suite bureautique complète dans le cloud'),
       features: [
-        'Office (Word, Excel, PowerPoint, Outlook)',
-        'Teams (visioconférence, chat)',
-        'OneDrive (stockage 1TB/utilisateur)',
-        'SharePoint (intranet collaboratif)',
-        'Exchange Online (emails professionnels)',
-        'Sécurité avancée (antivirus, DLP)'
+        t('cloudReseau.sol1Feat1', 'Office (Word, Excel, PowerPoint, Outlook)'),
+        t('cloudReseau.sol1Feat2', 'Teams (visioconférence, chat)'),
+        t('cloudReseau.sol1Feat3', 'OneDrive (stockage 1TB/utilisateur)'),
+        t('cloudReseau.sol1Feat4', 'SharePoint (intranet collaboratif)'),
+        t('cloudReseau.sol1Feat5', 'Exchange Online (emails professionnels)'),
+        t('cloudReseau.sol1Feat6', 'Sécurité avancée (antivirus, DLP)')
       ],
-      pricing: 'À partir de 10€/mois/utilisateur'
+      pricing: t('cloudReseau.sol1Pricing', 'À partir de 10€/mois/utilisateur')
     },
     {
       name: 'Google Workspace',
       icon: Globe,
-      description: 'Productivité et collaboration Google',
+      description: t('cloudReseau.sol2Desc', 'Productivité et collaboration Google'),
       features: [
-        'Gmail professionnel',
-        'Google Drive (stockage cloud)',
-        'Google Meet (visioconférence)',
-        'Docs, Sheets, Slides',
-        'Google Calendar',
-        'Administration centralisée'
+        t('cloudReseau.sol2Feat1', 'Gmail professionnel'),
+        t('cloudReseau.sol2Feat2', 'Google Drive (stockage cloud)'),
+        t('cloudReseau.sol2Feat3', 'Google Meet (visioconférence)'),
+        t('cloudReseau.sol2Feat4', 'Docs, Sheets, Slides'),
+        t('cloudReseau.sol2Feat5', 'Google Calendar'),
+        t('cloudReseau.sol2Feat6', 'Administration centralisée')
       ],
-      pricing: 'À partir de 5€/mois/utilisateur'
+      pricing: t('cloudReseau.sol2Pricing', 'À partir de 5€/mois/utilisateur')
     },
     {
-      name: 'Cloud Privé',
+      name: t('cloudReseau.sol3Name', 'Cloud Privé'),
       icon: Lock,
-      description: 'Solution cloud hébergée dans vos locaux',
+      description: t('cloudReseau.sol3Desc', 'Solution cloud hébergée dans vos locaux'),
       features: [
-        'Contrôle total de vos données',
-        'Conformité RGPD garantie',
-        'Nextcloud ou ownCloud',
-        'Pas d\'abonnement mensuel',
-        'Performances optimales',
-        'Indépendance vis-à-vis des GAFAM'
+        t('cloudReseau.sol3Feat1', 'Contrôle total de vos données'),
+        t('cloudReseau.sol3Feat2', 'Conformité RGPD garantie'),
+        t('cloudReseau.sol3Feat3', 'Nextcloud ou ownCloud'),
+        t('cloudReseau.sol3Feat4', 'Pas d\'abonnement mensuel'),
+        t('cloudReseau.sol3Feat5', 'Performances optimales'),
+        t('cloudReseau.sol3Feat6', 'Indépendance vis-à-vis des GAFAM')
       ],
-      pricing: 'À partir de 2000€ (investissement unique)'
+      pricing: t('cloudReseau.sol3Pricing', 'À partir de 2000€ (investissement unique)')
     }
   ];
 
   const networkServices = [
     {
-      title: 'Audit Réseau',
-      description: 'Analyse complète de votre infrastructure actuelle : performance, sécurité, points faibles. Rapport détaillé avec recommandations.',
-      price: 'À partir de 500€'
+      title: t('cloudReseau.net1Title', 'Audit Réseau'),
+      description: t('cloudReseau.net1Desc', 'Analyse complète de votre infrastructure actuelle : performance, sécurité, points faibles. Rapport détaillé avec recommandations.'),
+      price: t('cloudReseau.net1Price', 'À partir de 500€')
     },
     {
-      title: 'Installation WiFi Pro',
-      description: 'Déploiement de bornes WiFi professionnelles (Ubiquiti, Cisco) pour une couverture optimale. Gestion centralisée, authentification sécurisée.',
-      price: 'À partir de 1500€'
+      title: t('cloudReseau.net2Title', 'Installation WiFi Pro'),
+      description: t('cloudReseau.net2Desc', 'Déploiement de bornes WiFi professionnelles (Ubiquiti, Cisco) pour une couverture optimale. Gestion centralisée, authentification sécurisée.'),
+      price: t('cloudReseau.net2Price', 'À partir de 1500€')
     },
     {
-      title: 'Câblage Réseau',
-      description: 'Installation de câbles Cat6/Cat6a, baies de brassage, prises RJ45. Certification des liens. Respect des normes.',
-      price: 'Sur devis'
+      title: t('cloudReseau.net3Title', 'Câblage Réseau'),
+      description: t('cloudReseau.net3Desc', 'Installation de câbles Cat6/Cat6a, baies de brassage, prises RJ45. Certification des liens. Respect des normes.'),
+      price: t('cloudReseau.net3Price', 'Sur devis')
     },
     {
-      title: 'Serveur Windows/Linux',
-      description: 'Installation et configuration de serveurs : Active Directory, partage de fichiers, serveur d\'impression, base de données.',
-      price: 'À partir de 1200€'
+      title: t('cloudReseau.net4Title', 'Serveur Windows/Linux'),
+      description: t('cloudReseau.net4Desc', 'Installation et configuration de serveurs : Active Directory, partage de fichiers, serveur d\'impression, base de données.'),
+      price: t('cloudReseau.net4Price', 'À partir de 1200€')
     },
     {
-      title: 'Firewall & VPN',
-      description: 'Mise en place de pare-feu professionnels (pfSense, Fortinet) et VPN pour accès distant sécurisé.',
-      price: 'À partir de 800€'
+      title: t('cloudReseau.net5Title', 'Firewall & VPN'),
+      description: t('cloudReseau.net5Desc', 'Mise en place de pare-feu professionnels (pfSense, Fortinet) et VPN pour accès distant sécurisé.'),
+      price: t('cloudReseau.net5Price', 'À partir de 800€')
     },
     {
-      title: 'NAS & Sauvegarde',
-      description: 'Installation de NAS Synology ou QNAP pour stockage centralisé et sauvegardes automatiques. RAID pour sécurité des données.',
-      price: 'À partir de 1000€ + matériel'
+      title: t('cloudReseau.net6Title', 'NAS & Sauvegarde'),
+      description: t('cloudReseau.net6Desc', 'Installation de NAS Synology ou QNAP pour stockage centralisé et sauvegardes automatiques. RAID pour sécurité des données.'),
+      price: t('cloudReseau.net6Price', 'À partir de 1000€ + matériel')
     }
   ];
 
   const benefits = [
     {
       icon: Zap,
-      title: 'Performance',
-      description: 'Réseau rapide et stable pour une productivité maximale'
+      title: t('cloudReseau.benefit1Title', 'Performance'),
+      description: t('cloudReseau.benefit1Desc', 'Réseau rapide et stable pour une productivité maximale')
     },
     {
       icon: Shield,
-      title: 'Sécurité',
-      description: 'Protection contre les cyberattaques et pertes de données'
+      title: t('cloudReseau.benefit2Title', 'Sécurité'),
+      description: t('cloudReseau.benefit2Desc', 'Protection contre les cyberattaques et pertes de données')
     },
     {
       icon: Users,
-      title: 'Collaboration',
-      description: 'Travail d\'équipe facilité avec outils cloud modernes'
+      title: t('cloudReseau.benefit3Title', 'Collaboration'),
+      description: t('cloudReseau.benefit3Desc', 'Travail d\'équipe facilité avec outils cloud modernes')
     },
     {
       icon: Cloud,
-      title: 'Accessibilité',
-      description: 'Accès à vos données depuis n\'importe où, n\'importe quand'
+      title: t('cloudReseau.benefit4Title', 'Accessibilité'),
+      description: t('cloudReseau.benefit4Desc', 'Accès à vos données depuis n\'importe où, n\'importe quand')
     }
   ];
 
   const process = [
-    { step: '1', title: 'Audit', description: 'Analyse de votre infrastructure actuelle' },
-    { step: '2', title: 'Conception', description: 'Proposition d\'architecture adaptée' },
-    { step: '3', title: 'Devis', description: 'Chiffrage détaillé du projet' },
-    { step: '4', title: 'Installation', description: 'Déploiement de la solution' },
-    { step: '5', title: 'Migration', description: 'Transfert des données sans interruption' },
-    { step: '6', title: 'Formation', description: 'Accompagnement de vos équipes' }
+    { step: '1', title: t('cloudReseau.proc1Title', 'Audit'), description: t('cloudReseau.proc1Desc', 'Analyse de votre infrastructure actuelle') },
+    { step: '2', title: t('cloudReseau.proc2Title', 'Conception'), description: t('cloudReseau.proc2Desc', 'Proposition d\'architecture adaptée') },
+    { step: '3', title: t('cloudReseau.proc3Title', 'Devis'), description: t('cloudReseau.proc3Desc', 'Chiffrage détaillé du projet') },
+    { step: '4', title: t('cloudReseau.proc4Title', 'Installation'), description: t('cloudReseau.proc4Desc', 'Déploiement de la solution') },
+    { step: '5', title: t('cloudReseau.proc5Title', 'Migration'), description: t('cloudReseau.proc5Desc', 'Transfert des données sans interruption') },
+    { step: '6', title: t('cloudReseau.proc6Title', 'Formation'), description: t('cloudReseau.proc6Desc', 'Accompagnement de vos équipes') }
   ];
 
   const faq = [
     {
-      question: 'Pourquoi migrer vers le Cloud ?',
-      answer: 'Le Cloud offre de nombreux avantages : accessibilité depuis n\'importe où, sauvegardes automatiques, mises à jour incluses, coûts prévisibles, scalabilité, collaboration facilitée. Plus besoin de gérer des serveurs sur site.'
+      question: t('cloudReseau.faq1Q', 'Pourquoi migrer vers le Cloud ?'),
+      answer: t('cloudReseau.faq1A', 'Le Cloud offre de nombreux avantages : accessibilité depuis n\'importe où, sauvegardes automatiques, mises à jour incluses, coûts prévisibles, scalabilité, collaboration facilitée. Plus besoin de gérer des serveurs sur site.')
     },
     {
-      question: 'Microsoft 365 ou Google Workspace ?',
-      answer: 'Microsoft 365 est recommandé si vous utilisez déjà Office et avez besoin de fonctionnalités avancées (Teams, SharePoint). Google Workspace est plus simple et économique pour les petites structures. Nous vous conseillons selon vos besoins.'
+      question: t('cloudReseau.faq2Q', 'Microsoft 365 ou Google Workspace ?'),
+      answer: t('cloudReseau.faq2A', 'Microsoft 365 est recommandé si vous utilisez déjà Office et avez besoin de fonctionnalités avancées (Teams, SharePoint). Google Workspace est plus simple et économique pour les petites structures. Nous vous conseillons selon vos besoins.')
     },
     {
-      question: 'Mes données sont-elles en sécurité dans le Cloud ?',
-      answer: 'Oui, les solutions cloud professionnelles (Microsoft, Google) offrent une sécurité de niveau bancaire : chiffrement, authentification multi-facteurs, sauvegardes géo-redondantes, conformité RGPD. Souvent plus sûr qu\'un serveur local.'
+      question: t('cloudReseau.faq3Q', 'Mes données sont-elles en sécurité dans le Cloud ?'),
+      answer: t('cloudReseau.faq3A', 'Oui, les solutions cloud professionnelles (Microsoft, Google) offrent une sécurité de niveau bancaire : chiffrement, authentification multi-facteurs, sauvegardes géo-redondantes, conformité RGPD. Souvent plus sûr qu\'un serveur local.')
     },
     {
-      question: 'Combien coûte une infrastructure réseau complète ?',
-      answer: 'Pour une PME de 10-20 postes : comptez 5000-15000€ pour un réseau complet (serveur, WiFi pro, câblage, firewall, NAS). Nous proposons des solutions évolutives adaptées à votre budget.'
+      question: t('cloudReseau.faq4Q', 'Combien coûte une infrastructure réseau complète ?'),
+      answer: t('cloudReseau.faq4A', 'Pour une PME de 10-20 postes : comptez 5000-15000€ pour un réseau complet (serveur, WiFi pro, câblage, firewall, NAS). Nous proposons des solutions évolutives adaptées à votre budget.')
     },
     {
-      question: 'Proposez-vous la maintenance de l\'infrastructure ?',
-      answer: 'Oui, nous proposons des contrats de maintenance incluant : surveillance 24/7, mises à jour, sauvegardes, support prioritaire. À partir de 200€/mois selon la taille de l\'infrastructure.'
+      question: t('cloudReseau.faq5Q', 'Proposez-vous la maintenance de l\'infrastructure ?'),
+      answer: t('cloudReseau.faq5A', 'Oui, nous proposons des contrats de maintenance incluant : surveillance 24/7, mises à jour, sauvegardes, support prioritaire. À partir de 200€/mois selon la taille de l\'infrastructure.')
     }
   ];
 
   const caseStudies = [
     {
-      company: 'Cabinet Comptable (15 postes)',
-      challenge: 'Serveur vieillissant, pas de sauvegarde, accès distant impossible',
-      solution: 'Migration vers Microsoft 365 + NAS Synology pour archives',
-      results: 'Économie de 40% sur 3 ans, télétravail possible, sécurité renforcée'
+      company: t('cloudReseau.case1Company', 'Cabinet Comptable (15 postes)'),
+      challenge: t('cloudReseau.case1Challenge', 'Serveur vieillissant, pas de sauvegarde, accès distant impossible'),
+      solution: t('cloudReseau.case1Solution', 'Migration vers Microsoft 365 + NAS Synology pour archives'),
+      results: t('cloudReseau.case1Results', 'Économie de 40% sur 3 ans, télétravail possible, sécurité renforcée')
     },
     {
-      company: 'PME Industrielle (50 postes)',
-      challenge: 'WiFi instable, câblage obsolète, pas de segmentation réseau',
-      solution: 'Nouveau câblage Cat6, WiFi Ubiquiti, firewall pfSense, VLANs',
-      results: 'Performance x3, sécurité optimale, couverture WiFi 100%'
+      company: t('cloudReseau.case2Company', 'PME Industrielle (50 postes)'),
+      challenge: t('cloudReseau.case2Challenge', 'WiFi instable, câblage obsolète, pas de segmentation réseau'),
+      solution: t('cloudReseau.case2Solution', 'Nouveau câblage Cat6, WiFi Ubiquiti, firewall pfSense, VLANs'),
+      results: t('cloudReseau.case2Results', 'Performance x3, sécurité optimale, couverture WiFi 100%')
     }
   ];
 
@@ -198,19 +201,19 @@ const CloudReseau = () => {
             <div className="inline-block bg-blue-100 rounded-full px-6 py-2 mb-4">
               <span className="text-blue-600 font-semibold flex items-center gap-2">
                 <Cloud size={20} />
-                Cloud & Réseau
+                {t('cloudReseau.heroBadge', 'Cloud & Réseau')}
               </span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Solutions <span className="text-blue-600">Cloud</span> & Infrastructure <span className="text-blue-600">Réseau</span>
+              {t('cloudReseau.heroTitlePart1', 'Solutions')} <span className="text-blue-600">{t('cloudReseau.heroTitleCloud', 'Cloud')}</span> {t('cloudReseau.heroTitlePart2', '& Infrastructure')} <span className="text-blue-600">{t('cloudReseau.heroTitleReseau', 'Réseau')}</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-              Modernisez votre infrastructure IT. Migration cloud, serveurs, WiFi professionnel. Performance, sécurité et fiabilité garanties.
+              {t('cloudReseau.heroSubtitle', 'Modernisez votre infrastructure IT. Migration cloud, serveurs, WiFi professionnel. Performance, sécurité et fiabilité garanties.')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link to="/contact">
                 <Button size="lg" className="gradient-blue text-white">
-                  Demander un Audit Gratuit <ArrowRight className="ml-2" />
+                  {t('cloudReseau.heroCtaAudit', 'Demander un Audit Gratuit')} <ArrowRight className="ml-2" />
                 </Button>
               </Link>
               <a href="tel:+33367310201">
@@ -244,10 +247,10 @@ const CloudReseau = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Solutions Cloud Professionnelles
+                {t('cloudReseau.solutionsHeading', 'Solutions Cloud Professionnelles')}
               </h2>
               <p className="text-xl text-muted-foreground">
-                Choisissez la solution adaptée à vos besoins
+                {t('cloudReseau.solutionsSubheading', 'Choisissez la solution adaptée à vos besoins')}
               </p>
             </div>
 
@@ -270,7 +273,7 @@ const CloudReseau = () => {
                   <div className="text-center font-bold text-blue-600 mb-4">{solution.pricing}</div>
                   <Link to="/contact">
                     <Button className="w-full gradient-blue text-white">
-                      En Savoir Plus
+                      {t('cloudReseau.learnMore', 'En Savoir Plus')}
                     </Button>
                   </Link>
                 </div>
@@ -284,10 +287,10 @@ const CloudReseau = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Services Infrastructure Réseau
+                {t('cloudReseau.networkHeading', 'Services Infrastructure Réseau')}
               </h2>
               <p className="text-xl text-muted-foreground">
-                Conception, installation et maintenance
+                {t('cloudReseau.networkSubheading', 'Conception, installation et maintenance')}
               </p>
             </div>
 
@@ -299,7 +302,7 @@ const CloudReseau = () => {
                   <div className="flex items-center justify-between">
                     <span className="font-semibold text-green-600">{service.price}</span>
                     <Link to="/contact">
-                      <Button size="sm" variant="outline">Devis</Button>
+                      <Button size="sm" variant="outline">{t('cloudReseau.quoteBtn', 'Devis')}</Button>
                     </Link>
                   </div>
                 </div>
@@ -313,7 +316,7 @@ const CloudReseau = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Les Avantages d'une Infrastructure Moderne
+                {t('cloudReseau.benefitsHeading', "Les Avantages d'une Infrastructure Moderne")}
               </h2>
             </div>
 
@@ -336,10 +339,10 @@ const CloudReseau = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Notre Processus de Déploiement
+                {t('cloudReseau.processHeading', 'Notre Processus de Déploiement')}
               </h2>
               <p className="text-xl text-muted-foreground">
-                Méthodologie éprouvée pour une migration sans stress
+                {t('cloudReseau.processSubheading', 'Méthodologie éprouvée pour une migration sans stress')}
               </p>
             </div>
 
@@ -362,10 +365,10 @@ const CloudReseau = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Cas Clients
+                {t('cloudReseau.caseHeading', 'Cas Clients')}
               </h2>
               <p className="text-xl text-muted-foreground">
-                Découvrez comment nous avons transformé leur IT
+                {t('cloudReseau.caseSubheading', 'Découvrez comment nous avons transformé leur IT')}
               </p>
             </div>
 
@@ -374,15 +377,15 @@ const CloudReseau = () => {
                 <div key={index} className="bg-card rounded-2xl p-8 shadow-xl">
                   <div className="text-sm text-blue-600 font-semibold mb-2">{study.company}</div>
                   <div className="mb-4">
-                    <div className="font-bold mb-1">Problématique:</div>
+                    <div className="font-bold mb-1">{t('cloudReseau.caseChallengeLabel', 'Problématique:')}</div>
                     <p className="text-sm text-muted-foreground">{study.challenge}</p>
                   </div>
                   <div className="mb-4">
-                    <div className="font-bold mb-1">Solution:</div>
+                    <div className="font-bold mb-1">{t('cloudReseau.caseSolutionLabel', 'Solution:')}</div>
                     <p className="text-sm text-muted-foreground">{study.solution}</p>
                   </div>
                   <div>
-                    <div className="font-bold mb-1">Résultats:</div>
+                    <div className="font-bold mb-1">{t('cloudReseau.caseResultsLabel', 'Résultats:')}</div>
                     <p className="text-sm text-green-600 font-semibold">{study.results}</p>
                   </div>
                 </div>
@@ -396,7 +399,7 @@ const CloudReseau = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Questions Fréquentes
+                {t('cloudReseau.faqHeading', 'Questions Fréquentes')}
               </h2>
             </div>
 
@@ -419,22 +422,22 @@ const CloudReseau = () => {
         <section className="py-20 bg-gradient-to-br from-blue-600 to-indigo-700 text-white">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Prêt à Moderniser Votre Infrastructure IT ?
+              {t('cloudReseau.ctaHeading', 'Prêt à Moderniser Votre Infrastructure IT ?')}
             </h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-              Audit gratuit • Devis détaillé • Migration sans interruption • Support inclus
+              {t('cloudReseau.ctaSubheading', 'Audit gratuit • Devis détaillé • Migration sans interruption • Support inclus')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link to="/contact">
                 <Button size="lg" className="bg-white text-blue-600 hover:bg-white/90">
-                  Demander un Audit
+                  {t('cloudReseau.ctaAudit', 'Demander un Audit')}
                   <ArrowRight className="ml-2" />
                 </Button>
               </Link>
               <a href="tel:+33367310201">
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
                   <Phone className="mr-2" />
-                  Appeler Maintenant
+                  {t('cloudReseau.ctaCall', 'Appeler Maintenant')}
                 </Button>
               </a>
             </div>

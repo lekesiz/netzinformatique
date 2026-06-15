@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import SEO from '@/components/common/SEO'
 import StructuredData from '@/components/common/StructuredData'
 import { Button } from '@/components/ui/button'
@@ -23,14 +24,15 @@ import {
 } from 'lucide-react'
 
 const ServiceEnterprise = () => {
-  const pageTitle = 'Solutions IT pour entreprises & professionnels'
+  const { t } = useTranslation()
+  const pageTitle = t('svcEnt.pageTitle', 'Solutions IT pour entreprises & professionnels')
   const pageDescription =
-    "Partenaire IT de confiance dans le Grand Est : maintenance et infogérance, cybersécurité & RGPD, cloud & réseaux Microsoft 365, IA Offline, développement web et formation QUALIOPI. Contrats de maintenance dès 79€/mois, surveillance 24/7."
+    t('svcEnt.pageDescription', "Partenaire IT de confiance dans le Grand Est : maintenance et infogérance, cybersécurité & RGPD, cloud & réseaux Microsoft 365, IA Offline, développement web et formation QUALIOPI. Contrats de maintenance dès 79€/mois, surveillance 24/7.")
 
   const breadcrumbs = [
-    { name: 'Accueil', url: '/' },
-    { name: 'Services', url: '/services' },
-    { name: 'Entreprises', url: '/services/entreprises' },
+    { name: t('svcEnt.bcHome', 'Accueil'), url: '/' },
+    { name: t('svcEnt.bcServices', 'Services'), url: '/services' },
+    { name: t('svcEnt.bcEnt', 'Entreprises'), url: '/services/entreprises' },
   ]
 
   const serviceData = {
@@ -43,109 +45,109 @@ const ServiceEnterprise = () => {
   }
 
   const valueProps = [
-    { icon: Shield, title: 'Partenaire IT de confiance', description: 'Un interlocuteur unique pour toute votre informatique.' },
-    { icon: Clock, title: 'Contrats de maintenance', description: 'Forfaits dès 79€/mois avec surveillance 24/7.' },
-    { icon: Server, title: 'Sécurité & conformité', description: 'Protection des données et conformité RGPD assurées.' },
+    { icon: Shield, title: t('svcEnt.vp1Title', 'Partenaire IT de confiance'), description: t('svcEnt.vp1Desc', 'Un interlocuteur unique pour toute votre informatique.') },
+    { icon: Clock, title: t('svcEnt.vp2Title', 'Contrats de maintenance'), description: t('svcEnt.vp2Desc', 'Forfaits dès 79€/mois avec surveillance 24/7.') },
+    { icon: Server, title: t('svcEnt.vp3Title', 'Sécurité & conformité'), description: t('svcEnt.vp3Desc', 'Protection des données et conformité RGPD assurées.') },
   ]
 
   const services = [
     {
       icon: Building2,
-      title: 'Maintenance & infogérance',
+      title: t('svcEnt.svc1Title', 'Maintenance & infogérance'),
       description:
-        'Gestion complète de votre parc informatique, support dédié et interventions proactives. Contrats sur mesure à partir de 79€/mois.',
+        t('svcEnt.svc1Desc', 'Gestion complète de votre parc informatique, support dédié et interventions proactives. Contrats sur mesure à partir de 79€/mois.'),
       link: '/services/depannage-maintenance',
-      linkLabel: 'Découvrir nos contrats',
+      linkLabel: t('svcEnt.svc1Link', 'Découvrir nos contrats'),
     },
     {
       icon: Shield,
-      title: 'Cybersécurité & RGPD',
+      title: t('svcEnt.svc2Title', 'Cybersécurité & RGPD'),
       description:
-        'Audit de sécurité, antivirus, pare-feu, sauvegardes et accompagnement RGPD pour protéger votre activité et vos données.',
+        t('svcEnt.svc2Desc', 'Audit de sécurité, antivirus, pare-feu, sauvegardes et accompagnement RGPD pour protéger votre activité et vos données.'),
       link: '/services/cybersecurite',
-      linkLabel: 'En savoir plus',
+      linkLabel: t('svcEnt.svc2Link', 'En savoir plus'),
     },
     {
       icon: Network,
-      title: 'Cloud & réseaux / Microsoft 365',
+      title: t('svcEnt.svc3Title', 'Cloud & réseaux / Microsoft 365'),
       description:
-        'Migration cloud, déploiement Microsoft 365, conception et sécurisation de votre infrastructure réseau et de vos accès distants.',
+        t('svcEnt.svc3Desc', 'Migration cloud, déploiement Microsoft 365, conception et sécurisation de votre infrastructure réseau et de vos accès distants.'),
       link: '/services/cloud-reseau',
-      linkLabel: 'Voir les solutions cloud',
+      linkLabel: t('svcEnt.svc3Link', 'Voir les solutions cloud'),
     },
     {
       icon: BrainCircuit,
-      title: 'Intelligence Artificielle Offline',
+      title: t('svcEnt.svc4Title', 'Intelligence Artificielle Offline'),
       description:
-        "Déployez une IA 100% confidentielle dans vos locaux. Vos données ne quittent jamais l'entreprise. Conformité RGPD simplifiée.",
+        t('svcEnt.svc4Desc', "Déployez une IA 100% confidentielle dans vos locaux. Vos données ne quittent jamais l'entreprise. Conformité RGPD simplifiée."),
       link: '/services/ia-offline',
-      linkLabel: "Découvrir l'IA Offline",
+      linkLabel: t('svcEnt.svc4Link', "Découvrir l'IA Offline"),
     },
     {
       icon: Globe,
-      title: 'Développement web & SEO',
+      title: t('svcEnt.svc5Title', 'Développement web & SEO'),
       description:
-        'Sites vitrines, e-commerce et applications sur mesure, optimisés pour le référencement et la performance.',
+        t('svcEnt.svc5Desc', 'Sites vitrines, e-commerce et applications sur mesure, optimisés pour le référencement et la performance.'),
       link: '/services/web-digital',
-      linkLabel: 'Voir nos solutions web',
+      linkLabel: t('svcEnt.svc5Link', 'Voir nos solutions web'),
     },
     {
       icon: GraduationCap,
-      title: 'Formation professionnelle QUALIOPI',
+      title: t('svcEnt.svc6Title', 'Formation professionnelle QUALIOPI'),
       description:
-        'Montez vos équipes en compétences avec nos formations certifiées QUALIOPI (financement OPCO/CPF possible).',
+        t('svcEnt.svc6Desc', 'Montez vos équipes en compétences avec nos formations certifiées QUALIOPI (financement OPCO/CPF possible).'),
       link: '/services/formation-professionnelle',
-      linkLabel: 'Voir les formations',
+      linkLabel: t('svcEnt.svc6Link', 'Voir les formations'),
     },
   ]
 
   const reasons = [
     {
       icon: Zap,
-      title: 'Réactivité',
-      description: 'Interventions rapides et support prioritaire pour limiter les interruptions de votre activité.',
+      title: t('svcEnt.reason1Title', 'Réactivité'),
+      description: t('svcEnt.reason1Desc', 'Interventions rapides et support prioritaire pour limiter les interruptions de votre activité.'),
     },
     {
       icon: Award,
-      title: 'Expertise certifiée',
-      description: 'Partenaires Microsoft, Cisco et Google : des compétences reconnues et à jour.',
+      title: t('svcEnt.reason2Title', 'Expertise certifiée'),
+      description: t('svcEnt.reason2Desc', 'Partenaires Microsoft, Cisco et Google : des compétences reconnues et à jour.'),
     },
     {
       icon: MapPin,
-      title: 'Proximité Grand Est',
-      description: 'Une équipe locale basée à Haguenau, proche de vos équipes et de vos enjeux.',
+      title: t('svcEnt.reason3Title', 'Proximité Grand Est'),
+      description: t('svcEnt.reason3Desc', 'Une équipe locale basée à Haguenau, proche de vos équipes et de vos enjeux.'),
     },
     {
       icon: Clock,
-      title: "35 ans d'expérience",
-      description: 'Une expertise IT solide au service des entreprises et des professionnels depuis des décennies.',
+      title: t('svcEnt.reason4Title', "35 ans d'expérience"),
+      description: t('svcEnt.reason4Desc', 'Une expertise IT solide au service des entreprises et des professionnels depuis des décennies.'),
     },
   ]
 
   const maintenanceFeatures = [
-    'Surveillance et monitoring 24/7',
-    'Mises à jour de sécurité automatiques',
-    'Sauvegardes régulières et plan de reprise',
-    'Support technique prioritaire dédié',
-    'Maintenance préventive du parc',
-    'Reporting et conseils réguliers',
+    t('svcEnt.maintFeat1', 'Surveillance et monitoring 24/7'),
+    t('svcEnt.maintFeat2', 'Mises à jour de sécurité automatiques'),
+    t('svcEnt.maintFeat3', 'Sauvegardes régulières et plan de reprise'),
+    t('svcEnt.maintFeat4', 'Support technique prioritaire dédié'),
+    t('svcEnt.maintFeat5', 'Maintenance préventive du parc'),
+    t('svcEnt.maintFeat6', 'Reporting et conseils réguliers'),
   ]
 
   const sectors = [
     {
       icon: Stethoscope,
-      sector: 'Santé',
-      description: 'Cabinets et professionnels de santé : confidentialité des données patients et conformité renforcée.',
+      sector: t('svcEnt.sector1Name', 'Santé'),
+      description: t('svcEnt.sector1Desc', 'Cabinets et professionnels de santé : confidentialité des données patients et conformité renforcée.'),
     },
     {
       icon: Scale,
-      sector: 'Juridique',
-      description: "Avocats et notaires : secret professionnel préservé, sécurisation des documents sensibles.",
+      sector: t('svcEnt.sector2Name', 'Juridique'),
+      description: t('svcEnt.sector2Desc', "Avocats et notaires : secret professionnel préservé, sécurisation des documents sensibles."),
     },
     {
       icon: Briefcase,
-      sector: 'PME & TPE',
-      description: "Artisans, commerces et PME : une informatique fiable pour vous concentrer sur votre métier.",
+      sector: t('svcEnt.sector3Name', 'PME & TPE'),
+      description: t('svcEnt.sector3Desc', "Artisans, commerces et PME : une informatique fiable pour vous concentrer sur votre métier."),
     },
   ]
 
@@ -160,19 +162,18 @@ const ServiceEnterprise = () => {
           <div className="container mx-auto px-4 text-center">
             <div className="inline-flex items-center gap-2 bg-primary-foreground/10 rounded-full px-5 py-2 mb-6">
               <Building2 size={18} />
-              <span className="text-sm font-semibold">Entreprises & professionnels</span>
+              <span className="text-sm font-semibold">{t('svcEnt.heroBadge', 'Entreprises & professionnels')}</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Solutions IT pour entreprises & professionnels
+              {t('svcEnt.heroTitle', 'Solutions IT pour entreprises & professionnels')}
             </h1>
             <p className="text-lg md:text-xl opacity-90 max-w-3xl mx-auto mb-8">
-              Votre partenaire IT de confiance dans le Grand Est : maintenance, cybersécurité, cloud et innovation pour
-              une informatique fiable, sécurisée et performante.
+              {t('svcEnt.heroSubtitle', 'Votre partenaire IT de confiance dans le Grand Est : maintenance, cybersécurité, cloud et innovation pour une informatique fiable, sécurisée et performante.')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap mb-10">
               <Link to="/contact">
                 <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-                  Demander un devis gratuit <ArrowRight className="ml-2" />
+                  {t('svcEnt.heroCtaQuote', 'Demander un devis gratuit')} <ArrowRight className="ml-2" />
                 </Button>
               </Link>
               <a href="tel:+33367310201">
@@ -201,9 +202,9 @@ const ServiceEnterprise = () => {
         <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Nos services pour les entreprises</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('svcEnt.servicesTitle', 'Nos services pour les entreprises')}</h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Une offre IT complète pour accompagner votre croissance et sécuriser votre activité.
+                {t('svcEnt.servicesSubtitle', 'Une offre IT complète pour accompagner votre croissance et sécuriser votre activité.')}
               </p>
             </div>
 
@@ -234,9 +235,9 @@ const ServiceEnterprise = () => {
         <section className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Pourquoi nous choisir ?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('svcEnt.whyTitle', 'Pourquoi nous choisir ?')}</h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Un partenaire local, expert et réactif pour votre informatique.
+                {t('svcEnt.whySubtitle', 'Un partenaire local, expert et réactif pour votre informatique.')}
               </p>
             </div>
 
@@ -264,26 +265,25 @@ const ServiceEnterprise = () => {
               <div className="bg-gradient-to-br from-primary to-secondary rounded-2xl p-8 text-primary-foreground">
                 <div className="inline-flex items-center gap-2 bg-primary-foreground/10 rounded-full px-4 py-1.5 mb-4">
                   <Server size={16} />
-                  <span className="text-sm font-semibold">Contrat de maintenance</span>
+                  <span className="text-sm font-semibold">{t('svcEnt.maintBadge', 'Contrat de maintenance')}</span>
                 </div>
-                <h3 className="text-2xl font-bold mb-4">Infogérance & surveillance 24/7</h3>
+                <h3 className="text-2xl font-bold mb-4">{t('svcEnt.maintTitle', 'Infogérance & surveillance 24/7')}</h3>
                 <div className="mb-6">
                   <span className="text-5xl font-bold">79€</span>
-                  <span className="text-xl"> /mois</span>
+                  <span className="text-xl"> {t('svcEnt.maintPerMonth', '/mois')}</span>
                 </div>
                 <p className="opacity-90 mb-6">
-                  Confiez-nous la gestion de votre parc informatique. Surveillance proactive, maintenance préventive et
-                  support prioritaire pour une tranquillité d'esprit totale.
+                  {t('svcEnt.maintDesc', 'Confiez-nous la gestion de votre parc informatique. Surveillance proactive, maintenance préventive et support prioritaire pour une tranquillité d\'esprit totale.')}
                 </p>
                 <Link to="/services/depannage-maintenance">
                   <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 w-full">
-                    Découvrir les forfaits <ArrowRight className="ml-2" />
+                    {t('svcEnt.maintCta', 'Découvrir les forfaits')} <ArrowRight className="ml-2" />
                   </Button>
                 </Link>
               </div>
 
               <div>
-                <h4 className="font-bold text-xl mb-4">Inclus dans nos contrats :</h4>
+                <h4 className="font-bold text-xl mb-4">{t('svcEnt.maintInclTitle', 'Inclus dans nos contrats :')}</h4>
                 <ul className="space-y-3">
                   {maintenanceFeatures.map((feature, index) => (
                     <li key={index} className="flex items-start gap-2">
@@ -301,9 +301,9 @@ const ServiceEnterprise = () => {
         <section className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Des solutions adaptées à votre secteur</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('svcEnt.sectorsTitle', 'Des solutions adaptées à votre secteur')}</h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Nous comprenons les enjeux spécifiques de votre métier.
+                {t('svcEnt.sectorsSubtitle', 'Nous comprenons les enjeux spécifiques de votre métier.')}
               </p>
             </div>
 
@@ -328,14 +328,14 @@ const ServiceEnterprise = () => {
         <section className="py-20 bg-gradient-to-br from-primary to-secondary text-primary-foreground">
           <div className="container mx-auto px-4 text-center">
             <Building2 size={56} className="mx-auto mb-6" />
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Faisons de l'IT un atout pour votre entreprise</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">{t('svcEnt.ctaTitle', 'Faisons de l\'IT un atout pour votre entreprise')}</h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-              Audit de vos besoins • Devis personnalisé • Contrats sur mesure dès 79€/mois • Accompagnement local
+              {t('svcEnt.ctaSubtitle', 'Audit de vos besoins • Devis personnalisé • Contrats sur mesure dès 79€/mois • Accompagnement local')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link to="/contact">
                 <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-                  Demander un devis gratuit <ArrowRight className="ml-2" />
+                  {t('svcEnt.heroCtaQuote', 'Demander un devis gratuit')} <ArrowRight className="ml-2" />
                 </Button>
               </Link>
               <a href="tel:+33367310201">

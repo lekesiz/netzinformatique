@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import SEO from '@/components/common/SEO'
 import StructuredData from '@/components/common/StructuredData'
 import { Button } from '@/components/ui/button'
@@ -22,14 +23,15 @@ import {
 } from 'lucide-react'
 
 const ServiceIndividual = () => {
-  const pageTitle = 'Services informatiques pour particuliers à Haguenau'
+  const { t } = useTranslation()
+  const pageTitle = t('svcInd.pageTitle', 'Services informatiques pour particuliers à Haguenau')
   const pageDescription =
-    'Dépannage et réparation PC/Mac, récupération de données, suppression de virus, installation, vente de matériel et assistance à distance. Diagnostic gratuit, intervention 24-48h, réparations garanties 3 mois.'
+    t('svcInd.pageDescription', 'Dépannage et réparation PC/Mac, récupération de données, suppression de virus, installation, vente de matériel et assistance à distance. Diagnostic gratuit, intervention 24-48h, réparations garanties 3 mois.')
 
   const breadcrumbs = [
-    { name: 'Accueil', url: '/' },
-    { name: 'Services', url: '/services' },
-    { name: 'Particuliers', url: '/services/particuliers' },
+    { name: t('svcInd.bcHome', 'Accueil'), url: '/' },
+    { name: t('svcInd.bcServices', 'Services'), url: '/services' },
+    { name: t('svcInd.bcPart', 'Particuliers'), url: '/services/particuliers' },
   ]
 
   const serviceData = {
@@ -42,59 +44,59 @@ const ServiceIndividual = () => {
   }
 
   const reassurances = [
-    { icon: Search, title: 'Diagnostic gratuit', description: 'Établissement précis de la panne sans engagement.' },
-    { icon: Clock, title: 'Intervention 24-48h', description: 'Réactivité maximale, en atelier ou à domicile.' },
-    { icon: ShieldCheck, title: 'Réparations garanties 3 mois', description: 'Toutes nos interventions sont garanties.' },
+    { icon: Search, title: t('svcInd.reass1Title', 'Diagnostic gratuit'), description: t('svcInd.reass1Desc', 'Établissement précis de la panne sans engagement.') },
+    { icon: Clock, title: t('svcInd.reass2Title', 'Intervention 24-48h'), description: t('svcInd.reass2Desc', 'Réactivité maximale, en atelier ou à domicile.') },
+    { icon: ShieldCheck, title: t('svcInd.reass3Title', 'Réparations garanties 3 mois'), description: t('svcInd.reass3Desc', 'Toutes nos interventions sont garanties.') },
   ]
 
   const services = [
     {
       icon: Wrench,
-      title: 'Dépannage & réparation PC/Mac',
+      title: t('svcInd.svc1Title', 'Dépannage & réparation PC/Mac'),
       description:
-        'Panne matérielle ou logicielle, écran cassé, surchauffe, lenteurs : nous diagnostiquons et réparons vos ordinateurs Windows et Mac.',
+        t('svcInd.svc1Desc', 'Panne matérielle ou logicielle, écran cassé, surchauffe, lenteurs : nous diagnostiquons et réparons vos ordinateurs Windows et Mac.'),
       link: '/services/depannage-maintenance',
-      linkLabel: 'En savoir plus',
+      linkLabel: t('svcInd.svc1Link', 'En savoir plus'),
     },
     {
       icon: HardDrive,
-      title: 'Récupération de données',
+      title: t('svcInd.svc2Title', 'Récupération de données'),
       description:
-        'Disque dur en panne, fichiers supprimés, clé USB illisible : nous récupérons vos photos, documents et données précieuses.',
+        t('svcInd.svc2Desc', 'Disque dur en panne, fichiers supprimés, clé USB illisible : nous récupérons vos photos, documents et données précieuses.'),
     },
     {
       icon: ShieldCheck,
-      title: 'Suppression virus & optimisation',
+      title: t('svcInd.svc3Title', 'Suppression virus & optimisation'),
       description:
-        'Élimination des virus, malwares et logiciels indésirables, nettoyage et optimisation pour retrouver un PC rapide et sécurisé.',
+        t('svcInd.svc3Desc', 'Élimination des virus, malwares et logiciels indésirables, nettoyage et optimisation pour retrouver un PC rapide et sécurisé.'),
     },
     {
       icon: Settings,
-      title: 'Installation & configuration',
+      title: t('svcInd.svc4Title', 'Installation & configuration'),
       description:
-        "Installation de Windows, macOS, logiciels, imprimantes, box Internet et Wi-Fi. Tout est prêt et configuré pour vous.",
+        t('svcInd.svc4Desc', "Installation de Windows, macOS, logiciels, imprimantes, box Internet et Wi-Fi. Tout est prêt et configuré pour vous."),
     },
     {
       icon: ShoppingCart,
-      title: 'Vente de matériel & PC sur mesure',
+      title: t('svcInd.svc5Title', 'Vente de matériel & PC sur mesure'),
       description:
-        'Ordinateurs, composants et accessoires neufs. Nous assemblons aussi des PC sur mesure adaptés au gaming, à la bureautique ou au multimédia.',
+        t('svcInd.svc5Desc', 'Ordinateurs, composants et accessoires neufs. Nous assemblons aussi des PC sur mesure adaptés au gaming, à la bureautique ou au multimédia.'),
       link: '/materiel',
-      linkLabel: 'Voir le matériel',
+      linkLabel: t('svcInd.svc5Link', 'Voir le matériel'),
     },
     {
       icon: GraduationCap,
-      title: 'Formation & initiation',
+      title: t('svcInd.svc6Title', 'Formation & initiation'),
       description:
-        "Cours et initiation à l'informatique, à Internet et aux outils du quotidien, à votre rythme, en toute simplicité.",
+        t('svcInd.svc6Desc', "Cours et initiation à l'informatique, à Internet et aux outils du quotidien, à votre rythme, en toute simplicité."),
       link: '/formation',
-      linkLabel: 'Découvrir les formations',
+      linkLabel: t('svcInd.svc6Link', 'Découvrir les formations'),
     },
     {
       icon: Headset,
-      title: 'Assistance à distance',
+      title: t('svcInd.svc7Title', 'Assistance à distance'),
       description:
-        'Une aide rapide sans vous déplacer : nous prenons la main sur votre ordinateur pour résoudre votre problème. 60€/h.',
+        t('svcInd.svc7Desc', 'Une aide rapide sans vous déplacer : nous prenons la main sur votre ordinateur pour résoudre votre problème. 60€/h.'),
     },
   ]
 
@@ -102,27 +104,27 @@ const ServiceIndividual = () => {
     {
       step: '1',
       icon: Search,
-      title: 'Diagnostic gratuit',
-      description: "Nous analysons votre matériel et identifions précisément l'origine de la panne, sans frais ni engagement.",
+      title: t('svcInd.proc1Title', 'Diagnostic gratuit'),
+      description: t('svcInd.proc1Desc', "Nous analysons votre matériel et identifions précisément l'origine de la panne, sans frais ni engagement."),
     },
     {
       step: '2',
       icon: FileText,
-      title: 'Devis transparent',
-      description: 'Vous recevez un devis clair et détaillé. Aucune intervention payante sans votre accord.',
+      title: t('svcInd.proc2Title', 'Devis transparent'),
+      description: t('svcInd.proc2Desc', 'Vous recevez un devis clair et détaillé. Aucune intervention payante sans votre accord.'),
     },
     {
       step: '3',
       icon: Wrench,
-      title: 'Intervention rapide',
-      description: 'Réparation en atelier ou à domicile sous 24-48h, avec une garantie de 3 mois sur nos interventions.',
+      title: t('svcInd.proc3Title', 'Intervention rapide'),
+      description: t('svcInd.proc3Desc', 'Réparation en atelier ou à domicile sous 24-48h, avec une garantie de 3 mois sur nos interventions.'),
     },
   ]
 
   const stats = [
-    { icon: Star, value: '4,9/5', label: 'Note moyenne clients' },
-    { icon: Users, value: '900+', label: 'Clients accompagnés' },
-    { icon: ShieldCheck, value: '3 mois', label: 'Garantie sur réparations' },
+    { icon: Star, value: '4,9/5', label: t('svcInd.stat1Label', 'Note moyenne clients') },
+    { icon: Users, value: '900+', label: t('svcInd.stat2Label', 'Clients accompagnés') },
+    { icon: ShieldCheck, value: '3 mois', label: t('svcInd.stat3Label', 'Garantie sur réparations') },
   ]
 
   return (
@@ -136,19 +138,18 @@ const ServiceIndividual = () => {
           <div className="container mx-auto px-4 text-center">
             <div className="inline-flex items-center gap-2 bg-primary-foreground/10 rounded-full px-5 py-2 mb-6">
               <Laptop size={18} />
-              <span className="text-sm font-semibold">Particuliers</span>
+              <span className="text-sm font-semibold">{t('svcInd.heroBadge', 'Particuliers')}</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Services informatiques pour particuliers
+              {t('svcInd.heroTitle', 'Services informatiques pour particuliers')}
             </h1>
             <p className="text-lg md:text-xl opacity-90 max-w-3xl mx-auto mb-8">
-              Dépannage, réparation, récupération de données et conseils : un interlocuteur de confiance pour tous vos
-              besoins informatiques à Haguenau et alentours.
+              {t('svcInd.heroSubtitle', 'Dépannage, réparation, récupération de données et conseils : un interlocuteur de confiance pour tous vos besoins informatiques à Haguenau et alentours.')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap mb-10">
               <Link to="/contact">
                 <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-                  Demander un devis gratuit <ArrowRight className="ml-2" />
+                  {t('svcInd.heroCtaQuote', 'Demander un devis gratuit')} <ArrowRight className="ml-2" />
                 </Button>
               </Link>
               <a href="tel:+33367310201">
@@ -177,9 +178,9 @@ const ServiceIndividual = () => {
         <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Nos services pour les particuliers</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('svcInd.servicesTitle', 'Nos services pour les particuliers')}</h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Une solution adaptée à chaque situation, expliquée simplement et sans jargon.
+                {t('svcInd.servicesSubtitle', 'Une solution adaptée à chaque situation, expliquée simplement et sans jargon.')}
               </p>
             </div>
 
@@ -212,9 +213,9 @@ const ServiceIndividual = () => {
         <section className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Comment ça se passe ?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('svcInd.processTitle', 'Comment ça se passe ?')}</h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Une démarche simple et transparente, en 3 étapes.
+                {t('svcInd.processSubtitle', 'Une démarche simple et transparente, en 3 étapes.')}
               </p>
             </div>
 
@@ -240,9 +241,9 @@ const ServiceIndividual = () => {
         <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Ils nous font confiance</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('svcInd.trustTitle', 'Ils nous font confiance')}</h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Un service de proximité reconnu par nos clients particuliers.
+                {t('svcInd.trustSubtitle', 'Un service de proximité reconnu par nos clients particuliers.')}
               </p>
             </div>
 
@@ -265,14 +266,14 @@ const ServiceIndividual = () => {
         <section className="py-20 bg-gradient-to-br from-primary to-secondary text-primary-foreground">
           <div className="container mx-auto px-4 text-center">
             <CheckCircle size={56} className="mx-auto mb-6" />
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Un souci avec votre ordinateur ?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">{t('svcInd.ctaTitle', 'Un souci avec votre ordinateur ?')}</h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-              Diagnostic gratuit • Devis transparent • Intervention 24-48h • Réparations garanties 3 mois
+              {t('svcInd.ctaSubtitle', 'Diagnostic gratuit • Devis transparent • Intervention 24-48h • Réparations garanties 3 mois')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link to="/contact">
                 <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-                  Demander un devis gratuit <ArrowRight className="ml-2" />
+                  {t('svcInd.heroCtaQuote', 'Demander un devis gratuit')} <ArrowRight className="ml-2" />
                 </Button>
               </Link>
               <a href="tel:+33367310201">

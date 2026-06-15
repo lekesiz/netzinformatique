@@ -33,126 +33,126 @@ const DepannageMaintenance = () => {
   };
 
   const features = [
-    { icon: Wrench, text: 'Diagnostic complet et rapide' },
-    { icon: Shield, text: 'Réparation matérielle et logicielle' },
-    { icon: AlertCircle, text: 'Éradication de virus et malwares' },
-    { icon: TrendingUp, text: 'Optimisation des performances' },
-    { icon: Clock, text: 'Maintenance préventive' },
-    { icon: Laptop, text: 'Intervention sur site ou en atelier' },
+    { icon: Wrench, text: t('depannage.feature1', 'Diagnostic complet et rapide') },
+    { icon: Shield, text: t('depannage.feature2', 'Réparation matérielle et logicielle') },
+    { icon: AlertCircle, text: t('depannage.feature3', 'Éradication de virus et malwares') },
+    { icon: TrendingUp, text: t('depannage.feature4', 'Optimisation des performances') },
+    { icon: Clock, text: t('depannage.feature5', 'Maintenance préventive') },
+    { icon: Laptop, text: t('depannage.feature6', 'Intervention sur site ou en atelier') },
   ];
 
   const commonProblems = [
     {
-      title: 'Ordinateur Lent',
-      description: 'Votre PC met plusieurs minutes à démarrer ? Les applications se figent ? Nous identifions la cause (disque saturé, RAM insuffisante, virus) et optimisons les performances.',
-      price: 'À partir de 60€'
+      title: t('depannage.prob1Title', 'Ordinateur Lent'),
+      description: t('depannage.prob1Desc', 'Votre PC met plusieurs minutes à démarrer ? Les applications se figent ? Nous identifions la cause (disque saturé, RAM insuffisante, virus) et optimisons les performances.'),
+      price: t('depannage.prob1Price', 'À partir de 60€')
     },
     {
-      title: 'Écran Bleu / Noir',
-      description: 'Écran bleu de la mort (BSOD) ou écran noir au démarrage ? Problème matériel ou logiciel, nous diagnostiquons et réparons rapidement.',
-      price: 'Diagnostic gratuit'
+      title: t('depannage.prob2Title', 'Écran Bleu / Noir'),
+      description: t('depannage.prob2Desc', 'Écran bleu de la mort (BSOD) ou écran noir au démarrage ? Problème matériel ou logiciel, nous diagnostiquons et réparons rapidement.'),
+      price: t('depannage.prob2Price', 'Diagnostic gratuit')
     },
     {
-      title: 'Virus & Malwares',
-      description: 'Publicités intempestives, ransomware, spyware ? Nous éradiquons toutes les menaces et sécurisons votre système pour éviter les récidives.',
-      price: 'À partir de 80€'
+      title: t('depannage.prob3Title', 'Virus & Malwares'),
+      description: t('depannage.prob3Desc', 'Publicités intempestives, ransomware, spyware ? Nous éradiquons toutes les menaces et sécurisons votre système pour éviter les récidives.'),
+      price: t('depannage.prob3Price', 'À partir de 80€')
     },
     {
-      title: 'Panne Matérielle',
-      description: 'Disque dur défaillant, RAM défectueuse, alimentation HS ? Nous remplaçons les composants défectueux avec des pièces de qualité garanties.',
-      price: 'Devis gratuit'
+      title: t('depannage.prob4Title', 'Panne Matérielle'),
+      description: t('depannage.prob4Desc', 'Disque dur défaillant, RAM défectueuse, alimentation HS ? Nous remplaçons les composants défectueux avec des pièces de qualité garanties.'),
+      price: t('depannage.prob4Price', 'Devis gratuit')
     },
     {
-      title: 'Récupération de Données',
-      description: 'Données perdues suite à une suppression accidentelle ou une panne ? Nous récupérons vos fichiers précieux (photos, documents, emails).',
-      price: 'À partir de 150€'
+      title: t('depannage.prob5Title', 'Récupération de Données'),
+      description: t('depannage.prob5Desc', 'Données perdues suite à une suppression accidentelle ou une panne ? Nous récupérons vos fichiers précieux (photos, documents, emails).'),
+      price: t('depannage.prob5Price', 'À partir de 150€')
     },
     {
-      title: 'Problèmes Réseau',
-      description: 'Pas de connexion Internet, WiFi instable, imprimante non détectée ? Nous résolvons tous vos problèmes de connectivité.',
-      price: 'À partir de 50€'
+      title: t('depannage.prob6Title', 'Problèmes Réseau'),
+      description: t('depannage.prob6Desc', 'Pas de connexion Internet, WiFi instable, imprimante non détectée ? Nous résolvons tous vos problèmes de connectivité.'),
+      price: t('depannage.prob6Price', 'À partir de 50€')
     }
   ];
 
   const process = [
-    { step: '1', title: 'Contact', description: 'Appelez-nous ou remplissez le formulaire' },
-    { step: '2', title: 'Diagnostic', description: 'Analyse complète gratuite de votre problème' },
-    { step: '3', title: 'Devis', description: 'Proposition détaillée avant intervention' },
-    { step: '4', title: 'Réparation', description: 'Intervention rapide sous 24-48h' },
-    { step: '5', title: 'Test', description: 'Vérification complète du bon fonctionnement' },
-    { step: '6', title: 'Garantie', description: '3 mois de garantie pièces et main d\'œuvre' }
+    { step: '1', title: t('depannage.proc1Title', 'Contact'), description: t('depannage.proc1Desc', 'Appelez-nous ou remplissez le formulaire') },
+    { step: '2', title: t('depannage.proc2Title', 'Diagnostic'), description: t('depannage.proc2Desc', 'Analyse complète gratuite de votre problème') },
+    { step: '3', title: t('depannage.proc3Title', 'Devis'), description: t('depannage.proc3Desc', 'Proposition détaillée avant intervention') },
+    { step: '4', title: t('depannage.proc4Title', 'Réparation'), description: t('depannage.proc4Desc', 'Intervention rapide sous 24-48h') },
+    { step: '5', title: t('depannage.proc5Title', 'Test'), description: t('depannage.proc5Desc', 'Vérification complète du bon fonctionnement') },
+    { step: '6', title: t('depannage.proc6Title', 'Garantie'), description: t('depannage.proc6Desc', '3 mois de garantie pièces et main d\'œuvre') }
   ];
 
   const pricing = [
-    { service: 'Diagnostic complet', price: 'Gratuit' },
-    { service: 'Nettoyage et optimisation', price: '60€' },
-    { service: 'Suppression virus/malware', price: '80€' },
-    { service: 'Installation Windows', price: '100€' },
-    { service: 'Upgrade SSD (avec clonage)', price: '150€ + pièce' },
-    { service: 'Upgrade RAM', price: '50€ + pièce' },
-    { service: 'Réparation matérielle', price: 'Sur devis' },
-    { service: 'Intervention à domicile', price: '+30€' }
+    { service: t('depannage.price1Service', 'Diagnostic complet'), price: t('depannage.price1Value', 'Gratuit') },
+    { service: t('depannage.price2Service', 'Nettoyage et optimisation'), price: '60€' },
+    { service: t('depannage.price3Service', 'Suppression virus/malware'), price: '80€' },
+    { service: t('depannage.price4Service', 'Installation Windows'), price: '100€' },
+    { service: t('depannage.price5Service', 'Upgrade SSD (avec clonage)'), price: t('depannage.price5Value', '150€ + pièce') },
+    { service: t('depannage.price6Service', 'Upgrade RAM'), price: t('depannage.price6Value', '50€ + pièce') },
+    { service: t('depannage.price7Service', 'Réparation matérielle'), price: t('depannage.price7Value', 'Sur devis') },
+    { service: t('depannage.price8Service', 'Intervention à domicile'), price: '+30€' }
   ];
 
   const maintenancePackages = [
     {
-      name: 'Essentiel',
+      name: t('depannage.pkg1Name', 'Essentiel'),
       price: '49€/mois',
       features: [
-        'Mises à jour automatiques',
-        'Antivirus professionnel',
-        'Sauvegarde mensuelle',
-        'Support téléphonique',
-        '1 intervention/an incluse'
+        t('depannage.pkg1Feat1', 'Mises à jour automatiques'),
+        t('depannage.pkg1Feat2', 'Antivirus professionnel'),
+        t('depannage.pkg1Feat3', 'Sauvegarde mensuelle'),
+        t('depannage.pkg1Feat4', 'Support téléphonique'),
+        t('depannage.pkg1Feat5', '1 intervention/an incluse')
       ]
     },
     {
-      name: 'Confort',
+      name: t('depannage.pkg2Name', 'Confort'),
       price: '79€/mois',
       popular: true,
       features: [
-        'Tout Essentiel +',
-        'Surveillance 24/7',
-        'Sauvegarde hebdomadaire',
-        'Support prioritaire',
-        '2 interventions/an incluses',
-        'Optimisation trimestrielle'
+        t('depannage.pkg2Feat1', 'Tout Essentiel +'),
+        t('depannage.pkg2Feat2', 'Surveillance 24/7'),
+        t('depannage.pkg2Feat3', 'Sauvegarde hebdomadaire'),
+        t('depannage.pkg2Feat4', 'Support prioritaire'),
+        t('depannage.pkg2Feat5', '2 interventions/an incluses'),
+        t('depannage.pkg2Feat6', 'Optimisation trimestrielle')
       ]
     },
     {
-      name: 'Premium',
+      name: t('depannage.pkg3Name', 'Premium'),
       price: '129€/mois',
       features: [
-        'Tout Confort +',
-        'Sauvegarde quotidienne',
-        'Interventions illimitées',
-        'Remplacement matériel',
-        'Astreinte 24/7',
-        'Technicien dédié'
+        t('depannage.pkg3Feat1', 'Tout Confort +'),
+        t('depannage.pkg3Feat2', 'Sauvegarde quotidienne'),
+        t('depannage.pkg3Feat3', 'Interventions illimitées'),
+        t('depannage.pkg3Feat4', 'Remplacement matériel'),
+        t('depannage.pkg3Feat5', 'Astreinte 24/7'),
+        t('depannage.pkg3Feat6', 'Technicien dédié')
       ]
     }
   ];
 
   const faq = [
     {
-      question: 'Quels sont vos délais d\'intervention ?',
-      answer: 'Nous intervenons généralement sous 24 à 48h. Pour les urgences critiques (serveur down, perte de données), nous pouvons intervenir le jour même selon disponibilité.'
+      question: t('depannage.faq1Q', 'Quels sont vos délais d\'intervention ?'),
+      answer: t('depannage.faq1A', 'Nous intervenons généralement sous 24 à 48h. Pour les urgences critiques (serveur down, perte de données), nous pouvons intervenir le jour même selon disponibilité.')
     },
     {
-      question: 'Intervenez-vous sur Mac et PC ?',
-      answer: 'Oui, nous intervenons sur tous types d\'ordinateurs : PC Windows, Mac (macOS), Linux, ainsi que sur les serveurs et NAS. Plus de 35 ans d\'expérience multi-plateforme.'
+      question: t('depannage.faq2Q', 'Intervenez-vous sur Mac et PC ?'),
+      answer: t('depannage.faq2A', 'Oui, nous intervenons sur tous types d\'ordinateurs : PC Windows, Mac (macOS), Linux, ainsi que sur les serveurs et NAS. Plus de 35 ans d\'expérience multi-plateforme.')
     },
     {
-      question: 'Proposez-vous un service à distance ?',
-      answer: 'Oui, pour les problèmes logiciels, nous proposons une intervention à distance sécurisée via TeamViewer ou AnyDesk. Plus rapide et moins cher (60€/h au lieu de 80€/h + déplacement).'
+      question: t('depannage.faq3Q', 'Proposez-vous un service à distance ?'),
+      answer: t('depannage.faq3A', 'Oui, pour les problèmes logiciels, nous proposons une intervention à distance sécurisée via TeamViewer ou AnyDesk. Plus rapide et moins cher (60€/h au lieu de 80€/h + déplacement).')
     },
     {
-      question: 'Garantissez-vous vos réparations ?',
-      answer: 'Oui, toutes nos réparations sont garanties 3 mois pièces et main d\'œuvre. Les pièces neuves bénéficient de la garantie constructeur (1 à 2 ans).'
+      question: t('depannage.faq4Q', 'Garantissez-vous vos réparations ?'),
+      answer: t('depannage.faq4A', 'Oui, toutes nos réparations sont garanties 3 mois pièces et main d\'œuvre. Les pièces neuves bénéficient de la garantie constructeur (1 à 2 ans).')
     },
     {
-      question: 'Puis-je récupérer mes données perdues ?',
-      answer: 'Oui, nous proposons un service de récupération de données avec un taux de réussite de 85%. Diagnostic gratuit. Tarifs à partir de 150€. Aucun frais si la récupération est impossible.'
+      question: t('depannage.faq5Q', 'Puis-je récupérer mes données perdues ?'),
+      answer: t('depannage.faq5A', 'Oui, nous proposons un service de récupération de données avec un taux de réussite de 85%. Diagnostic gratuit. Tarifs à partir de 150€. Aucun frais si la récupération est impossible.')
     }
   ];
 
@@ -168,19 +168,19 @@ const DepannageMaintenance = () => {
             <div className="inline-block bg-accent/10 rounded-full px-6 py-2 mb-4">
               <span className="text-accent font-semibold flex items-center gap-2">
                 <Wrench size={20} />
-                Dépannage Informatique
+                {t('depannage.heroBadge', 'Dépannage Informatique')}
               </span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Dépannage & Maintenance <span className="text-primary">Informatique</span>
+              {t('depannage.heroTitlePart1', 'Dépannage & Maintenance')} <span className="text-primary">{t('depannage.heroTitleHighlight', 'Informatique')}</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-              Intervention rapide à Haguenau pour tous vos problèmes informatiques. Diagnostic gratuit, réparation sous 24-48h, garantie 3 mois.
+              {t('depannage.heroSubtitle', 'Intervention rapide à Haguenau pour tous vos problèmes informatiques. Diagnostic gratuit, réparation sous 24-48h, garantie 3 mois.')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link to="/contact">
                 <Button size="lg" className="gradient-green text-white">
-                  Demander un Devis Gratuit <ArrowRight className="ml-2" />
+                  {t('depannage.heroCtaQuote', 'Demander un Devis Gratuit')} <ArrowRight className="ml-2" />
                 </Button>
               </Link>
               <a href="tel:+33367310201">
@@ -213,10 +213,10 @@ const DepannageMaintenance = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Problèmes Courants que Nous Résolvons
+                {t('depannage.problemsHeading', 'Problèmes Courants que Nous Résolvons')}
               </h2>
               <p className="text-xl text-muted-foreground">
-                Quelle que soit votre panne, nous avons la solution
+                {t('depannage.problemsSubheading', 'Quelle que soit votre panne, nous avons la solution')}
               </p>
             </div>
 
@@ -228,7 +228,7 @@ const DepannageMaintenance = () => {
                   <div className="flex items-center justify-between">
                     <span className="font-semibold text-accent">{problem.price}</span>
                     <Link to="/contact">
-                      <Button size="sm" variant="outline">Devis</Button>
+                      <Button size="sm" variant="outline">{t('depannage.quoteBtn', 'Devis')}</Button>
                     </Link>
                   </div>
                 </div>
@@ -242,10 +242,10 @@ const DepannageMaintenance = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Notre Processus d'Intervention
+                {t('depannage.processHeading', "Notre Processus d'Intervention")}
               </h2>
               <p className="text-xl text-muted-foreground">
-                Simple, rapide et transparent
+                {t('depannage.processSubheading', 'Simple, rapide et transparent')}
               </p>
             </div>
 
@@ -268,10 +268,10 @@ const DepannageMaintenance = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Tarifs Dépannage
+                {t('depannage.pricingHeading', 'Tarifs Dépannage')}
               </h2>
               <p className="text-xl text-muted-foreground">
-                Prix transparents, pas de surprise
+                {t('depannage.pricingSubheading', 'Prix transparents, pas de surprise')}
               </p>
             </div>
 
@@ -287,7 +287,7 @@ const DepannageMaintenance = () => {
               <div className="mt-6 p-4 bg-accent/10 rounded-lg">
                 <p className="text-sm text-center inline-flex items-center justify-center gap-2 w-full">
                   <Lightbulb size={18} className="text-accent flex-shrink-0" />
-                  <span><strong>Diagnostic gratuit</strong> - Devis détaillé avant toute intervention - Paiement après réparation</span>
+                  <span><strong>{t('depannage.pricingNoteBold', 'Diagnostic gratuit')}</strong> {t('depannage.pricingNoteRest', '- Devis détaillé avant toute intervention - Paiement après réparation')}</span>
                 </p>
               </div>
             </div>
@@ -299,10 +299,10 @@ const DepannageMaintenance = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Contrats de Maintenance
+                {t('depannage.maintenanceHeading', 'Contrats de Maintenance')}
               </h2>
               <p className="text-xl text-muted-foreground">
-                Prévenez les pannes et économisez jusqu'à 40%
+                {t('depannage.maintenanceSubheading', "Prévenez les pannes et économisez jusqu'à 40%")}
               </p>
             </div>
 
@@ -316,7 +316,7 @@ const DepannageMaintenance = () => {
                 >
                   {pkg.popular && (
                     <div className="bg-primary text-white text-center py-2 font-semibold flex items-center justify-center gap-2">
-                      <Star size={16} className="fill-current" /> Le Plus Populaire
+                      <Star size={16} className="fill-current" /> {t('depannage.mostPopular', 'Le Plus Populaire')}
                     </div>
                   )}
                   <div className="p-8">
@@ -334,7 +334,7 @@ const DepannageMaintenance = () => {
                     </ul>
                     <Link to="/contact">
                       <Button className={`w-full ${pkg.popular ? 'gradient-purple text-white' : 'gradient-blue text-white'}`}>
-                        Souscrire
+                        {t('depannage.subscribe', 'Souscrire')}
                       </Button>
                     </Link>
                   </div>
@@ -349,7 +349,7 @@ const DepannageMaintenance = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Questions Fréquentes
+                {t('depannage.faqHeading', 'Questions Fréquentes')}
               </h2>
             </div>
 
@@ -372,22 +372,22 @@ const DepannageMaintenance = () => {
         <section className="py-20 bg-gradient-to-br from-primary to-secondary text-white">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Un Problème Informatique ? Nous Intervenons Rapidement !
+              {t('depannage.ctaHeading', 'Un Problème Informatique ? Nous Intervenons Rapidement !')}
             </h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-              Diagnostic gratuit • Intervention 24-48h • Garantie 3 mois • Plus de 2772 réparations
+              {t('depannage.ctaSubheading', 'Diagnostic gratuit • Intervention 24-48h • Garantie 3 mois • Plus de 2772 réparations')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link to="/contact">
                 <Button size="lg" className="bg-white text-primary hover:bg-white/90">
-                  Demander un Devis
+                  {t('depannage.ctaQuote', 'Demander un Devis')}
                   <ArrowRight className="ml-2" />
                 </Button>
               </Link>
               <a href="tel:+33367310201">
                 <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
                   <Phone className="mr-2" />
-                  Appeler Maintenant
+                  {t('depannage.ctaCall', 'Appeler Maintenant')}
                 </Button>
               </a>
             </div>

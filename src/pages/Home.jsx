@@ -56,20 +56,20 @@ const Home = () => {
               <div className="animate-slideInLeft">
                 <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium ring-1 ring-white/20">
                   <ShieldCheck size={16} className="text-accent" />
-                  Expert IT certifié QUALIOPI · Haguenau
+                  {t('home.heroBadge', 'Expert IT certifié QUALIOPI · Haguenau')}
                 </span>
                 <h1 className="mt-5 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                  Votre partenaire <span className="text-accent">technologique</span> à Haguenau
+                  {t('home.heroTitlePre', 'Votre partenaire')} <span className="text-accent">{t('home.heroTitleHighlight', 'technologique')}</span> {t('home.heroTitlePost', 'à Haguenau')}
                 </h1>
                 <p className="mt-5 text-lg md:text-xl text-primary-foreground/80 max-w-xl">
-                  Dépannage, maintenance, cybersécurité, solutions IA et formation professionnelle.
-                  <span className="font-semibold text-primary-foreground"> 35 ans d'expérience</span> au service des particuliers et des entreprises.
+                  {t('home.heroDescPre', 'Dépannage, maintenance, cybersécurité, solutions IA et formation professionnelle.')}
+                  <span className="font-semibold text-primary-foreground"> {t('home.heroDescExp', '35 ans d\'expérience')}</span> {t('home.heroDescPost', 'au service des particuliers et des entreprises.')}
                 </p>
 
                 <div className="mt-8 flex flex-col sm:flex-row gap-3">
                   <Link to="/contact">
                     <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold w-full sm:w-auto gap-2">
-                      Demander un devis gratuit
+                      {t('home.heroCtaQuote', 'Demander un devis gratuit')}
                       <ArrowRight size={20} />
                     </Button>
                   </Link>
@@ -91,8 +91,8 @@ const Home = () => {
                     </span>
                     <span className="font-semibold text-primary-foreground">4,9/5</span>
                   </span>
-                  <span className="flex items-center gap-1.5"><Users size={15} className="text-accent" /> 900+ clients</span>
-                  <span className="flex items-center gap-1.5"><Clock size={15} className="text-accent" /> Intervention 24-48h</span>
+                  <span className="flex items-center gap-1.5"><Users size={15} className="text-accent" /> {t('home.trustClients', '900+ clients')}</span>
+                  <span className="flex items-center gap-1.5"><Clock size={15} className="text-accent" /> {t('home.trustIntervention', 'Intervention 24-48h')}</span>
                 </div>
               </div>
 
