@@ -1,12 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { useState, lazy, Suspense, useEffect } from 'react'
+import { lazy, Suspense, useEffect } from 'react'
 import useStore from './store/useStore'
 import './App.css'
 
 // Components
 import Header from './components/Header'
 import Footer from './components/Footer'
-import IntroAnimation from './components/IntroAnimation'
 import CookieConsent from './components/common/CookieConsent'
 import AppointmentWidget from './components/common/AppointmentWidget'
 import LiveChat from './components/common/LiveChat'
@@ -65,19 +64,6 @@ const Privacy = lazy(() => import('./pages/Privacy'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
 function App() {
-  // Use Zustand for intro state management
-  const introShown = useStore((state) => state.preferences.introShown)
-  const setPreference = useStore((state) => state.setPreference)
-
-  const [showIntro, setShowIntro] = useState(!introShown)
-  const [introComplete, setIntroComplete] = useState(introShown)
-
-  const handleIntroComplete = () => {
-    setIntroComplete(true)
-    setPreference('introShown', true)
-    setTimeout(() => setShowIntro(false), 500)
-  }
-
   // Initialize theme on mount
   const theme = useStore((state) => state.theme)
   const setTheme = useStore((state) => state.setTheme)
@@ -90,8 +76,7 @@ function App() {
   return (
     <ErrorBoundary>
       <Router>
-        {showIntro && <IntroAnimation onComplete={handleIntroComplete} />}
-        <div className={`min-h-screen flex flex-col ${!introComplete ? 'hidden' : ''}`}>
+        <div className="min-h-screen flex flex-col">
           {/* Skip to main content link for accessibility */}
           <a
             href="#main-content"
