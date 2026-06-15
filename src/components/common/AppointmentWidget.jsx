@@ -57,7 +57,7 @@ const AppointmentWidget = () => {
       {/* Floating Button */}
       <button
         onClick={openCalendly}
-        className="fixed bottom-6 right-6 z-40 bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group"
+        className="fixed bottom-6 right-6 z-40 bg-accent text-accent-foreground p-4 rounded-full shadow-lg hover:shadow-xl hover:bg-accent/90 transition-all duration-300 hover:scale-110 group"
         aria-label={t('appointment.bookNow', 'Prendre rendez-vous')}
         title={t('appointment.bookNow', 'Prendre rendez-vous')}
       >

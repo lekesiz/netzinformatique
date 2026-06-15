@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import SEO from '@/components/common/SEO';
 import StructuredData from '@/components/common/StructuredData';
 import { useTranslation } from 'react-i18next';
-import { ArrowRight, HelpCircle, MessageCircle, Phone } from 'lucide-react';
+import { ArrowRight, HelpCircle, MessageCircle, Phone, Briefcase, Wrench, GraduationCap, Bot, Globe, ShieldCheck, ShoppingCart } from 'lucide-react';
 import {
   Accordion,
   AccordionContent,
@@ -17,7 +17,7 @@ const FAQ = () => {
   const faqCategories = [
     {
       category: 'Services Généraux',
-      icon: '💼',
+      icon: Briefcase,
       questions: [
         { 
           question: t('faq.q1', 'Quels sont vos délais d\'intervention ?'), 
@@ -43,7 +43,7 @@ const FAQ = () => {
     },
     {
       category: 'Dépannage & Réparation',
-      icon: '🔧',
+      icon: Wrench,
       questions: [
         { 
           question: t('faq.q3', 'Intervenez-vous sur Mac et PC ?'), 
@@ -69,7 +69,7 @@ const FAQ = () => {
     },
     {
       category: 'Formation Professionnelle',
-      icon: '🎓',
+      icon: GraduationCap,
       questions: [
         { 
           question: t('faq.q4', 'Proposez-vous des formations ?'), 
@@ -95,7 +95,7 @@ const FAQ = () => {
     },
     {
       category: 'Intelligence Artificielle',
-      icon: '🤖',
+      icon: Bot,
       questions: [
         { 
           question: t('faq.q5', 'Qu\'est-ce que l\'IA Offline ?'), 
@@ -117,7 +117,7 @@ const FAQ = () => {
     },
     {
       category: 'Développement Web',
-      icon: '🌐',
+      icon: Globe,
       questions: [
         { 
           question: t('faq.q6', 'Faites-vous de la création de sites web ?'), 
@@ -139,7 +139,7 @@ const FAQ = () => {
     },
     {
       category: 'Sécurité & RGPD',
-      icon: '🔒',
+      icon: ShieldCheck,
       questions: [
         { 
           question: t('faq.q9', 'Êtes-vous conformes RGPD ?'), 
@@ -161,7 +161,7 @@ const FAQ = () => {
     },
     {
       category: 'Matériel & Boutique',
-      icon: '🛒',
+      icon: ShoppingCart,
       questions: [
         {
           question: 'Vendez-vous du matériel informatique ?',
@@ -179,7 +179,7 @@ const FAQ = () => {
     },
     {
       category: 'Divers',
-      icon: '❓',
+      icon: HelpCircle,
       questions: [
         { 
           question: t('faq.q10', 'Travaillez-vous avec les associations ?'), 
@@ -250,8 +250,10 @@ const FAQ = () => {
             {faqCategories.map((category, catIndex) => (
               <div key={catIndex} className="mb-16 max-w-4xl mx-auto">
                 <div className="flex items-center gap-3 mb-6">
-                  <span className="text-4xl">{category.icon}</span>
-                  <h2 className="text-3xl font-bold">{category.category}</h2>
+                  <span className="grid h-12 w-12 place-items-center rounded-xl bg-accent/10 text-accent">
+                    <category.icon size={24} />
+                  </span>
+                  <h2 className="text-2xl md:text-3xl font-bold">{category.category}</h2>
                 </div>
                 
                 <Accordion type="single" collapsible className="w-full">
