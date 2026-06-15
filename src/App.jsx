@@ -38,10 +38,7 @@ const Formation = lazy(() => import('./pages/Formation'))
 const BilanCompetences = lazy(() => import('./pages/BilanCompetences'))
 const Materiel = lazy(() => import('./pages/Materiel'))
 const Tarifs = lazy(() => import('./pages/Tarifs'))
-const Blog = lazy(() => import('./pages/Blog'))
 const Contact = lazy(() => import('./pages/Contact'))
-const MentionsLegales = lazy(() => import('./pages/MentionsLegales'))
-const PolitiqueConfidentialite = lazy(() => import('./pages/PolitiqueConfidentialite'))
 const CookiePolicy = lazy(() => import('./pages/CookiePolicy'))
 
 // New service detail pages
