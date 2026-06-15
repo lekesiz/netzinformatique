@@ -24,7 +24,7 @@ const About = () => {
     { year: '2009', title: 'Les Débuts', description: 'Début de l\'activité informatique en France (anciennement Orditeur)' },
     { year: '2012', title: 'Boutique en ligne', description: 'Lancement de la boutique informatique-haguenau.fr' },
     { year: '2016', title: 'Création', description: 'Fondation de NETZ Informatique à Haguenau par Mikail Lekesiz' },
-    { year: '2021', title: 'Certification', description: 'Obtention de la certification QUALIOPI' },
+    { year: '2022', title: 'Certification', description: 'Obtention de la certification QUALIOPI' },
     { year: '2023', title: 'Innovation', description: 'Lancement des solutions IA Offline' },
     { year: '2025', title: 'Leadership', description: 'Plus de 900 clients satisfaits dans le Grand Est' }
   ]
@@ -112,14 +112,14 @@ const About = () => {
               </div>
 
               <div className="bg-gradient-to-br from-secondary/5 to-accent/5 rounded-2xl p-8 md:p-12 mb-8">
-                <h3 className="text-2xl font-bold mb-4">Croissance et Diversification (2012-2021)</h3>
+                <h3 className="text-2xl font-bold mb-4">Croissance et Diversification (2012-2022)</h3>
                 <p className="text-muted-foreground mb-4">
                   Face à la demande croissante, nous avons élargi notre offre de services. En 2012, nous avons lancé
                   notre boutique en ligne <strong>informatique-haguenau.fr</strong>, permettant à nos clients d'accéder
                   facilement à du matériel informatique de qualité à des prix compétitifs.
                 </p>
                 <p className="text-muted-foreground">
-                  En 2021, nous avons obtenu la certification <strong>QUALIOPI</strong>, marquant notre engagement dans
+                  En 2022, nous avons obtenu la certification <strong>QUALIOPI</strong>, marquant notre engagement dans
                   la formation professionnelle. Cette certification nous a permis de proposer des formations certifiées 
                   et éligibles au CPF, renforçant notre position d'expert en développement des compétences numériques.
                 </p>
