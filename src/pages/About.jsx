@@ -22,9 +22,10 @@ const About = () => {
 
   const milestones = [
     { year: '2009', title: 'Les Débuts', description: 'Début de l\'activité informatique en France (anciennement Orditeur)' },
+    { year: '2012', title: 'Boutique en ligne', description: 'Lancement de la boutique informatique-haguenau.fr' },
     { year: '2016', title: 'Création', description: 'Fondation de NETZ Informatique à Haguenau par Mikail Lekesiz' },
-    { year: '2015', title: 'Certification', description: 'Obtention de la certification QUALIOPI' },
-    { year: '2020', title: 'Innovation', description: 'Lancement des solutions IA offline' },
+    { year: '2021', title: 'Certification', description: 'Obtention de la certification QUALIOPI' },
+    { year: '2023', title: 'Innovation', description: 'Lancement des solutions IA Offline' },
     { year: '2025', title: 'Leadership', description: 'Plus de 900 clients satisfaits dans le Grand Est' }
   ]
 
@@ -111,21 +112,21 @@ const About = () => {
               </div>
 
               <div className="bg-gradient-to-br from-secondary/5 to-accent/5 rounded-2xl p-8 md:p-12 mb-8">
-                <h3 className="text-2xl font-bold mb-4">Croissance et Diversification (2008-2015)</h3>
+                <h3 className="text-2xl font-bold mb-4">Croissance et Diversification (2012-2021)</h3>
                 <p className="text-muted-foreground mb-4">
-                  Face à la demande croissante, nous avons élargi notre offre de services. En 2008, nous avons lancé 
-                  notre boutique en ligne <strong>informatique-haguenau.fr</strong>, permettant à nos clients d'accéder 
+                  Face à la demande croissante, nous avons élargi notre offre de services. En 2012, nous avons lancé
+                  notre boutique en ligne <strong>informatique-haguenau.fr</strong>, permettant à nos clients d'accéder
                   facilement à du matériel informatique de qualité à des prix compétitifs.
                 </p>
                 <p className="text-muted-foreground">
-                  En 2015, nous avons obtenu la certification <strong>QUALIOPI</strong>, marquant notre engagement dans 
+                  En 2021, nous avons obtenu la certification <strong>QUALIOPI</strong>, marquant notre engagement dans
                   la formation professionnelle. Cette certification nous a permis de proposer des formations certifiées 
                   et éligibles au CPF, renforçant notre position d'expert en développement des compétences numériques.
                 </p>
               </div>
 
               <div className="bg-gradient-to-br from-accent/5 to-primary/5 rounded-2xl p-8 md:p-12">
-                <h3 className="text-2xl font-bold mb-4">Innovation et Leadership (2020-Aujourd'hui)</h3>
+                <h3 className="text-2xl font-bold mb-4">Innovation et Leadership (2023-Aujourd'hui)</h3>
                 <p className="text-muted-foreground mb-4">
                   Toujours à l'avant-garde de l'innovation, nous avons été parmi les premiers en Alsace à proposer 
                   des <strong>solutions d'intelligence artificielle offline</strong>, permettant aux entreprises de 
