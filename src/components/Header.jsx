@@ -55,6 +55,7 @@ const Header = () => {
       ],
     },
     { name: 'Matériel', path: '/materiel' },
+    { name: 'Tarifs', path: '/tarifs' },
     { name: 'Boutique', path: 'https://informatique-haguenau.fr/', external: true },
     { name: 'Blog', path: '/blog' },
     { name: 'Contact', path: '/contact' },

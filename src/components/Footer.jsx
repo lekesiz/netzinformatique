@@ -67,6 +67,7 @@ const Footer = () => {
               <li><Link to="/solutions" className={linkCls}>{t('nav.solutions')}</Link></li>
               <li><Link to="/formation" className={linkCls}>{t('nav.formation')}</Link></li>
               <li><Link to="/materiel" className={linkCls}>{t('nav.materiel')}</Link></li>
+              <li><Link to="/tarifs" className={linkCls}>{t('nav.tarifs', 'Tarifs')}</Link></li>
               <li><Link to="/blog" className={linkCls}>{t('nav.blog')}</Link></li>
               <li><Link to="/contact" className={linkCls}>{t('nav.contact')}</Link></li>
               <li><Link to="/faq" className={linkCls}>{t('nav.faq')}</Link></li>
