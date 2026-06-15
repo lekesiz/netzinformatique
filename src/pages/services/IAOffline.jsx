@@ -166,7 +166,7 @@ const IAOffline = () => {
 
   const cloudStatusIcon = {
     bad: <XCircle size={16} className="text-destructive flex-shrink-0" />,
-    warn: <AlertTriangle size={16} className="text-amber-500 flex-shrink-0" />
+    warn: <AlertTriangle size={16} className="text-amber-600 flex-shrink-0" />
   };
 
   const process = [
@@ -223,42 +223,41 @@ const IAOffline = () => {
       <SEO title={pageTitle} description={pageDescription} url="/services/ia-offline" />
       <StructuredData type="service" data={serviceData} />
 
-      <div className="bg-gradient-to-b from-purple-50 to-card">
+      <div className="bg-background">
         {/* Hero Section */}
-        <section className="py-20 text-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-100 via-blue-50 to-transparent opacity-50"></div>
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="inline-block bg-purple-100 rounded-full px-6 py-2 mb-4">
-              <span className="text-purple-600 font-semibold flex items-center gap-2">
+        <section className="bg-gradient-to-br from-primary to-secondary text-primary-foreground">
+          <div className="container mx-auto px-4 py-20 text-center">
+            <div className="inline-block rounded-full px-6 py-2 mb-4 bg-white/10 ring-1 ring-white/20">
+              <span className="font-semibold flex items-center gap-2">
                 <BrainCircuit size={20} />
                 {t('iaOffline.heroBadge', 'IA Offline - Innovation NETZ')}
               </span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              <span className="text-purple-600">{t('iaOffline.heroTitleLine1', 'Intelligence Artificielle')}</span><br />
-              100% <span className="text-blue-600">{t('iaOffline.heroTitleHighlight', 'Confidentielle')}</span>
+              <span>{t('iaOffline.heroTitleLine1', 'Intelligence Artificielle')}</span><br />
+              100% <span className="text-accent">{t('iaOffline.heroTitleHighlight', 'Confidentielle')}</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            <p className="text-lg md:text-xl text-primary-foreground/80 max-w-3xl mx-auto mb-8">
               {t('iaOffline.heroSubtitle', "Déployez l'IA dans vos locaux. Vos données restent chez vous, jamais dans le cloud. Conformité RGPD garantie, pas d'abonnement mensuel.")}
             </p>
             <div className="flex gap-4 justify-center flex-wrap mb-8">
               <Link to="/contact">
-                <Button size="lg" className="gradient-purple text-white">
+                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
                   {t('iaOffline.heroCtaDemo', 'Demander une Démo')} <ArrowRight className="ml-2" />
                 </Button>
               </Link>
               <a href="tel:+33367310201">
-                <Button size="lg" variant="outline" className="border-purple-600 text-purple-600">
+                <Button size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
                   <Phone className="mr-2" /> 03 67 31 02 01
                 </Button>
               </a>
             </div>
-            <p className="text-sm text-muted-foreground flex items-center justify-center gap-x-3 gap-y-1 flex-wrap">
-              <span className="flex items-center gap-1.5"><Lock size={16} className="text-purple-600" /> {t('iaOffline.trustDeployed', 'Déjà déployé chez 15+ entreprises')}</span>
-              <span className="flex items-center gap-1.5"><Stethoscope size={16} className="text-purple-600" /> {t('iaOffline.trustHealth', 'Santé')}</span>
-              <span className="flex items-center gap-1.5"><Scale size={16} className="text-purple-600" /> {t('iaOffline.trustLegal', 'Juridique')}</span>
-              <span className="flex items-center gap-1.5"><Microscope size={16} className="text-purple-600" /> {t('iaOffline.trustRD', 'R&D')}</span>
-              <span className="flex items-center gap-1.5"><Wallet size={16} className="text-purple-600" /> {t('iaOffline.trustFinance', 'Finance')}</span>
+            <p className="text-sm text-primary-foreground/80 flex items-center justify-center gap-x-3 gap-y-1 flex-wrap">
+              <span className="flex items-center gap-1.5"><Lock size={16} className="text-accent" /> {t('iaOffline.trustDeployed', 'Déjà déployé chez 15+ entreprises')}</span>
+              <span className="flex items-center gap-1.5"><Stethoscope size={16} className="text-accent" /> {t('iaOffline.trustHealth', 'Santé')}</span>
+              <span className="flex items-center gap-1.5"><Scale size={16} className="text-accent" /> {t('iaOffline.trustLegal', 'Juridique')}</span>
+              <span className="flex items-center gap-1.5"><Microscope size={16} className="text-accent" /> {t('iaOffline.trustRD', 'R&D')}</span>
+              <span className="flex items-center gap-1.5"><Wallet size={16} className="text-accent" /> {t('iaOffline.trustFinance', 'Finance')}</span>
             </p>
           </div>
         </section>
@@ -278,8 +277,8 @@ const IAOffline = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {benefits.map((benefit, index) => (
                 <div key={index} className="bg-card rounded-xl p-6 shadow-lg hover-lift">
-                  <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                    <benefit.icon size={24} className="text-purple-600" />
+                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+                    <benefit.icon size={24} className="text-accent" />
                   </div>
                   <h3 className="font-bold text-lg mb-2">{benefit.title}</h3>
                   <p className="text-muted-foreground text-sm">{benefit.description}</p>
@@ -290,7 +289,7 @@ const IAOffline = () => {
         </section>
 
         {/* Use Cases */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-blue-50">
+        <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -305,20 +304,20 @@ const IAOffline = () => {
               {useCases.map((useCase, index) => (
                 <div key={index} className="bg-card rounded-2xl p-8 shadow-xl">
                   <div className="flex items-center gap-4 mb-4">
-                    <useCase.icon size={48} className="text-purple-600 flex-shrink-0" />
+                    <useCase.icon size={48} className="text-accent flex-shrink-0" />
                     <h3 className="text-2xl font-bold">{useCase.sector}</h3>
                   </div>
                   <div className="space-y-4">
                     <div>
-                      <div className="font-semibold text-red-600 mb-1">{t('iaOffline.labelChallenge', 'Problématique:')}</div>
+                      <div className="font-semibold text-destructive mb-1">{t('iaOffline.labelChallenge', 'Problématique:')}</div>
                       <p className="text-sm text-muted-foreground">{useCase.challenge}</p>
                     </div>
                     <div>
-                      <div className="font-semibold text-blue-600 mb-1">{t('iaOffline.labelSolution', 'Solution IA Offline:')}</div>
+                      <div className="font-semibold text-primary mb-1">{t('iaOffline.labelSolution', 'Solution IA Offline:')}</div>
                       <p className="text-sm text-muted-foreground">{useCase.solution}</p>
                     </div>
                     <div>
-                      <div className="font-semibold text-green-600 mb-1">{t('iaOffline.labelBenefit', 'Bénéfice:')}</div>
+                      <div className="font-semibold text-accent mb-1">{t('iaOffline.labelBenefit', 'Bénéfice:')}</div>
                       <p className="text-sm font-semibold">{useCase.benefit}</p>
                     </div>
                   </div>
@@ -340,11 +339,11 @@ const IAOffline = () => {
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               {features.map((feature, index) => (
                 <div key={index} className="bg-card rounded-xl p-6 shadow-lg">
-                  <h3 className="text-xl font-bold mb-3 text-purple-600">{feature.title}</h3>
+                  <h3 className="text-xl font-bold mb-3 text-accent">{feature.title}</h3>
                   <p className="text-muted-foreground mb-4 text-sm">{feature.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {feature.examples.map((example, idx) => (
-                      <span key={idx} className="bg-purple-100 text-purple-700 text-xs px-3 py-1 rounded-full">
+                      <span key={idx} className="bg-accent/10 text-accent text-xs px-3 py-1 rounded-full">
                         {example}
                       </span>
                     ))}
@@ -356,7 +355,7 @@ const IAOffline = () => {
         </section>
 
         {/* Models */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-blue-50">
+        <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -376,8 +375,8 @@ const IAOffline = () => {
                     <div className="text-xs font-semibold mb-1">{t('iaOffline.modelStrengthsLabel', 'Points forts:')}</div>
                     <p className="text-xs text-muted-foreground">{model.strengths}</p>
                   </div>
-                  <div className="bg-purple-50 rounded p-2">
-                    <div className="text-xs font-semibold text-purple-600">{t('iaOffline.modelRecommendedLabel', 'Recommandé pour:')}</div>
+                  <div className="bg-accent/10 rounded p-2">
+                    <div className="text-xs font-semibold text-accent">{t('iaOffline.modelRecommendedLabel', 'Recommandé pour:')}</div>
                     <p className="text-xs">{model.recommended}</p>
                   </div>
                 </div>
@@ -403,11 +402,11 @@ const IAOffline = () => {
                 <div 
                   key={index}
                   className={`bg-card rounded-2xl shadow-xl overflow-hidden ${
-                    config.popular ? 'ring-4 ring-purple-500 transform scale-105' : ''
+                    config.popular ? 'ring-4 ring-accent transform scale-105' : ''
                   }`}
                 >
                   {config.popular && (
-                    <div className="bg-purple-600 text-white text-center py-2 font-semibold flex items-center justify-center gap-2">
+                    <div className="bg-accent text-accent-foreground text-center py-2 font-semibold flex items-center justify-center gap-2">
                       <Star size={18} className="fill-current" /> {t('iaOffline.popularBadge', 'Le Plus Populaire')}
                     </div>
                   )}
@@ -415,7 +414,7 @@ const IAOffline = () => {
                     <h3 className="text-2xl font-bold mb-2">{config.name}</h3>
                     <div className="text-sm text-muted-foreground mb-4">{config.target}</div>
                     <div className="mb-6">
-                      <div className="text-3xl font-bold text-purple-600 mb-2">{config.price}</div>
+                      <div className="text-3xl font-bold text-accent mb-2">{config.price}</div>
                       <div className="text-xs text-muted-foreground">{t('iaOffline.uniqueInvestment', 'Investissement unique')}</div>
                     </div>
                     <div className="space-y-3 mb-6">
@@ -433,11 +432,11 @@ const IAOffline = () => {
                       </div>
                       <div>
                         <div className="text-xs font-semibold mb-1">{t('iaOffline.performanceLabel', 'Performance:')}</div>
-                        <p className="text-xs text-green-600 font-semibold">{config.performance}</p>
+                        <p className="text-xs text-accent font-semibold">{config.performance}</p>
                       </div>
                     </div>
                     <Link to="/contact">
-                      <Button className={`w-full ${config.popular ? 'gradient-purple text-white' : 'gradient-blue text-white'}`}>
+                      <Button className={`w-full ${config.popular ? 'bg-accent text-accent-foreground hover:bg-accent/90' : ''}`} variant={config.popular ? 'default' : 'outline'}>
                         {t('iaOffline.configCtaQuote', 'Demander un Devis')}
                       </Button>
                     </Link>
@@ -449,7 +448,7 @@ const IAOffline = () => {
         </section>
 
         {/* Comparison */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-blue-50">
+        <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -463,7 +462,7 @@ const IAOffline = () => {
             <div className="max-w-4xl mx-auto bg-card rounded-2xl shadow-xl overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-purple-600 text-white">
+                  <thead className="bg-primary text-primary-foreground">
                     <tr>
                       <th className="px-6 py-4 text-left">{t('iaOffline.tableColCriteria', 'Critère')}</th>
                       <th className="px-6 py-4 text-left">{t('iaOffline.tableColCloud', 'IA Cloud (ChatGPT, etc.)')}</th>
@@ -510,19 +509,19 @@ const IAOffline = () => {
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               {roi.map((scenario, index) => (
                 <div key={index} className="bg-card rounded-2xl p-8 shadow-xl">
-                  <h3 className="text-xl font-bold mb-6 text-purple-600">{scenario.scenario}</h3>
+                  <h3 className="text-xl font-bold mb-6 text-accent">{scenario.scenario}</h3>
                   <div className="space-y-4">
                     <div className="flex justify-between items-center py-2 border-b">
                       <span className="text-sm">{t('iaOffline.roiCloudCostLabel', 'Coût Cloud (annuel):')}</span>
-                      <span className="font-bold text-red-600">{scenario.cloudCost}</span>
+                      <span className="font-bold text-destructive">{scenario.cloudCost}</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b">
                       <span className="text-sm">{t('iaOffline.roiOfflineCostLabel', 'Coût Offline (unique):')}</span>
-                      <span className="font-bold text-blue-600">{scenario.offlineCost}</span>
+                      <span className="font-bold text-primary">{scenario.offlineCost}</span>
                     </div>
-                    <div className="bg-green-50 rounded-lg p-4">
-                      <div className="font-semibold text-green-600 mb-2">{scenario.roi}</div>
-                      <div className="text-lg font-bold text-green-700">{scenario.savings}</div>
+                    <div className="bg-accent/10 rounded-lg p-4">
+                      <div className="font-semibold text-accent mb-2">{scenario.roi}</div>
+                      <div className="text-lg font-bold text-accent">{scenario.savings}</div>
                     </div>
                   </div>
                 </div>
@@ -532,7 +531,7 @@ const IAOffline = () => {
         </section>
 
         {/* Process */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-blue-50">
+        <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -543,7 +542,7 @@ const IAOffline = () => {
             <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
               {process.map((item, index) => (
                 <div key={index} className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4 text-primary-foreground text-2xl font-bold">
                     {item.step}
                   </div>
                   <h3 className="font-bold mb-2">{item.title}</h3>
@@ -566,7 +565,7 @@ const IAOffline = () => {
             <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
               {faq.map((item, index) => (
                 <AccordionItem value={`item-${index}`} key={index} className="bg-card rounded-lg mb-3 px-6 border shadow-sm">
-                  <AccordionTrigger className="text-lg font-semibold text-left hover:text-purple-600">
+                  <AccordionTrigger className="text-lg font-semibold text-left hover:text-accent">
                     {item.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-base text-muted-foreground">
@@ -579,24 +578,24 @@ const IAOffline = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-20 bg-gradient-to-br from-purple-600 to-blue-700 text-white">
+        <section className="py-20 bg-gradient-to-br from-primary to-secondary text-primary-foreground">
           <div className="container mx-auto px-4 text-center">
             <BrainCircuit size={64} className="mx-auto mb-6" />
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               {t('iaOffline.ctaTitle', "Prêt à Déployer l'IA en Toute Confidentialité ?")}
             </h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+            <p className="text-xl mb-8 max-w-2xl mx-auto text-primary-foreground/80">
               {t('iaOffline.ctaSubtitle', 'Démo gratuite • Audit de vos besoins • Devis personnalisé • Installation clé en main')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link to="/contact">
-                <Button size="lg" className="bg-white text-purple-600 hover:bg-white/90">
+                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
                   {t('iaOffline.ctaDemo', 'Demander une Démo')}
                   <ArrowRight className="ml-2" />
                 </Button>
               </Link>
               <a href="tel:+33367310201">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                <Button size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
                   <Phone className="mr-2" />
                   03 67 31 02 01
                 </Button>

@@ -125,23 +125,23 @@ const BilanCompetences = () => {
       />
 
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary/10 via-purple-50 to-green-50 py-20">
-        <div className="container mx-auto px-4">
+      <section className="relative bg-gradient-to-br from-primary to-secondary text-primary-foreground">
+        <div className="container mx-auto px-4 py-20">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <div className="inline-block bg-white/10 ring-1 ring-white/20 text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold mb-6">
               <Award className="inline-block w-4 h-4 mr-2" />
               {t('bilan.heroBadge', 'Certifié QUALIOPI • Finançable CPF')}
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              {t('bilan.heroTitlePrefix', 'Bilan de')} <span className="bg-gradient-to-r from-primary via-purple-600 to-green-500 bg-clip-text text-transparent">{t('bilan.heroTitleHighlight', 'Compétences')}</span> {t('bilan.heroTitleSuffix', 'à Haguenau')}
+              {t('bilan.heroTitlePrefix', 'Bilan de')} <span className="text-accent">{t('bilan.heroTitleHighlight', 'Compétences')}</span> {t('bilan.heroTitleSuffix', 'à Haguenau')}
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-xl text-primary-foreground/80 mb-8 leading-relaxed">
               {t('bilan.heroDesc', "Faites le point sur votre parcours professionnel et construisez un projet d'avenir aligné avec vos aspirations. Un accompagnement personnalisé pour révéler votre potentiel et définir votre prochaine étape de carrière.")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="/contact" 
-                className="inline-flex items-center justify-center px-8 py-4 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-semibold"
+              <a
+                href="/contact"
+                className="inline-flex items-center justify-center px-8 py-4 bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition-colors font-semibold"
               >
                 <Calendar className="w-5 h-5 mr-2" />
                 {t('bilan.heroCtaAppointment', 'Prendre Rendez-vous')}
@@ -150,7 +150,7 @@ const BilanCompetences = () => {
                 href="https://www.moncompteformation.gouv.fr/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-4 border-2 border-primary text-primary rounded-lg hover:bg-primary/5 transition-colors font-semibold"
+                className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 bg-white/5 text-primary-foreground rounded-lg hover:bg-white/15 transition-colors font-semibold"
               >
                 {t('bilan.heroCtaCpf', 'Financer avec Mon CPF')}
               </a>
@@ -160,7 +160,7 @@ const BilanCompetences = () => {
       </section>
 
       {/* Qu'est-ce qu'un bilan de compétences */}
-      <section className="py-16 bg-card">
+      <section className="py-20 bg-card">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center">
@@ -179,7 +179,7 @@ const BilanCompetences = () => {
       </section>
 
       {/* Pourquoi réaliser un bilan */}
-      <section className="py-16 bg-gradient-to-br from-muted to-card">
+      <section className="py-20 bg-gradient-to-br from-muted to-card">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold mb-12 text-center">
@@ -205,7 +205,7 @@ const BilanCompetences = () => {
       </section>
 
       {/* Déroulement du bilan */}
-      <section className="py-16 bg-card">
+      <section className="py-20 bg-card">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
@@ -221,10 +221,10 @@ const BilanCompetences = () => {
               {phases.map((phase, index) => {
                 const Icon = phase.icon;
                 return (
-                  <div key={index} className="relative bg-gradient-to-br from-primary/5 to-purple-50 p-8 rounded-2xl">
+                  <div key={index} className="relative bg-muted p-8 rounded-2xl">
                     <div className="flex flex-col md:flex-row gap-6">
                       <div className="flex-shrink-0">
-                        <div className="w-20 h-20 bg-gradient-to-br from-primary to-purple-600 rounded-2xl flex items-center justify-center text-white font-bold text-2xl">
+                        <div className="w-20 h-20 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center text-primary-foreground font-bold text-2xl">
                           {phase.number}
                         </div>
                       </div>
@@ -256,7 +256,7 @@ const BilanCompetences = () => {
       </section>
 
       {/* Nos avantages */}
-      <section className="py-16 bg-gradient-to-br from-primary/5 to-purple-50">
+      <section className="py-20 bg-gradient-to-br from-muted to-card">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold mb-12 text-center">
@@ -267,8 +267,8 @@ const BilanCompetences = () => {
                 const Icon = benefit.icon;
                 return (
                   <div key={index} className="bg-card p-6 rounded-xl shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
-                    <div className="w-14 h-14 bg-gradient-to-br from-primary to-purple-600 rounded-xl flex items-center justify-center mb-4">
-                      <Icon className="w-7 h-7 text-white" />
+                    <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-4">
+                      <Icon className="w-7 h-7 text-accent" />
                     </div>
                     <h3 className="text-lg font-semibold mb-3">{benefit.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{benefit.description}</p>
@@ -281,7 +281,7 @@ const BilanCompetences = () => {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 bg-card">
+      <section className="py-20 bg-card">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold mb-12 text-center">
@@ -300,25 +300,25 @@ const BilanCompetences = () => {
       </section>
 
       {/* CTA Final */}
-      <section className="py-16 bg-gradient-to-br from-primary via-purple-600 to-green-500 text-white">
+      <section className="py-20 bg-gradient-to-br from-primary to-secondary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             {t('bilan.ctaTitle', 'Prêt à Donner un Nouvel Élan à Votre Carrière ?')}
           </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+          <p className="text-xl mb-8 max-w-2xl mx-auto text-primary-foreground/80">
             {t('bilan.ctaSubtitle', 'Contactez-nous pour un entretien préliminaire gratuit et sans engagement. Découvrez comment notre bilan de compétences peut vous aider.')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="/contact" 
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary rounded-lg hover:bg-gray-100 transition-colors font-semibold"
+            <a
+              href="/contact"
+              className="inline-flex items-center justify-center px-8 py-4 bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition-colors font-semibold"
             >
               <Calendar className="w-5 h-5 mr-2" />
               {t('bilan.ctaAppointment', 'Prendre Rendez-vous')}
             </a>
-            <a 
-              href="tel:0367310201" 
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-lg hover:bg-white/10 transition-colors font-semibold"
+            <a
+              href="tel:0367310201"
+              className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 bg-white/5 text-primary-foreground rounded-lg hover:bg-white/15 transition-colors font-semibold"
             >
               03 67 31 02 01
             </a>

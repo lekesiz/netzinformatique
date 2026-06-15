@@ -194,30 +194,30 @@ const CloudReseau = () => {
       <SEO title={pageTitle} description={pageDescription} url="/services/cloud-reseau" />
       <StructuredData type="service" data={serviceData} />
 
-      <div className="bg-gradient-to-b from-blue-50 to-card">
+      <div className="bg-background">
         {/* Hero Section */}
-        <section className="py-20 text-center">
-          <div className="container mx-auto px-4">
-            <div className="inline-block bg-blue-100 rounded-full px-6 py-2 mb-4">
-              <span className="text-blue-600 font-semibold flex items-center gap-2">
+        <section className="bg-gradient-to-br from-primary to-secondary text-primary-foreground">
+          <div className="container mx-auto px-4 py-20 text-center">
+            <div className="inline-block rounded-full px-6 py-2 mb-4 bg-white/10 ring-1 ring-white/20">
+              <span className="font-semibold flex items-center gap-2">
                 <Cloud size={20} />
                 {t('cloudReseau.heroBadge', 'Cloud & Réseau')}
               </span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              {t('cloudReseau.heroTitlePart1', 'Solutions')} <span className="text-blue-600">{t('cloudReseau.heroTitleCloud', 'Cloud')}</span> {t('cloudReseau.heroTitlePart2', '& Infrastructure')} <span className="text-blue-600">{t('cloudReseau.heroTitleReseau', 'Réseau')}</span>
+              {t('cloudReseau.heroTitlePart1', 'Solutions')} <span className="text-accent">{t('cloudReseau.heroTitleCloud', 'Cloud')}</span> {t('cloudReseau.heroTitlePart2', '& Infrastructure')} <span className="text-accent">{t('cloudReseau.heroTitleReseau', 'Réseau')}</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            <p className="text-lg md:text-xl text-primary-foreground/80 max-w-3xl mx-auto mb-8">
               {t('cloudReseau.heroSubtitle', 'Modernisez votre infrastructure IT. Migration cloud, serveurs, WiFi professionnel. Performance, sécurité et fiabilité garanties.')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link to="/contact">
-                <Button size="lg" className="gradient-blue text-white">
+                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
                   {t('cloudReseau.heroCtaAudit', 'Demander un Audit Gratuit')} <ArrowRight className="ml-2" />
                 </Button>
               </Link>
               <a href="tel:+33367310201">
-                <Button size="lg" variant="outline">
+                <Button size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
                   <Phone className="mr-2" /> 03 67 31 02 01
                 </Button>
               </a>
@@ -231,8 +231,8 @@ const CloudReseau = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {features.map((feature, index) => (
                 <div key={index} className="bg-card rounded-xl p-6 shadow-lg hover-lift">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                    <feature.icon size={24} className="text-blue-600" />
+                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+                    <feature.icon size={24} className="text-accent" />
                   </div>
                   <h3 className="font-bold text-lg mb-2">{feature.title}</h3>
                   <p className="text-muted-foreground text-sm">{feature.description}</p>
@@ -243,7 +243,7 @@ const CloudReseau = () => {
         </section>
 
         {/* Cloud Solutions */}
-        <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -258,21 +258,21 @@ const CloudReseau = () => {
               {cloudSolutions.map((solution, index) => (
                 <div key={index} className="bg-card rounded-2xl shadow-xl p-8">
                   <div className="flex justify-center mb-4">
-                    <solution.icon size={48} className="text-blue-600" />
+                    <solution.icon size={48} className="text-accent" />
                   </div>
                   <h3 className="text-2xl font-bold mb-2 text-center">{solution.name}</h3>
                   <p className="text-muted-foreground text-center mb-6">{solution.description}</p>
                   <ul className="space-y-3 mb-6">
                     {solution.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-2">
-                        <CheckCircle size={18} className="text-green-500 flex-shrink-0 mt-0.5" />
+                        <CheckCircle size={18} className="text-accent flex-shrink-0 mt-0.5" />
                         <span className="text-sm">{feature}</span>
                       </li>
                     ))}
                   </ul>
-                  <div className="text-center font-bold text-blue-600 mb-4">{solution.pricing}</div>
+                  <div className="text-center font-bold text-accent mb-4">{solution.pricing}</div>
                   <Link to="/contact">
-                    <Button className="w-full gradient-blue text-white">
+                    <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
                       {t('cloudReseau.learnMore', 'En Savoir Plus')}
                     </Button>
                   </Link>
@@ -297,10 +297,10 @@ const CloudReseau = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {networkServices.map((service, index) => (
                 <div key={index} className="bg-card rounded-xl p-6 shadow-lg">
-                  <h3 className="font-bold text-xl mb-3 text-blue-600">{service.title}</h3>
+                  <h3 className="font-bold text-xl mb-3 text-accent">{service.title}</h3>
                   <p className="text-muted-foreground mb-4 text-sm">{service.description}</p>
                   <div className="flex items-center justify-between">
-                    <span className="font-semibold text-green-600">{service.price}</span>
+                    <span className="font-semibold text-accent">{service.price}</span>
                     <Link to="/contact">
                       <Button size="sm" variant="outline">{t('cloudReseau.quoteBtn', 'Devis')}</Button>
                     </Link>
@@ -312,7 +312,7 @@ const CloudReseau = () => {
         </section>
 
         {/* Benefits */}
-        <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -323,8 +323,8 @@ const CloudReseau = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
               {benefits.map((benefit, index) => (
                 <div key={index} className="bg-card rounded-xl p-6 text-center shadow-lg">
-                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <benefit.icon size={32} className="text-blue-600" />
+                  <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <benefit.icon size={32} className="text-accent" />
                   </div>
                   <h3 className="font-bold text-lg mb-2">{benefit.title}</h3>
                   <p className="text-sm text-muted-foreground">{benefit.description}</p>
@@ -349,7 +349,7 @@ const CloudReseau = () => {
             <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
               {process.map((item, index) => (
                 <div key={index} className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4 text-primary-foreground text-2xl font-bold">
                     {item.step}
                   </div>
                   <h3 className="font-bold mb-2">{item.title}</h3>
@@ -361,7 +361,7 @@ const CloudReseau = () => {
         </section>
 
         {/* Case Studies */}
-        <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -375,7 +375,7 @@ const CloudReseau = () => {
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               {caseStudies.map((study, index) => (
                 <div key={index} className="bg-card rounded-2xl p-8 shadow-xl">
-                  <div className="text-sm text-blue-600 font-semibold mb-2">{study.company}</div>
+                  <div className="text-sm text-accent font-semibold mb-2">{study.company}</div>
                   <div className="mb-4">
                     <div className="font-bold mb-1">{t('cloudReseau.caseChallengeLabel', 'Problématique:')}</div>
                     <p className="text-sm text-muted-foreground">{study.challenge}</p>
@@ -386,7 +386,7 @@ const CloudReseau = () => {
                   </div>
                   <div>
                     <div className="font-bold mb-1">{t('cloudReseau.caseResultsLabel', 'Résultats:')}</div>
-                    <p className="text-sm text-green-600 font-semibold">{study.results}</p>
+                    <p className="text-sm text-accent font-semibold">{study.results}</p>
                   </div>
                 </div>
               ))}
@@ -406,7 +406,7 @@ const CloudReseau = () => {
             <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
               {faq.map((item, index) => (
                 <AccordionItem value={`item-${index}`} key={index} className="bg-card rounded-lg mb-3 px-6 border shadow-sm">
-                  <AccordionTrigger className="text-lg font-semibold text-left hover:text-blue-600">
+                  <AccordionTrigger className="text-lg font-semibold text-left hover:text-accent">
                     {item.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-base text-muted-foreground">
@@ -419,23 +419,23 @@ const CloudReseau = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-20 bg-gradient-to-br from-blue-600 to-indigo-700 text-white">
+        <section className="py-20 bg-gradient-to-br from-primary to-secondary text-primary-foreground">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               {t('cloudReseau.ctaHeading', 'Prêt à Moderniser Votre Infrastructure IT ?')}
             </h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+            <p className="text-xl mb-8 max-w-2xl mx-auto text-primary-foreground/80">
               {t('cloudReseau.ctaSubheading', 'Audit gratuit • Devis détaillé • Migration sans interruption • Support inclus')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link to="/contact">
-                <Button size="lg" className="bg-white text-blue-600 hover:bg-white/90">
+                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
                   {t('cloudReseau.ctaAudit', 'Demander un Audit')}
                   <ArrowRight className="ml-2" />
                 </Button>
               </Link>
               <a href="tel:+33367310201">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                <Button size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
                   <Phone className="mr-2" />
                   {t('cloudReseau.ctaCall', 'Appeler Maintenant')}
                 </Button>

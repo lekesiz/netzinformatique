@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
+import SEO from '@/components/common/SEO'
 import { Globe, Code, Search, Smartphone, Zap, Shield, CheckCircle, ArrowRight, TrendingUp, Users, Award, Star, RefreshCw, Lightbulb, Wallet, Phone } from 'lucide-react'
 
 const SolutionWeb = () => {
@@ -54,7 +55,7 @@ const SolutionWeb = () => {
         t('solWeb.pkg1Feat8', 'Support 3 mois')
       ],
       popular: false,
-      color: 'from-blue-500 to-cyan-500'
+      color: 'from-primary to-secondary'
     },
     {
       name: t('solWeb.pkg2Name', 'Site Business'),
@@ -72,7 +73,7 @@ const SolutionWeb = () => {
         t('solWeb.pkg2Feat9', 'Maintenance incluse')
       ],
       popular: true,
-      color: 'from-purple-500 to-pink-500'
+      color: 'from-accent to-secondary'
     },
     {
       name: t('solWeb.pkg3Name', 'Site E-commerce'),
@@ -90,7 +91,7 @@ const SolutionWeb = () => {
         t('solWeb.pkg3Feat9', 'Maintenance incluse')
       ],
       popular: false,
-      color: 'from-green-500 to-emerald-500'
+      color: 'from-primary to-secondary'
     }
   ]
 
@@ -107,23 +108,28 @@ const SolutionWeb = () => {
 
   return (
     <div>
+      <SEO
+        title={t('solWeb.seoTitle', 'Développement Web & SEO | NETZ Informatique')}
+        description={t('solWeb.seoDescription', 'Création de sites web modernes (vitrine, business, e-commerce) et référencement SEO à Haguenau. Sites optimisés, performants et sécurisés.')}
+        url="/solutions/web-developpement"
+      />
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary/10 to-secondary/10 py-20">
+      <section className="bg-gradient-to-br from-primary to-secondary text-primary-foreground py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            {t('solWeb.heroTitlePrefix', 'Développement')} <span className="text-primary">{t('solWeb.heroTitleHighlight', 'Web & SEO')}</span>
+            {t('solWeb.heroTitlePrefix', 'Développement')} <span className="text-accent">{t('solWeb.heroTitleHighlight', 'Web & SEO')}</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-primary-foreground/80 max-w-3xl mx-auto mb-8">
             {t('solWeb.heroSubtitle', 'Sites web modernes, fonctionnels et optimisés pour le référencement. Donnez à votre entreprise la visibilité qu\'elle mérite.')}
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <Link to="/contact">
-              <Button size="lg" className="gradient-blue text-white">
+              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
                 {t('solWeb.heroCtaQuote', 'Demander un Devis Gratuit')} <ArrowRight className="ml-2" />
               </Button>
             </Link>
             <a href="https://netz-blog.fr" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="outline">
+              <Button size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
                 {t('solWeb.heroCtaPortfolio', 'Voir Nos Réalisations')}
               </Button>
             </a>
@@ -202,11 +208,7 @@ const SolutionWeb = () => {
                   </ul>
                   <Link to="/contact">
                     <Button 
-                      className={`w-full ${
-                        pkg.popular 
-                          ? 'gradient-purple text-white' 
-                          : 'gradient-blue text-white'
-                      }`}
+                      className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
                     >
                       {pkg.price === 'Sur Devis' ? t('solWeb.btnQuote', 'Demander un Devis') : t('solWeb.btnOrder', 'Commander')}
                     </Button>

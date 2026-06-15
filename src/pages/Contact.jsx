@@ -67,12 +67,12 @@ const Contact = () => {
 
       <div>
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-primary/10 to-secondary/10 py-20">
-          <div className="container mx-auto px-4 text-center">
+        <section className="bg-gradient-to-br from-primary to-secondary text-primary-foreground">
+          <div className="container mx-auto px-4 py-20 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              {t('contact.title', 'Contactez')} <span className="text-primary">{t('contact.titleHighlight', 'NETZ Informatique')}</span>
+              {t('contact.title', 'Contactez')} <span className="text-accent">{t('contact.titleHighlight', 'NETZ Informatique')}</span>
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-xl text-primary-foreground/80 max-w-2xl mx-auto">
               {t('contact.subtitle', 'Notre équipe est à votre écoute pour répondre à toutes vos questions')}
             </p>
           </div>
@@ -203,10 +203,10 @@ const Contact = () => {
                   </div>
 
                   {/* Submit Button */}
-                  <Button 
-                    type="submit" 
-                    size="lg" 
-                    className="gradient-green text-white font-semibold w-full"
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold w-full"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (

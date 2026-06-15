@@ -1,33 +1,39 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
+import SEO from '@/components/common/SEO'
 import { GraduationCap, Award, User, Building2, ArrowRight, CheckCircle, TrendingUp, Users } from 'lucide-react'
 
 const Formation = () => {
   const { t } = useTranslation()
   return (
   <div>
+    <SEO
+      title={t('formation.seoTitle', 'Formations QUALIOPI & Bilan de Compétences | NETZ Informatique')}
+      description={t('formation.seoDescription', 'Formations certifiées QUALIOPI et bilan de compétences financés par CPF, OPCO et Pôle Emploi. Développez vos compétences numériques à Haguenau.')}
+      url="/formation"
+    />
     {/* Hero Section */}
-    <section className="bg-gradient-to-br from-primary/10 to-secondary/10 py-20">
-      <div className="container mx-auto px-4 text-center">
+    <section className="bg-gradient-to-br from-primary to-secondary text-primary-foreground">
+      <div className="container mx-auto px-4 py-20 text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
-          <span className="text-primary">{t('formation.heroTitleHighlight', 'Formation')}</span> QUALIOPI
+          <span className="text-accent">{t('formation.heroTitleHighlight', 'Formation')}</span> QUALIOPI
         </h1>
-        <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+        <p className="text-xl text-primary-foreground/80 max-w-3xl mx-auto mb-8">
           {t('formation.heroSubtitle', 'Formations certifiées et bilan de compétences financés par CPF, OPCO et Pôle Emploi')}
         </p>
         <div className="flex justify-center gap-4 flex-wrap">
-          <div className="bg-card rounded-lg px-6 py-3 shadow-md">
-            <p className="text-sm text-muted-foreground">{t('formation.certificationLabel', 'Certification')}</p>
-            <p className="font-bold text-primary">QUALIOPI</p>
+          <div className="bg-white/10 ring-1 ring-white/20 rounded-lg px-6 py-3">
+            <p className="text-sm text-primary-foreground/80">{t('formation.certificationLabel', 'Certification')}</p>
+            <p className="font-bold text-accent">QUALIOPI</p>
           </div>
-          <div className="bg-card rounded-lg px-6 py-3 shadow-md">
-            <p className="text-sm text-muted-foreground">{t('formation.certificationLabel', 'Certification')}</p>
-            <p className="font-bold text-primary">TOSA</p>
+          <div className="bg-white/10 ring-1 ring-white/20 rounded-lg px-6 py-3">
+            <p className="text-sm text-primary-foreground/80">{t('formation.certificationLabel', 'Certification')}</p>
+            <p className="font-bold text-accent">TOSA</p>
           </div>
-          <div className="bg-card rounded-lg px-6 py-3 shadow-md">
-            <p className="text-sm text-muted-foreground">{t('formation.eligibleLabel', 'Éligible')}</p>
-            <p className="font-bold text-primary">Mon Compte Formation</p>
+          <div className="bg-white/10 ring-1 ring-white/20 rounded-lg px-6 py-3">
+            <p className="text-sm text-primary-foreground/80">{t('formation.eligibleLabel', 'Éligible')}</p>
+            <p className="font-bold text-accent">Mon Compte Formation</p>
           </div>
         </div>
       </div>
@@ -79,7 +85,7 @@ const Formation = () => {
               target="_blank" 
               rel="noopener noreferrer"
             >
-              <Button className="gradient-blue text-white w-full">
+              <Button className="bg-accent text-accent-foreground hover:bg-accent/90 w-full">
                 {t('formation.cpfCta', 'Découvrir les Formations')} <ArrowRight className="ml-2" size={18} />
               </Button>
             </a>
@@ -118,7 +124,7 @@ const Formation = () => {
               target="_blank" 
               rel="noopener noreferrer"
             >
-              <Button className="gradient-purple text-white w-full">
+              <Button className="bg-accent text-accent-foreground hover:bg-accent/90 w-full">
                 {t('formation.opcoCta', 'En Savoir Plus')} <ArrowRight className="ml-2" size={18} />
               </Button>
             </a>
@@ -153,7 +159,7 @@ const Formation = () => {
                   <span className="text-sm">{t('formation.bilanFeature4', 'Experts certifiés')}</span>
                 </li>
               </ul>
-              <Button className="gradient-green text-white w-full">
+              <Button className="bg-accent text-accent-foreground hover:bg-accent/90 w-full">
                 {t('formation.bilanCta', 'Découvrir le Bilan')} <ArrowRight className="ml-2" size={18} />
               </Button>
             </div>
@@ -211,16 +217,16 @@ const Formation = () => {
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <Link to="/contact">
-              <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-semibold">
+              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold">
                 {t('formation.ctaContact', 'Nous Contacter')}
               </Button>
             </Link>
-            <a 
-              href="https://formation-haguenau.fr/" 
-              target="_blank" 
+            <a
+              href="https://formation-haguenau.fr/"
+              target="_blank"
               rel="noopener noreferrer"
             >
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
                 {t('formation.ctaAllFormations', 'Voir Toutes les Formations')}
               </Button>
             </a>

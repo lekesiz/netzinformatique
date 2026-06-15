@@ -161,30 +161,30 @@ const DepannageMaintenance = () => {
       <SEO title={pageTitle} description={pageDescription} url="/services/depannage-maintenance" />
       <StructuredData type="service" data={serviceData} />
 
-      <div className="bg-gradient-to-b from-primary/5 to-card">
+      <div className="bg-card">
         {/* Hero Section */}
-        <section className="py-20 text-center">
-          <div className="container mx-auto px-4">
-            <div className="inline-block bg-accent/10 rounded-full px-6 py-2 mb-4">
-              <span className="text-accent font-semibold flex items-center gap-2">
+        <section className="bg-gradient-to-br from-primary to-secondary text-primary-foreground text-center">
+          <div className="container mx-auto px-4 py-20">
+            <div className="inline-block bg-white/10 ring-1 ring-white/20 rounded-full px-6 py-2 mb-4">
+              <span className="text-primary-foreground font-semibold flex items-center gap-2">
                 <Wrench size={20} />
                 {t('depannage.heroBadge', 'Dépannage Informatique')}
               </span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              {t('depannage.heroTitlePart1', 'Dépannage & Maintenance')} <span className="text-primary">{t('depannage.heroTitleHighlight', 'Informatique')}</span>
+              {t('depannage.heroTitlePart1', 'Dépannage & Maintenance')} <span className="text-accent">{t('depannage.heroTitleHighlight', 'Informatique')}</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            <p className="text-lg md:text-xl text-primary-foreground/80 max-w-3xl mx-auto mb-8">
               {t('depannage.heroSubtitle', 'Intervention rapide à Haguenau pour tous vos problèmes informatiques. Diagnostic gratuit, réparation sous 24-48h, garantie 3 mois.')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link to="/contact">
-                <Button size="lg" className="gradient-green text-white">
+                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
                   {t('depannage.heroCtaQuote', 'Demander un Devis Gratuit')} <ArrowRight className="ml-2" />
                 </Button>
               </Link>
               <a href="tel:+33367310201">
-                <Button size="lg" variant="outline">
+                <Button size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
                   <Phone className="mr-2" /> 03 67 31 02 01
                 </Button>
               </a>
@@ -193,7 +193,7 @@ const DepannageMaintenance = () => {
         </section>
 
         {/* Features Grid */}
-        <section className="py-16">
+        <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {features.map((feature, index) => (
@@ -209,7 +209,7 @@ const DepannageMaintenance = () => {
         </section>
 
         {/* Common Problems */}
-        <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
+        <section className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -238,7 +238,7 @@ const DepannageMaintenance = () => {
         </section>
 
         {/* Process */}
-        <section className="py-16">
+        <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -264,7 +264,7 @@ const DepannageMaintenance = () => {
         </section>
 
         {/* Pricing */}
-        <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
+        <section className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -295,7 +295,7 @@ const DepannageMaintenance = () => {
         </section>
 
         {/* Maintenance Packages */}
-        <section className="py-16">
+        <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -333,7 +333,7 @@ const DepannageMaintenance = () => {
                       ))}
                     </ul>
                     <Link to="/contact">
-                      <Button className={`w-full ${pkg.popular ? 'gradient-purple text-white' : 'gradient-blue text-white'}`}>
+                      <Button className={`w-full ${pkg.popular ? 'bg-accent text-accent-foreground hover:bg-accent/90' : ''}`}>
                         {t('depannage.subscribe', 'Souscrire')}
                       </Button>
                     </Link>
@@ -345,7 +345,7 @@ const DepannageMaintenance = () => {
         </section>
 
         {/* FAQ */}
-        <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
+        <section className="py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">

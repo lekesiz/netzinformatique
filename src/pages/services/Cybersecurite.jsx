@@ -168,30 +168,30 @@ const Cybersecurite = () => {
       <SEO title={pageTitle} description={pageDescription} url="/services/cybersecurite" />
       <StructuredData type="service" data={serviceData} />
 
-      <div className="bg-gradient-to-b from-red-50 to-card">
+      <div className="bg-background">
         {/* Hero Section */}
-        <section className="py-20 text-center">
-          <div className="container mx-auto px-4">
-            <div className="inline-block bg-red-100 rounded-full px-6 py-2 mb-4">
-              <span className="text-red-600 font-semibold flex items-center gap-2">
+        <section className="bg-gradient-to-br from-primary to-secondary text-primary-foreground">
+          <div className="container mx-auto px-4 py-20 text-center">
+            <div className="inline-block rounded-full px-6 py-2 mb-4 bg-white/10 ring-1 ring-white/20">
+              <span className="font-semibold flex items-center gap-2">
                 <Shield size={20} />
                 {t('cyber.heroBadge', 'Cybersécurité')}
               </span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="text-red-600">{t('cyber.heroTitleHighlight', 'Cybersécurité')}</span> {t('cyber.heroTitleRest', '& Protection des Données')}
+              <span className="text-accent">{t('cyber.heroTitleHighlight', 'Cybersécurité')}</span> {t('cyber.heroTitleRest', '& Protection des Données')}
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            <p className="text-lg md:text-xl text-primary-foreground/80 max-w-3xl mx-auto mb-8">
               {t('cyber.heroSubtitle', 'Protégez votre entreprise contre les cyberattaques. 43% des PME sont victimes chaque année. Ne soyez pas la prochaine !')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link to="/contact">
-                <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white">
+                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
                   {t('cyber.heroCtaAudit', 'Audit de Sécurité Gratuit')} <ArrowRight className="ml-2" />
                 </Button>
               </Link>
               <a href="tel:+33367310201">
-                <Button size="lg" variant="outline" className="border-red-600 text-red-600">
+                <Button size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
                   <Phone className="mr-2" /> {t('cyber.heroCtaUrgence', 'Urgence Cyberattaque')}
                 </Button>
               </a>
@@ -200,7 +200,7 @@ const Cybersecurite = () => {
         </section>
 
         {/* Stats Alert */}
-        <section className="py-12 bg-red-600 text-white">
+        <section className="py-12 bg-primary text-primary-foreground">
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-4 gap-6 text-center">
               {stats.map((stat, index) => (
@@ -225,8 +225,8 @@ const Cybersecurite = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {features.map((feature, index) => (
                 <div key={index} className="bg-card rounded-xl p-6 shadow-lg hover-lift">
-                  <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
-                    <feature.icon size={24} className="text-red-600" />
+                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
+                    <feature.icon size={24} className="text-accent" />
                   </div>
                   <h3 className="font-bold text-lg mb-2">{feature.title}</h3>
                   <p className="text-muted-foreground text-sm">{feature.description}</p>
@@ -237,7 +237,7 @@ const Cybersecurite = () => {
         </section>
 
         {/* Threats */}
-        <section className="py-16 bg-gradient-to-br from-red-50 to-orange-50">
+        <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -252,15 +252,15 @@ const Cybersecurite = () => {
               {threats.map((threat, index) => (
                 <div key={index} className="bg-card rounded-2xl p-8 shadow-xl">
                   <div className="flex items-center gap-4 mb-4">
-                    <threat.icon size={48} className="text-red-600 flex-shrink-0" />
+                    <threat.icon size={48} className="text-destructive flex-shrink-0" />
                     <h3 className="text-2xl font-bold">{threat.name}</h3>
                   </div>
                   <p className="text-muted-foreground mb-4">{threat.description}</p>
-                  <div className="bg-red-50 rounded-lg p-4 mb-4">
-                    <div className="font-semibold text-red-600 mb-1">{t('cyber.impactLabel', 'Impact:')}</div>
+                  <div className="bg-destructive/10 rounded-lg p-4 mb-4">
+                    <div className="font-semibold text-destructive mb-1">{t('cyber.impactLabel', 'Impact:')}</div>
                     <p className="text-sm">{threat.impact}</p>
                   </div>
-                  <div className="bg-green-50 rounded-lg p-4">
+                  <div className="bg-green-600/10 rounded-lg p-4">
                     <div className="font-semibold text-green-600 mb-1">{t('cyber.preventionLabel', 'Prévention:')}</div>
                     <p className="text-sm">{threat.prevention}</p>
                   </div>
@@ -286,22 +286,22 @@ const Cybersecurite = () => {
               {securityServices.map((service, index) => (
                 <div key={index} className="bg-card rounded-2xl shadow-xl overflow-hidden">
                   <div className="p-6">
-                    <h3 className="text-xl font-bold mb-3 text-red-600">{service.title}</h3>
+                    <h3 className="text-xl font-bold mb-3 text-accent">{service.title}</h3>
                     <p className="text-muted-foreground mb-4 text-sm">{service.description}</p>
                     <div className="mb-4">
                       <div className="font-semibold mb-2 text-sm">{t('cyber.includesLabel', 'Inclus:')}</div>
                       <ul className="space-y-1">
                         {service.includes.map((item, idx) => (
                           <li key={idx} className="flex items-start gap-2">
-                            <CheckCircle size={16} className="text-green-500 flex-shrink-0 mt-0.5" />
+                            <CheckCircle size={16} className="text-accent flex-shrink-0 mt-0.5" />
                             <span className="text-xs">{item}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
-                    <div className="font-bold text-red-600 mb-4">{service.price}</div>
+                    <div className="font-bold text-accent mb-4">{service.price}</div>
                     <Link to="/contact">
-                      <Button className="w-full bg-red-600 hover:bg-red-700 text-white">
+                      <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
                         {t('cyber.requestQuote', 'Demander un Devis')}
                       </Button>
                     </Link>
@@ -313,7 +313,7 @@ const Cybersecurite = () => {
         </section>
 
         {/* RGPD Process */}
-        <section className="py-16 bg-gradient-to-br from-red-50 to-orange-50">
+        <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -327,7 +327,7 @@ const Cybersecurite = () => {
             <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-6xl mx-auto">
               {rgpdSteps.map((item, index) => (
                 <div key={index} className="text-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4 text-primary-foreground text-2xl font-bold">
                     {item.step}
                   </div>
                   <h3 className="font-bold mb-2">{item.title}</h3>
@@ -350,7 +350,7 @@ const Cybersecurite = () => {
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="bg-card rounded-2xl p-8 shadow-xl">
-                  <div className="text-sm text-red-600 font-semibold mb-4">{testimonial.company}</div>
+                  <div className="text-sm text-accent font-semibold mb-4">{testimonial.company}</div>
                   <p className="text-muted-foreground mb-4 italic">"{testimonial.text}"</p>
                   <div className="font-semibold">— {testimonial.author}</div>
                 </div>
@@ -360,7 +360,7 @@ const Cybersecurite = () => {
         </section>
 
         {/* FAQ */}
-        <section className="py-16 bg-gradient-to-br from-red-50 to-orange-50">
+        <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -371,7 +371,7 @@ const Cybersecurite = () => {
             <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
               {faq.map((item, index) => (
                 <AccordionItem value={`item-${index}`} key={index} className="bg-card rounded-lg mb-3 px-6 border shadow-sm">
-                  <AccordionTrigger className="text-lg font-semibold text-left hover:text-red-600">
+                  <AccordionTrigger className="text-lg font-semibold text-left hover:text-accent">
                     {item.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-base text-muted-foreground">
@@ -384,24 +384,24 @@ const Cybersecurite = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-20 bg-gradient-to-br from-red-600 to-orange-700 text-white">
+        <section className="py-20 bg-gradient-to-br from-primary to-secondary text-primary-foreground">
           <div className="container mx-auto px-4 text-center">
             <AlertTriangle size={64} className="mx-auto mb-6" />
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               {t('cyber.ctaHeading', "Ne Attendez Pas d'Être Victime !")}
             </h2>
-            <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+            <p className="text-xl mb-8 max-w-2xl mx-auto text-primary-foreground/80">
               {t('cyber.ctaSubheading', '60% des PME attaquées ferment dans les 6 mois. Protégez votre entreprise dès maintenant.')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link to="/contact">
-                <Button size="lg" className="bg-white text-red-600 hover:bg-white/90">
+                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
                   {t('cyber.ctaAudit', 'Audit de Sécurité Gratuit')}
                   <ArrowRight className="ml-2" />
                 </Button>
               </Link>
               <a href="tel:+33367310201">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                <Button size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
                   <Phone className="mr-2" />
                   03 67 31 02 01
                 </Button>

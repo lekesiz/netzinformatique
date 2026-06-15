@@ -2,15 +2,21 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
 import { Cpu, Globe, Cloud, ArrowRight } from 'lucide-react'
+import SEO from '@/components/common/SEO'
 
 const Solutions = () => {
   const { t } = useTranslation()
   return (
     <div>
-      <section className="bg-gradient-to-br from-primary/10 to-secondary/10 py-20">
-        <div className="container mx-auto px-4 text-center">
+      <SEO
+        title={t('solutions.seoTitle', 'Nos Solutions IT : IA, Web, Cloud | NETZ Informatique')}
+        description={t('solutions.seoDescription', 'Solutions technologiques innovantes : Intelligence Artificielle Offline, développement web & SEO, cloud computing. Pour particuliers et entreprises à Haguenau.')}
+        url="/solutions"
+      />
+      <section className="bg-gradient-to-br from-primary to-secondary text-primary-foreground">
+        <div className="container mx-auto px-4 py-20 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            {t('solutions.heroTitlePre', 'Nos')} <span className="text-primary">{t('solutions.heroTitleHighlight', 'Solutions')}</span> {t('solutions.heroTitlePost', 'Innovantes')}
+            {t('solutions.heroTitlePre', 'Nos')} <span className="text-accent">{t('solutions.heroTitleHighlight', 'Solutions')}</span> {t('solutions.heroTitlePost', 'Innovantes')}
           </h1>
         </div>
       </section>
@@ -22,7 +28,7 @@ const Solutions = () => {
                 <Cpu size={48} className="text-primary mb-4 group-hover:scale-110 transition" />
                 <h3 className="text-2xl font-bold mb-4">{t('solutions.aiTitle', 'Intelligence Artificielle')}</h3>
                 <p className="text-muted-foreground mb-6">{t('solutions.aiDesc', 'Solutions IA offline ultra-sécurisées')}</p>
-                <Button className="gradient-purple text-white w-full">{t('solutions.discover', 'Découvrir')} <ArrowRight className="ml-2" /></Button>
+                <Button className="bg-accent text-accent-foreground hover:bg-accent/90 w-full">{t('solutions.discover', 'Découvrir')} <ArrowRight className="ml-2" /></Button>
               </div>
             </Link>
             <Link to="/solutions/web-developpement" className="group">
@@ -30,7 +36,7 @@ const Solutions = () => {
                 <Globe size={48} className="text-secondary mb-4 group-hover:scale-110 transition" />
                 <h3 className="text-2xl font-bold mb-4">{t('solutions.webTitle', 'Web & SEO')}</h3>
                 <p className="text-muted-foreground mb-6">{t('solutions.webDesc', 'Sites web modernes et référencement optimal')}</p>
-                <Button className="gradient-blue text-white w-full">{t('solutions.discover', 'Découvrir')} <ArrowRight className="ml-2" /></Button>
+                <Button className="bg-accent text-accent-foreground hover:bg-accent/90 w-full">{t('solutions.discover', 'Découvrir')} <ArrowRight className="ml-2" /></Button>
               </div>
             </Link>
             <Link to="/solutions/cloud" className="group">
@@ -38,7 +44,7 @@ const Solutions = () => {
                 <Cloud size={48} className="text-accent mb-4 group-hover:scale-110 transition" />
                 <h3 className="text-2xl font-bold mb-4">{t('solutions.cloudTitle', 'Cloud Computing')}</h3>
                 <p className="text-muted-foreground mb-6">{t('solutions.cloudDesc', 'Migration et optimisation cloud')}</p>
-                <Button className="gradient-green text-white w-full">{t('solutions.discover', 'Découvrir')} <ArrowRight className="ml-2" /></Button>
+                <Button className="bg-accent text-accent-foreground hover:bg-accent/90 w-full">{t('solutions.discover', 'Découvrir')} <ArrowRight className="ml-2" /></Button>
               </div>
             </Link>
           </div>

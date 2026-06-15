@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import SEO from '@/components/common/SEO'
 import { Button } from '@/components/ui/button'
 import { Monitor, Server, Laptop, Printer, HardDrive, Cpu, ArrowRight, CheckCircle, Shield } from 'lucide-react'
 
@@ -7,13 +8,18 @@ const Materiel = () => {
   const { t } = useTranslation()
   return (
   <div>
+    <SEO
+      title={t('materiel.metaTitle', 'Matériel informatique | NETZ Informatique')}
+      description={t('materiel.metaDesc', 'PC sur mesure, serveurs, portables, périphériques et imprimantes de marques réputées à Haguenau. Conseil, montage et garantie par NETZ Informatique.')}
+      url="/materiel"
+    />
     {/* Hero Section */}
-    <section className="bg-gradient-to-br from-primary/10 to-secondary/10 py-20">
-      <div className="container mx-auto px-4 text-center">
+    <section className="bg-gradient-to-br from-primary to-secondary text-primary-foreground">
+      <div className="container mx-auto px-4 py-20 text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
-          <span className="text-primary">{t('materiel.heroTitleHighlight', 'Matériel')}</span> {t('materiel.heroTitleSuffix', 'Informatique')}
+          <span className="text-accent">{t('materiel.heroTitleHighlight', 'Matériel')}</span> {t('materiel.heroTitleSuffix', 'Informatique')}
         </h1>
-        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+        <p className="text-xl text-primary-foreground/80 max-w-3xl mx-auto">
           {t('materiel.heroSubtitle', 'Du matériel choisi uniquement auprès de marques réputées pour garantir qualité et performance')}
         </p>
       </div>
@@ -64,7 +70,7 @@ const Materiel = () => {
               </li>
             </ul>
             <Link to="/contact">
-              <Button size="lg" className="gradient-blue text-white">
+              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
                 {t('materiel.pcCta', 'Demander un Devis Gratuit')} <ArrowRight className="ml-2" />
               </Button>
             </Link>
@@ -320,7 +326,7 @@ const Materiel = () => {
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <Link to="/contact">
-              <Button size="lg" className="gradient-blue text-white">
+              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
                 {t('materiel.ctaContact', 'Nous Contacter')}
               </Button>
             </Link>
