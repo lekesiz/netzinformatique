@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
-import { Menu, X, Phone, Mail, Clock, ChevronDown } from 'lucide-react'
+import { Menu, X, Phone, Mail, Clock, ChevronDown, ArrowRight } from 'lucide-react'
 import LanguageSwitcher from './LanguageSwitcher'
 import ThemeToggle from './common/ThemeToggle'
 
@@ -14,12 +14,15 @@ const Header = () => {
   const location = useLocation()
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
+    const handleScroll = () => setIsScrolled(window.scrollY > 50)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false)
+  }, [location.pathname])
 
   const navItems = [
     { name: 'Accueil', path: '/' },
@@ -31,7 +34,7 @@ const Header = () => {
         { name: 'Tous les Services', path: '/services' },
         { name: 'Pour Particuliers', path: '/services/particuliers' },
         { name: 'Pour Entreprises', path: '/services/entreprises' },
-      ]
+      ],
     },
     {
       name: 'Solutions',
@@ -41,7 +44,7 @@ const Header = () => {
         { name: 'Intelligence Artificielle', path: '/solutions/intelligence-artificielle' },
         { name: 'Web & SEO', path: '/solutions/web-developpement' },
         { name: 'Cloud Computing', path: '/solutions/cloud' },
-      ]
+      ],
     },
     {
       name: 'Formation',
@@ -49,17 +52,15 @@ const Header = () => {
       dropdown: [
         { name: 'Formations', path: '/formation' },
         { name: 'Bilan de Compétences', path: '/formation/bilan-competences' },
-      ]
+      ],
     },
     { name: 'Matériel', path: '/materiel' },
-    { 
-      name: 'Boutique', 
-      path: 'https://informatique-haguenau.fr/',
-      external: true 
-    },
+    { name: 'Boutique', path: 'https://informatique-haguenau.fr/', external: true },
     { name: 'Blog', path: '/blog' },
     { name: 'Contact', path: '/contact' },
   ]
+
+  const isActive = (path) => location.pathname === path
 
   return (
     <>
@@ -68,45 +69,50 @@ const Header = () => {
         <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-2">
           <div className="flex flex-wrap items-center gap-4 justify-center md:justify-start">
             <a href="tel:+33367310201" className="flex items-center gap-2 hover:opacity-80 transition">
-              <Phone size={16} />
+              <Phone size={15} />
               <span>03 67 31 02 01</span>
             </a>
-            <a href="mailto:contact@netzinformatique.fr" className="flex items-center gap-2 hover:opacity-80 transition">
-              <Mail size={16} />
+            <a href="mailto:contact@netzinformatique.fr" className="hidden sm:flex items-center gap-2 hover:opacity-80 transition">
+              <Mail size={15} />
               <span>contact@netzinformatique.fr</span>
             </a>
           </div>
-          <div className="flex items-center gap-2">
-            <Clock size={16} />
-            <span>Lun-Sam: 09:00-12:00 / 14:00-18:00</span>
+          <div className="flex items-center gap-2 text-primary-foreground/90">
+            <Clock size={15} />
+            <span>Lun–Sam : 9h–12h / 14h–18h</span>
           </div>
         </div>
       </div>
 
       {/* Main Navigation */}
-      <header 
+      <header
         className={`sticky top-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-white shadow-lg' : 'bg-white/95 backdrop-blur-sm'
+          isScrolled
+            ? 'bg-background/95 backdrop-blur-md shadow-md border-b border-border'
+            : 'bg-background/90 backdrop-blur-sm'
         }`}
       >
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between py-4">
+          <div className="flex items-center justify-between gap-4 py-3">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3">
-              <div className="flex flex-col">
-                <span className="font-bold text-2xl bg-gradient-to-r from-primary via-purple-600 to-green-500 bg-clip-text text-transparent">
-                  NETZ Informatique
+            <Link to="/" className="flex items-center gap-2.5 shrink-0" aria-label="NETZ Informatique — Accueil">
+              <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary text-primary-foreground font-heading font-bold text-lg shadow-sm">
+                N
+              </span>
+              <span className="flex flex-col leading-none">
+                <span className="font-heading font-bold text-xl text-foreground">
+                  NETZ <span className="text-accent">Informatique</span>
                 </span>
-                <span className="text-xs text-muted-foreground">Votre Partenaire Technologique</span>
-              </div>
+                <span className="text-[11px] text-muted-foreground mt-0.5">Votre partenaire technologique</span>
+              </span>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-6">
+            <nav className="hidden lg:flex items-center gap-1">
               {navItems.map((item) => (
                 <div
                   key={item.name}
-                  className="relative group"
+                  className="relative"
                   onMouseEnter={() => item.dropdown && setOpenDropdown(item.name)}
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
@@ -115,51 +121,50 @@ const Header = () => {
                       href={item.path}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1 font-medium transition-colors hover:text-primary text-foreground"
+                      className="flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium text-foreground/80 hover:text-accent hover:bg-muted transition-colors"
                     >
                       {item.name}
                     </a>
                   ) : (
                     <Link
                       to={item.path}
-                      className={`flex items-center gap-1 font-medium transition-colors hover:text-primary ${
-                        location.pathname === item.path ? 'text-primary' : 'text-foreground'
+                      className={`flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium transition-colors hover:text-accent hover:bg-muted ${
+                        isActive(item.path) ? 'text-accent' : 'text-foreground/80'
                       }`}
                     >
                       {item.name}
-                      {item.dropdown && <ChevronDown size={16} />}
+                      {item.dropdown && <ChevronDown size={15} className="opacity-70" />}
                     </Link>
                   )}
-                  
+
                   {/* Dropdown Menu */}
                   {item.dropdown && openDropdown === item.name && (
-                    <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-border py-2 animate-fadeIn">
-                      {item.dropdown.map((subItem) => (
-                        <Link
-                          key={subItem.name}
-                          to={subItem.path}
-                          className="block px-4 py-2 text-sm hover:bg-muted transition-colors"
-                        >
-                          {subItem.name}
-                        </Link>
-                      ))}
+                    <div className="absolute top-full left-0 pt-2">
+                      <div className="w-60 bg-popover text-popover-foreground rounded-xl shadow-xl border border-border py-2 animate-fadeIn">
+                        {item.dropdown.map((subItem) => (
+                          <Link
+                            key={subItem.name}
+                            to={subItem.path}
+                            className="block px-4 py-2.5 text-sm hover:bg-muted hover:text-accent transition-colors"
+                          >
+                            {subItem.name}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </div>
               ))}
             </nav>
 
-            {/* Theme Toggle & Language Switcher */}
-            <div className="hidden lg:flex items-center gap-2">
+            {/* Right side: theme, lang, CTA */}
+            <div className="hidden lg:flex items-center gap-2 shrink-0">
               <ThemeToggle />
               <LanguageSwitcher />
-            </div>
-
-            {/* CTA Button */}
-            <div className="hidden lg:block">
               <Link to="/contact">
-                <Button className="gradient-green text-white font-semibold">
-                  {t('common.getQuote')}
+                <Button className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold gap-1.5">
+                  {t('common.getQuote', 'Devis gratuit')}
+                  <ArrowRight size={16} />
                 </Button>
               </Link>
             </div>
@@ -168,6 +173,8 @@ const Header = () => {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="lg:hidden p-2 hover:bg-muted rounded-lg transition"
+              aria-label={isMobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+              aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -176,40 +183,53 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden border-t border-border bg-white animate-fadeIn">
-            <div className="container mx-auto px-4 py-4 space-y-2">
-              {navItems.map((item) => (
-                <div key={item.name}>
-                  <Link
-                    to={item.path}
-                    onClick={() => !item.dropdown && setIsMobileMenuOpen(false)}
-                    className={`block py-2 px-4 rounded-lg font-medium transition ${
-                      location.pathname === item.path
-                        ? 'bg-primary text-primary-foreground'
-                        : 'hover:bg-muted'
-                    }`}
+          <div className="lg:hidden border-t border-border bg-background animate-fadeIn max-h-[calc(100dvh-7rem)] overflow-y-auto">
+            <div className="container mx-auto px-4 py-4 space-y-1">
+              {navItems.map((item) =>
+                item.external ? (
+                  <a
+                    key={item.name}
+                    href={item.path}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block py-2.5 px-4 rounded-lg font-medium hover:bg-muted transition"
                   >
                     {item.name}
-                  </Link>
-                  {item.dropdown && (
-                    <div className="ml-4 mt-2 space-y-1">
-                      {item.dropdown.map((subItem) => (
-                        <Link
-                          key={subItem.name}
-                          to={subItem.path}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className="block py-2 px-4 text-sm rounded-lg hover:bg-muted transition"
-                        >
-                          {subItem.name}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-              <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button className="w-full gradient-green text-white font-semibold mt-4">
-                  Demander un Devis
+                  </a>
+                ) : (
+                  <div key={item.name}>
+                    <Link
+                      to={item.path}
+                      className={`block py-2.5 px-4 rounded-lg font-medium transition ${
+                        isActive(item.path) ? 'bg-primary text-primary-foreground' : 'hover:bg-muted'
+                      }`}
+                    >
+                      {item.name}
+                    </Link>
+                    {item.dropdown && (
+                      <div className="ml-3 mt-1 space-y-0.5 border-l border-border pl-3">
+                        {item.dropdown.map((subItem) => (
+                          <Link
+                            key={subItem.name}
+                            to={subItem.path}
+                            className="block py-2 px-3 text-sm rounded-lg text-muted-foreground hover:bg-muted hover:text-accent transition"
+                          >
+                            {subItem.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )
+              )}
+              <div className="flex items-center gap-2 pt-3">
+                <ThemeToggle />
+                <LanguageSwitcher />
+              </div>
+              <Link to="/contact">
+                <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold mt-2 gap-1.5">
+                  {t('common.getQuote', 'Devis gratuit')}
+                  <ArrowRight size={16} />
                 </Button>
               </Link>
             </div>

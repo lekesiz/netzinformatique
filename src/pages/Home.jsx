@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
-import { Laptop, Wrench, Users, Award, ArrowRight, Phone } from 'lucide-react'
+import {
+  Wrench, Users, Award, ArrowRight, Phone, Star, ShieldCheck,
+  Building2, User, Clock,
+} from 'lucide-react'
 import ServicesSection from '@/components/home/ServicesSection'
 import TestimonialsSection from '@/components/home/TestimonialsSection'
 import WhyChooseUsSection from '@/components/home/WhyChooseUsSection'
@@ -13,133 +16,173 @@ import StructuredData from '@/components/common/StructuredData'
 
 const Home = () => {
   const { t } = useTranslation()
-  
+
   const stats = [
-    { icon: Wrench, value: '2772+', label: t('home.statsRepairs', 'Appareils Réparés') },
-    { icon: Award, value: '35+', label: t('home.statsExperience', 'Ans d\'Expérience') },
-    { icon: Users, value: '900+', label: t('home.statsClients', 'Clients Satisfaits') },
-    { icon: Award, value: '24-48h', label: t('home.statsSupport', 'Délai d\'Intervention') },
+    { icon: Wrench, value: '2772+', label: t('home.statsRepairs', 'Appareils réparés') },
+    { icon: Award, value: '35+', label: t('home.statsExperience', 'Ans d\'expérience') },
+    { icon: Users, value: '900+', label: t('home.statsClients', 'Clients satisfaits') },
+    { icon: Clock, value: '24-48h', label: t('home.statsSupport', 'Délai d\'intervention') },
+  ]
+
+  const audiences = [
+    {
+      icon: User,
+      title: t('home.audienceIndividual', 'Je suis un particulier'),
+      desc: t('home.audienceIndividualDesc', 'Dépannage, réparation, formation et conseils.'),
+      to: '/services/particuliers',
+    },
+    {
+      icon: Building2,
+      title: t('home.audienceBusiness', 'Je suis une entreprise'),
+      desc: t('home.audienceBusinessDesc', 'Maintenance, cybersécurité, cloud, IA et infrastructure.'),
+      to: '/services/entreprises',
+    },
   ]
 
   return (
     <>
-      <SEO 
-        url="/"
-        type="website"
-      />
+      <SEO url="/" type="website" />
       <StructuredData type="home" />
 
       <div className="overflow-x-hidden">
         {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 py-20 md:py-32">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-slideInLeft">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                {t('home.heroTitle', 'Votre Expert')} <span className="text-primary">{t('home.heroTitleHighlight', 'Informatique')}</span> {t('home.heroLocation', 'à Haguenau')}
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-8">
-                {t('home.heroDescription', 'Dépannage, maintenance, solutions IA et formation professionnelle. Plus de 35 ans d\'expertise à votre service.')}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link to="/contact">
-                  <Button size="lg" className="gradient-green text-white font-semibold w-full sm:w-auto">
-                    {t('home.getFreeQuote', 'Demander un Devis Gratuit')}
-                    <ArrowRight className="ml-2" size={20} />
-                  </Button>
-                </Link>
-                <Link to="/services">
-                  <Button size="lg" variant="outline" className="w-full sm:w-auto">
-                    {t('home.discoverServices', 'Découvrir nos Services')}
-                  </Button>
-                </Link>
-              </div>
-              <div className="mt-8 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-                <div className="flex items-center gap-2">
-                  <Phone className="text-primary" size={20} />
-                  <a href="tel:+33367310201" className="font-semibold hover:text-primary transition">
-                    03 67 31 02 01
+        <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary to-secondary text-primary-foreground">
+          {/* decorative grid / glow */}
+          <div className="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)] [background-size:48px_48px]" />
+          <div className="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-accent/30 blur-3xl" />
+
+          <div className="container relative mx-auto px-4 py-20 md:py-28">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="animate-slideInLeft">
+                <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium ring-1 ring-white/20">
+                  <ShieldCheck size={16} className="text-accent" />
+                  Expert IT certifié QUALIOPI · Haguenau
+                </span>
+                <h1 className="mt-5 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                  Votre partenaire <span className="text-accent">technologique</span> à Haguenau
+                </h1>
+                <p className="mt-5 text-lg md:text-xl text-primary-foreground/80 max-w-xl">
+                  Dépannage, maintenance, cybersécurité, solutions IA et formation professionnelle.
+                  <span className="font-semibold text-primary-foreground"> 35 ans d'expérience</span> au service des particuliers et des entreprises.
+                </p>
+
+                <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                  <Link to="/contact">
+                    <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold w-full sm:w-auto gap-2">
+                      Demander un devis gratuit
+                      <ArrowRight size={20} />
+                    </Button>
+                  </Link>
+                  <a href="tel:+33367310201">
+                    <Button size="lg" variant="outline" className="w-full sm:w-auto gap-2 border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+                      <Phone size={18} />
+                      03 67 31 02 01
+                    </Button>
                   </a>
                 </div>
-                <span className="hidden sm:inline text-muted-foreground">•</span>
-                <span className="text-sm text-muted-foreground">
-                  {t('home.quickIntervention', 'Intervention rapide 24-48h')}
-                </span>
+
+                {/* Trust row */}
+                <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-primary-foreground/80">
+                  <span className="flex items-center gap-1.5">
+                    <span className="flex">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} size={15} className="fill-amber-400 text-amber-400" />
+                      ))}
+                    </span>
+                    <span className="font-semibold text-primary-foreground">4,9/5</span>
+                  </span>
+                  <span className="flex items-center gap-1.5"><Users size={15} className="text-accent" /> 900+ clients</span>
+                  <span className="flex items-center gap-1.5"><Clock size={15} className="text-accent" /> Intervention 24-48h</span>
+                </div>
+              </div>
+
+              {/* Right: audience path selection (Enterprise Gateway) */}
+              <div className="animate-slideInRight">
+                <div className="grid gap-4">
+                  {audiences.map((a) => (
+                    <Link
+                      key={a.to}
+                      to={a.to}
+                      className="group flex items-center gap-4 rounded-2xl bg-white/10 p-5 ring-1 ring-white/15 backdrop-blur-sm transition hover:bg-white/15 hover:ring-accent/50"
+                    >
+                      <span className="grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-accent/20 text-accent">
+                        <a.icon size={26} />
+                      </span>
+                      <span className="flex-1">
+                        <span className="block font-heading font-semibold text-lg">{a.title}</span>
+                        <span className="block text-sm text-primary-foreground/70">{a.desc}</span>
+                      </span>
+                      <ArrowRight size={20} className="shrink-0 text-primary-foreground/50 transition group-hover:translate-x-1 group-hover:text-accent" />
+                    </Link>
+                  ))}
+                  <div className="flex items-center justify-center gap-2 rounded-2xl border border-dashed border-white/20 p-4 text-sm text-primary-foreground/70">
+                    <Award size={16} className="text-accent" />
+                    Microsoft · Cisco · Google Partner · QUALIOPI
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="relative animate-slideInRight">
-              <div className="relative bg-white rounded-2xl shadow-2xl p-8 hover-lift">
-                <div className="aspect-video bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg flex items-center justify-center">
-                  <Laptop size={120} className="text-primary" />
+          </div>
+        </section>
+
+        {/* Stats Section */}
+        <section className="py-12 bg-foreground text-background">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+              {stats.map((stat, index) => (
+                <div key={index} className="text-center">
+                  <stat.icon size={36} className="mx-auto mb-3 text-accent" />
+                  <div className="text-3xl md:text-4xl font-bold mb-1 font-heading">{stat.value}</div>
+                  <div className="text-sm md:text-base text-background/70">{stat.label}</div>
                 </div>
-                <div className="absolute -top-4 -right-4 bg-accent text-white rounded-full w-24 h-24 flex flex-col items-center justify-center shadow-lg">
-                  <span className="text-2xl font-bold">20+</span>
-                  <span className="text-xs">ans</span>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Stats Section */}
-      <section className="py-12 bg-foreground text-background">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center animate-fadeIn">
-                <stat.icon size={40} className="mx-auto mb-4 text-primary" />
-                <div className="text-3xl md:text-4xl font-bold mb-2">{stat.value}</div>
-                <div className="text-sm md:text-base text-background/80">{stat.label}</div>
-              </div>
-            ))}
+        {/* Services Section */}
+        <ServicesSection />
+
+        {/* Why Choose Us Section */}
+        <WhyChooseUsSection />
+
+        {/* Testimonials Section */}
+        <TestimonialsSection />
+
+        {/* Partners Section */}
+        <PartnersSection />
+
+        {/* Boutique Section */}
+        <BoutiqueSection />
+
+        {/* Newsletter Section */}
+        <NewsletterSection />
+
+        {/* Final CTA Section */}
+        <section className="py-20 bg-gradient-to-br from-primary to-secondary text-primary-foreground">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              {t('home.ctaTitle', 'Prêt à transformer votre IT ?')}
+            </h2>
+            <p className="text-xl mb-8 max-w-2xl mx-auto text-primary-foreground/85">
+              {t('home.ctaDescription', 'Contactez-nous dès aujourd\'hui pour un diagnostic gratuit et découvrez comment optimiser votre infrastructure informatique.')}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/contact">
+                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold w-full sm:w-auto gap-2">
+                  {t('common.contactUs', 'Nous contacter')}
+                  <ArrowRight size={20} />
+                </Button>
+              </Link>
+              <a href="tel:+33367310201">
+                <Button size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15 w-full sm:w-auto gap-2">
+                  <Phone size={20} />
+                  {t('common.callNow', 'Appeler maintenant')}
+                </Button>
+              </a>
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <ServicesSection />
-
-      {/* Why Choose Us Section */}
-      <WhyChooseUsSection />
-
-      {/* Testimonials Section */}
-      <TestimonialsSection />
-
-      {/* Partners Section */}
-      <PartnersSection />
-
-      {/* Boutique Section */}
-      <BoutiqueSection />
-
-      {/* Newsletter Section */}
-      <NewsletterSection />
-
-      {/* Final CTA Section */}
-      <section className="py-20 gradient-purple text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            {t('home.ctaTitle', 'Prêt à Transformer Votre IT ?')}
-          </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            {t('home.ctaDescription', 'Contactez-nous dès aujourd\'hui pour un diagnostic gratuit et découvrez comment nous pouvons optimiser votre infrastructure informatique.')}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contact">
-              <Button size="lg" className="bg-white text-primary hover:bg-white/90 font-semibold w-full sm:w-auto">
-                {t('common.contactUs', 'Nous Contacter')}
-                <ArrowRight className="ml-2" size={20} />
-              </Button>
-            </Link>
-            <a href="tel:+33899250151">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 w-full sm:w-auto">
-                <Phone className="mr-2" size={20} />
-                {t('common.callNow', 'Appeler Maintenant')}
-              </Button>
-            </a>
-          </div>
-        </div>
-      </section>
+        </section>
       </div>
     </>
   )
