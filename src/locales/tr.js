@@ -1,5 +1,12 @@
 // Auto-généré : traductions TR (lazy-loaded). FR = defaultValue inline des t().
 export default {
+  "homeFaq": {
+    "badge": "Sıkça sorulan sorular",
+    "titlePre": "Aklınıza takılan",
+    "titleHighlight": "sorular",
+    "subtitle": "En sık sorulan soruların yanıtları burada. Sizinkini bulamadınız mı?",
+    "cta": "Tüm soruları görün"
+  },
   "process": {
     "badge": "Yöntemimiz",
     "titlePre": "Nasıl",

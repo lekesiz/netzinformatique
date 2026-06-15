@@ -13,6 +13,7 @@ import BoutiqueSection from '@/components/home/BoutiqueSection'
 import NewsletterSection from '@/components/home/NewsletterSection'
 import CaseStudiesSection from '@/components/home/CaseStudiesSection'
 import ProcessSection from '@/components/home/ProcessSection'
+import HomeFAQSection from '@/components/home/HomeFAQSection'
 import SEO from '@/components/common/SEO'
 import StructuredData from '@/components/common/StructuredData'
 import Reveal from '@/components/common/Reveal'
@@ -164,6 +165,9 @@ const Home = () => {
 
         {/* Boutique Section */}
         <Reveal><BoutiqueSection /></Reveal>
+
+        {/* FAQ Section */}
+        <HomeFAQSection />
 
         {/* Newsletter Section */}
         <Reveal><NewsletterSection /></Reveal>

@@ -1,5 +1,12 @@
 // Auto-généré : traductions EN (lazy-loaded). FR = defaultValue inline des t().
 export default {
+  "homeFaq": {
+    "badge": "Frequently asked questions",
+    "titlePre": "Do you have",
+    "titleHighlight": "questions",
+    "subtitle": "Here are the answers to the most common questions. Can't find yours?",
+    "cta": "See all questions"
+  },
   "process": {
     "badge": "Our method",
     "titlePre": "How we",
