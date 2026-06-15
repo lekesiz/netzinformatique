@@ -328,7 +328,14 @@ const resources = {
         heroLocation: 'in Haguenau',
         heroDescription: 'Seit über 35 Jahren unterstützt NETZ Informatique Privatpersonen und Unternehmen bei ihrer digitalen Transformation mit Expertise und Innovation.',
         servicesTitle: 'Unsere Dienstleistungen',
-        partnersTitle: 'Unsere Technologiepartner'
+        partnersTitle: 'Unsere Technologiepartner',
+        getFreeQuote: 'Kostenloses Angebot anfordern',
+        discoverServices: 'Unsere Leistungen entdecken',
+        quickIntervention: 'Schneller Einsatz 24-48 Std',
+        statsRepairs: 'Reparierte Geräte',
+        statsExperience: 'Jahre Erfahrung',
+        statsClients: 'Zufriedene Kunden',
+        statsSupport: 'Reaktionszeit'
       },
       about: {
         title: 'Über NETZ Informatique',
@@ -466,7 +473,14 @@ const resources = {
         heroLocation: 'Ortağınız',
         heroDescription: '35 yılı aşkın süredir NETZ Informatique, uzmanlık ve yenilikle bireylerin ve işletmelerin dijital dönüşümünde yanlarında.',
         servicesTitle: 'Hizmetlerimiz',
-        partnersTitle: 'Teknoloji Ortaklarımız'
+        partnersTitle: 'Teknoloji Ortaklarımız',
+        getFreeQuote: 'Ücretsiz Teklif Alın',
+        discoverServices: 'Hizmetlerimizi Keşfedin',
+        quickIntervention: 'Hızlı müdahale 24-48s',
+        statsRepairs: 'Onarılan Cihaz',
+        statsExperience: 'Yıllık Deneyim',
+        statsClients: 'Memnun Müşteri',
+        statsSupport: 'Müdahale Süresi'
       },
       about: {
         title: 'NETZ Informatique Hakkında',

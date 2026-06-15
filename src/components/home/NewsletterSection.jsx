@@ -74,6 +74,7 @@ const NewsletterSection = () => {
             <div className="flex-1">
               <Input
                 type="email"
+                aria-label={t('newsletter.placeholder', 'Votre adresse email')}
                 placeholder={t('newsletter.placeholder', 'Votre adresse email')}
                 {...register('email')}
                 className={`h-12 bg-white/10 border-white/20 text-white placeholder:text-white/60 focus:bg-white/20 transition ${

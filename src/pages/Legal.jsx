@@ -36,10 +36,10 @@ const Legal = () => {
           </p>
 
           <h2>{t('legal.ipTitle', 'Propriété Intellectuelle')}</h2>
-          <p>{t('legal.ipContent', 'L`ensemble de ce site relève de la législation française et internationale sur le droit d`auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques.')}</p>
+          <p>{t('legal.ipContent', 'L’ensemble de ce site relève de la législation française et internationale sur le droit d’auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques.')}</p>
 
           <h2>{t('legal.pdTitle', 'Données Personnelles')}</h2>
-          <p>{t('legal.pdContent', 'Pour plus d`informations sur la manière dont nous collectons et traitons vos données, veuillez consulter notre <a href="/politique-confidentialite">Politique de Confidentialité</a>.')}</p>
+          <p>{t('legal.pdContent', 'Pour plus d’informations sur la manière dont nous collectons et traitons vos données, veuillez consulter notre <a href="/politique-confidentialite">Politique de Confidentialité</a>.')}</p>
         </div>
       </div>
     </>

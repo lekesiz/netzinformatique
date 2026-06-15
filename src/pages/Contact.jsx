@@ -109,11 +109,12 @@ const Contact = () => {
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   {/* Name Field */}
                   <div>
-                    <label className="block text-sm font-medium mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium mb-2">
                       {t('contact.nameLabel', 'Nom Complet')} *
                     </label>
-                    <input 
-                      type="text" 
+                    <input
+                      id="name"
+                      type="text"
                       {...register('name')}
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary transition ${
                         errors.name ? 'border-destructive' : 'border-border'
@@ -127,11 +128,12 @@ const Contact = () => {
 
                   {/* Email Field */}
                   <div>
-                    <label className="block text-sm font-medium mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium mb-2">
                       {t('contact.emailLabel', 'Email')} *
                     </label>
-                    <input 
-                      type="email" 
+                    <input
+                      id="email"
+                      type="email"
                       {...register('email')}
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary transition ${
                         errors.email ? 'border-destructive' : 'border-border'
@@ -145,11 +147,12 @@ const Contact = () => {
 
                   {/* Phone Field */}
                   <div>
-                    <label className="block text-sm font-medium mb-2">
+                    <label htmlFor="phone" className="block text-sm font-medium mb-2">
                       {t('contact.phoneLabel', 'Téléphone')}
                     </label>
-                    <input 
-                      type="tel" 
+                    <input
+                      id="phone"
+                      type="tel"
                       {...register('phone')}
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary transition ${
                         errors.phone ? 'border-destructive' : 'border-border'
@@ -163,11 +166,12 @@ const Contact = () => {
 
                   {/* Subject Field */}
                   <div>
-                    <label className="block text-sm font-medium mb-2">
+                    <label htmlFor="subject" className="block text-sm font-medium mb-2">
                       {t('contact.subjectLabel', 'Sujet')}
                     </label>
-                    <input 
-                      type="text" 
+                    <input
+                      id="subject"
+                      type="text"
                       {...register('subject')}
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary transition ${
                         errors.subject ? 'border-destructive' : 'border-border'
@@ -181,10 +185,11 @@ const Contact = () => {
 
                   {/* Message Field */}
                   <div>
-                    <label className="block text-sm font-medium mb-2">
+                    <label htmlFor="message" className="block text-sm font-medium mb-2">
                       {t('contact.messageLabel', 'Message')} *
                     </label>
-                    <textarea 
+                    <textarea
+                      id="message"
                       {...register('message')}
                       rows="5" 
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary transition ${

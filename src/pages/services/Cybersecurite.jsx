@@ -165,7 +165,7 @@ const Cybersecurite = () => {
       <SEO title={pageTitle} description={pageDescription} url="/services/cybersecurite" />
       <StructuredData type="service" data={serviceData} />
 
-      <div className="bg-gradient-to-b from-red-50 to-white">
+      <div className="bg-gradient-to-b from-red-50 to-card">
         {/* Hero Section */}
         <section className="py-20 text-center">
           <div className="container mx-auto px-4">

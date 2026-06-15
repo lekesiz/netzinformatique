@@ -41,8 +41,9 @@ const BlogIndex = () => {
         <p className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-12">{t('blog.description', 'Suivez nos analyses, tutoriels et actualités sur l`informatique, l`IA, la cybersécurité et le développement web.')}</p>
 
         <div className="relative max-w-lg mx-auto mb-12">
-          <Input 
+          <Input
             type="text"
+            aria-label={t('blog.searchPlaceholder', 'Rechercher un article...')}
             placeholder={t('blog.searchPlaceholder', 'Rechercher un article...')}
             className="pl-10"
             value={searchTerm}

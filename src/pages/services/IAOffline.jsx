@@ -216,7 +216,7 @@ const IAOffline = () => {
       <SEO title={pageTitle} description={pageDescription} url="/services/ia-offline" />
       <StructuredData type="service" data={serviceData} />
 
-      <div className="bg-gradient-to-b from-purple-50 to-white">
+      <div className="bg-gradient-to-b from-purple-50 to-card">
         {/* Hero Section */}
         <section className="py-20 text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-purple-100 via-blue-50 to-transparent opacity-50"></div>

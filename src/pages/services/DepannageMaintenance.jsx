@@ -161,7 +161,7 @@ const DepannageMaintenance = () => {
       <SEO title={pageTitle} description={pageDescription} url="/services/depannage-maintenance" />
       <StructuredData type="service" data={serviceData} />
 
-      <div className="bg-gradient-to-b from-primary/5 to-white">
+      <div className="bg-gradient-to-b from-primary/5 to-card">
         {/* Hero Section */}
         <section className="py-20 text-center">
           <div className="container mx-auto px-4">
@@ -197,7 +197,7 @@ const DepannageMaintenance = () => {
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {features.map((feature, index) => (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-lg hover-lift">
+                <div key={index} className="bg-card rounded-xl p-6 shadow-lg hover-lift">
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                     <feature.icon size={24} className="text-primary" />
                   </div>
@@ -222,7 +222,7 @@ const DepannageMaintenance = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {commonProblems.map((problem, index) => (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-lg">
+                <div key={index} className="bg-card rounded-xl p-6 shadow-lg">
                   <h3 className="font-bold text-xl mb-3 text-primary">{problem.title}</h3>
                   <p className="text-muted-foreground mb-4">{problem.description}</p>
                   <div className="flex items-center justify-between">
@@ -275,7 +275,7 @@ const DepannageMaintenance = () => {
               </p>
             </div>
 
-            <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl p-8">
+            <div className="max-w-3xl mx-auto bg-card rounded-2xl shadow-xl p-8">
               <div className="space-y-4">
                 {pricing.map((item, index) => (
                   <div key={index} className="flex justify-between items-center py-3 border-b last:border-b-0">
@@ -309,7 +309,7 @@ const DepannageMaintenance = () => {
               {maintenancePackages.map((pkg, index) => (
                 <div 
                   key={index}
-                  className={`bg-white rounded-2xl shadow-xl overflow-hidden ${
+                  className={`bg-card rounded-2xl shadow-xl overflow-hidden ${
                     pkg.popular ? 'ring-4 ring-primary transform scale-105' : ''
                   }`}
                 >
@@ -354,7 +354,7 @@ const DepannageMaintenance = () => {
 
             <Accordion type="single" collapsible className="w-full max-w-3xl mx-auto">
               {faq.map((item, index) => (
-                <AccordionItem value={`item-${index}`} key={index} className="bg-white rounded-lg mb-3 px-6 border shadow-sm">
+                <AccordionItem value={`item-${index}`} key={index} className="bg-card rounded-lg mb-3 px-6 border shadow-sm">
                   <AccordionTrigger className="text-lg font-semibold text-left hover:text-primary">
                     {item.question}
                   </AccordionTrigger>

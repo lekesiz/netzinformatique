@@ -180,7 +180,7 @@ const BilanCompetences = () => {
       </section>
 
       {/* Pourquoi réaliser un bilan */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-16 bg-gradient-to-br from-muted to-card">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold mb-12 text-center">
@@ -290,7 +290,7 @@ const BilanCompetences = () => {
             </h2>
             <div className="space-y-6">
               {faq.map((item, index) => (
-                <div key={index} className="bg-gradient-to-br from-gray-50 to-white p-6 rounded-xl border border-border">
+                <div key={index} className="bg-gradient-to-br from-muted to-card p-6 rounded-xl border border-border">
                   <h3 className="text-lg font-semibold mb-3 text-primary">{item.question}</h3>
                   <p className="text-muted-foreground leading-relaxed">{item.answer}</p>
                 </div>

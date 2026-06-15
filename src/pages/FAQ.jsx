@@ -222,7 +222,7 @@ const FAQ = () => {
         }}
       />
 
-      <div className="bg-gradient-to-b from-primary/5 to-white">
+      <div className="bg-gradient-to-b from-primary/5 to-card">
         {/* Hero Section */}
         <section className="py-20 text-center">
           <div className="container mx-auto px-4">

@@ -24,6 +24,7 @@ const LanguageSwitcher = () => {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
+        aria-label="Changer de langue"
         className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-muted transition"
       >
         <Globe size={20} />
@@ -37,7 +38,7 @@ const LanguageSwitcher = () => {
             className="fixed inset-0 z-40" 
             onClick={() => setIsOpen(false)}
           ></div>
-          <div className="absolute top-full right-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-border py-2 z-50 animate-fadeIn">
+          <div className="absolute top-full right-0 mt-2 w-48 bg-popover rounded-lg shadow-xl border border-border py-2 z-50 animate-fadeIn">
             {languages.map((lang) => (
               <button
                 key={lang.code}

@@ -74,7 +74,7 @@ const Breadcrumb = () => {
   })
 
   return (
-    <nav aria-label="Breadcrumb" className="bg-gray-50 border-b border-gray-200">
+    <nav aria-label="Breadcrumb" className="bg-muted border-b border-border">
       <div className="container mx-auto px-4 py-3">
         <ol className="flex items-center space-x-2 text-sm">
           {breadcrumbItems.map((item, index) => (
@@ -84,7 +84,7 @@ const Breadcrumb = () => {
               )}
               {item.isLast ? (
                 <span
-                  className="text-gray-700 font-medium"
+                  className="text-foreground font-medium"
                   aria-current="page"
                 >
                   {item.label}

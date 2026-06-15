@@ -31,7 +31,7 @@ const RelatedPosts = ({ currentSlug, category, limit = 3 }) => {
             to={`/blog/${post.slug}`}
             className="group"
           >
-            <div className="bg-white rounded-xl overflow-hidden shadow-md hover-lift">
+            <div className="bg-card rounded-xl overflow-hidden shadow-md hover-lift">
               <div className="aspect-video overflow-hidden">
                 <img 
                   src={post.image} 
@@ -46,7 +46,7 @@ const RelatedPosts = ({ currentSlug, category, limit = 3 }) => {
                 <h3 className="font-bold text-lg mb-2 group-hover:text-blue-600 transition-colors">
                   {post.title[i18n.language]}
                 </h3>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
                   {post.excerpt[i18n.language]}
                 </p>
                 <div className="flex items-center gap-2 text-blue-600 font-semibold text-sm">
