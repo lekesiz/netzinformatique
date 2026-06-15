@@ -1,49 +1,118 @@
-import SEO from '@/components/common/SEO';
-import { useTranslation } from 'react-i18next';
+import SEO from '@/components/common/SEO'
+import { Link } from 'react-router-dom'
+import { Building2, User, Server, Shield, Scale, FileText, Mail } from 'lucide-react'
+
+const editor = [
+  ['Dénomination sociale', 'NETZ Informatique'],
+  ['Forme juridique', 'SASU (Société par actions simplifiée à associé unique)'],
+  ['Siège social', '1a Route de Schweighouse, 67500 Haguenau, France'],
+  ['Capital social', '1 000,00 €'],
+  ['SIREN', '818 347 346'],
+  ['RCS', 'Strasbourg B 818 347 346'],
+  ['TVA intracommunautaire', 'FR44 818 347 346'],
+  ['Téléphone', '03 67 31 02 01'],
+  ['Email', 'contact@netzinformatique.fr'],
+]
+
+const Section = ({ icon: Icon, title, children }) => (
+  <section className="scroll-mt-24">
+    <h2 className="flex items-center gap-3 text-2xl font-bold mb-4">
+      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-accent/10 text-accent">
+        <Icon size={20} />
+      </span>
+      {title}
+    </h2>
+    <div className="space-y-3 text-muted-foreground leading-relaxed">{children}</div>
+  </section>
+)
 
 const Legal = () => {
-  const { t } = useTranslation();
-
   return (
     <>
-      <SEO title={t('legal.title', 'Mentions Légales')} description={t('legal.description', 'Consultez les mentions légales de NETZ Informatique.')} url="/mentions-legales" />
+      <SEO
+        title="Mentions Légales | NETZ Informatique"
+        description="Mentions légales de NETZ Informatique — éditeur, hébergeur, propriété intellectuelle et données personnelles."
+        url="/mentions-legales"
+      />
+
+      {/* Hero */}
+      <section className="bg-gradient-to-br from-primary to-secondary text-primary-foreground">
+        <div className="container mx-auto px-4 py-16 text-center">
+          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm ring-1 ring-white/20">
+            <Scale size={16} className="text-accent" /> Informations légales
+          </span>
+          <h1 className="mt-4 text-4xl md:text-5xl font-bold">Mentions Légales</h1>
+          <p className="mt-3 text-primary-foreground/80">Dernière mise à jour : 15 juin 2026</p>
+        </div>
+      </section>
+
+      {/* Body */}
       <div className="container mx-auto px-4 py-16">
-        <div className="prose lg:prose-lg max-w-4xl mx-auto">
-          <h1>{t('legal.title', 'Mentions Légales')}</h1>
-          <p>{t('legal.lastUpdated', 'Dernière mise à jour : 3 octobre 2025')}</p>
-          
-          <h2>{t('legal.editorTitle', 'Éditeur du site')}</h2>
-          <p>
-            <strong>{t('legal.companyName', 'Dénomination sociale :')}</strong> NETZ Informatique<br/>
-            <strong>{t('legal.legalForm', 'Forme juridique :')}</strong> SASU (Société par actions simplifiée à associé unique)<br/>
-            <strong>{t('legal.address', 'Adresse du siège social :')}</strong> 1a Route de Schweighouse, 67500 Haguenau, France<br/>
-            <strong>{t('legal.shareCapital', 'Capital social :')}</strong> 1 000,00 €<br/>
-            <strong>{t('legal.siren', 'SIREN :')}</strong> 818 347 346<br/>
-            <strong>{t('legal.rcs', 'RCS :')}</strong> Strasbourg B 818 347 346<br/>
-            <strong>{t('legal.vat', 'Numéro de TVA intracommunautaire :')}</strong> FR44818347346<br/>
-            <strong>{t('legal.phone', 'Téléphone :')}</strong> +(33) 03 67 31 02 01<br/>
-            <strong>{t('legal.email', 'Email :')}</strong> contact@netzinformatique.fr
-          </p>
+        <div className="max-w-4xl mx-auto space-y-12">
+          <Section icon={Building2} title="Éditeur du site">
+            <dl className="grid sm:grid-cols-2 gap-x-8 gap-y-3 rounded-2xl border border-border bg-card p-6">
+              {editor.map(([k, v]) => (
+                <div key={k} className="flex flex-col">
+                  <dt className="text-xs uppercase tracking-wide text-muted-foreground">{k}</dt>
+                  <dd className="font-medium text-foreground">{v}</dd>
+                </div>
+              ))}
+            </dl>
+          </Section>
 
-          <h2>{t('legal.publicationDirectorTitle', 'Directeur de la publication')}</h2>
-          <p>{t('legal.publicationDirectorName', 'Mikail Lekesiz, en qualité de Président.')}</p>
+          <Section icon={User} title="Directeur de la publication">
+            <p>Monsieur <strong className="text-foreground">Mikail Lekesiz</strong>, en qualité de Président de NETZ Informatique.</p>
+          </Section>
 
-          <h2>{t('legal.hostingTitle', 'Hébergement')}</h2>
-          <p>
-            <strong>{t('legal.hostName', 'Hébergeur :')}</strong> Vercel Inc.<br/>
-            <strong>{t('legal.hostAddress', 'Adresse :')}</strong> 340 S Lemon Ave #4133, Walnut, CA 91789, USA<br/>
-            <strong>{t('legal.hostContact', 'Contact :')}</strong> privacy@vercel.com
-          </p>
+          <Section icon={Server} title="Hébergement">
+            <p>Le site est hébergé par :</p>
+            <p>
+              <strong className="text-foreground">Vercel Inc.</strong><br />
+              340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis<br />
+              <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">vercel.com</a>
+            </p>
+          </Section>
 
-          <h2>{t('legal.ipTitle', 'Propriété Intellectuelle')}</h2>
-          <p>{t('legal.ipContent', 'L’ensemble de ce site relève de la législation française et internationale sur le droit d’auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques.')}</p>
+          <Section icon={FileText} title="Propriété intellectuelle">
+            <p>
+              L'ensemble de ce site (structure, textes, logos, images, graphismes et icônes) relève de la
+              législation française et internationale sur le droit d'auteur et la propriété intellectuelle.
+              Toute reproduction, représentation, modification ou exploitation, totale ou partielle, sans
+              l'autorisation écrite de NETZ Informatique est interdite et constitue une contrefaçon.
+            </p>
+            <p>Les marques et logos des partenaires (Microsoft, Cisco, Google…) restent la propriété de leurs détenteurs respectifs.</p>
+          </Section>
 
-          <h2>{t('legal.pdTitle', 'Données Personnelles')}</h2>
-          <p>{t('legal.pdContent', 'Pour plus d’informations sur la manière dont nous collectons et traitons vos données, veuillez consulter notre <a href="/politique-confidentialite">Politique de Confidentialité</a>.')}</p>
+          <Section icon={Shield} title="Données personnelles & cookies">
+            <p>
+              Le traitement de vos données personnelles est décrit en détail dans notre{' '}
+              <Link to="/politique-confidentialite" className="text-accent hover:underline">Politique de Confidentialité</Link>.
+              La gestion des cookies est détaillée dans notre{' '}
+              <Link to="/cookie-policy" className="text-accent hover:underline">Politique des Cookies</Link>.
+            </p>
+          </Section>
+
+          <Section icon={Scale} title="Droit applicable & litiges">
+            <p>
+              Les présentes mentions légales sont régies par le droit français. En cas de litige et à défaut de
+              résolution amiable, les tribunaux du ressort de Strasbourg seront seuls compétents.
+            </p>
+            <p>
+              Conformément à l'article L.612-1 du Code de la consommation, le consommateur peut recourir
+              gratuitement à un médiateur de la consommation en vue de la résolution amiable d'un litige.
+            </p>
+          </Section>
+
+          <Section icon={Mail} title="Contact">
+            <p>
+              Pour toute question : <a href="mailto:contact@netzinformatique.fr" className="text-accent hover:underline">contact@netzinformatique.fr</a>{' '}
+              ou <a href="tel:+33367310201" className="text-accent hover:underline">03 67 31 02 01</a>.
+            </p>
+          </Section>
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Legal;
+export default Legal

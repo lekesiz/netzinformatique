@@ -42,9 +42,8 @@ const Breadcrumb = () => {
     'faq': 'nav.faq',
     'a-propos': 'nav.about',
     'about': 'nav.about',
-    'mentions-legales': 'footer.legal',
-    'politique-confidentialite': 'footer.privacy',
-    'sectors': 'Sectors'
+    'mentions-legales': 'footer.legalNotice',
+    'politique-confidentialite': 'footer.privacy'
   }
 
   // Generate breadcrumb items
@@ -61,10 +60,11 @@ const Breadcrumb = () => {
     currentPath += `/${segment}`
     const isLast = index === pathSegments.length - 1
 
-    // Get translated name or use segment as fallback
+    // Get translated name or use a humanized segment as fallback (never show a raw key)
+    const humanized = segment.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
     const label = pathNameMap[segment]
-      ? t(pathNameMap[segment])
-      : segment.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+      ? t(pathNameMap[segment], { defaultValue: humanized })
+      : humanized
 
     breadcrumbItems.push({
       label,
