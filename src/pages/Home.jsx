@@ -10,14 +10,13 @@ import BoutiqueSection from '@/components/home/BoutiqueSection'
 import NewsletterSection from '@/components/home/NewsletterSection'
 import SEO from '@/components/common/SEO'
 import StructuredData from '@/components/common/StructuredData'
-import LocalBusinessSchema from '@/components/common/LocalBusinessSchema'
 
 const Home = () => {
   const { t } = useTranslation()
   
   const stats = [
     { icon: Wrench, value: '2772+', label: t('home.statsRepairs', 'Appareils Réparés') },
-    { icon: Award, value: '20+', label: t('home.statsExperience', 'Ans d\'Expérience') },
+    { icon: Award, value: '35+', label: t('home.statsExperience', 'Ans d\'Expérience') },
     { icon: Users, value: '900+', label: t('home.statsClients', 'Clients Satisfaits') },
     { icon: Award, value: '24-48h', label: t('home.statsSupport', 'Délai d\'Intervention') },
   ]
@@ -29,8 +28,7 @@ const Home = () => {
         type="website"
       />
       <StructuredData type="home" />
-      <LocalBusinessSchema />
-      
+
       <div className="overflow-x-hidden">
         {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10 py-20 md:py-32">

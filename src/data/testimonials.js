@@ -215,7 +215,7 @@ export const stats = [
   },
   {
     icon: 'Award',
-    value: '20+',
+    value: '35+',
     label: {
       fr: 'Ans d\'Expérience',
       en: 'Years of Experience',
