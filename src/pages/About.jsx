@@ -98,7 +98,7 @@ const About = () => {
               </p>
             </div>
 
-            <div className="prose prose-lg max-w-none">
+            <div className="prose prose-lg max-w-none dark:prose-invert">
               <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-8 md:p-12 mb-8">
                 <h3 className="text-2xl font-bold mb-4">{t('about.story1Title', 'Les Débuts (2009)')}</h3>
                 <p className="text-muted-foreground mb-4">

@@ -166,7 +166,7 @@ const BilanCompetences = () => {
             <h2 className="text-3xl font-bold mb-8 text-center">
               {t('bilan.whatTitlePrefix', "Qu'est-ce qu'un")} <span className="text-primary">{t('bilan.whatTitleHighlight', 'Bilan de Compétences')}</span> ?
             </h2>
-            <div className="prose prose-lg max-w-none">
+            <div className="prose prose-lg max-w-none dark:prose-invert">
               <p className="text-muted-foreground leading-relaxed mb-6">
                 {t('bilan.whatPara1', "Le bilan de compétences est un dispositif d'accompagnement personnalisé qui permet d'analyser vos compétences professionnelles et personnelles, vos aptitudes et vos motivations. Il vous aide à définir un projet professionnel cohérent et réalisable, ou à valider un projet de formation.")}
               </p>
