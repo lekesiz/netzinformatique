@@ -16,7 +16,7 @@ const SEO = ({
   const currentLang = i18n.language
   
   const siteUrl = 'https://www.netzinformatique.fr'
-  const defaultImage = `${siteUrl}/images/og-image.jpg`
+  const defaultImage = `${siteUrl}/og-image.jpg`
   const canonicalUrl = url ? `${siteUrl}${url}` : siteUrl
 
   // Default meta values
@@ -97,8 +97,8 @@ const SEO = ({
       <meta name="format-detection" content="telephone=yes" />
       <meta name="geo.region" content="FR-67" />
       <meta name="geo.placename" content="Haguenau" />
-      <meta name="geo.position" content="48.8156;7.8287" />
-      <meta name="ICBM" content="48.8156, 7.8287" />
+      <meta name="geo.position" content="48.8113;7.7814" />
+      <meta name="ICBM" content="48.8113, 7.7814" />
     </Helmet>
   )
 }

@@ -28,7 +28,7 @@ const resources = {
         email: 'Email',
         address: 'Adresse',
         hours: 'Horaires',
-        openingHours: 'Lun-Sam: 09:00-12:00 / 14:00-18:00',
+        openingHours: 'Lun-Ven: 09:00-12:00 / 14:00-18:00 · Sam: 09:00-12:00',
         years: 'ans',
         clients: 'clients'
       },
@@ -173,7 +173,7 @@ const resources = {
         email: 'Email',
         address: 'Address',
         hours: 'Hours',
-        openingHours: 'Mon-Sat: 09:00-12:00 / 14:00-18:00',
+        openingHours: 'Mon-Fri: 09:00-12:00 / 14:00-18:00 · Sat: 09:00-12:00',
         years: 'years',
         clients: 'clients'
       },
@@ -318,7 +318,7 @@ const resources = {
         email: 'E-Mail',
         address: 'Adresse',
         hours: 'Öffnungszeiten',
-        openingHours: 'Mo-Sa: 09:00-12:00 / 14:00-18:00',
+        openingHours: 'Mo-Fr: 09:00-12:00 / 14:00-18:00 · Sa: 09:00-12:00',
         years: 'Jahre',
         clients: 'Kunden'
       },
@@ -456,7 +456,7 @@ const resources = {
         email: 'E-posta',
         address: 'Adres',
         hours: 'Çalışma Saatleri',
-        openingHours: 'Pzt-Cmt: 09:00-12:00 / 14:00-18:00',
+        openingHours: 'Pzt-Cum: 09:00-12:00 / 14:00-18:00 · Cmt: 09:00-12:00',
         years: 'yıl',
         clients: 'müşteri'
       },

@@ -156,7 +156,7 @@ const FormationProfessionnelle = () => {
     { value: '670+', label: 'Stagiaires formés' },
     { value: '95%', label: 'Taux de réussite' },
     { value: '98%', label: 'Satisfaction' },
-    { value: '4.8/5', label: 'Note moyenne' }
+    { value: '4.9/5', label: 'Note moyenne' }
   ];
 
   const testimonials = [

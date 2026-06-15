@@ -76,7 +76,7 @@ const CookiePolicy = () => {
       },
       contact: {
         email: 'Email : contact@netzinformatique.fr',
-        phone: 'Téléphone : 08 99 25 01 51',
+        phone: 'Téléphone : 03 67 31 02 01',
         address: 'Adresse : 1a Route de Schweighouse, 67500 Haguenau'
       }
     },
@@ -114,7 +114,7 @@ const CookiePolicy = () => {
       },
       contact: {
         email: 'Email: contact@netzinformatique.fr',
-        phone: 'Phone: 08 99 25 01 51',
+        phone: 'Phone: 03 67 31 02 01',
         address: 'Address: 1a Route de Schweighouse, 67500 Haguenau'
       }
     },
@@ -152,7 +152,7 @@ const CookiePolicy = () => {
       },
       contact: {
         email: 'E-Mail: contact@netzinformatique.fr',
-        phone: 'Telefon: 08 99 25 01 51',
+        phone: 'Telefon: 03 67 31 02 01',
         address: 'Adresse: 1a Route de Schweighouse, 67500 Haguenau'
       }
     },
@@ -190,7 +190,7 @@ const CookiePolicy = () => {
       },
       contact: {
         email: 'E-posta: contact@netzinformatique.fr',
-        phone: 'Telefon: 08 99 25 01 51',
+        phone: 'Telefon: 03 67 31 02 01',
         address: 'Adres: 1a Route de Schweighouse, 67500 Haguenau'
       }
     }

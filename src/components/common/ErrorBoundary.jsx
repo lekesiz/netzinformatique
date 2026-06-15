@@ -108,10 +108,10 @@ class ErrorBoundary extends Component {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center text-sm">
                   <a
-                    href="tel:+33899250151"
+                    href="tel:+33367310201"
                     className="text-purple-600 hover:text-purple-700 font-medium"
                   >
-                    📞 0 8 99 25 01 51
+                    📞 03 67 31 02 01
                   </a>
                   <a
                     href="mailto:contact@netzinformatique.fr"

@@ -151,10 +151,10 @@ export const whyChooseUs = [
   {
     icon: 'Award',
     title: {
-      fr: '20+ Ans d\'Expérience',
-      en: '20+ Years of Experience',
-      de: '20+ Jahre Erfahrung',
-      tr: '20+ Yıllık Deneyim'
+      fr: '35+ Ans d\'Expérience',
+      en: '35+ Years of Experience',
+      de: '35+ Jahre Erfahrung',
+      tr: '35+ Yıllık Deneyim'
     },
     description: {
       fr: 'Depuis 2016, nous accompagnons particuliers et entreprises dans leur transformation digitale.',

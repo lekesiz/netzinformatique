@@ -11,7 +11,7 @@ import { blogPosts } from '../data/blogPosts'
  * @returns {string} RSS XML string
  */
 export function generateRSSFeed(locale = 'fr') {
-  const siteUrl = 'https://netzinformatique.fr'
+  const siteUrl = 'https://www.netzinformatique.fr'
   const blogUrl = `${siteUrl}/blog`
 
   const siteInfo = {

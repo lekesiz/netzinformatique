@@ -63,7 +63,7 @@ describe('ErrorBoundary', () => {
       </ErrorBoundary>
     )
 
-    expect(screen.getByText(/0 8 99 25 01 51/)).toBeInTheDocument()
+    expect(screen.getByText(/03 67 31 02 01/)).toBeInTheDocument()
     expect(screen.getByText(/contact@netzinformatique.fr/)).toBeInTheDocument()
   })
 

@@ -80,7 +80,7 @@ const Header = () => {
           </div>
           <div className="flex items-center gap-2 text-primary-foreground/90">
             <Clock size={15} />
-            <span>Lun–Sam : 9h–12h / 14h–18h</span>
+            <span>Lun–Ven : 9h–12h / 14h–18h · Sam : 9h–12h</span>
           </div>
         </div>
       </div>

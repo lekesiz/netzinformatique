@@ -20,7 +20,7 @@ const SectorPage = ({ sector }) => {
         >
           <div className="container mx-auto px-4">
             <Icon className="w-16 h-16 mx-auto mb-4" />
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">{t('sectors.for', { sector: name })}</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">{t('sectors.for', { sector: name, defaultValue: 'Solutions informatiques pour {{sector}}' })}</h1>
             <p className="text-lg md:text-xl max-w-3xl mx-auto">{description}</p>
           </div>
         </section>
@@ -55,7 +55,7 @@ const SectorPage = ({ sector }) => {
             <div className="text-center mt-12">
               <Link to="/contact">
                 <Button size="lg" className="gradient-blue text-white font-semibold">
-                  {t('sectors.cta', { sector: name })}
+                  {t('sectors.cta', { sector: name, defaultValue: 'Discutons de votre projet — {{sector}}' })}
                   <ArrowRight className="ml-2" size={20} />
                 </Button>
               </Link>

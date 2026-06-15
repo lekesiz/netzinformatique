@@ -284,7 +284,7 @@ const Materiel = () => (
               </li>
               <li className="flex items-center gap-2">
                 <CheckCircle size={16} />
-                <span>Support technique 20+ ans d'expérience</span>
+                <span>Support technique 35+ ans d'expérience</span>
               </li>
               <li className="flex items-center gap-2">
                 <CheckCircle size={16} />

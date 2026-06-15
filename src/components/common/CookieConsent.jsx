@@ -215,7 +215,7 @@ const CookieConsent = () => {
 
                     {/* Privacy links */}
                     <div className="mt-4 text-xs text-gray-500 dark:text-gray-400">
-                      <a href="/privacy-policy" className="hover:text-primary underline">
+                      <a href="/politique-confidentialite" className="hover:text-primary underline">
                         {t('cookies.banner.privacyPolicy')}
                       </a>
                       {' • '}

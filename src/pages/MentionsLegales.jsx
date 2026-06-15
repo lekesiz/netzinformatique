@@ -16,7 +16,7 @@ export default function MentionsLegales() {
             <p><strong>Forme juridique :</strong> Entreprise individuelle</p>
             <p><strong>Siège social :</strong> 1a Route de Schweighouse, 67500 Haguenau, France</p>
             <p><strong>SIRET :</strong> RCS Strasbourg 818 347 346</p>
-            <p><strong>Téléphone :</strong> +(33) 0 8 99 25 01 51</p>
+            <p><strong>Téléphone :</strong> +(33) 03 67 31 02 01</p>
             <p><strong>Email :</strong> contact@netzinformatique.fr</p>
             <p><strong>Directeur de la publication :</strong> M. Mikail Lekesiz</p>
             <p><strong>Certification :</strong> QUALIOPI</p>

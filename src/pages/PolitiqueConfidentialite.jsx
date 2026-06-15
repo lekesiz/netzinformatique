@@ -129,7 +129,7 @@ export default function PolitiqueConfidentialite() {
               </p>
               <div className="space-y-2 text-sm">
                 <p><strong>Email :</strong> contact@netzinformatique.fr</p>
-                <p><strong>Téléphone :</strong> +(33) 0 8 99 25 01 51</p>
+                <p><strong>Téléphone :</strong> +(33) 03 67 31 02 01</p>
                 <p><strong>Adresse :</strong> 1a Route de Schweighouse, 67500 Haguenau</p>
               </div>
             </CardContent>

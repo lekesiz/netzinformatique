@@ -21,7 +21,7 @@ const Legal = () => {
             <strong>{t('legal.siren', 'SIREN :')}</strong> 818 347 346<br/>
             <strong>{t('legal.rcs', 'RCS :')}</strong> Strasbourg B 818 347 346<br/>
             <strong>{t('legal.vat', 'Numéro de TVA intracommunautaire :')}</strong> FR44818347346<br/>
-            <strong>{t('legal.phone', 'Téléphone :')}</strong> +(33) 08 99 25 01 51<br/>
+            <strong>{t('legal.phone', 'Téléphone :')}</strong> +(33) 03 67 31 02 01<br/>
             <strong>{t('legal.email', 'Email :')}</strong> contact@netzinformatique.fr
           </p>
 

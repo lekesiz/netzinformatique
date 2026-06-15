@@ -27,14 +27,20 @@ const StructuredData = ({ type = 'all', data = {} }) => {
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 48.8156,
-      "longitude": 7.8287
+      "latitude": 48.8113,
+      "longitude": 7.7814
     },
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
         "opens": "09:00",
+        "closes": "12:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "14:00",
         "closes": "18:00"
       },
       {
@@ -48,8 +54,8 @@ const StructuredData = ({ type = 'all', data = {} }) => {
       "@type": "GeoCircle",
       "geoMidpoint": {
         "@type": "GeoCoordinates",
-        "latitude": 48.8166,
-        "longitude": 7.7906
+        "latitude": 48.8113,
+        "longitude": 7.7814
       },
       "geoRadius": "50000"
     },
