@@ -95,16 +95,14 @@ const Header = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between gap-4 py-3">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2.5 shrink-0" aria-label="NETZ Informatique — Accueil">
-              <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary text-primary-foreground font-heading font-bold text-lg shadow-sm">
-                N
-              </span>
-              <span className="flex flex-col leading-none">
-                <span className="font-heading font-bold text-xl text-foreground">
-                  NETZ <span className="text-accent">Informatique</span>
-                </span>
-                <span className="text-[11px] text-muted-foreground mt-0.5">Votre partenaire technologique</span>
-              </span>
+            <Link to="/" className="flex items-center shrink-0">
+              <img
+                src="/logo-netz.png"
+                alt="NETZ Informatique"
+                width={520}
+                height={221}
+                className="h-9 md:h-11 w-auto dark:brightness-0 dark:invert"
+              />
             </Link>
 
             {/* Desktop Navigation */}

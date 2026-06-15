@@ -12,12 +12,15 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-primary-foreground font-bold">
-                N
-              </div>
-              <span className="font-bold text-lg">NETZ Informatique</span>
-            </div>
+            <Link to="/" className="inline-flex mb-4">
+              <img
+                src="/logo-netz.png"
+                alt="NETZ Informatique"
+                width={520}
+                height={221}
+                className="h-10 w-auto brightness-0 invert"
+              />
+            </Link>
             <p className="text-sm text-background/80 mb-4">
               {t('footer.tagline')}
             </p>
