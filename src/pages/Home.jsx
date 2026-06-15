@@ -13,6 +13,8 @@ import BoutiqueSection from '@/components/home/BoutiqueSection'
 import NewsletterSection from '@/components/home/NewsletterSection'
 import SEO from '@/components/common/SEO'
 import StructuredData from '@/components/common/StructuredData'
+import Reveal from '@/components/common/Reveal'
+import CountUp from '@/components/common/CountUp'
 
 const Home = () => {
   const { t } = useTranslation()
@@ -130,33 +132,33 @@ const Home = () => {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
               {stats.map((stat, index) => (
-                <div key={index} className="text-center">
+                <Reveal key={index} delay={index * 0.08} className="text-center">
                   <stat.icon size={36} className="mx-auto mb-3 text-accent" />
-                  <div className="text-3xl md:text-4xl font-bold mb-1 font-heading">{stat.value}</div>
+                  <div className="text-3xl md:text-4xl font-bold mb-1 font-heading"><CountUp value={stat.value} /></div>
                   <div className="text-sm md:text-base text-background/70">{stat.label}</div>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
         </section>
 
         {/* Services Section */}
-        <ServicesSection />
+        <Reveal><ServicesSection /></Reveal>
 
         {/* Why Choose Us Section */}
-        <WhyChooseUsSection />
+        <Reveal><WhyChooseUsSection /></Reveal>
 
         {/* Testimonials Section */}
-        <TestimonialsSection />
+        <Reveal><TestimonialsSection /></Reveal>
 
         {/* Partners Section */}
-        <PartnersSection />
+        <Reveal><PartnersSection /></Reveal>
 
         {/* Boutique Section */}
-        <BoutiqueSection />
+        <Reveal><BoutiqueSection /></Reveal>
 
         {/* Newsletter Section */}
-        <NewsletterSection />
+        <Reveal><NewsletterSection /></Reveal>
 
         {/* Final CTA Section */}
         <section className="py-20 bg-gradient-to-br from-primary to-secondary text-primary-foreground">
