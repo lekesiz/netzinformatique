@@ -27,7 +27,7 @@ const StructuredData = ({ type = 'all', data = {} }) => {
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 48.8113,
+      "latitude": 48.8112633,
       "longitude": 7.7814
     },
     "openingHoursSpecification": [
@@ -54,7 +54,7 @@ const StructuredData = ({ type = 'all', data = {} }) => {
       "@type": "GeoCircle",
       "geoMidpoint": {
         "@type": "GeoCoordinates",
-        "latitude": 48.8113,
+        "latitude": 48.8112633,
         "longitude": 7.7814
       },
       "geoRadius": "50000"

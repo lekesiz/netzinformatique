@@ -21,7 +21,7 @@
       "region": "Alsace",
       "country": "France",
       "countryCode": "FR",
-      "geo": { "latitude": 48.8113, "longitude": 7.7814 }
+      "geo": { "latitude": 48.8112633, "longitude": 7.7814 }
     },
     "openingHours": [
       { "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "12:00" },

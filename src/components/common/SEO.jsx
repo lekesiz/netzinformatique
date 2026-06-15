@@ -97,8 +97,8 @@ const SEO = ({
       <meta name="format-detection" content="telephone=yes" />
       <meta name="geo.region" content="FR-67" />
       <meta name="geo.placename" content="Haguenau" />
-      <meta name="geo.position" content="48.8113;7.7814" />
-      <meta name="ICBM" content="48.8113, 7.7814" />
+      <meta name="geo.position" content="48.8112633;7.7814" />
+      <meta name="ICBM" content="48.8112633, 7.7814" />
     </Helmet>
   )
 }
