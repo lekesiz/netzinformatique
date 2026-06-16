@@ -1,5 +1,20 @@
 // Auto-généré : traductions DE (lazy-loaded). FR = defaultValue inline des t().
 export default {
+  "sectorsSection": {
+    "badge": "Branchen",
+    "titlePre": "Lösungen für",
+    "titleHighlight": "Ihre Branche",
+    "subtitle": "Wir kennen die Herausforderungen Ihrer Branche und passen unsere Lösungen an Ihre Bedürfnisse an."
+  },
+  "sectorNames": {
+    "artisans-commercants": "Handwerk & Handel",
+    "professions-liberales": "Freie Berufe",
+    "restaurants-hotels": "Restaurants & Hotels",
+    "tpe-pme": "KMU",
+    "associations": "Vereine",
+    "organismes-formation": "Bildungseinrichtungen",
+    "btp-industrie": "Bau & Industrie"
+  },
   "header": {
     "hours": "Mo–Fr: 9–12 / 14–18 Uhr · Sa: 9–12 Uhr"
   },

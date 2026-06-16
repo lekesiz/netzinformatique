@@ -1,5 +1,20 @@
 // Auto-généré : traductions TR (lazy-loaded). FR = defaultValue inline des t().
 export default {
+  "sectorsSection": {
+    "badge": "Sektörler",
+    "titlePre": "Mesleğinize özel",
+    "titleHighlight": "çözümler",
+    "subtitle": "Sektörünüzün zorluklarını biliyor, çözümlerimizi ihtiyaçlarınıza göre uyarlıyoruz."
+  },
+  "sectorNames": {
+    "artisans-commercants": "Esnaf & Tüccarlar",
+    "professions-liberales": "Serbest Meslekler",
+    "restaurants-hotels": "Restoranlar & Oteller",
+    "tpe-pme": "KOBİ'ler",
+    "associations": "Dernekler",
+    "organismes-formation": "Eğitim Kurumları",
+    "btp-industrie": "İnşaat & Sanayi"
+  },
   "header": {
     "hours": "Pzt–Cum: 9–12 / 14–18 · Cmt: 9–12"
   },
