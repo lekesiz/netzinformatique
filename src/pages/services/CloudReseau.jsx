@@ -76,7 +76,7 @@ const CloudReseau = () => {
       description: t('cloudReseau.sol3Desc', 'Solution cloud hébergée dans vos locaux'),
       features: [
         t('cloudReseau.sol3Feat1', 'Contrôle total de vos données'),
-        t('cloudReseau.sol3Feat2', 'Conformité RGPD garantie'),
+        t('cloudReseau.sol3Feat2', 'Configuration conçue pour soutenir les exigences RGPD'),
         t('cloudReseau.sol3Feat3', 'Nextcloud ou ownCloud'),
         t('cloudReseau.sol3Feat4', 'Pas d\'abonnement mensuel'),
         t('cloudReseau.sol3Feat5', 'Performances optimales'),

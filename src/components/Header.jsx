@@ -32,7 +32,7 @@ const Header = () => {
     { icon: Wrench, title: t('megaMenu.depTitle', 'Dépannage & Maintenance'), desc: t('megaMenu.depDesc', 'Réparation, optimisation, support'), path: '/services/depannage-maintenance' },
     { icon: ShieldCheck, title: t('megaMenu.cyberTitle', 'Cybersécurité'), desc: t('megaMenu.cyberDesc', 'Protection, audit, conformité'), path: '/services/cybersecurite' },
     { icon: Cloud, title: t('megaMenu.cloudTitle', 'Cloud & Réseau'), desc: t('megaMenu.cloudDesc', 'Migration, infrastructure'), path: '/services/cloud-reseau' },
-    { icon: Bot, title: t('megaMenu.iaTitle', 'IA Offline'), desc: t('megaMenu.iaDesc', 'IA locale 100% confidentielle'), path: '/services/ia-offline' },
+    { icon: Bot, title: t('megaMenu.iaTitle', 'IA Offline'), desc: t('megaMenu.iaDesc', 'Traitement local et flux de données maîtrisés'), path: '/services/ia-offline' },
     { icon: Globe, title: t('megaMenu.webTitle', 'Web & Digital'), desc: t('megaMenu.webDesc', 'Sites web, SEO, présence en ligne'), path: '/services/web-digital' },
     { icon: GraduationCap, title: t('megaMenu.formTitle', 'Formation Pro'), desc: t('megaMenu.formDesc', 'QUALIOPI, finançable CPF/OPCO'), path: '/services/formation-professionnelle' },
   ]

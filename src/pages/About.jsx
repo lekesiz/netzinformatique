@@ -22,9 +22,9 @@ const About = () => {
   ]
 
   const milestones = [
-    { year: '2009', title: t('about.milestone2009Title', 'Les Débuts'), description: t('about.milestone2009Desc', 'Début de l\'activité informatique en France (anciennement Orditeur)') },
+    { year: '2009', title: t('about.milestone2009Title', 'Historique déclaré'), description: t('about.milestone2009Desc', 'NETZ indique une continuité avec une activité informatique antérieure appelée Orditeur') },
     { year: '2012', title: t('about.milestone2012Title', 'Boutique en ligne'), description: t('about.milestone2012Desc', 'Lancement de la boutique informatique-haguenau.fr') },
-    { year: '2016', title: t('about.milestone2016Title', 'Création'), description: t('about.milestone2016Desc', 'Fondation de NETZ Informatique à Haguenau par Mikail Lekesiz') },
+    { year: '2016', title: t('about.milestone2016Title', 'Création'), description: t('about.milestone2016Desc', 'Immatriculation de NETZ Informatique en France ; Mikail Lekesiz est le président inscrit') },
     { year: '2022', title: t('about.milestone2022Title', 'Certification'), description: t('about.milestone2022Desc', 'Obtention de la certification QUALIOPI') },
     { year: '2023', title: t('about.milestone2023Title', 'Innovation'), description: t('about.milestone2023Desc', 'Lancement des solutions IA Offline') },
     { year: '2025', title: t('about.milestone2025Title', 'Qualité'), description: t('about.milestone2025Desc', 'Certification QUALIOPI pour les actions de formation et les bilans de compétences') }
@@ -38,7 +38,7 @@ const About = () => {
     },
     {
       role: t('about.teamRole2', 'Techniciens Experts'),
-      description: t('about.teamDesc2', 'Équipe certifiée et passionnée par les nouvelles technologies'),
+      description: t('about.teamDesc2', 'Équipe technique mobilisée selon les besoins des projets'),
       expertise: [t('about.teamExp2a', 'Dépannage'), t('about.teamExp2b', 'Maintenance'), t('about.teamExp2c', 'Réseau')]
     },
     {
@@ -48,7 +48,7 @@ const About = () => {
     },
     {
       role: t('about.teamRole4', 'Formateurs'),
-      description: t('about.teamDesc4', 'Experts pédagogiques certifiés QUALIOPI et TOSA'),
+      description: t('about.teamDesc4', 'Intervenants mobilisés dans le périmètre des actions de formation'),
       expertise: [t('about.teamExp4a', 'Bureautique'), t('about.teamExp4b', 'IA'), t('about.teamExp4c', 'Digital')]
     }
   ]
@@ -77,7 +77,7 @@ const About = () => {
               </div>
               <div className="flex items-center gap-2 bg-white/10 ring-1 ring-white/20 rounded-full px-4 py-2">
                 <Calendar size={16} className="text-accent" />
-                <span>{t('about.heroSince', 'Depuis 2009')}</span>
+                <span>{t('about.heroSince', 'Société créée en 2016')}</span>
               </div>
               <div className="flex items-center gap-2 bg-white/10 ring-1 ring-white/20 rounded-full px-4 py-2">
                 <Briefcase size={16} className="text-accent" />
@@ -105,7 +105,7 @@ const About = () => {
               <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-8 md:p-12 mb-8">
                 <h3 className="text-2xl font-bold mb-4">{t('about.story1Title', 'Les Débuts (2009)')}</h3>
                 <p className="text-muted-foreground mb-4">
-                  {t('about.story1Para1', "L'aventure a démarré en 2009 avec une activité informatique en France (anciennement Orditeur), avec une vision claire : rendre la technologie accessible et utile pour tous. NETZ Informatique a ensuite été fondée en 2016 à Haguenau, dans le Bas-Rhin. Dès le départ, notre approche s'est distinguée par une proximité avec nos clients et une expertise technique de haut niveau.")}
+                  {t('about.story1Para1', "NETZ indique que son histoire prolonge une activité informatique commencée en France en 2009 sous le nom Orditeur. Le fait vérifiable dans les registres publics est la création de NETZ Informatique en 2016 à Haguenau, dans le Bas-Rhin.")}
                 </p>
                 <p className="text-muted-foreground">
                   {t('about.story1Para2', "Nos premiers clients étaient principalement des particuliers et des petites entreprises locales qui cherchaient un partenaire de confiance pour leurs besoins informatiques. Cette relation de proximité reste au cœur de notre ADN aujourd'hui.")}
@@ -118,14 +118,14 @@ const About = () => {
                   {t('about.story2Para1a', 'Face à la demande croissante, nous avons élargi notre offre de services. En 2012, nous avons lancé notre boutique en ligne')} <strong>informatique-haguenau.fr</strong>{t('about.story2Para1b', ", permettant à nos clients d'accéder facilement à du matériel informatique de qualité à des prix compétitifs.")}
                 </p>
                 <p className="text-muted-foreground">
-                  {t('about.story2Para2a', 'En 2022, nous avons obtenu la certification')} <strong>QUALIOPI</strong>{t('about.story2Para2b', ", marquant notre engagement dans la formation professionnelle. Cette certification nous a permis de proposer des formations certifiées et éligibles au CPF, renforçant notre position d'expert en développement des compétences numériques.")}
+                  {t('about.story2Para2a', 'En 2022, nous avons obtenu la certification')} <strong>QUALIOPI</strong>{t('about.story2Para2b', ". Le certificat publié couvre aujourd'hui les actions de formation et les bilans de compétences ; l'éligibilité à un financement dépend de chaque dispositif et de la situation du bénéficiaire.")}
                 </p>
               </div>
 
               <div className="bg-gradient-to-br from-accent/5 to-primary/5 rounded-2xl p-8 md:p-12">
                 <h3 className="text-2xl font-bold mb-4">{t('about.story3Title', "Innovation et Leadership (2023-Aujourd'hui)")}</h3>
                 <p className="text-muted-foreground mb-4">
-                  {t('about.story3Para1a', "Toujours à l'avant-garde de l'innovation, nous avons été parmi les premiers en Alsace à proposer des")} <strong>{t('about.story3Para1Bold', "solutions d'intelligence artificielle offline")}</strong>{t('about.story3Para1b', ", permettant aux entreprises de bénéficier de la puissance de l'IA tout en gardant le contrôle total de leurs données.")}
+                  {t('about.story3Para1a', 'NETZ propose des')} <strong>{t('about.story3Para1Bold', "solutions d'intelligence artificielle offline")}</strong>{t('about.story3Para1b', ", conçues pour exécuter des traitements localement et réduire les transferts de données selon l'architecture retenue.")}
                 </p>
                 <p className="text-muted-foreground">
                   {t('about.story3Para2a', "Aujourd'hui, NETZ Informatique accompagne particuliers, entreprises et apprenants avec une équipe engagée. Notre certification QUALIOPI couvre les actions de formation et les bilans de compétences. Notre plateforme")}

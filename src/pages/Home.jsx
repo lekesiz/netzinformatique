@@ -15,7 +15,6 @@ import SectorsSection from '@/components/home/SectorsSection'
 import SEO from '@/components/common/SEO'
 import StructuredData from '@/components/common/StructuredData'
 import Reveal from '@/components/common/Reveal'
-import CountUp from '@/components/common/CountUp'
 
 const Home = () => {
   const { t } = useTranslation()
@@ -59,7 +58,7 @@ const Home = () => {
               <div className="animate-slideInLeft">
                 <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium ring-1 ring-white/20">
                   <ShieldCheck size={16} className="text-accent" />
-                  {t('home.heroBadge', 'Expert IT certifié QUALIOPI · Haguenau')}
+                  {t('home.heroBadge', 'Organisme certifié QUALIOPI · Haguenau')}
                 </span>
                 <h1 className="mt-5 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                   {t('home.heroTitlePre', 'Votre partenaire')} <span className="text-accent">{t('home.heroTitleHighlight', 'technologique')}</span> {t('home.heroTitlePost', 'à Haguenau')}
@@ -127,7 +126,7 @@ const Home = () => {
               {stats.map((stat, index) => (
                 <Reveal key={index} delay={index * 0.08} className="text-center">
                   <stat.icon size={36} className="mx-auto mb-3 text-accent" />
-                  <div className="text-3xl md:text-4xl font-bold mb-1 font-heading"><CountUp value={stat.value} /></div>
+                  <div className="text-3xl md:text-4xl font-bold mb-1 font-heading">{stat.value}</div>
                   <div className="text-sm md:text-base text-background/70">{stat.label}</div>
                 </Reveal>
               ))}

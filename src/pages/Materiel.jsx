@@ -293,7 +293,7 @@ const Materiel = () => {
               </li>
               <li className="flex items-center gap-2">
                 <CheckCircle size={16} />
-                <span>{t('materiel.warrantyFeature2', "Support technique 35+ ans d'expérience")}</span>
+                <span>{t('materiel.warrantyFeature2', 'Support technique adapté à vos besoins')}</span>
               </li>
               <li className="flex items-center gap-2">
                 <CheckCircle size={16} />

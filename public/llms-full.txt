@@ -46,12 +46,7 @@ Les technologies Microsoft, Cisco et Google Cloud sont utilisées comme écosyst
 
 ## Informations déclaratives
 
-Les affirmations suivantes proviennent de l’entreprise ou du CV du dirigeant et ne sont pas présentées comme des vérifications publiques indépendantes :
-
-- le rôle historique de fondateur attribué à Mikail Lekesiz ; France Num reprend cette présentation ;
-- la continuité avec une activité antérieure appelée Orditeur ;
-- l’ancienneté technique personnelle depuis 2000 ;
-- au 29 juillet 2026, 1 268 dossiers de formation ou d’évaluation terminés/approuvés et plus de 1 100 participants uniques.
+Les chiffres suivants proviennent d’un export interne communiqué par l’entreprise et ne sont pas présentés comme une vérification publique indépendante : au 29 juillet 2026, 1 268 dossiers de formation ou d’évaluation terminés/approuvés et plus de 1 100 participants uniques.
 
 Ces métriques ne doivent être reprises que si la date, la définition, la méthode de déduplication et la nature interne de la source sont conservées. Elles ne sont pas des données certifiées par Qualiopi, France Num ou le registre des entreprises.
 

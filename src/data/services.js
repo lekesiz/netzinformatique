@@ -151,10 +151,10 @@ export const whyChooseUs = [
   {
     icon: 'Award',
     title: {
-      fr: '35+ Ans d\'Expérience',
-      en: '35+ Years of Experience',
-      de: '35+ Jahre Erfahrung',
-      tr: '35+ Yıllık Deneyim'
+      fr: 'Présent depuis 2016',
+      en: 'Established in 2016',
+      de: 'Seit 2016 etabliert',
+      tr: '2016\'dan beri faal'
     },
     description: {
       fr: 'Depuis 2016, nous accompagnons particuliers et entreprises dans leur transformation digitale.',
@@ -181,31 +181,31 @@ export const whyChooseUs = [
   {
     icon: 'Shield',
     title: {
-      fr: 'Expertise IA Offline Unique',
-      en: 'Unique Offline AI Expertise',
-      de: 'Einzigartige Offline-KI-Expertise',
-      tr: 'Benzersiz Çevrimdışı AI Uzmanlığı'
+      fr: 'Solutions IA Offline',
+      en: 'Offline AI Solutions',
+      de: 'Offline-KI-Lösungen',
+      tr: 'Çevrimdışı AI Çözümleri'
     },
     description: {
-      fr: 'Solution exclusive d\'IA Offline avec confidentialité totale. Idéal pour secteurs sensibles (santé, juridique).',
-      en: 'Exclusive Offline AI solution with total confidentiality. Ideal for sensitive sectors (health, legal).',
-      de: 'Exklusive Offline-KI-Lösung mit vollständiger Vertraulichkeit. Ideal für sensible Sektoren (Gesundheit, Recht).',
-      tr: 'Tam gizlilik ile özel Çevrimdışı AI çözümü. Hassas sektörler için ideal (sağlık, hukuk).'
+      fr: 'Traitement local conçu pour réduire les transferts de données vers des services cloud, selon l’architecture retenue.',
+      en: 'Local processing designed to reduce data transfers to cloud services, depending on the selected architecture.',
+      de: 'Lokale Verarbeitung zur Verringerung von Datenübertragungen an Cloud-Dienste, abhängig von der gewählten Architektur.',
+      tr: 'Seçilen mimariye göre bulut hizmetlerine veri aktarımını azaltmak üzere tasarlanmış yerel işleme.'
     }
   },
   {
     icon: 'Users',
     title: {
-      fr: 'Support 24/7',
-      en: '24/7 Support',
-      de: '24/7-Support',
-      tr: '24/7 Destek'
+      fr: 'Support organisé',
+      en: 'Structured Support',
+      de: 'Strukturierter Support',
+      tr: 'Planlı Destek'
     },
     description: {
-      fr: 'Assistance disponible 24h/24, 7j/7. Intervention rapide sous 24-48h pour les urgences.',
-      en: 'Assistance available 24/7. Fast intervention within 24-48h for emergencies.',
-      de: 'Unterstützung rund um die Uhr verfügbar. Schneller Eingriff innerhalb von 24-48 Stunden bei Notfällen.',
-      tr: '7/24 destek mevcut. Acil durumlar için 24-48 saat içinde hızlı müdahale.'
+      fr: 'Prise en charge selon les horaires publiés et le niveau de service convenu ; les délais dépendent de la disponibilité.',
+      en: 'Support follows published business hours and the agreed service level; response times depend on availability.',
+      de: 'Support gemäß den veröffentlichten Geschäftszeiten und dem vereinbarten Servicelevel; Reaktionszeiten hängen von der Verfügbarkeit ab.',
+      tr: 'Destek, yayımlanan çalışma saatleri ve kararlaştırılan hizmet düzeyine göre sunulur; süreler müsaitliğe bağlıdır.'
     }
   },
   {

@@ -52,7 +52,7 @@ const resources = {
       },
       about: {
         title: 'À Propos de NETZ Informatique',
-        subtitle: 'Votre partenaire technologique de confiance depuis 2009'
+        subtitle: 'Votre partenaire technologique à Haguenau depuis 2016'
       },
       formation: {
         title: 'Formation QUALIOPI',
@@ -93,7 +93,7 @@ const resources = {
         skillsAssessment: 'Bilan de Compétences'
       },
       footer: {
-        tagline: 'Votre partenaire technologique de confiance à Haguenau. Fondé en 2016 par Mikail Lekesiz, professionnel de l’IT depuis 2000.',
+        tagline: 'Votre partenaire technologique à Haguenau. NETZ Informatique est une SAS française créée en 2016, présidée par Mikail Lekesiz.',
         quickLinks: 'Liens Rapides',
         ourServices: 'Nos Services',
         contact: 'Contact',
@@ -197,7 +197,7 @@ const resources = {
       },
       about: {
         title: 'About NETZ Informatique',
-        subtitle: 'Your trusted technology partner since 2009'
+        subtitle: 'Your technology partner in Haguenau since 2016'
       },
       formation: {
         title: 'QUALIOPI Training',
@@ -342,7 +342,7 @@ const resources = {
       },
       about: {
         title: 'Über NETZ Informatique',
-        subtitle: 'Ihr vertrauenswürdiger Technologiepartner seit 2009'
+        subtitle: 'Ihr Technologiepartner in Haguenau seit 2016'
       },
       formation: {
         title: 'QUALIOPI Schulung',
@@ -474,7 +474,7 @@ const resources = {
         heroTitle: 'Haguenau\'daki',
         heroTitleHighlight: 'Teknoloji',
         heroLocation: 'Ortağınız',
-        heroDescription: '25 yılı aşkın süredir NETZ Informatique, uzmanlık ve yenilikle bireylerin ve işletmelerin dijital dönüşümünde yanlarında.',
+        heroDescription: '2016\'da kurulan NETZ Informatique, bireyleri ve işletmeleri bilişim, dijital dönüşüm ve eğitim projelerinde destekler.',
         servicesTitle: 'Hizmetlerimiz',
         partnersTitle: 'Teknoloji Ortaklarımız',
         getFreeQuote: 'Ücretsiz Teklif Alın',
@@ -487,7 +487,7 @@ const resources = {
       },
       about: {
         title: 'NETZ Informatique Hakkında',
-        subtitle: '2009\'dan beri güvenilir teknoloji ortağınız'
+        subtitle: '2016\'dan beri Haguenau\'daki teknoloji ortağınız'
       },
       formation: {
         title: 'QUALIOPI Eğitim',
@@ -528,7 +528,7 @@ const resources = {
         skillsAssessment: 'Yetkinlik Değerlendirmesi'
       },
       footer: {
-        tagline: 'Haguenau\'da 25 yılı aşkın süredir güvenilir teknoloji ortağınız.',
+        tagline: 'Haguenau\'daki teknoloji ortağınız. NETZ Informatique, 2016\'da kurulmuş ve başkanlığını Mikail Lekesiz\'in yürüttüğü bir Fransız SAS şirketidir.',
         quickLinks: 'Hızlı Bağlantılar',
         ourServices: 'Hizmetlerimiz',
         contact: 'İletişim',
