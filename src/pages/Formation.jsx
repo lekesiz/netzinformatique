@@ -183,23 +183,23 @@ const Formation = () => {
         <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <div className="bg-card rounded-xl p-8 shadow-lg text-center">
             <Users size={48} className="text-primary mx-auto mb-4" />
-            <div className="text-4xl font-bold text-primary mb-2">670+</div>
-            <p className="text-muted-foreground">{t('formation.stat1Label', 'Participants formés')}</p>
-            <p className="text-sm text-muted-foreground mt-2">{t('formation.stat1Sub', 'depuis notre création')}</p>
+            <div className="text-4xl font-bold text-primary mb-2">1100+</div>
+            <p className="text-muted-foreground">{t('formation.stat1Label', 'Participants uniques déclarés')}</p>
+            <p className="text-sm text-muted-foreground mt-2">{t('formation.stat1Sub', 'au 29 juillet 2026')}</p>
           </div>
 
           <div className="bg-card rounded-xl p-8 shadow-lg text-center">
             <TrendingUp size={48} className="text-accent mx-auto mb-4" />
-            <div className="text-4xl font-bold text-accent mb-2">95%</div>
-            <p className="text-muted-foreground">{t('formation.stat2Label', 'Taux de réalisation')}</p>
-            <p className="text-sm text-muted-foreground mt-2">{t('formation.stat2Sub', 'objectifs atteints à 6 mois')}</p>
+            <div className="text-4xl font-bold text-accent mb-2">1268</div>
+            <p className="text-muted-foreground">{t('formation.stat2Label', 'Dossiers terminés ou approuvés')}</p>
+            <p className="text-sm text-muted-foreground mt-2">{t('formation.stat2Sub', 'donnée interne au 29 juillet 2026')}</p>
           </div>
 
           <div className="bg-card rounded-xl p-8 shadow-lg text-center">
             <Award size={48} className="text-secondary mx-auto mb-4" />
-            <div className="text-4xl font-bold text-secondary mb-2">98%</div>
-            <p className="text-muted-foreground">{t('formation.stat3Label', 'Satisfaction')}</p>
-            <p className="text-sm text-muted-foreground mt-2">{t('formation.stat3Sub', 'participants satisfaits')}</p>
+            <div className="text-4xl font-bold text-secondary mb-2">2</div>
+            <p className="text-muted-foreground">{t('formation.stat3Label', 'Catégories QUALIOPI')}</p>
+            <p className="text-sm text-muted-foreground mt-2">{t('formation.stat3Sub', 'formation et bilan de compétences')}</p>
           </div>
         </div>
       </div>

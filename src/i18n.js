@@ -36,13 +36,16 @@ const resources = {
         heroTitle: 'Votre Partenaire',
         heroTitleHighlight: 'Technologique',
         heroLocation: 'à Haguenau',
-        heroDescription: 'Fort de 35 ans d\'expérience dans le secteur IT, Mikail Lekesiz a fondé NETZ Informatique en 2016 pour accompagner particuliers et entreprises dans leur transformation digitale avec expertise et innovation.',
+        heroDescription: 'Créée en 2016, NETZ Informatique accompagne particuliers et entreprises dans leurs projets informatiques, numériques et de formation.',
         getFreeQuote: 'Demander un Devis Gratuit',
         discoverServices: 'Découvrir nos Services',
         quickIntervention: 'Intervention rapide 24-48h',
         statsRepairs: 'Réparations Réussies',
         statsExperience: 'Ans d\'Expérience',
         statsClients: 'Clients Satisfaits',
+        statsFounded: 'Année de création',
+        statsQualiopi: 'Certification QUALIOPI',
+        statsCertifiedActivities: 'Catégories certifiées',
         statsSupport: 'Délai d\'Intervention',
         servicesTitle: 'Nos Services',
         partnersTitle: 'Nos Partenaires Technologiques'
@@ -90,7 +93,7 @@ const resources = {
         skillsAssessment: 'Bilan de Compétences'
       },
       footer: {
-        tagline: 'Votre partenaire technologique de confiance à Haguenau. Fondé en 2016 par Mikail Lekesiz, fort de 35 ans d\'expérience IT.',
+        tagline: 'Votre partenaire technologique de confiance à Haguenau. Fondé en 2016 par Mikail Lekesiz, professionnel de l’IT depuis 2000.',
         quickLinks: 'Liens Rapides',
         ourServices: 'Nos Services',
         contact: 'Contact',
@@ -181,7 +184,7 @@ const resources = {
         heroTitle: 'Your Technology',
         heroTitleHighlight: 'Partner',
         heroLocation: 'in Haguenau',
-        heroDescription: 'With 35 years of experience in the IT sector, Mikail Lekesiz founded NETZ Informatique in 2016 to support individuals and businesses in their digital transformation with expertise and innovation.',
+        heroDescription: 'Established in 2016, NETZ Informatique supports individuals and businesses with IT, digital and training projects.',
         getFreeQuote: 'Get a Free Quote',
         discoverServices: 'Discover Our Services',
         quickIntervention: 'Intervention within 24-48h',
@@ -235,7 +238,7 @@ const resources = {
         skillsAssessment: 'Skills Assessment'
       },
       footer: {
-        tagline: 'Your trusted technology partner in Haguenau. Founded in 2016 by Mikail Lekesiz, with 35 years of IT experience.',
+        tagline: 'Your technology partner in Haguenau. NETZ Informatique has been registered in France since 2016.',
         quickLinks: 'Quick Links',
         ourServices: 'Our Services',
         contact: 'Contact',
@@ -326,7 +329,7 @@ const resources = {
         heroTitle: 'Ihr Technologie',
         heroTitleHighlight: 'Partner',
         heroLocation: 'in Haguenau',
-        heroDescription: 'Seit über 35 Jahren unterstützt NETZ Informatique Privatpersonen und Unternehmen bei ihrer digitalen Transformation mit Expertise und Innovation.',
+        heroDescription: 'NETZ Informatique wurde 2016 gegründet und unterstützt Privatpersonen und Unternehmen bei IT-, Digital- und Weiterbildungsprojekten.',
         servicesTitle: 'Unsere Dienstleistungen',
         partnersTitle: 'Unsere Technologiepartner',
         getFreeQuote: 'Kostenloses Angebot anfordern',
@@ -380,7 +383,7 @@ const resources = {
         skillsAssessment: 'Kompetenzbilanz'
       },
       footer: {
-        tagline: 'Ihr vertrauenswürdiger Technologiepartner seit über 35 Jahren in Haguenau.',
+        tagline: 'Ihr Technologiepartner in Haguenau. NETZ Informatique ist seit 2016 in Frankreich registriert.',
         quickLinks: 'Schnelllinks',
         ourServices: 'Unsere Dienstleistungen',
         contact: 'Kontakt',
@@ -471,7 +474,7 @@ const resources = {
         heroTitle: 'Haguenau\'daki',
         heroTitleHighlight: 'Teknoloji',
         heroLocation: 'Ortağınız',
-        heroDescription: '35 yılı aşkın süredir NETZ Informatique, uzmanlık ve yenilikle bireylerin ve işletmelerin dijital dönüşümünde yanlarında.',
+        heroDescription: '25 yılı aşkın süredir NETZ Informatique, uzmanlık ve yenilikle bireylerin ve işletmelerin dijital dönüşümünde yanlarında.',
         servicesTitle: 'Hizmetlerimiz',
         partnersTitle: 'Teknoloji Ortaklarımız',
         getFreeQuote: 'Ücretsiz Teklif Alın',
@@ -525,7 +528,7 @@ const resources = {
         skillsAssessment: 'Yetkinlik Değerlendirmesi'
       },
       footer: {
-        tagline: 'Haguenau\'da 35 yılı aşkın süredir güvenilir teknoloji ortağınız.',
+        tagline: 'Haguenau\'da 25 yılı aşkın süredir güvenilir teknoloji ortağınız.',
         quickLinks: 'Hızlı Bağlantılar',
         ourServices: 'Hizmetlerimiz',
         contact: 'İletişim',

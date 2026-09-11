@@ -19,12 +19,12 @@ const Legal = () => {
   const { t } = useTranslation()
   const editor = [
     [t('legal.editorDenomination', 'Dénomination sociale'), 'NETZ Informatique'],
-    [t('legal.editorLegalForm', 'Forme juridique'), 'SASU (Société par actions simplifiée à associé unique)'],
+    [t('legal.editorLegalForm', 'Forme juridique'), 'SAS (Société par actions simplifiée)'],
     [t('legal.editorHeadquarters', 'Siège social'), '1a Route de Schweighouse, 67500 Haguenau, France'],
-    [t('legal.editorCapital', 'Capital social'), '1 000,00 €'],
+    [t('legal.editorCapital', 'Capital social'), '100,00 €'],
     ['SIREN', '818 347 346'],
     ['RCS', 'Strasbourg B 818 347 346'],
-    [t('legal.editorVat', 'TVA intracommunautaire'), 'FR44 818 347 346'],
+    [t('legal.editorVat', 'TVA intracommunautaire'), 'FR83 818 347 346'],
     [t('legal.editorPhone', 'Téléphone'), '03 67 31 02 01'],
     [t('legal.editorEmail', 'Email'), 'contact@netzinformatique.fr'],
   ]
@@ -43,7 +43,7 @@ const Legal = () => {
             <Scale size={16} className="text-accent" /> {t('legal.heroBadge', 'Informations légales')}
           </span>
           <h1 className="mt-4 text-4xl md:text-5xl font-bold">{t('legal.heroTitle', 'Mentions Légales')}</h1>
-          <p className="mt-3 text-primary-foreground/80">{t('legal.lastUpdate', 'Dernière mise à jour : 15 juin 2026')}</p>
+          <p className="mt-3 text-primary-foreground/80">{t('legal.lastUpdate', 'Dernière mise à jour : 11 septembre 2026')}</p>
         </div>
       </section>
 

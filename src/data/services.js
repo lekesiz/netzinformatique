@@ -211,16 +211,16 @@ export const whyChooseUs = [
   {
     icon: 'Certificate',
     title: {
-      fr: 'Certifications & Partenariats',
-      en: 'Certifications & Partnerships',
-      de: 'Zertifizierungen & Partnerschaften',
-      tr: 'Sertifikalar & Ortaklıklar'
+      fr: 'Certification & Technologies',
+      en: 'Certification & Technologies',
+      de: 'Zertifizierung & Technologien',
+      tr: 'Sertifika & Teknolojiler'
     },
     description: {
-      fr: 'Partenaire Microsoft et Cisco. Certification QUALIOPI pour nos formations professionnelles.',
-      en: 'Microsoft and Cisco partner. QUALIOPI certification for our professional training.',
-      de: 'Microsoft- und Cisco-Partner. QUALIOPI-Zertifizierung für unsere Berufsausbildung.',
-      tr: 'Microsoft ve Cisco ortağı. Profesyonel eğitimlerimiz için QUALIOPI sertifikası.'
+      fr: 'Solutions fondées sur les technologies Microsoft et Cisco. Certification QUALIOPI pour nos formations professionnelles.',
+      en: 'Solutions built with Microsoft and Cisco technologies. QUALIOPI-certified professional training.',
+      de: 'Lösungen mit Microsoft- und Cisco-Technologien. QUALIOPI-zertifizierte Weiterbildung.',
+      tr: 'Microsoft ve Cisco teknolojileriyle çözümler. Mesleki eğitim için QUALIOPI sertifikası.'
     }
   },
   {
@@ -244,12 +244,12 @@ export const partners = [
   {
     name: 'Microsoft',
     logo: '/images/partners/microsoft.png',
-    description: 'Microsoft Partner'
+    description: 'Microsoft technology ecosystem'
   },
   {
     name: 'Cisco',
     logo: '/images/partners/cisco.png',
-    description: 'Cisco Partner'
+    description: 'Cisco technology ecosystem'
   },
   {
     name: 'QUALIOPI',
@@ -259,6 +259,6 @@ export const partners = [
   {
     name: 'DeepSeek',
     logo: '/images/partners/deepseek.png',
-    description: 'DeepSeek Enterprise Partner'
+    description: 'DeepSeek AI technology ecosystem'
   }
 ]

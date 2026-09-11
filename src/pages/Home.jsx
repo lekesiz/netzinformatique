@@ -2,16 +2,13 @@ import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
 import {
-  Wrench, Users, Award, ArrowRight, Phone, Star, ShieldCheck,
+  Wrench, Award, ArrowRight, Phone, ShieldCheck,
   Building2, User, Clock,
 } from 'lucide-react'
 import ServicesSection from '@/components/home/ServicesSection'
-import TestimonialsSection from '@/components/home/TestimonialsSection'
 import WhyChooseUsSection from '@/components/home/WhyChooseUsSection'
-import PartnersSection from '@/components/home/PartnersSection'
 import BoutiqueSection from '@/components/home/BoutiqueSection'
 import NewsletterSection from '@/components/home/NewsletterSection'
-import CaseStudiesSection from '@/components/home/CaseStudiesSection'
 import ProcessSection from '@/components/home/ProcessSection'
 import HomeFAQSection from '@/components/home/HomeFAQSection'
 import SectorsSection from '@/components/home/SectorsSection'
@@ -24,9 +21,9 @@ const Home = () => {
   const { t } = useTranslation()
 
   const stats = [
-    { icon: Wrench, value: '2772+', label: t('home.statsRepairs', 'Appareils réparés') },
-    { icon: Award, value: '35+', label: t('home.statsExperience', 'Ans d\'expérience') },
-    { icon: Users, value: '900+', label: t('home.statsClients', 'Clients satisfaits') },
+    { icon: Wrench, value: '2016', label: t('home.statsFounded', 'Année de création') },
+    { icon: Award, value: '2025-2028', label: t('home.statsQualiopi', 'Certification QUALIOPI') },
+    { icon: ShieldCheck, value: '2', label: t('home.statsCertifiedActivities', 'Catégories certifiées') },
     { icon: Clock, value: '24-48h', label: t('home.statsSupport', 'Délai d\'intervention') },
   ]
 
@@ -69,7 +66,7 @@ const Home = () => {
                 </h1>
                 <p className="mt-5 text-lg md:text-xl text-primary-foreground/80 max-w-xl">
                   {t('home.heroDescPre', 'Dépannage, maintenance, cybersécurité, solutions IA et formation professionnelle.')}
-                  <span className="font-semibold text-primary-foreground"> {t('home.heroDescExp', '35 ans d\'expérience')}</span> {t('home.heroDescPost', 'au service des particuliers et des entreprises.')}
+                  <span className="font-semibold text-primary-foreground"> {t('home.heroDescExp', 'une pratique technique éprouvée')}</span> {t('home.heroDescPost', 'au service des particuliers et des entreprises.')}
                 </p>
 
                 <div className="mt-8 flex flex-col sm:flex-row gap-3">
@@ -89,15 +86,7 @@ const Home = () => {
 
                 {/* Trust row */}
                 <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-primary-foreground/80">
-                  <span className="flex items-center gap-1.5">
-                    <span className="flex">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} size={15} className="fill-amber-400 text-amber-400" />
-                      ))}
-                    </span>
-                    <span className="font-semibold text-primary-foreground">4,9/5</span>
-                  </span>
-                  <span className="flex items-center gap-1.5"><Users size={15} className="text-accent" /> {t('home.trustClients', '900+ clients')}</span>
+                  <span className="flex items-center gap-1.5"><Award size={15} className="text-accent" /> {t('home.trustQualiopi', 'QUALIOPI · formation & bilans de compétences')}</span>
                   <span className="flex items-center gap-1.5"><Clock size={15} className="text-accent" /> {t('home.trustIntervention', 'Intervention 24-48h')}</span>
                 </div>
               </div>
@@ -123,7 +112,7 @@ const Home = () => {
                   ))}
                   <div className="flex items-center justify-center gap-2 rounded-2xl border border-dashed border-white/20 p-4 text-sm text-primary-foreground/70">
                     <Award size={16} className="text-accent" />
-                    Microsoft · Cisco · Google Partner · QUALIOPI
+                    Solutions Microsoft · Cisco · Google Cloud · QUALIOPI
                   </div>
                 </div>
               </div>
@@ -155,17 +144,8 @@ const Home = () => {
         {/* Process / Comment ça marche */}
         <ProcessSection />
 
-        {/* Case Studies / Réalisations */}
-        <CaseStudiesSection />
-
         {/* Sectors */}
         <SectorsSection />
-
-        {/* Testimonials Section */}
-        <Reveal><TestimonialsSection /></Reveal>
-
-        {/* Partners Section */}
-        <Reveal><PartnersSection /></Reveal>
 
         {/* Boutique Section */}
         <Reveal><BoutiqueSection /></Reveal>

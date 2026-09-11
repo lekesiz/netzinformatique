@@ -320,18 +320,18 @@ const SolutionWeb = () => {
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto text-center">
             <div className="bg-card rounded-xl p-8 shadow-lg">
               <TrendingUp size={48} className="text-primary mx-auto mb-4" />
-              <div className="text-4xl font-bold text-primary mb-2">150+</div>
-              <p className="text-muted-foreground">{t('solWeb.statSites', 'Sites Web Créés')}</p>
+              <div className="text-4xl font-bold text-primary mb-2">SEO</div>
+              <p className="text-muted-foreground">{t('solWeb.statSites', 'Fondations techniques intégrées')}</p>
             </div>
             <div className="bg-card rounded-xl p-8 shadow-lg">
               <Users size={48} className="text-accent mx-auto mb-4" />
-              <div className="text-4xl font-bold text-accent mb-2">98%</div>
-              <p className="text-muted-foreground">{t('solWeb.statClients', 'Clients Satisfaits')}</p>
+              <div className="text-4xl font-bold text-accent mb-2">Sur mesure</div>
+              <p className="text-muted-foreground">{t('solWeb.statClients', 'Conception adaptée au besoin')}</p>
             </div>
             <div className="bg-card rounded-xl p-8 shadow-lg">
               <Award size={48} className="text-secondary mx-auto mb-4" />
-              <div className="text-4xl font-bold text-secondary mb-2">35+</div>
-              <p className="text-muted-foreground">{t('solWeb.statYears', 'Ans d\'Expérience')}</p>
+              <div className="text-4xl font-bold text-secondary mb-2">Maintenance</div>
+              <p className="text-muted-foreground">{t('solWeb.statYears', 'Accompagnement disponible')}</p>
             </div>
           </div>
         </div>

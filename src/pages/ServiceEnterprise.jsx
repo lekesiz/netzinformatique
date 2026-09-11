@@ -119,7 +119,7 @@ const ServiceEnterprise = () => {
     },
     {
       icon: Clock,
-      title: t('svcEnt.reason4Title', "35 ans d'expérience"),
+      title: t('svcEnt.reason4Title', "Une pratique de terrain éprouvée"),
       description: t('svcEnt.reason4Desc', 'Une expertise IT solide au service des entreprises et des professionnels depuis des décennies.'),
     },
   ]

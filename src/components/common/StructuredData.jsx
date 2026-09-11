@@ -13,7 +13,7 @@ const StructuredData = ({ type = 'all', data = {} }) => {
     "url": siteUrl,
     "logo": `${siteUrl}/logo.png`,
     "image": `${siteUrl}/images/og-image.jpg`,
-    "description": "Expert informatique à Haguenau : dépannage, maintenance, solutions IA Offline, formation professionnelle certifiée QUALIOPI. NETZ Informatique a été fondée en 2016 par Mikail Lekesiz, dans la continuité d'une activité informatique présente en France depuis 2009 (anciennement Orditeur). Mikail Lekesiz cumule 35 ans d'expérience dans le secteur.",
+    "description": "Entreprise de services informatiques et organisme de formation à Haguenau. NETZ Informatique est enregistrée en France depuis 2016 et certifiée QUALIOPI pour les actions de formation et les bilans de compétences.",
     "telephone": "+33367310201",
     "email": "contact@netzinformatique.fr",
     "priceRange": "€€",
@@ -110,23 +110,13 @@ const StructuredData = ({ type = 'all', data = {} }) => {
         }
       ]
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "127",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "founder": {
+    "employee": {
       "@type": "Person",
-      "name": "Mikail Lekesiz"
+      "name": "Mikail Lekesiz",
+      "jobTitle": "Président"
     },
     "foundingDate": "2016",
-    "slogan": "35 ans d'expérience IT — présent en France depuis 2009",
-    "numberOfEmployees": {
-      "@type": "QuantitativeValue",
-      "value": "2-10"
-    }
+    "slogan": "Solutions informatiques, IA responsable et formation professionnelle",
   }
 
   // Organization Schema

@@ -19,9 +19,6 @@ const About = () => {
   const certifications = [
     { name: 'QUALIOPI', description: t('about.cert1Desc', 'Certification qualité pour les formations professionnelles') },
     { name: 'TOSA', description: t('about.cert2Desc', 'Certifications bureautiques reconnues') },
-    { name: 'Microsoft Partner', description: t('about.cert3Desc', 'Partenaire officiel Microsoft') },
-    { name: 'Cisco Partner', description: t('about.cert4Desc', 'Expertise réseau certifiée') },
-    { name: 'Google Partner', description: t('about.cert5Desc', 'Solutions cloud et productivité') }
   ]
 
   const milestones = [
@@ -30,13 +27,13 @@ const About = () => {
     { year: '2016', title: t('about.milestone2016Title', 'Création'), description: t('about.milestone2016Desc', 'Fondation de NETZ Informatique à Haguenau par Mikail Lekesiz') },
     { year: '2022', title: t('about.milestone2022Title', 'Certification'), description: t('about.milestone2022Desc', 'Obtention de la certification QUALIOPI') },
     { year: '2023', title: t('about.milestone2023Title', 'Innovation'), description: t('about.milestone2023Desc', 'Lancement des solutions IA Offline') },
-    { year: '2025', title: t('about.milestone2025Title', 'Leadership'), description: t('about.milestone2025Desc', 'Plus de 900 clients satisfaits dans le Grand Est') }
+    { year: '2025', title: t('about.milestone2025Title', 'Qualité'), description: t('about.milestone2025Desc', 'Certification QUALIOPI pour les actions de formation et les bilans de compétences') }
   ]
 
   const team = [
     {
       role: t('about.teamRole1', 'Direction'),
-      description: t('about.teamDesc1', 'Plus de 35 ans d\'expérience en informatique et gestion d\'entreprise'),
+      description: t('about.teamDesc1', 'Pratique technique et gestion de projets'),
       expertise: [t('about.teamExp1a', 'Stratégie IT'), t('about.teamExp1b', 'Gestion de projet'), t('about.teamExp1c', 'Conseil')]
     },
     {
@@ -60,7 +57,7 @@ const About = () => {
     <div className="overflow-x-hidden">
       <SEO
         title={t('about.seoTitle', 'À Propos de NETZ Informatique | Expert IT à Haguenau')}
-        description={t('about.seoDescription', "Plus de 35 ans d'expertise IT au service de votre transformation digitale dans le Grand Est. Découvrez notre histoire, nos valeurs et notre équipe.")}
+        description={t('about.seoDescription', "Entreprise créée en 2016. Découvrez notre histoire, nos valeurs et notre équipe.")}
         url="/a-propos"
       />
       {/* Hero Section */}
@@ -71,7 +68,7 @@ const About = () => {
               {t('about.heroTitlePart1', 'À Propos de')} <span className="text-accent">NETZ Informatique</span>
             </h1>
             <p className="text-xl text-primary-foreground/80 mb-8">
-              {t('about.heroSubtitle', "Plus de 35 ans d'expertise au service de votre transformation digitale dans le Grand Est")}
+              {t('about.heroSubtitle', "Une pratique technique éprouvée au service de vos projets numériques dans le Grand Est")}
             </p>
             <div className="flex gap-4 justify-center flex-wrap text-sm">
               <div className="flex items-center gap-2 bg-white/10 ring-1 ring-white/20 rounded-full px-4 py-2">
@@ -84,7 +81,7 @@ const About = () => {
               </div>
               <div className="flex items-center gap-2 bg-white/10 ring-1 ring-white/20 rounded-full px-4 py-2">
                 <Briefcase size={16} className="text-accent" />
-                <span>{t('about.heroClients', '900+ Clients')}</span>
+                <span>{t('about.heroClients', 'Certification QUALIOPI')}</span>
               </div>
             </div>
           </div>
@@ -131,8 +128,7 @@ const About = () => {
                   {t('about.story3Para1a', "Toujours à l'avant-garde de l'innovation, nous avons été parmi les premiers en Alsace à proposer des")} <strong>{t('about.story3Para1Bold', "solutions d'intelligence artificielle offline")}</strong>{t('about.story3Para1b', ", permettant aux entreprises de bénéficier de la puissance de l'IA tout en gardant le contrôle total de leurs données.")}
                 </p>
                 <p className="text-muted-foreground">
-                  {t('about.story3Para2a', "Aujourd'hui, NETZ Informatique c'est plus de")} <strong>{t('about.story3Para2Bold1', '900 clients satisfaits')}</strong>,
-                  <strong>{t('about.story3Para2Bold2', '2772+ appareils réparés')}</strong>{t('about.story3Para2b', ", et une équipe passionnée qui continue d'innover pour répondre aux défis technologiques de demain. Notre plateforme de formation")}
+                  {t('about.story3Para2a', "Aujourd'hui, NETZ Informatique accompagne particuliers, entreprises et apprenants avec une équipe engagée. Notre certification QUALIOPI couvre les actions de formation et les bilans de compétences. Notre plateforme")}
                   <strong> formation-haguenau.fr</strong> {t('about.story3Para2c', 'et notre blog technique')} <strong>netz-blog.fr</strong>
                   {t('about.story3Para2d', ' témoignent de notre engagement à partager notre expertise.')}
                 </p>
@@ -215,7 +211,7 @@ const About = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle size={20} className="text-accent flex-shrink-0 mt-1" />
-                  <span>{t('about.visionItem3', 'Partenaire de confiance pour 1000+ entreprises')}</span>
+                  <span>{t('about.visionItem3', 'Partenaire de confiance pour les organisations du Grand Est')}</span>
                 </li>
               </ul>
             </div>
@@ -314,20 +310,20 @@ const About = () => {
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-5xl font-bold mb-2">2772+</div>
-              <div className="text-lg opacity-90">{t('about.statRepaired', 'Appareils Réparés')}</div>
+              <div className="text-5xl font-bold mb-2">2016</div>
+              <div className="text-lg opacity-90">{t('about.statFounded', 'Année de création')}</div>
             </div>
             <div>
-              <div className="text-5xl font-bold mb-2">35+</div>
-              <div className="text-lg opacity-90">{t('about.statExperience', "Années d'Expérience")}</div>
+              <div className="text-5xl font-bold mb-2">France Num</div>
+              <div className="text-lg opacity-90">{t('about.statExperience', "Activateur référencé")}</div>
             </div>
             <div>
-              <div className="text-5xl font-bold mb-2">900+</div>
-              <div className="text-lg opacity-90">{t('about.statClients', 'Clients Satisfaits')}</div>
+              <div className="text-5xl font-bold mb-2">2</div>
+              <div className="text-lg opacity-90">{t('about.statQualiopiCategories', 'Catégories QUALIOPI')}</div>
             </div>
             <div>
-              <div className="text-5xl font-bold mb-2">670+</div>
-              <div className="text-lg opacity-90">{t('about.statTrained', 'Participants Formés')}</div>
+              <div className="text-5xl font-bold mb-2">2025–2028</div>
+              <div className="text-lg opacity-90">{t('about.statQualiopiValidity', 'Validité du certificat')}</div>
             </div>
           </div>
         </div>
@@ -338,7 +334,7 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="bg-gradient-to-br from-primary to-secondary rounded-2xl p-12 text-center text-white">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {t('about.ctaTitle', 'Rejoignez Plus de 900 Clients Satisfaits')}
+              {t('about.ctaTitle', 'Confiez-nous votre prochain projet numérique')}
             </h2>
             <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
               {t('about.ctaSubtitle', "Faites confiance à l'expertise NETZ Informatique pour votre transformation digitale")}

@@ -202,7 +202,7 @@ const IAOffline = () => {
     },
     {
       question: t('iaOffline.faqQ2', 'Les performances sont-elles comparables à GPT-4 ?'),
-      answer: t('iaOffline.faqA2', 'Les modèles open-source (Llama 3 70B, Mixtral) atteignent 85-95% des performances de GPT-4 pour la plupart des tâches. Pour des besoins spécifiques, nous pouvons fine-tuner les modèles sur vos données.')
+      answer: t('iaOffline.faqA2', "Les performances des modèles open source dépendent du cas d'usage, de l'infrastructure et de la méthode d'évaluation. Un benchmark sur des données représentatives est recommandé avant déploiement.")
     },
     {
       question: t('iaOffline.faqQ3', 'Quel est le coût total de possession (TCO) ?'),
