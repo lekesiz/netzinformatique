@@ -1,106 +1,77 @@
 {
   "$schema": "https://schema.org/",
   "name": "NETZ Informatique",
-  "legalName": "NETZ Informatique",
-  "description": "Entreprise de services informatiques à Haguenau (Alsace, France) pour particuliers et entreprises : dépannage, IA Offline, cybersécurité, cloud, développement web et formation certifiée QUALIOPI.",
-  "founder": "Mikail Lekesiz",
-  "foundingYear": 2016,
-  "commercialActivityInFranceSince": 2009,
-  "predecessor": "Orditeur (entreprise individuelle)",
-  "founderExperienceYears": 35,
+  "legalName": "NETZ INFORMATIQUE",
+  "description": "Entreprise de services informatiques et organisme de formation à Haguenau : logiciel, cloud, cybersécurité, intégration de l’intelligence artificielle et formation professionnelle.",
+  "foundingDate": "2016-02-10",
   "url": "https://www.netzinformatique.fr",
-  "lastUpdated": "2026-06-14",
+  "lastUpdated": "2026-09-11",
+  "legalIdentifiers": {
+    "legalForm": "SAS, société par actions simplifiée",
+    "shareCapitalEUR": 100,
+    "siren": "818347346",
+    "siretHeadOffice": "81834734600020",
+    "vatNumber": "FR83818347346",
+    "activityCode": "85.59B"
+  },
+  "registeredLeadership": {
+    "president": "Mikail Lekesiz",
+    "verification": "INPI / Registre national des entreprises"
+  },
   "contact": {
     "phone": "+33367310201",
-    "phoneDisplay": "03 67 31 02 01",
     "email": "contact@netzinformatique.fr",
     "address": {
-      "street": "1a Route de Schweighouse",
+      "street": "1 A Route de Schweighouse",
       "postalCode": "67500",
       "city": "Haguenau",
-      "region": "Alsace",
       "country": "France",
-      "countryCode": "FR",
-      "geo": { "latitude": 48.8112633, "longitude": 7.7814 }
-    },
-    "openingHours": [
-      { "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "12:00" },
-      { "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "14:00", "closes": "18:00" },
-      { "days": ["Saturday"], "opens": "09:00", "closes": "12:00" }
-    ],
-    "emergencySupport": "24/7 sur demande (entreprises)"
-  },
-  "serviceArea": "Haguenau et rayon de ~50 km dans le Grand Est (Strasbourg, Saverne, Wissembourg), interventions à distance disponibles",
-  "languages": ["fr", "en", "de", "tr"],
-  "certifications": ["QUALIOPI", "TOSA", "ICDL"],
-  "partnerships": ["Microsoft Partner", "Cisco Partner", "Google Partner"],
-  "responseTime": "24-48h (jour même selon disponibilité en urgence)",
-  "stats": {
-    "devicesRepaired": "2772+",
-    "clients": "900+",
-    "traineesTrained": "670+",
-    "rating": 4.9
-  },
-  "socialProfiles": [
-    "https://www.facebook.com/informatiquehaguenau",
-    "https://fr.linkedin.com/company/netz-informatique"
-  ],
-  "shop": "https://www.informatique-haguenau.fr",
-  "services": [
-    {
-      "name": "Dépannage & Maintenance",
-      "url": "https://www.netzinformatique.fr/services/depannage-maintenance",
-      "description": "Intervention rapide sous 24-48h sur site ou en atelier (PC, Mac, serveurs, périphériques). Récupération de données. Contrats de maintenance dès 79€/mois. Réparations garanties 3 mois.",
-      "audience": ["particuliers", "entreprises"]
-    },
-    {
-      "name": "Intelligence Artificielle Offline",
-      "url": "https://www.netzinformatique.fr/services/ia-offline",
-      "description": "Serveur d'IA installé en local, données 100% confidentielles sans transit cloud. Pour santé, juridique, finance, R&D. Conformité RGPD. De 5 000€ à 50 000€+, location possible.",
-      "audience": ["entreprises"]
-    },
-    {
-      "name": "Cybersécurité",
-      "url": "https://www.netzinformatique.fr/services/cybersecurite",
-      "description": "Audit, pare-feu, antivirus professionnel, sauvegardes, 2FA, formation, surveillance 24/7, conformité RGPD, réponse ransomware.",
-      "audience": ["particuliers", "entreprises"]
-    },
-    {
-      "name": "Cloud & Réseaux",
-      "url": "https://www.netzinformatique.fr/services/cloud-reseau",
-      "description": "Migration cloud, Microsoft 365, hébergement, réseaux d'entreprise (Cisco, WiFi pro), audit IT, transformation digitale.",
-      "audience": ["entreprises"]
-    },
-    {
-      "name": "Développement Web & SEO",
-      "url": "https://www.netzinformatique.fr/services/web-digital",
-      "description": "Sites vitrine (dès 990€), business (1990€), e-commerce (sur devis), SEO, hébergement et maintenance (79€/mois). 150+ sites créés.",
-      "audience": ["particuliers", "entreprises"]
-    },
-    {
-      "name": "Matériel & Assemblage",
-      "url": "https://www.netzinformatique.fr/materiel",
-      "description": "Vente de matériel et PC sur mesure (bureautique, gaming, CAO), périphériques et consommables via informatique-haguenau.fr. Garantie 2 ans.",
-      "audience": ["particuliers", "entreprises"]
-    },
-    {
-      "name": "Formation Professionnelle",
-      "url": "https://www.netzinformatique.fr/services/formation-professionnelle",
-      "description": "Organisme certifié QUALIOPI : bureautique, IA, cybersécurité, marketing digital. Certifiantes (TOSA, ICDL) éligibles CPF, OPCO, Pôle Emploi.",
-      "audience": ["particuliers", "entreprises"]
-    },
-    {
-      "name": "Bilan de Compétences",
-      "url": "https://www.netzinformatique.fr/formation/bilan-competences",
-      "description": "Accompagnement de 24h sur 2-3 mois pour définir un projet professionnel. Finançable CPF.",
-      "audience": ["particuliers"]
+      "countryCode": "FR"
     }
+  },
+  "qualityCertification": {
+    "name": "QUALIOPI",
+    "holder": "NETZ INFORMATIQUE",
+    "categories": [
+      "Actions de formation",
+      "Bilans de compétences"
+    ],
+    "validFrom": "2025-02-10",
+    "validUntil": "2028-02-09",
+    "scopeNote": "Provider process certification for the stated categories; not a personal certification or a certification of all IT services."
+  },
+  "publicReference": {
+    "name": "Activateur France Num",
+    "status": "referenced",
+    "scopeNote": "France Num states that this designation is neither a label nor a certification and does not by itself attest expertise or service quality."
+  },
+  "declaredFacts": {
+    "founder": "Mikail Lekesiz",
+    "technicalPracticeSince": 2000,
+    "trainingActivityAsOf": "2026-07-29",
+    "completedOrApprovedFiles": 1268,
+    "uniqueParticipants": "1100+",
+    "verification": "Owner/company declarations; not independently audited. Preserve date, definitions and source status whenever reused."
+  },
+  "technologyEcosystems": [
+    "Microsoft",
+    "Cisco",
+    "Google Cloud"
   ],
-  "resources": {
-    "faq": "https://www.netzinformatique.fr/faq",
-    "blog": "https://www.netzinformatique.fr/blog",
-    "llms": "https://www.netzinformatique.fr/llms.txt",
-    "llmsFull": "https://www.netzinformatique.fr/llms-full.txt",
-    "sitemap": "https://www.netzinformatique.fr/sitemap.xml"
-  }
+  "technologyClaimNote": "Technology use is stated; no official partner status is asserted without a public vendor verification link.",
+  "services": [
+    "IT support and maintenance",
+    "software and web development",
+    "cloud infrastructure",
+    "cybersecurity awareness",
+    "AI integration",
+    "professional training",
+    "skills assessments"
+  ],
+  "sources": [
+    "https://annuaire-entreprises.data.gouv.fr/entreprise/818347346",
+    "https://data.inpi.fr/entreprises/818347346",
+    "https://www.francenum.gouv.fr/activateurs/netz-informatique",
+    "https://formation-haguenau.fr/wp-content/uploads/2025/02/NETZ-INFORMATIQUE-Certificat-de-renouvellement.pdf"
+  ]
 }

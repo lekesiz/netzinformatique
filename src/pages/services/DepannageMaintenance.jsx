@@ -140,7 +140,7 @@ const DepannageMaintenance = () => {
     },
     {
       question: t('depannage.faq2Q', 'Intervenez-vous sur Mac et PC ?'),
-      answer: t('depannage.faq2A', 'Oui, nous intervenons sur tous types d\'ordinateurs : PC Windows, Mac (macOS), Linux, ainsi que sur les serveurs et NAS. Plus de 35 ans d\'expérience multi-plateforme.')
+      answer: t('depannage.faq2A', 'Oui, nous intervenons sur tous types d\'ordinateurs : PC Windows, Mac (macOS), Linux, ainsi que sur les serveurs et NAS. Support technique multi-plateforme disponible.')
     },
     {
       question: t('depannage.faq3Q', 'Proposez-vous un service à distance ?'),
@@ -152,7 +152,7 @@ const DepannageMaintenance = () => {
     },
     {
       question: t('depannage.faq5Q', 'Puis-je récupérer mes données perdues ?'),
-      answer: t('depannage.faq5A', 'Oui, nous proposons un service de récupération de données avec un taux de réussite de 85%. Diagnostic gratuit. Tarifs à partir de 150€. Aucun frais si la récupération est impossible.')
+      answer: t('depannage.faq5A', "Oui, nous proposons un service de récupération de données. Le résultat dépend de l'état du support et ne peut pas être garanti. Diagnostic gratuit et devis selon la complexité.")
     }
   ];
 
@@ -375,7 +375,7 @@ const DepannageMaintenance = () => {
               {t('depannage.ctaHeading', 'Un Problème Informatique ? Nous Intervenons Rapidement !')}
             </h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-              {t('depannage.ctaSubheading', 'Diagnostic gratuit • Intervention 24-48h • Garantie 3 mois • Plus de 2772 réparations')}
+              {t('depannage.ctaSubheading', 'Diagnostic gratuit • Intervention 24-48h • Garantie 3 mois')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link to="/contact">

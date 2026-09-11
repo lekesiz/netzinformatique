@@ -144,10 +144,10 @@ const WebDigital = () => {
   ];
 
   const stats = [
-    { value: '150+', label: t('webDigital.stat1Label', 'Sites créés') },
-    { value: '98%', label: t('webDigital.stat2Label', 'Clients satisfaits') },
-    { value: '<3s', label: t('webDigital.stat3Label', 'Temps de chargement') },
-    { value: '100%', label: t('webDigital.stat4Label', 'Mobile-friendly') }
+    { value: 'Sur mesure', label: t('webDigital.stat1Label', 'Conception adaptée au besoin') },
+    { value: 'SEO', label: t('webDigital.stat2Label', 'Fondations techniques intégrées') },
+    { value: 'Responsive', label: t('webDigital.stat3Label', 'Compatible mobile et bureau') },
+    { value: 'Suivi', label: t('webDigital.stat4Label', 'Maintenance disponible') }
   ];
 
   const seoTips = [
@@ -180,7 +180,7 @@ const WebDigital = () => {
       client: t('webDigital.case2Client', 'Boutique Mode'),
       challenge: t('webDigital.case2Challenge', 'Lancer la vente en ligne'),
       solution: t('webDigital.case2Solution', 'E-commerce WooCommerce + SEO + Instagram Ads'),
-      results: t('webDigital.case2Results', '15000€ CA/mois après 3 mois, 500+ commandes')
+      results: t('webDigital.case2Results', 'Lancement e-commerce accompagné par des travaux techniques et SEO')
     }
   ];
 

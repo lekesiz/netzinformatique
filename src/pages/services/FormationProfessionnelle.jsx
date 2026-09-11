@@ -3,7 +3,7 @@ import SEO from '@/components/common/SEO';
 import StructuredData from '@/components/common/StructuredData';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, CheckCircle, Award, Users, Clock, TrendingUp, BookOpen, Phone, GraduationCap, FileText, Euro, Building, Briefcase, Bot, ShieldCheck, Globe, User, Target, ClipboardList, Star } from 'lucide-react';
+import { ArrowRight, CheckCircle, Award, Users, Clock, TrendingUp, BookOpen, Phone, GraduationCap, FileText, Euro, Building, Briefcase, Bot, ShieldCheck, Globe, User, Target, ClipboardList } from 'lucide-react';
 import {
   Accordion,
   AccordionContent,
@@ -37,7 +37,7 @@ const FormationProfessionnelle = () => {
     { icon: Euro, title: t('formationPro.feature2Title', 'Financement Possible'), description: t('formationPro.feature2Desc', 'OPCO, CPF, Pôle Emploi, Plan de formation') },
     { icon: Users, title: t('formationPro.feature3Title', 'Sur Mesure'), description: t('formationPro.feature3Desc', 'Programmes adaptés à vos besoins spécifiques') },
     { icon: Clock, title: t('formationPro.feature4Title', 'Flexible'), description: t('formationPro.feature4Desc', 'Présentiel, distanciel, intra ou inter-entreprise') },
-    { icon: GraduationCap, title: t('formationPro.feature5Title', 'Formateurs Experts'), description: t('formationPro.feature5Desc', '15+ ans d\'expérience terrain') },
+    { icon: GraduationCap, title: t('formationPro.feature5Title', 'Formateurs Experts'), description: t('formationPro.feature5Desc', 'Pratique technique et pédagogie appliquée') },
     { icon: FileText, title: t('formationPro.feature6Title', 'Certification'), description: t('formationPro.feature6Desc', 'Attestation de formation, passage TOSA possible') }
   ];
 
@@ -156,23 +156,10 @@ const FormationProfessionnelle = () => {
   ];
 
   const stats = [
-    { value: '670+', label: t('formationPro.stat1Label', 'Stagiaires formés') },
-    { value: '95%', label: t('formationPro.stat2Label', 'Taux de réussite') },
-    { value: '98%', label: t('formationPro.stat3Label', 'Satisfaction') },
-    { value: '4.9/5', label: t('formationPro.stat4Label', 'Note moyenne') }
-  ];
-
-  const testimonials = [
-    {
-      company: t('formationPro.testi1Company', 'Cabinet Comptable'),
-      text: t('formationPro.testi1Text', 'Formation Excel avancée sur mesure pour notre équipe de 8 comptables. Formateur pédagogue, exemples concrets de notre métier. Gain de productivité immédiat !'),
-      author: 'Marie D., Expert-Comptable'
-    },
-    {
-      company: t('formationPro.testi2Company', 'PME Industrielle'),
-      text: t('formationPro.testi2Text', 'Sensibilisation cybersécurité pour 30 collaborateurs. Format ludique et interactif, prise de conscience réelle des risques. Financement OPCO sans souci.'),
-      author: 'Thomas L., DSI'
-    }
+    { value: '1268', label: t('formationPro.stat1Label', 'Dossiers terminés/approuvés au 29/07/2026') },
+    { value: '1100+', label: t('formationPro.stat2Label', 'Participants uniques déclarés au 29/07/2026') },
+    { value: '2', label: t('formationPro.stat3Label', 'Catégories QUALIOPI certifiées') },
+    { value: '2025–2028', label: t('formationPro.stat4Label', 'Validité du certificat QUALIOPI') }
   ];
 
   const faq = [
@@ -233,8 +220,8 @@ const FormationProfessionnelle = () => {
               </Link>
             </div>
             <p className="text-sm text-primary-foreground/80 flex items-center justify-center gap-x-4 gap-y-1 flex-wrap">
-              <span className="flex items-center gap-1.5"><GraduationCap size={16} className="text-accent" /> {t('formationPro.heroStat1', '670+ stagiaires formés')}</span>
-              <span className="flex items-center gap-1.5"><Star size={16} className="text-accent fill-current" /> {t('formationPro.heroStat2', '98% satisfaction')}</span>
+              <span className="flex items-center gap-1.5"><GraduationCap size={16} className="text-accent" /> {t('formationPro.heroStat1', '1100+ participants uniques déclarés au 29/07/2026')}</span>
+              <span className="flex items-center gap-1.5"><ShieldCheck size={16} className="text-accent" /> {t('formationPro.heroStat2', '2 catégories QUALIOPI')}</span>
               <span className="flex items-center gap-1.5"><Award size={16} className="text-accent" /> {t('formationPro.heroStat3', 'Certifié QUALIOPI')}</span>
             </p>
           </div>
@@ -418,27 +405,6 @@ const FormationProfessionnelle = () => {
                   </div>
                   <h3 className="font-bold mb-2">{item.title}</h3>
                   <p className="text-sm text-muted-foreground">{item.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Testimonials */}
-        <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                {t('formationPro.testimonialsHeading', 'Témoignages')}
-              </h2>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {testimonials.map((testimonial, index) => (
-                <div key={index} className="bg-card rounded-2xl p-8 shadow-xl">
-                  <div className="text-sm text-accent font-semibold mb-4">{testimonial.company}</div>
-                  <p className="text-muted-foreground mb-4 italic">"{testimonial.text}"</p>
-                  <div className="font-semibold">— {testimonial.author}</div>
                 </div>
               ))}
             </div>

@@ -395,9 +395,9 @@ export const blogPosts = [
       `
     },
     author: {
-      name: "Sophie Martin",
-      role: "Responsable Formation",
-      avatar: "/images/team/sophie-martin.jpg"
+      name: "Équipe NETZ Informatique",
+      role: "Rédaction",
+      avatar: "/logo.png"
     },
     category: "Formation",
     tags: ["Formation", "Certification", "CPF", "OPCO", "Carrière", "IT"],

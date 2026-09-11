@@ -47,7 +47,7 @@ const FAQ = () => {
       questions: [
         { 
           question: t('faq.q3', 'Intervenez-vous sur Mac et PC ?'), 
-          answer: t('faq.a3', 'Oui, nous intervenons sur tous types d\'ordinateurs : PC (Windows, Linux) et Mac (macOS). Nous sommes également compétents sur les serveurs, NAS, équipements réseau, imprimantes et périphériques. Plus de 35 ans d\'expérience multi-plateforme.')
+          answer: t('faq.a3', 'Oui, nous intervenons sur tous types d\'ordinateurs : PC (Windows, Linux) et Mac (macOS). Nous sommes également compétents sur les serveurs, NAS, équipements réseau, imprimantes et périphériques. Support technique multi-plateforme disponible.')
         },
         { 
           question: 'Mon ordinateur est très lent, que faire ?', 
@@ -55,7 +55,7 @@ const FAQ = () => {
         },
         {
           question: 'Récupérez-vous les données perdues ?',
-          answer: 'Oui, nous proposons un service de récupération de données sur disques durs, SSD, clés USB et cartes mémoire. Taux de réussite de 85%. Diagnostic gratuit. Tarifs selon la complexité (à partir de 150€). Aucun frais si récupération impossible.'
+          answer: 'Oui, nous proposons un service de récupération de données sur disques durs, SSD, clés USB et cartes mémoire. Le résultat dépend de l’état du support et ne peut pas être garanti. Diagnostic gratuit. Tarifs selon la complexité (à partir de 150€). Aucun frais si récupération impossible.'
         },
         {
           question: 'Comment se passe une intervention à distance ?',
@@ -73,7 +73,7 @@ const FAQ = () => {
       questions: [
         { 
           question: t('faq.q4', 'Proposez-vous des formations ?'), 
-          answer: t('faq.a4', 'Oui, nous sommes un organisme de formation certifié QUALIOPI. Nos formations couvrent la bureautique (Word, Excel, PowerPoint), l\'IA, la cybersécurité et le marketing digital. Elles sont éligibles aux financements OPCO, Pôle Emploi et CPF. Plus de 670 participants formés.')
+          answer: t('faq.a4', 'Oui, nous sommes un organisme de formation certifié QUALIOPI. Nos formations couvrent la bureautique (Word, Excel, PowerPoint), l\'IA, la cybersécurité et le marketing digital. Elles sont éligibles aux financements OPCO, Pôle Emploi et CPF. Plus de plus de 1 100 participants uniques déclarés au 29 juillet 2026.')
         },
         {
           question: 'Mes formations sont-elles finançables par le CPF ?',
@@ -121,7 +121,7 @@ const FAQ = () => {
       questions: [
         { 
           question: t('faq.q6', 'Faites-vous de la création de sites web ?'), 
-          answer: t('faq.a6', 'Oui, nous créons des sites vitrine (à partir de 990€), sites business (1990€) et e-commerce (sur devis). Nous gérons également le référencement (SEO), l\'hébergement et la maintenance (79€/mois). Plus de 150 sites créés. Demandez un devis gratuit.')
+          answer: t('faq.a6', 'Oui, nous créons des sites vitrine (à partir de 990€), sites business (1990€) et e-commerce (sur devis). Nous gérons également le référencement (SEO), l\'hébergement et la maintenance (79€/mois). De nombreuses réalisations sont disponibles sur demande. Demandez un devis gratuit.')
         },
         {
           question: 'Combien de temps faut-il pour créer un site web ?',

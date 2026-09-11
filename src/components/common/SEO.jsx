@@ -28,16 +28,17 @@ const SEO = ({
   }
 
   const defaultDescription = {
-    fr: 'NETZ Informatique : Dépannage informatique, solutions IA Offline, formation professionnelle certifiée QUALIOPI. Fondée en 2016 (activité en France depuis 2009), 35 ans d\'expérience IT à Haguenau. Intervention rapide 24-48h.',
-    en: 'NETZ Informatique: IT repair, Offline AI solutions, QUALIOPI certified professional training. Founded in 2016 (active in France since 2009), 35 years of IT experience in Haguenau. Fast intervention 24-48h.',
-    de: 'NETZ Informatique: IT-Reparatur, Offline-KI-Lösungen, QUALIOPI-zertifizierte Berufsausbildung. Gegründet 2016 (in Frankreich tätig seit 2009), 35 Jahre IT-Erfahrung in Haguenau. Schneller Eingriff 24-48 Stunden.',    tr: 'NETZ Informatique: BT onarımı, Çevrimdışı AI çözümleri, QUALIOPI sertifikalı profesyonel eğitim. 2016\'da kuruldu (Fransa\'da 2009\'dan beri faal), Haguenau\'da 35 yıl BT deneyimi. Hızlı müdahale 24-48 saat.'
+    fr: 'NETZ Informatique : dépannage informatique, solutions IA locales, cybersécurité et formation professionnelle à Haguenau. Société créée en 2016 ; certification QUALIOPI pour les actions de formation et les bilans de compétences.',
+    en: 'NETZ Informatique: IT support, local AI solutions, cybersecurity and professional training in Haguenau. Company established in 2016; QUALIOPI certified for training actions and skills assessments.',
+    de: 'NETZ Informatique: IT-Support, lokale KI-Lösungen, Cybersicherheit und berufliche Weiterbildung in Haguenau. Unternehmen gegründet 2016; QUALIOPI-zertifiziert für Weiterbildung und Kompetenzbilanzen.',
+    tr: 'NETZ Informatique: Haguenau’da BT desteği, yerel AI çözümleri, siber güvenlik ve mesleki eğitim. Şirket 2016’da kuruldu; eğitim faaliyetleri ve yetkinlik değerlendirmeleri için QUALIOPI sertifikalıdır.'
   }
 
   const defaultKeywords = {
-    fr: 'informatique Haguenau, dépannage ordinateur, réparation PC, IA Offline, intelligence artificielle, formation informatique, QUALIOPI, maintenance IT, cybersécurité, cloud, Microsoft Partner, Cisco Partner',
-    en: 'IT Haguenau, computer repair, PC repair, Offline AI, artificial intelligence, IT training, QUALIOPI, IT maintenance, cybersecurity, cloud, Microsoft Partner, Cisco Partner',
-    de: 'IT Haguenau, Computerreparatur, PC-Reparatur, Offline-KI, künstliche Intelligenz, IT-Schulung, QUALIOPI, IT-Wartung, Cybersicherheit, Cloud, Microsoft-Partner, Cisco-Partner',
-    tr: 'BT Haguenau, bilgisayar onarımı, PC onarımı, Çevrimdışı AI, yapay zeka, BT eğitimi, QUALIOPI, BT bakımı, siber güvenlik, bulut, Microsoft Ortağı, Cisco Ortağı'
+    fr: 'informatique Haguenau, dépannage ordinateur, réparation PC, IA Offline, intelligence artificielle, formation informatique, QUALIOPI, maintenance IT, cybersécurité, cloud, technologies Microsoft et Cisco',
+    en: 'IT Haguenau, computer repair, PC repair, Offline AI, artificial intelligence, IT training, QUALIOPI, IT maintenance, cybersecurity, cloud, technologies Microsoft et Cisco',
+    de: 'IT Haguenau, Computerreparatur, PC-Reparatur, Offline-KI, künstliche Intelligenz, IT-Schulung, QUALIOPI, IT-Wartung, Cybersicherheit, Cloud, Microsoft-Technologien, Cisco-Technologien',
+    tr: 'BT Haguenau, bilgisayar onarımı, PC onarımı, Çevrimdışı AI, yapay zeka, BT eğitimi, QUALIOPI, BT bakımı, siber güvenlik, bulut, Microsoft teknolojileri, Cisco teknolojileri'
   }
 
   const finalTitle = title || defaultTitle[currentLang] || defaultTitle.fr

@@ -15,8 +15,6 @@ import {
   Search,
   FileText,
   CheckCircle,
-  Star,
-  Users,
   Clock,
   ArrowRight,
   Phone,
@@ -122,8 +120,8 @@ const ServiceIndividual = () => {
   ]
 
   const stats = [
-    { icon: Star, value: '4,9/5', label: t('svcInd.stat1Label', 'Note moyenne clients') },
-    { icon: Users, value: '900+', label: t('svcInd.stat2Label', 'Clients accompagnés') },
+    { icon: Wrench, value: 'Gratuit', label: t('svcInd.stat1Label', 'Diagnostic initial') },
+    { icon: Clock, value: '24-48h', label: t('svcInd.stat2Label', "Délai habituel d'intervention") },
     { icon: ShieldCheck, value: '3 mois', label: t('svcInd.stat3Label', 'Garantie sur réparations') },
   ]
 
