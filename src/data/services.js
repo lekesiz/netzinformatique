@@ -64,14 +64,14 @@ export const services = [
       tr: 'Yapay Zeka'
     },
     description: {
-      fr: 'IA Offline exclusive, DeepSeek Enterprise. Solutions IA pour santé, automatisation et conseil stratégique.',
-      en: 'Exclusive Offline AI, DeepSeek Enterprise. AI solutions for healthcare, automation and strategic consulting.',
-      de: 'Exklusive Offline-KI, DeepSeek Enterprise. KI-Lösungen für Gesundheitswesen, Automatisierung und strategische Beratung.',
-      tr: 'Özel Çevrimdışı AI, DeepSeek Enterprise. Sağlık, otomasyon ve stratejik danışmanlık için AI çözümleri.'
+      fr: 'IA à traitement local et solutions d’automatisation adaptées aux besoins et contraintes du projet.',
+      en: 'Locally processed AI and automation solutions adapted to the project’s needs and constraints.',
+      de: 'Lokal verarbeitete KI- und Automatisierungslösungen, abgestimmt auf die Anforderungen des Projekts.',
+      tr: 'Projenin ihtiyaç ve kısıtlarına uyarlanan yerel işleme ve otomasyon çözümleri.'
     },
     link: '/services/ia-offline',
     color: 'gradient-purple',
-    featured: true
+    featured: false
   },
   {
     id: 'cybersecurite',
@@ -172,10 +172,10 @@ export const whyChooseUs = [
       tr: 'Yerel Hizmet & Yakınlık'
     },
     description: {
-      fr: 'Basés à Haguenau, nous intervenons dans un rayon de 30 km. Proximité et réactivité garanties.',
-      en: 'Based in Haguenau, we operate within a 30 km radius. Proximity and responsiveness guaranteed.',
-      de: 'Mit Sitz in Haguenau sind wir in einem Umkreis von 30 km tätig. Nähe und Reaktionsfähigkeit garantiert.',
-      tr: 'Haguenau merkezli olarak 30 km yarıçapında hizmet veriyoruz. Yakınlık ve hızlı yanıt garanti.'
+      fr: 'Basés à Haguenau, nous intervenons dans un rayon de 30 km selon les horaires et disponibilités publiés.',
+      en: 'Based in Haguenau, we operate within a 30 km radius subject to published hours and availability.',
+      de: 'Von Haguenau aus arbeiten wir im Umkreis von 30 km nach veröffentlichten Zeiten und Verfügbarkeit.',
+      tr: 'Haguenau merkezli olarak yayımlanan çalışma saatleri ve uygunluğa göre 30 km yarıçapında hizmet veriyoruz.'
     }
   },
   {

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import SEO from '@/components/common/SEO';
 import StructuredData from '@/components/common/StructuredData';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, CheckCircle, BrainCircuit, Lock, Building, Zap, DollarSign, Users, Shield, Server, Cpu, HardDrive, Phone, TrendingUp, FileText, MessageSquare, Stethoscope, Scale, Microscope, Wallet, Star, XCircle, CheckCircle2, AlertTriangle } from 'lucide-react';
+import { ArrowRight, CheckCircle, BrainCircuit, Lock, Building, Zap, DollarSign, Users, Shield, Server, Cpu, HardDrive, Phone, TrendingUp, FileText, MessageSquare, Stethoscope, Scale, Microscope, Wallet, Star } from 'lucide-react';
 import {
   Accordion,
   AccordionContent,
@@ -32,12 +32,12 @@ const IAOffline = () => {
   };
 
   const benefits = [
-    { icon: Lock, title: t('iaOffline.benefit1Title', 'Confidentialité Totale'), description: t('iaOffline.benefit1Desc', 'Vos données ne quittent JAMAIS vos locaux. Aucun cloud, aucune fuite possible.') },
-    { icon: Shield, title: t('iaOffline.benefit2Title', 'Conformité RGPD'), description: t('iaOffline.benefit2Desc', 'Traitement 100% local = conformité RGPD simplifiée. Idéal secteurs sensibles.') },
+    { icon: Lock, title: t('iaOffline.benefit1Title', 'Traitement local maîtrisé'), description: t('iaOffline.benefit1Desc', 'Une architecture sur site peut réduire les transferts vers le cloud ; les flux réels dépendent des intégrations et de la configuration retenues.') },
+    { icon: Shield, title: t('iaOffline.benefit2Title', 'Démarche RGPD'), description: t('iaOffline.benefit2Desc', 'Le traitement local peut soutenir une stratégie de conformité, qui doit aussi couvrir les finalités, les accès, la conservation et les procédures.') },
     { icon: DollarSign, title: t('iaOffline.benefit3Title', 'Pas d\'Abonnement'), description: t('iaOffline.benefit3Desc', 'Investissement unique. Pas de coût mensuel par utilisateur ou par requête.') },
-    { icon: Zap, title: t('iaOffline.benefit4Title', 'Performance Maximale'), description: t('iaOffline.benefit4Desc', 'Latence minimale, pas de limite d\'utilisation. Serveur dédié à votre IA.') },
-    { icon: Building, title: t('iaOffline.benefit5Title', 'Souveraineté Numérique'), description: t('iaOffline.benefit5Desc', 'Indépendance totale vis-à-vis des GAFAM. Contrôle total de votre IA.') },
-    { icon: Users, title: t('iaOffline.benefit6Title', 'Multi-Utilisateurs'), description: t('iaOffline.benefit6Desc', 'Toute votre équipe peut utiliser l\'IA simultanément sans surcoût.') }
+    { icon: Zap, title: t('iaOffline.benefit4Title', 'Performance dimensionnée'), description: t('iaOffline.benefit4Desc', 'La latence et le débit sont mesurés sur vos cas d’usage avant le choix du matériel et du modèle.') },
+    { icon: Building, title: t('iaOffline.benefit5Title', 'Maîtrise de l’architecture'), description: t('iaOffline.benefit5Desc', 'L’organisation maîtrise davantage le matériel, les modèles et les politiques d’accès, sans supprimer toutes les dépendances techniques.') },
+    { icon: Users, title: t('iaOffline.benefit6Title', 'Multi-utilisateurs'), description: t('iaOffline.benefit6Desc', 'Le nombre d’utilisateurs simultanés dépend du dimensionnement, de la charge et des licences éventuelles.') }
   ];
 
   const useCases = [
@@ -46,35 +46,35 @@ const IAOffline = () => {
       icon: Stethoscope,
       challenge: t('iaOffline.useCase1Challenge', 'Analyser dossiers patients sans exposer données médicales'),
       solution: t('iaOffline.useCase1Solution', 'IA Offline pour résumés médicaux, aide au diagnostic, génération de comptes-rendus'),
-      benefit: t('iaOffline.useCase1Benefit', 'Confidentialité patients garantie, gain de temps 50%')
+      benefit: t('iaOffline.useCase1Benefit', 'Réduction possible des transferts externes et gains de temps à mesurer sur un pilote')
     },
     {
       sector: t('iaOffline.useCase2Sector', 'Juridique'),
       icon: Scale,
       challenge: t('iaOffline.useCase2Challenge', 'Analyser contrats et jurisprudence sans risque de fuite'),
       solution: t('iaOffline.useCase2Solution', 'IA pour analyse contractuelle, recherche jurisprudentielle, rédaction d\'actes'),
-      benefit: t('iaOffline.useCase2Benefit', 'Secret professionnel préservé, productivité x3')
+      benefit: t('iaOffline.useCase2Benefit', 'Traitement local possible et gains de productivité à mesurer sur les tâches ciblées')
     },
     {
       sector: t('iaOffline.useCase3Sector', 'R&D / Industrie'),
       icon: Microscope,
       challenge: t('iaOffline.useCase3Challenge', 'Protéger secrets industriels et innovations'),
       solution: t('iaOffline.useCase3Solution', 'IA pour analyse de brevets, génération de documentation technique, veille'),
-      benefit: t('iaOffline.useCase3Benefit', 'Propriété intellectuelle sécurisée, innovation accélérée')
+      benefit: t('iaOffline.useCase3Benefit', 'Meilleure maîtrise des flux de données selon les contrôles mis en place')
     },
     {
       sector: t('iaOffline.useCase4Sector', 'Finance / Comptabilité'),
       icon: Wallet,
       challenge: t('iaOffline.useCase4Challenge', 'Traiter données financières sensibles en toute sécurité'),
       solution: t('iaOffline.useCase4Solution', 'IA pour analyse financière, détection d\'anomalies, reporting automatisé'),
-      benefit: t('iaOffline.useCase4Benefit', 'Conformité bancaire, détection fraude temps réel')
+      benefit: t('iaOffline.useCase4Benefit', 'Analyse locale possible sous réserve des contrôles métier, sécurité et conformité requis')
     }
   ];
 
   const features = [
     {
       title: t('iaOffline.feature1Title', 'Génération de Texte'),
-      description: t('iaOffline.feature1Desc', 'Rédaction d\'emails, rapports, articles, documentation technique. Qualité GPT-4 en local.'),
+      description: t('iaOffline.feature1Desc', 'Rédaction d\'emails, rapports, articles et documentation technique ; la qualité dépend du modèle et de l’évaluation menée sur vos données.'),
       examples: [t('iaOffline.feature1Ex1', 'Emails professionnels'), t('iaOffline.feature1Ex2', 'Comptes-rendus'), t('iaOffline.feature1Ex3', 'Documentation'), t('iaOffline.feature1Ex4', 'Traduction')]
     },
     {
@@ -154,21 +154,6 @@ const IAOffline = () => {
     }
   ];
 
-  const comparison = [
-    { feature: t('iaOffline.comp1Feature', 'Confidentialité'), cloudStatus: 'bad', cloud: t('iaOffline.comp1Cloud', 'Données dans le cloud'), offline: t('iaOffline.comp1Offline', 'Données en local') },
-    { feature: t('iaOffline.comp2Feature', 'Coût mensuel'), cloudStatus: 'warn', cloud: t('iaOffline.comp2Cloud', '20-100€/utilisateur/mois'), offline: t('iaOffline.comp2Offline', '0€ après investissement') },
-    { feature: t('iaOffline.comp3Feature', 'Limite d\'utilisation'), cloudStatus: 'bad', cloud: t('iaOffline.comp3Cloud', 'Quotas, rate limits'), offline: t('iaOffline.comp3Offline', 'Illimité') },
-    { feature: t('iaOffline.comp4Feature', 'Latence'), cloudStatus: 'warn', cloud: t('iaOffline.comp4Cloud', '200-500ms (réseau)'), offline: t('iaOffline.comp4Offline', '<50ms (local)') },
-    { feature: t('iaOffline.comp5Feature', 'Conformité RGPD'), cloudStatus: 'warn', cloud: t('iaOffline.comp5Cloud', 'Complexe (DPA, etc.)'), offline: t('iaOffline.comp5Offline', 'Simplifiée') },
-    { feature: t('iaOffline.comp6Feature', 'Dépendance fournisseur'), cloudStatus: 'bad', cloud: t('iaOffline.comp6Cloud', 'Oui (OpenAI, etc.)'), offline: t('iaOffline.comp6Offline', 'Indépendant') },
-    { feature: t('iaOffline.comp7Feature', 'Disponibilité'), cloudStatus: 'warn', cloud: t('iaOffline.comp7Cloud', 'Dépend d\'Internet'), offline: t('iaOffline.comp7Offline', '100% même hors ligne') }
-  ];
-
-  const cloudStatusIcon = {
-    bad: <XCircle size={16} className="text-destructive flex-shrink-0" />,
-    warn: <AlertTriangle size={16} className="text-amber-600 flex-shrink-0" />
-  };
-
   const process = [
     { step: '1', title: t('iaOffline.process1Title', 'Audit'), description: t('iaOffline.process1Desc', 'Analyse de vos besoins et cas d\'usage') },
     { step: '2', title: t('iaOffline.process2Title', 'Dimensionnement'), description: t('iaOffline.process2Desc', 'Choix du matériel et des modèles IA') },
@@ -178,27 +163,10 @@ const IAOffline = () => {
     { step: '6', title: t('iaOffline.process6Title', 'Support'), description: t('iaOffline.process6Desc', 'Maintenance et mises à jour incluses 1 an') }
   ];
 
-  const roi = [
-    {
-      scenario: t('iaOffline.roi1Scenario', 'Cabinet d\'Avocats (10 personnes)'),
-      cloudCost: t('iaOffline.roi1CloudCost', '10 x 50€/mois x 12 = 6000€/an'),
-      offlineCost: t('iaOffline.roi1OfflineCost', '12000€ investissement unique'),
-      roi: t('iaOffline.roi1Roi', 'ROI en 2 ans, puis économie de 6000€/an'),
-      savings: t('iaOffline.roi1Savings', 'Économie 5 ans : 18000€')
-    },
-    {
-      scenario: t('iaOffline.roi2Scenario', 'PME Industrielle (50 personnes)'),
-      cloudCost: t('iaOffline.roi2CloudCost', '50 x 30€/mois x 12 = 18000€/an'),
-      offlineCost: t('iaOffline.roi2OfflineCost', '25000€ investissement unique'),
-      roi: t('iaOffline.roi2Roi', 'ROI en 1.4 an, puis économie de 18000€/an'),
-      savings: t('iaOffline.roi2Savings', 'Économie 5 ans : 65000€')
-    }
-  ];
-
   const faq = [
     {
       question: t('iaOffline.faqQ1', 'Quelle est la différence avec ChatGPT ?'),
-      answer: t('iaOffline.faqA1', 'ChatGPT est hébergé dans le cloud d\'OpenAI : vos données transitent par leurs serveurs. L\'IA Offline est installée dans VOS locaux : vos données ne sortent JAMAIS. Idéal pour données sensibles (santé, juridique, finance, R&D).')
+      answer: t('iaOffline.faqA1', 'Un service cloud traite les données selon son architecture et ses contrats. Une solution sur site peut réduire les transferts externes, mais les flux doivent être vérifiés pour chaque intégration et procédure.')
     },
     {
       question: t('iaOffline.faqQ2', 'Les performances sont-elles comparables à GPT-4 ?'),
@@ -206,15 +174,15 @@ const IAOffline = () => {
     },
     {
       question: t('iaOffline.faqQ3', 'Quel est le coût total de possession (TCO) ?'),
-      answer: t('iaOffline.faqA3', 'Investissement initial : 5000-45000€ selon configuration. Coût annuel : ~1000-3000€ (électricité, maintenance). Vs Cloud : 6000-50000€/an selon nombre d\'utilisateurs. ROI généralement atteint en 1-2 ans.')
+      answer: t('iaOffline.faqA3', 'Le coût total dépend du matériel, des modèles, de l’intégration, de l’énergie, de la maintenance et du support. Un devis et une comparaison TCO adaptés au cas d’usage sont nécessaires.')
     },
     {
       question: t('iaOffline.faqQ4', 'Puis-je utiliser mes propres données pour entraîner l\'IA ?'),
-      answer: t('iaOffline.faqA4', 'Oui ! Nous pouvons fine-tuner les modèles sur vos données internes (documentation, procédures, historique) pour créer une IA spécialisée dans votre domaine. Vos données restent 100% confidentielles.')
+      answer: t('iaOffline.faqA4', 'Selon le besoin, une base documentaire, une recherche augmentée ou un ajustement de modèle peuvent être étudiés. La confidentialité dépend des accès, des journaux, des sauvegardes et de l’architecture complète.')
     },
     {
       question: t('iaOffline.faqQ5', 'Que se passe-t-il en cas de panne ?'),
-      answer: t('iaOffline.faqA5', 'Nous proposons un contrat de maintenance avec intervention sous 24-48h, pièces de rechange en stock, et possibilité de serveur de secours en option. Garantie matérielle 3 ans.')
+      answer: t('iaOffline.faqA5', 'Les options de maintenance, de délai d’intervention, de pièces et de serveur de secours sont définies dans le devis ou le contrat. La garantie matérielle dépend du fabricant et de la configuration.')
     }
   ];
 
@@ -253,7 +221,7 @@ const IAOffline = () => {
               </a>
             </div>
             <p className="text-sm text-primary-foreground/80 flex items-center justify-center gap-x-3 gap-y-1 flex-wrap">
-              <span className="flex items-center gap-1.5"><Lock size={16} className="text-accent" /> {t('iaOffline.trustDeployed', 'Déjà déployé chez 15+ entreprises')}</span>
+              <span className="flex items-center gap-1.5"><Lock size={16} className="text-accent" /> {t('iaOffline.trustDeployed', 'Architecture évaluée selon le contexte')}</span>
               <span className="flex items-center gap-1.5"><Stethoscope size={16} className="text-accent" /> {t('iaOffline.trustHealth', 'Santé')}</span>
               <span className="flex items-center gap-1.5"><Scale size={16} className="text-accent" /> {t('iaOffline.trustLegal', 'Juridique')}</span>
               <span className="flex items-center gap-1.5"><Microscope size={16} className="text-accent" /> {t('iaOffline.trustRD', 'R&D')}</span>
@@ -296,7 +264,7 @@ const IAOffline = () => {
                 {t('iaOffline.useCasesTitle', "Cas d'Usage par Secteur")}
               </h2>
               <p className="text-xl text-muted-foreground">
-                {t('iaOffline.useCasesSubtitle', "L'IA Offline transforme les secteurs sensibles")}
+                {t('iaOffline.useCasesSubtitle', "Exemples à valider selon le contexte métier et réglementaire")}
               </p>
             </div>
 
@@ -447,89 +415,6 @@ const IAOffline = () => {
           </div>
         </section>
 
-        {/* Comparison */}
-        <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                {t('iaOffline.comparisonTitle', 'IA Cloud vs IA Offline')}
-              </h2>
-              <p className="text-xl text-muted-foreground">
-                {t('iaOffline.comparisonSubtitle', 'Comparaison objective')}
-              </p>
-            </div>
-
-            <div className="max-w-4xl mx-auto bg-card rounded-2xl shadow-xl overflow-hidden">
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead className="bg-primary text-primary-foreground">
-                    <tr>
-                      <th className="px-6 py-4 text-left">{t('iaOffline.tableColCriteria', 'Critère')}</th>
-                      <th className="px-6 py-4 text-left">{t('iaOffline.tableColCloud', 'IA Cloud (ChatGPT, etc.)')}</th>
-                      <th className="px-6 py-4 text-left">{t('iaOffline.tableColOffline', 'IA Offline (NETZ)')}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {comparison.map((row, index) => (
-                      <tr key={index} className="border-b">
-                        <td className="px-6 py-4 font-semibold">{row.feature}</td>
-                        <td className="px-6 py-4 text-sm">
-                          <span className="flex items-center gap-2">
-                            {cloudStatusIcon[row.cloudStatus]}
-                            {row.cloud}
-                          </span>
-                        </td>
-                        <td className="px-6 py-4 text-sm font-semibold text-green-600">
-                          <span className="flex items-center gap-2">
-                            <CheckCircle2 size={16} className="text-green-600 flex-shrink-0" />
-                            {row.offline}
-                          </span>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ROI */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                {t('iaOffline.roiTitle', 'Retour sur Investissement (ROI)')}
-              </h2>
-              <p className="text-xl text-muted-foreground">
-                {t('iaOffline.roiSubtitle', "L'IA Offline est rentable dès la 2ème année")}
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {roi.map((scenario, index) => (
-                <div key={index} className="bg-card rounded-2xl p-8 shadow-xl">
-                  <h3 className="text-xl font-bold mb-6 text-accent">{scenario.scenario}</h3>
-                  <div className="space-y-4">
-                    <div className="flex justify-between items-center py-2 border-b">
-                      <span className="text-sm">{t('iaOffline.roiCloudCostLabel', 'Coût Cloud (annuel):')}</span>
-                      <span className="font-bold text-destructive">{scenario.cloudCost}</span>
-                    </div>
-                    <div className="flex justify-between items-center py-2 border-b">
-                      <span className="text-sm">{t('iaOffline.roiOfflineCostLabel', 'Coût Offline (unique):')}</span>
-                      <span className="font-bold text-primary">{scenario.offlineCost}</span>
-                    </div>
-                    <div className="bg-accent/10 rounded-lg p-4">
-                      <div className="font-semibold text-accent mb-2">{scenario.roi}</div>
-                      <div className="text-lg font-bold text-accent">{scenario.savings}</div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Process */}
         <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
           <div className="container mx-auto px-4">
@@ -582,7 +467,7 @@ const IAOffline = () => {
           <div className="container mx-auto px-4 text-center">
             <BrainCircuit size={64} className="mx-auto mb-6" />
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {t('iaOffline.ctaTitle', "Prêt à Déployer l'IA en Toute Confidentialité ?")}
+              {t('iaOffline.ctaTitle', "Prêt à évaluer une architecture IA locale ?")}
             </h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto text-primary-foreground/80">
               {t('iaOffline.ctaSubtitle', 'Démo gratuite • Audit de vos besoins • Devis personnalisé • Installation clé en main')}
