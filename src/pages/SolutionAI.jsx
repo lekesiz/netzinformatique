@@ -47,8 +47,8 @@ const SolutionAI = () => {
   const benefits = [
     {
       icon: Lock,
-      title: t('solAI.benefit1Title', 'Confidentialité Totale'),
-      description: t('solAI.benefit1Desc', 'Vos données ne quittent jamais vos locaux. Aucun transit par le cloud, aucune fuite possible.'),
+      title: t('solAI.benefit1Title', 'Traitement local maîtrisé'),
+      description: t('solAI.benefit1Desc', 'Le traitement sur site peut réduire les transferts cloud ; les flux effectifs dépendent des intégrations et de la configuration.'),
     },
     {
       icon: Wallet,
@@ -57,23 +57,23 @@ const SolutionAI = () => {
     },
     {
       icon: ShieldCheck,
-      title: t('solAI.benefit3Title', 'Conformité RGPD'),
-      description: t('solAI.benefit3Desc', 'Traitement 100% local : la conformité RGPD est grandement simplifiée pour les données sensibles.'),
+      title: t('solAI.benefit3Title', 'Démarche RGPD'),
+      description: t('solAI.benefit3Desc', 'Le traitement local peut soutenir la conformité ; les finalités, accès, durées de conservation et procédures restent à documenter.'),
     },
     {
       icon: Zap,
       title: t('solAI.benefit4Title', 'Latence Réduite'),
-      description: t('solAI.benefit4Desc', 'Le serveur IA est dédié à votre entreprise : réponses quasi instantanées, sans limite de débit.'),
+      description: t('solAI.benefit4Desc', 'La latence et le débit sont évalués sur vos tâches avant de dimensionner le serveur et les modèles.'),
     },
     {
       icon: CloudOff,
       title: t('solAI.benefit5Title', 'Indépendance Cloud'),
-      description: t('solAI.benefit5Desc', "Souveraineté numérique totale. Vous ne dépendez plus d'OpenAI, Google ou Microsoft."),
+      description: t('solAI.benefit5Desc', "L’hébergement sur site réduit certaines dépendances cloud sans supprimer les dépendances au matériel, aux modèles et à la maintenance."),
     },
     {
       icon: TrendingUp,
-      title: t('solAI.benefit6Title', 'ROI Rapide'),
-      description: t('solAI.benefit6Desc', "Rentabilisé en 1 à 2 ans face aux abonnements cloud, puis des années d'économies."),
+      title: t('solAI.benefit6Title', 'TCO évalué'),
+      description: t('solAI.benefit6Desc', "Le coût total et le retour sur investissement sont calculés selon les usages, le matériel, l’énergie, l’intégration et le support."),
     },
   ]
 
@@ -83,28 +83,28 @@ const SolutionAI = () => {
       sector: t('solAI.useCase1Sector', 'Santé'),
       challenge: t('solAI.useCase1Challenge', 'Exploiter les dossiers patients sans jamais exposer de données médicales.'),
       solution: t('solAI.useCase1Solution', "Résumés de comptes-rendus, aide à la rédaction, analyse documentaire — tout en local."),
-      benefit: t('solAI.useCase1Benefit', 'Secret médical préservé, jusqu’à 50% de temps administratif gagné.'),
+      benefit: t('solAI.useCase1Benefit', 'Réduction possible des transferts externes et gains à mesurer sur un pilote.'),
     },
     {
       icon: Scale,
       sector: t('solAI.useCase2Sector', 'Juridique'),
       challenge: t('solAI.useCase2Challenge', 'Analyser contrats et jurisprudence sans risque de fuite confidentielle.'),
       solution: t('solAI.useCase2Solution', "Analyse contractuelle, recherche jurisprudentielle, rédaction d'actes assistée."),
-      benefit: t('solAI.useCase2Benefit', 'Secret professionnel garanti, productivité multipliée par 3.'),
+      benefit: t('solAI.useCase2Benefit', 'Traitement local possible et productivité à mesurer sur les tâches ciblées.'),
     },
     {
       icon: Landmark,
       sector: t('solAI.useCase3Sector', 'Finance'),
       challenge: t('solAI.useCase3Challenge', 'Traiter des données financières sensibles en toute sécurité.'),
       solution: t('solAI.useCase3Solution', "Analyse financière, détection d'anomalies, reporting et synthèses automatisés."),
-      benefit: t('solAI.useCase3Benefit', 'Conformité bancaire respectée, contrôle interne renforcé.'),
+      benefit: t('solAI.useCase3Benefit', 'Contrôle interne potentiellement renforcé sous réserve des exigences réglementaires et métier.'),
     },
     {
       icon: FlaskConical,
       sector: t('solAI.useCase4Sector', 'R&D / Industrie'),
       challenge: t('solAI.useCase4Challenge', 'Protéger les secrets industriels, brevets et innovations.'),
       solution: t('solAI.useCase4Solution', 'Analyse de brevets, documentation technique, veille et synthèse de données R&D.'),
-      benefit: t('solAI.useCase4Benefit', 'Propriété intellectuelle sécurisée, innovation accélérée.'),
+      benefit: t('solAI.useCase4Benefit', 'Meilleure maîtrise possible des flux selon les contrôles techniques et organisationnels.'),
     },
   ]
 
@@ -144,12 +144,12 @@ const SolutionAI = () => {
     {
       question: t('solAI.faqQ2', 'Mes données sont-elles vraiment à l’abri ?'),
       answer:
-        t('solAI.faqA2', "Oui. Le serveur IA est physiquement installé dans vos locaux et fonctionne sans connexion externe. Aucune donnée ne transite par Internet ni par un cloud tiers : c'est la garantie d'une confidentialité totale."),
+        t('solAI.faqA2', "Une installation sur site peut fonctionner avec des flux externes fortement limités. Le niveau de confidentialité dépend toutefois des intégrations, accès, journaux, sauvegardes et procédures retenus."),
     },
     {
       question: t('solAI.faqQ3', "Faut-il une connexion Internet pour l'utiliser ?"),
       answer:
-        t('solAI.faqA3', "Non. L'IA fonctionne intégralement hors ligne, même en cas de coupure Internet. C'est l'un des grands avantages d'une solution sur site."),
+        t('solAI.faqA3', "Les fonctions principales peuvent être configurées pour fonctionner hors ligne. Certaines mises à jour, intégrations ou opérations de support peuvent néanmoins nécessiter une connexion contrôlée."),
     },
     {
       question: t('solAI.faqQ4', 'Quels sont les délais de mise en place ?'),
