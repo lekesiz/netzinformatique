@@ -99,11 +99,11 @@ const FAQ = () => {
       questions: [
         { 
           question: t('faq.q5', 'Qu\'est-ce que l\'IA Offline ?'), 
-          answer: t('faq.a5', 'L\'IA Offline consiste à installer un serveur d\'intelligence artificielle directement dans vos locaux. Vos données restent 100% confidentielles, sans jamais transiter par le cloud. Idéal pour les secteurs sensibles (santé, juridique, R&D, finance). Conformité RGPD garantie.')
+          answer: t('faq.a5', 'L\'IA Offline exécute le traitement dans vos locaux afin de réduire les transferts vers des services cloud. La confidentialité et la conformité RGPD dépendent aussi de la configuration, des accès, des journaux et des procédures mises en place.')
         },
         {
           question: 'Quels sont les avantages de l\'IA Offline ?',
-          answer: 'Confidentialité totale (données en local), pas d\'abonnement mensuel, pas de limite d\'utilisation, latence réduite, indépendance vis-à-vis des fournisseurs cloud, conformité RGPD facilitée. Investissement unique avec ROI rapide pour les utilisateurs intensifs.'
+          answer: 'Le traitement local peut réduire les transferts vers des tiers, la dépendance au cloud et certaines latences. Les bénéfices, coûts et obligations RGPD dépendent toutefois de l’architecture, des usages et des mesures de sécurité retenues.'
         },
         {
           question: 'Quel est le coût d\'une solution IA Offline ?',

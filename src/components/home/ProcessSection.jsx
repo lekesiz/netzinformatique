@@ -19,7 +19,7 @@ const ProcessSection = () => {
     {
       icon: Wrench,
       title: t('process.s3Title', 'Intervention experte'),
-      desc: t('process.s3Desc', 'Nos techniciens certifiés interviennent rapidement, sur site ou à distance.'),
+      desc: t('process.s3Desc', 'Notre équipe technique intervient sur site ou à distance selon le besoin et les disponibilités.'),
     },
     {
       icon: HeartHandshake,

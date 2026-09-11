@@ -18,8 +18,8 @@ const HomeFAQSection = () => {
     { q: t('faq.q1', 'Quels sont vos délais d\'intervention ?'), a: t('faq.a1', 'Nous intervenons généralement sous 24 à 48h pour les urgences à Haguenau et ses environs (rayon de 30 km). Pour les interventions planifiées, nous nous adaptons à votre agenda.') },
     { q: t('faq.q2', 'Quels sont vos tarifs ?'), a: t('faq.a2', 'Nos tarifs varient selon la nature de l\'intervention. Diagnostic gratuit, puis devis détaillé avant toute intervention. Forfaits mensuels disponibles pour les entreprises à partir de 79€/mois.') },
     { q: t('faq.q3', 'Intervenez-vous sur Mac et PC ?'), a: t('faq.a3', 'Oui, nous intervenons sur tous types d\'ordinateurs : PC (Windows, Linux) et Mac (macOS). Nous sommes également compétents sur les serveurs, NAS, équipements réseau, imprimantes et périphériques.') },
-    { q: t('faq.q4', 'Proposez-vous des formations ?'), a: t('faq.a4', 'Oui, nous sommes un organisme de formation certifié QUALIOPI. Nos formations sont éligibles aux financements OPCO, Pôle Emploi et CPF. Plus de plus de 1 100 participants uniques déclarés au 29 juillet 2026.') },
-    { q: t('faq.q5', 'Qu\'est-ce que l\'IA Offline ?'), a: t('faq.a5', 'L\'IA Offline consiste à installer un serveur d\'intelligence artificielle directement dans vos locaux. Vos données restent 100% confidentielles, sans jamais transiter par le cloud. Conformité RGPD garantie.') },
+    { q: t('faq.q4', 'Proposez-vous des formations ?'), a: t('faq.a4', 'Oui. NETZ Informatique est certifiée QUALIOPI pour les actions de formation et les bilans de compétences. L’éligibilité à un financement dépend du dispositif, de la formation et de la situation du bénéficiaire.') },
+    { q: t('faq.q5', 'Qu\'est-ce que l\'IA Offline ?'), a: t('faq.a5', 'L\'IA Offline exécute le traitement dans vos locaux afin de réduire les transferts vers des services cloud. La confidentialité et la conformité RGPD dépendent aussi de la configuration, des accès, des journaux et des procédures mises en place.') },
   ]
 
   return (

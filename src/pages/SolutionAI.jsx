@@ -27,7 +27,7 @@ const SolutionAI = () => {
   const { t } = useTranslation()
   const pageTitle = t('solAI.pageTitle', 'Intelligence Artificielle Offline | Serveurs IA sur site - NETZ')
   const pageDescription =
-    t('solAI.pageDescription', "Déployez l'IA dans vos locaux avec NETZ Informatique. Serveurs IA installés sur site, données 100% confidentielles, aucun transit cloud. Conformité RGPD garantie, sans abonnement.")
+    t('solAI.pageDescription', "Déployez l'IA dans vos locaux avec NETZ Informatique. Le traitement local peut réduire les transferts cloud ; la confidentialité et la conformité RGPD dépendent des contrôles retenus.")
 
   const breadcrumbs = [
     { name: t('solAI.breadcrumbHome', 'Accueil'), url: '/' },
@@ -179,7 +179,7 @@ const SolutionAI = () => {
               {t('solAI.heroTitle', 'Intelligence Artificielle Offline')}
             </h1>
             <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8 opacity-90">
-              {t('solAI.heroSubtitle', "Déployez la puissance de l'IA directement dans vos locaux. Vos données restent 100% confidentielles, sans aucun transit par le cloud. Conformité RGPD garantie, sans abonnement mensuel.")}
+              {t('solAI.heroSubtitle', "Exécutez l'IA directement dans vos locaux pour maîtriser les flux de données. La confidentialité et la conformité RGPD dépendent de l'architecture et des procédures mises en place.")}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link to="/contact">

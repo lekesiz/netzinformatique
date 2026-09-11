@@ -13,8 +13,8 @@ import {
 
 const IAOffline = () => {
   const { t } = useTranslation();
-  const pageTitle = t('iaOffline.pageTitle', 'IA Offline : Intelligence Artificielle 100% Confidentielle');
-  const pageDescription = t('iaOffline.pageDescription', 'Déployez l\'IA dans vos locaux. Vos données restent chez vous, 100% confidentielles. LLM privés (Llama, Mistral), génération de texte, analyse de documents. Conformité RGPD garantie.');
+  const pageTitle = t('iaOffline.pageTitle', 'IA Offline : intelligence artificielle à traitement local');
+  const pageDescription = t('iaOffline.pageDescription', 'Déployez l\'IA dans vos locaux avec des LLM privés, de la génération de texte et de l\'analyse de documents. La confidentialité et la conformité RGPD dépendent des contrôles techniques et organisationnels retenus.');
 
   const breadcrumbs = [
     { name: t('iaOffline.breadcrumbHome', 'Accueil'), url: '/' },
@@ -235,10 +235,10 @@ const IAOffline = () => {
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
               <span>{t('iaOffline.heroTitleLine1', 'Intelligence Artificielle')}</span><br />
-              100% <span className="text-accent">{t('iaOffline.heroTitleHighlight', 'Confidentielle')}</span>
+              <span className="text-accent">{t('iaOffline.heroTitleHighlight', 'Traitement local maîtrisé')}</span>
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/80 max-w-3xl mx-auto mb-8">
-              {t('iaOffline.heroSubtitle', "Déployez l'IA dans vos locaux. Vos données restent chez vous, jamais dans le cloud. Conformité RGPD garantie, pas d'abonnement mensuel.")}
+              {t('iaOffline.heroSubtitle', "Exécutez l'IA dans vos locaux afin de réduire la dépendance au cloud. Les flux de données et obligations RGPD doivent être évalués selon l'architecture et les procédures.")}
             </p>
             <div className="flex gap-4 justify-center flex-wrap mb-8">
               <Link to="/contact">
