@@ -76,6 +76,7 @@ const Privacy = () => {
             <ul className="list-disc pl-5 space-y-2">
               <li><strong className="text-foreground">Resend</strong> {t('privacy.recipientResend', '— acheminement des emails de contact.')}</li>
               <li><strong className="text-foreground">Google Analytics</strong> {t('privacy.recipientGA', "— mesure d'audience (mode consentement, IP anonymisée).")}</li>
+              <li><strong className="text-foreground">OpenAI Advertising Pixel</strong> {t('privacy.recipientOpenAI', '— mesure des campagnes publicitaires et attribution des conversions, uniquement avec votre consentement marketing.')}</li>
               <li><strong className="text-foreground">Vercel</strong> {t('privacy.recipientVercel', '— hébergement du site.')}</li>
               <li><strong className="text-foreground">Calendly</strong> {t('privacy.recipientCalendly', '— prise de rendez-vous en ligne.')}</li>
             </ul>

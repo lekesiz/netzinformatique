@@ -688,6 +688,7 @@ export default {
   "recipientsIntro": "Ihre Daten werden niemals verkauft. Sie können unter Einhaltung der DSGVO von technischen Auftragsverarbeitern verarbeitet werden:",
   "recipientResend": "— Zustellung der Kontakt-E-Mails.",
   "recipientGA": "— Reichweitenmessung (Consent-Modus, anonymisierte IP).",
+  "recipientOpenAI": "— Messung von Werbekampagnen und Conversion-Zuordnung, ausschließlich mit Ihrer Marketing-Einwilligung.",
   "recipientVercel": "— Hosting der Website.",
   "recipientCalendly": "— Online-Terminvereinbarung.",
   "retentionTitle": "Speicherdauer",

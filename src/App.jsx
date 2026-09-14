@@ -12,6 +12,7 @@ import WhatsAppButton from './components/common/WhatsAppButton'
 import LiveChat from './components/common/LiveChat'
 import GoogleAnalytics from './components/common/GoogleAnalytics'
 import GoogleTagManager from './components/common/GoogleTagManager'
+import OpenAITrackingPixel from './components/common/OpenAITrackingPixel'
 import ErrorBoundary from './components/common/ErrorBoundary'
 import Breadcrumb from './components/common/Breadcrumb'
 import BackToTop from './components/common/BackToTop'
@@ -147,6 +148,7 @@ function App() {
         <NotificationToast />
         <GoogleAnalytics />
         <GoogleTagManager />
+        <OpenAITrackingPixel />
       </div>
     </Router>
     </ErrorBoundary>

@@ -3,6 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { X, Cookie, Settings, Shield, CheckCircle } from 'lucide-react'
 import useStore from '../../store/useStore'
+import {
+  COOKIE_CONSENT_STORAGE_KEY,
+  COOKIE_CONSENT_UPDATED_EVENT,
+} from '../../utils/openaiTrackingPixel'
 
 /**
  * GDPR-compliant Cookie Consent Banner
@@ -29,7 +33,7 @@ const CookieConsent = () => {
 
   useEffect(() => {
     // Check if user has already given consent
-    const storedConsent = localStorage.getItem('netz_cookie_consent')
+    const storedConsent = localStorage.getItem(COOKIE_CONSENT_STORAGE_KEY)
 
     if (!storedConsent) {
       // Show banner after 1 second delay
@@ -89,7 +93,7 @@ const CookieConsent = () => {
 
   const saveConsent = (prefs) => {
     // Save to localStorage
-    localStorage.setItem('netz_cookie_consent', JSON.stringify(prefs))
+    localStorage.setItem(COOKIE_CONSENT_STORAGE_KEY, JSON.stringify(prefs))
     localStorage.setItem('netz_cookie_consent_date', new Date().toISOString())
 
     // Update Zustand store
@@ -97,6 +101,11 @@ const CookieConsent = () => {
 
     // Update Google Analytics consent
     updateGoogleConsent(prefs)
+
+    // Notify consent-gated integrations such as the OpenAI advertising pixel
+    window.dispatchEvent(new CustomEvent(COOKIE_CONSENT_UPDATED_EVENT, {
+      detail: prefs
+    }))
 
     // Hide banner
     setShowBanner(false)

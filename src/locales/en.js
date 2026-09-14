@@ -688,6 +688,7 @@ export default {
   "recipientsIntro": "Your data is never sold. It may be processed by technical subprocessors, in compliance with the GDPR:",
   "recipientResend": "— delivery of contact emails.",
   "recipientGA": "— audience measurement (consent mode, anonymized IP).",
+  "recipientOpenAI": "— advertising campaign measurement and conversion attribution, only with your marketing consent.",
   "recipientVercel": "— site hosting.",
   "recipientCalendly": "— online appointment booking.",
   "retentionTitle": "Retention period",

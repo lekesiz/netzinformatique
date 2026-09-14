@@ -43,7 +43,7 @@ const CookiePolicy = () => {
 
   const content = {
     fr: {
-      lastUpdated: 'Dernière mise à jour : 6 Janvier 2025',
+      lastUpdated: 'Dernière mise à jour : 14 septembre 2026',
       intro: 'Cette politique des cookies explique comment NETZ Informatique utilise les cookies et technologies similaires sur notre site web.',
       whatAreCookies: {
         title: 'Qu\'est-ce qu\'un cookie ?',
@@ -67,6 +67,7 @@ const CookiePolicy = () => {
         list: [
           'Google Analytics : l\'un des outils d\'analyse les plus répandus et les plus fiables nous aide à comprendre comment vous utilisez le site et comment nous pouvons améliorer votre expérience.',
           'Google Tag Manager : nous aide à gérer les balises de suivi sur notre site web de manière efficace.',
+          'OpenAI Advertising Pixel : mesure l’efficacité de nos campagnes publicitaires et permet l’attribution des conversions, uniquement avec votre consentement aux cookies marketing.',
           'Calendly : pour la prise de rendez-vous en ligne avec notre équipe.'
         ]
       },
@@ -81,7 +82,7 @@ const CookiePolicy = () => {
       }
     },
     en: {
-      lastUpdated: 'Last Updated: January 6, 2025',
+      lastUpdated: 'Last Updated: September 14, 2026',
       intro: 'This Cookie Policy explains how NETZ Informatique uses cookies and similar technologies on our website.',
       whatAreCookies: {
         title: 'What is a cookie?',
@@ -105,6 +106,7 @@ const CookiePolicy = () => {
         list: [
           'Google Analytics: one of the most widespread and trusted analytics solutions helps us understand how you use the site and how we can improve your experience.',
           'Google Tag Manager: helps us manage tracking tags on our website efficiently.',
+          'OpenAI Advertising Pixel: measures advertising campaign effectiveness and enables conversion attribution, only with your consent to marketing cookies.',
           'Calendly: for online appointment scheduling with our team.'
         ]
       },
@@ -119,7 +121,7 @@ const CookiePolicy = () => {
       }
     },
     de: {
-      lastUpdated: 'Letzte Aktualisierung: 6. Januar 2025',
+      lastUpdated: 'Letzte Aktualisierung: 14. September 2026',
       intro: 'Diese Cookie-Richtlinie erklärt, wie NETZ Informatique Cookies und ähnliche Technologien auf unserer Website verwendet.',
       whatAreCookies: {
         title: 'Was ist ein Cookie?',
@@ -143,6 +145,7 @@ const CookiePolicy = () => {
         list: [
           'Google Analytics: Eine der am weitesten verbreiteten und vertrauenswürdigsten Analyselösungen hilft uns zu verstehen, wie Sie die Website nutzen und wie wir Ihre Erfahrung verbessern können.',
           'Google Tag Manager: Hilft uns, Tracking-Tags auf unserer Website effizient zu verwalten.',
+          'OpenAI Advertising Pixel: Misst die Wirksamkeit unserer Werbekampagnen und ermöglicht die Conversion-Zuordnung, ausschließlich mit Ihrer Einwilligung zu Marketing-Cookies.',
           'Calendly: Für die Online-Terminvereinbarung mit unserem Team.'
         ]
       },
@@ -157,7 +160,7 @@ const CookiePolicy = () => {
       }
     },
     tr: {
-      lastUpdated: 'Son Güncelleme: 6 Ocak 2025',
+      lastUpdated: 'Son Güncelleme: 14 Eylül 2026',
       intro: 'Bu Çerez Politikası, NETZ Informatique\'in web sitemizde çerezleri ve benzer teknolojileri nasıl kullandığını açıklar.',
       whatAreCookies: {
         title: 'Çerez nedir?',
@@ -181,6 +184,7 @@ const CookiePolicy = () => {
         list: [
           'Google Analytics: En yaygın ve güvenilir analiz çözümlerinden biri, siteyi nasıl kullandığınızı ve deneyiminizi nasıl geliştirebileceğimizi anlamamıza yardımcı olur.',
           'Google Tag Manager: Web sitemizdeki izleme etiketlerini verimli bir şekilde yönetmemize yardımcı olur.',
+          'OpenAI Advertising Pixel: Reklam kampanyalarımızın etkinliğini ölçer ve dönüşüm ilişkilendirmesini sağlar; yalnızca pazarlama çerezlerine onay verdiğinizde etkinleşir.',
           'Calendly: Ekibimizle çevrimiçi randevu planlaması için.'
         ]
       },

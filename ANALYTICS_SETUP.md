@@ -64,6 +64,15 @@ trackOutboundLink('https://informatique-haguenau.fr', 'Boutique');
 
 ## Additional Tracking Tools (Optional)
 
+### OpenAI Advertising Pixel
+
+The OpenAI advertising pixel is installed with pixel ID `TSLUo3yYe2rsjCqYKsxpya`.
+
+- The SDK is loaded only after the visitor grants **marketing** cookie consent.
+- A saved marketing consent choice is honored on subsequent visits.
+- A newly granted choice activates the pixel immediately without a page refresh.
+- Rejecting analytics or marketing cookies prevents the pixel SDK from loading.
+
 ### Microsoft Clarity
 Free heatmaps and session recordings
 1. Sign up at [clarity.microsoft.com](https://clarity.microsoft.com/)

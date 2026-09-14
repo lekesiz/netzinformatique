@@ -143,7 +143,7 @@ const resources = {
         marketing: {
           title: 'Cookies Marketing',
           description: 'Ces cookies sont utilisés pour suivre les visiteurs sur les sites web afin d\'afficher des publicités pertinentes.',
-          examples: 'Publicités ciblées, remarketing, médias sociaux'
+          examples: 'OpenAI Advertising Pixel, publicités ciblées, remarketing, médias sociaux'
         },
         required: 'Requis',
         examples: 'Exemples'
@@ -288,7 +288,7 @@ const resources = {
         marketing: {
           title: 'Marketing Cookies',
           description: 'These cookies are used to track visitors across websites to display relevant advertisements.',
-          examples: 'Targeted ads, remarketing, social media'
+          examples: 'OpenAI Advertising Pixel, targeted ads, remarketing, social media'
         },
         required: 'Required',
         examples: 'Examples'
@@ -433,7 +433,7 @@ const resources = {
         marketing: {
           title: 'Marketing-Cookies',
           description: 'Diese Cookies werden verwendet, um Besucher über Websites hinweg zu verfolgen, um relevante Werbung anzuzeigen.',
-          examples: 'Gezielte Werbung, Remarketing, soziale Medien'
+          examples: 'OpenAI Advertising Pixel, gezielte Werbung, Remarketing, soziale Medien'
         },
         required: 'Erforderlich',
         examples: 'Beispiele'
@@ -578,7 +578,7 @@ const resources = {
         marketing: {
           title: 'Pazarlama Çerezleri',
           description: 'Bu çerezler, ilgili reklamları görüntülemek için ziyaretçileri web siteleri arasında takip etmek için kullanılır.',
-          examples: 'Hedefli reklamlar, yeniden pazarlama, sosyal medya'
+          examples: 'OpenAI Advertising Pixel, hedefli reklamlar, yeniden pazarlama, sosyal medya'
         },
         required: 'Gerekli',
         examples: 'Örnekler'

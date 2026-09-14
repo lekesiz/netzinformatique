@@ -688,6 +688,7 @@ export default {
   "recipientsIntro": "Verileriniz asla satılmaz. GDPR (RGPD) kapsamında teknik alt yükleniciler tarafından işlenebilir:",
   "recipientResend": "— iletişim e-postalarının iletilmesi.",
   "recipientGA": "— kitle ölçümü (onay modu, anonimleştirilmiş IP).",
+  "recipientOpenAI": "— yalnızca pazarlama onayınızla reklam kampanyası ölçümü ve dönüşüm ilişkilendirmesi.",
   "recipientVercel": "— sitenin barındırılması.",
   "recipientCalendly": "— çevrimiçi randevu alma.",
   "retentionTitle": "Saklama süresi",
