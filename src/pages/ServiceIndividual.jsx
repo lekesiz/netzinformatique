@@ -145,20 +145,20 @@ const ServiceIndividual = () => {
               {t('svcInd.heroSubtitle', 'Dépannage, réparation, récupération de données et conseils : un interlocuteur de confiance pour tous vos besoins informatiques à Haguenau et alentours.')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap mb-10">
-              <Link to="/contact">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+<Link to="/contact?audience=particulier&source=services">
                   {t('svcInd.heroCtaQuote', 'Demander un devis gratuit')} <ArrowRight className="ml-2" />
-                </Button>
-              </Link>
-              <a href="tel:+33367310201">
-                <Button
+                </Link>
+</Button>
+              <Button asChild
                   size="lg"
                   variant="outline"
                   className="border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10"
                 >
+<a href="tel:+33367310201">
                   <Phone className="mr-2" /> 03 67 31 02 01
-                </Button>
-              </a>
+                </a>
+</Button>
             </div>
             <div className="grid sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
               {reassurances.map((item, index) => (
@@ -269,20 +269,20 @@ const ServiceIndividual = () => {
               {t('svcInd.ctaSubtitle', 'Diagnostic gratuit • Devis transparent • Intervention 24-48h • Réparations garanties 3 mois')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
-              <Link to="/contact">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+<Link to="/contact?audience=particulier&source=services">
                   {t('svcInd.heroCtaQuote', 'Demander un devis gratuit')} <ArrowRight className="ml-2" />
-                </Button>
-              </Link>
-              <a href="tel:+33367310201">
-                <Button
+                </Link>
+</Button>
+              <Button asChild
                   size="lg"
                   variant="outline"
                   className="border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10"
                 >
+<a href="tel:+33367310201">
                   <Phone className="mr-2" /> 03 67 31 02 01
-                </Button>
-              </a>
+                </a>
+</Button>
             </div>
           </div>
         </section>

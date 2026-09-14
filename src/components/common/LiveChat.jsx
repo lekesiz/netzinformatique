@@ -1,40 +1,42 @@
-import { useEffect } from 'react';
+import { useEffect } from 'react'
+import { useConsent } from '../../consent/ConsentProvider'
+
+const TAWK_SCRIPT_ID = 'netz-tawk-chat'
 
 const LiveChat = () => {
-  useEffect(() => {
-    // Tawk.to widget script
-    const tawkPropertyId = import.meta.env.VITE_TAWK_PROPERTY_ID;
-    const tawkWidgetId = import.meta.env.VITE_TAWK_WIDGET_ID;
+  const { categories } = useConsent()
 
-    if (!tawkPropertyId || !tawkWidgetId) {
-      console.warn('Tawk.to credentials not configured');
-      return;
+  useEffect(() => {
+    const tawkPropertyId = import.meta.env.VITE_TAWK_PROPERTY_ID
+    const tawkWidgetId = import.meta.env.VITE_TAWK_WIDGET_ID
+
+    if (!categories.functional || !tawkPropertyId || !tawkWidgetId) {
+      window.Tawk_API?.hideWidget?.()
+      document.getElementById(TAWK_SCRIPT_ID)?.remove()
+      return undefined
     }
 
-    var Tawk_API = Tawk_API || {};
-    var Tawk_LoadStart = new Date();
+    window.Tawk_API = window.Tawk_API || {}
+    window.Tawk_LoadStart = new Date()
 
-    (function () {
-      var s1 = document.createElement("script");
-      var s0 = document.getElementsByTagName("script")[0];
-      s1.async = true;
-      s1.src = `https://embed.tawk.to/${tawkPropertyId}/${tawkWidgetId}`;
-      s1.charset = 'UTF-8';
-      s1.setAttribute('crossorigin', '*');
-      s0.parentNode.insertBefore(s1, s0);
-    })();
+    if (!document.getElementById(TAWK_SCRIPT_ID)) {
+      const script = document.createElement('script')
+      script.id = TAWK_SCRIPT_ID
+      script.async = true
+      script.src = `https://embed.tawk.to/${encodeURIComponent(tawkPropertyId)}/${encodeURIComponent(tawkWidgetId)}`
+      script.charset = 'UTF-8'
+      script.crossOrigin = 'anonymous'
+      script.dataset.netzVendor = 'tawk-chat'
+      document.head.appendChild(script)
+    }
 
-    // Cleanup
     return () => {
-      // Remove Tawk.to widget on unmount
-      const tawkWidget = document.getElementById('tawkId');
-      if (tawkWidget) {
-        tawkWidget.remove();
-      }
-    };
-  }, []);
+      window.Tawk_API?.hideWidget?.()
+      document.getElementById(TAWK_SCRIPT_ID)?.remove()
+    }
+  }, [categories.functional])
 
-  return null; // This component doesn't render anything
-};
+  return null
+}
 
-export default LiveChat;
+export default LiveChat

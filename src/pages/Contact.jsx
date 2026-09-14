@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -8,59 +9,106 @@ import { Phone, Mail, MapPin, Clock, Send, CheckCircle, AlertCircle, MessageCirc
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import GoogleMap from '@/components/common/GoogleMap'
 import SEO from '@/components/common/SEO'
+import { trackFunnelStep } from '@/utils/analytics'
 
 const Contact = () => {
   const { t } = useTranslation()
+  const [searchParams] = useSearchParams()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState(null) // null, 'success', or 'error'
+  const [submitMessage, setSubmitMessage] = useState('')
+  const startedAt = useRef(null)
+  const statusRef = useRef(null)
 
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
     reset
   } = useForm({
     resolver: zodResolver(contactSchema),
-    mode: 'onTouched'
+    mode: 'onTouched',
+    defaultValues: {
+      audience: searchParams.get('audience') || undefined,
+      service: searchParams.get('service') || undefined,
+      offer: searchParams.get('offer') || undefined,
+      sector: searchParams.get('sector') || undefined,
+      urgency: 'standard',
+      contactPreference: 'email',
+      intervention: 'a-definir',
+    },
   })
+
+  const audience = watch('audience')
+
+  const postContact = async (payload) => {
+    for (let attempt = 0; attempt < 2; attempt += 1) {
+      const controller = new AbortController()
+      const timeout = window.setTimeout(() => controller.abort(), 12_000)
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+          signal: controller.signal,
+        })
+        if (attempt === 0 && [502, 503, 504].includes(response.status)) continue
+        return response
+      } catch (error) {
+        if (attempt === 1 || error.name === 'AbortError') throw error
+      } finally {
+        window.clearTimeout(timeout)
+      }
+    }
+    throw new Error('contact_delivery_failed')
+  }
 
   const onSubmit = async (data) => {
     setIsSubmitting(true)
     setSubmitStatus(null)
+    setSubmitMessage('')
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+      trackFunnelStep('contact', 'contact_form_submit', { audience: data.audience || 'unknown', service: data.service || 'unknown' })
+      const response = await postContact({
+        ...data,
+        startedAt: startedAt.current || Date.now() - 2000,
+        source: searchParams.get('source') || 'contact',
       })
 
-      const result = await response.json()
+      const result = await response.json().catch(() => ({}))
 
       if (response.ok) {
         setSubmitStatus('success')
+        setSubmitMessage(result.message || t('contact.successMessage', 'Votre message a été envoyé avec succès.'))
         reset()
-        // Scroll to top to show success message
-        window.scrollTo({ top: 0, behavior: 'smooth' })
+        startedAt.current = null
+        trackFunnelStep('contact', 'contact_form_success', { audience: data.audience || 'unknown', service: data.service || 'unknown' })
       } else {
         setSubmitStatus('error')
-        console.error('Form submission error:', result)
+        setSubmitMessage(result.message || t('contact.errorMessage', 'Une erreur s\'est produite. Veuillez réessayer ou nous contacter directement par téléphone.'))
       }
     } catch (error) {
       console.error('Error submitting form:', error)
       setSubmitStatus('error')
+      setSubmitMessage(t('contact.errorMessage', 'Une erreur s\'est produite. Veuillez réessayer ou nous contacter directement par téléphone.'))
     } finally {
       setIsSubmitting(false)
+      requestAnimationFrame(() => statusRef.current?.focus())
     }
+  }
+
+  const onInvalid = () => {
+    setSubmitStatus('validation')
+    requestAnimationFrame(() => statusRef.current?.focus())
   }
 
   return (
     <>
-      <SEO 
+      <SEO
         title={t('contact.metaTitle', 'Contactez-nous | NETZ Informatique Haguenau')}
-        description={t('contact.metaDescription', 'Contactez NETZ Informatique à Haguenau pour tous vos besoins informatiques. Intervention rapide 24-48h. Tél: 03 67 31 02 01')}
+        description="Contactez NETZ Informatique à Haguenau. Le délai et le mode d’intervention sont confirmés selon la disponibilité et le diagnostic. Tél. : 03 67 31 02 01."
         url="/contact"
         type="website"
       />
@@ -87,26 +135,86 @@ const Contact = () => {
                 <h2 className="text-3xl font-bold mb-6">
                   {t('contact.formTitle', 'Envoyez-nous un Message')}
                 </h2>
-                
+
                 {submitStatus === 'success' && (
-                  <Alert role="status" aria-live="polite" className="mb-6 border-green-200 bg-green-50">
+                  <Alert ref={statusRef} tabIndex={-1} role="status" aria-live="polite" className="mb-6 border-green-200 bg-green-50">
                     <CheckCircle className="h-4 w-4 text-green-600" />
                     <AlertDescription className="text-green-800">
-                      {t('contact.successMessage', 'Votre message a été envoyé avec succès! Nous vous répondrons dans les plus brefs délais.')}
+                      {submitMessage}
                     </AlertDescription>
                   </Alert>
                 )}
-                
+
                 {submitStatus === 'error' && (
-                  <Alert role="alert" aria-live="assertive" className="mb-6 border-red-200 bg-red-50">
+                  <Alert ref={statusRef} tabIndex={-1} role="alert" aria-live="assertive" className="mb-6 border-red-200 bg-red-50">
                     <AlertCircle className="h-4 w-4 text-red-600" />
                     <AlertDescription className="text-red-800">
-                      {t('contact.errorMessage', 'Une erreur s\'est produite. Veuillez réessayer ou nous contacter directement par téléphone.')}
+                      {submitMessage}
                     </AlertDescription>
                   </Alert>
                 )}
-                
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+
+                {submitStatus === 'validation' && Object.keys(errors).length > 0 && (
+                  <Alert ref={statusRef} tabIndex={-1} role="alert" className="mb-6 border-destructive/40 bg-destructive/5">
+                    <AlertCircle className="h-4 w-4 text-destructive" />
+                    <AlertDescription>
+                      <p className="font-semibold">{t('contact.validationSummary', 'Veuillez corriger les champs suivants :')}</p>
+                      <ul className="mt-2 list-disc pl-5">
+                        {Object.entries(errors).map(([field, error]) => (
+                          <li key={field}><a href={`#${field}`} className="underline">{error.message}</a></li>
+                        ))}
+                      </ul>
+                    </AlertDescription>
+                  </Alert>
+                )}
+
+                <form
+                  noValidate
+                  onFocus={() => { startedAt.current ||= Date.now() }}
+                  onPointerDown={() => trackFunnelStep('contact', 'contact_form_start', { source: searchParams.get('source') || 'contact' })}
+                  onSubmit={handleSubmit(onSubmit, onInvalid)}
+                  className="space-y-6"
+                >
+                  <div className="sr-only" aria-hidden="true">
+                    <label htmlFor="website">Site web</label>
+                    <input id="website" type="text" tabIndex={-1} autoComplete="off" {...register('website')} />
+                  </div>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="audience" className="block text-sm font-medium mb-2">Vous êtes *</label>
+                      <select id="audience" required {...register('audience')} className="w-full min-h-12 px-4 border rounded-lg bg-background">
+                        <option value="">Choisir</option>
+                        <option value="particulier">Particulier</option>
+                        <option value="entreprise">Entreprise / association</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label htmlFor="service" className="block text-sm font-medium mb-2">Besoin principal</label>
+                      <select id="service" {...register('service')} className="w-full min-h-12 px-4 border rounded-lg bg-background">
+                        <option value="">À définir ensemble</option>
+                        <option value="depannage">Dépannage</option><option value="maintenance">Maintenance / infogérance</option>
+                        <option value="cybersecurite">Cybersécurité</option><option value="cloud-reseau">Cloud & réseau</option>
+                        <option value="ia-offline">IA locale / hybride</option><option value="web-digital">Web & digital</option>
+                        <option value="formation">Formation</option><option value="materiel">Matériel</option><option value="autre">Autre</option>
+                      </select>
+                    </div>
+                  </div>
+                  {audience === 'entreprise' && (
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div><label htmlFor="company" className="block text-sm font-medium mb-2">Organisation</label><input id="company" autoComplete="organization" {...register('company')} className="w-full min-h-12 px-4 border rounded-lg" /></div>
+                      <div><label htmlFor="scale" className="block text-sm font-medium mb-2">Utilisateurs / postes</label><select id="scale" {...register('scale')} className="w-full min-h-12 px-4 border rounded-lg bg-background"><option value="">Non précisé</option><option value="1-5">1–5</option><option value="6-20">6–20</option><option value="21-50">21–50</option><option value="51-200">51–200</option><option value="200-plus">200+</option></select></div>
+                    </div>
+                  )}
+                  {audience === 'particulier' && (
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      <div><label htmlFor="device" className="block text-sm font-medium mb-2">Appareil</label><input id="device" placeholder="PC, Mac, téléphone…" {...register('device')} className="w-full min-h-12 px-4 border rounded-lg" /></div>
+                      <div><label htmlFor="intervention" className="block text-sm font-medium mb-2">Mode souhaité</label><select id="intervention" {...register('intervention')} className="w-full min-h-12 px-4 border rounded-lg bg-background"><option value="a-definir">À définir</option><option value="atelier">Atelier</option><option value="sur-site">Sur site</option><option value="distance">À distance</option></select></div>
+                    </div>
+                  )}
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div><label htmlFor="urgency" className="block text-sm font-medium mb-2">Urgence</label><select id="urgency" {...register('urgency')} className="w-full min-h-12 px-4 border rounded-lg bg-background"><option value="standard">Standard</option><option value="48h">Sous 48 h si disponibilité</option><option value="urgent">Urgent — appelez-nous aussi</option></select></div>
+                    <div><label htmlFor="contactPreference" className="block text-sm font-medium mb-2">Réponse préférée</label><select id="contactPreference" {...register('contactPreference')} className="w-full min-h-12 px-4 border rounded-lg bg-background"><option value="email">Email</option><option value="telephone">Téléphone</option><option value="whatsapp">WhatsApp</option></select></div>
+                  </div>
                   {/* Name Field */}
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -116,13 +224,17 @@ const Contact = () => {
                       id="name"
                       type="text"
                       {...register('name')}
+                      required
+                      autoComplete="name"
+                      aria-invalid={Boolean(errors.name)}
+                      aria-describedby={errors.name ? 'name-error' : undefined}
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary transition ${
                         errors.name ? 'border-destructive' : 'border-border'
                       }`}
                       placeholder={t('contact.namePlaceholder', 'Votre nom')}
                     />
                     {errors.name && (
-                      <p role="alert" className="text-destructive text-sm mt-1">{errors.name.message}</p>
+                      <p id="name-error" className="text-destructive text-sm mt-1">{errors.name.message}</p>
                     )}
                   </div>
 
@@ -135,13 +247,17 @@ const Contact = () => {
                       id="email"
                       type="email"
                       {...register('email')}
+                      required
+                      autoComplete="email"
+                      aria-invalid={Boolean(errors.email)}
+                      aria-describedby={errors.email ? 'email-error' : undefined}
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary transition ${
                         errors.email ? 'border-destructive' : 'border-border'
                       }`}
                       placeholder={t('contact.emailPlaceholder', 'votre@email.com')}
                     />
                     {errors.email && (
-                      <p role="alert" className="text-destructive text-sm mt-1">{errors.email.message}</p>
+                      <p id="email-error" className="text-destructive text-sm mt-1">{errors.email.message}</p>
                     )}
                   </div>
 
@@ -154,13 +270,16 @@ const Contact = () => {
                       id="phone"
                       type="tel"
                       {...register('phone')}
+                      autoComplete="tel"
+                      aria-invalid={Boolean(errors.phone)}
+                      aria-describedby={errors.phone ? 'phone-error' : undefined}
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary transition ${
                         errors.phone ? 'border-destructive' : 'border-border'
                       }`}
                       placeholder={t('contact.phonePlaceholder', '+33 6 XX XX XX XX')}
                     />
                     {errors.phone && (
-                      <p role="alert" className="text-destructive text-sm mt-1">{errors.phone.message}</p>
+                      <p id="phone-error" className="text-destructive text-sm mt-1">{errors.phone.message}</p>
                     )}
                   </div>
 
@@ -173,13 +292,15 @@ const Contact = () => {
                       id="subject"
                       type="text"
                       {...register('subject')}
+                      aria-invalid={Boolean(errors.subject)}
+                      aria-describedby={errors.subject ? 'subject-error' : undefined}
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary transition ${
                         errors.subject ? 'border-destructive' : 'border-border'
                       }`}
                       placeholder={t('contact.subjectPlaceholder', 'Sujet de votre message')}
                     />
                     {errors.subject && (
-                      <p role="alert" className="text-destructive text-sm mt-1">{errors.subject.message}</p>
+                      <p id="subject-error" className="text-destructive text-sm mt-1">{errors.subject.message}</p>
                     )}
                   </div>
 
@@ -191,14 +312,17 @@ const Contact = () => {
                     <textarea
                       id="message"
                       {...register('message')}
-                      rows="5" 
+                      required
+                      aria-invalid={Boolean(errors.message)}
+                      aria-describedby={errors.message ? 'message-error' : undefined}
+                      rows="5"
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary transition ${
                         errors.message ? 'border-destructive' : 'border-border'
                       }`}
                       placeholder={t('contact.messagePlaceholder', 'Votre message...')}
                     ></textarea>
                     {errors.message && (
-                      <p role="alert" className="text-destructive text-sm mt-1">{errors.message.message}</p>
+                      <p id="message-error" className="text-destructive text-sm mt-1">{errors.message.message}</p>
                     )}
                   </div>
 
@@ -213,7 +337,7 @@ const Contact = () => {
                       <>{t('contact.sending', 'Envoi en cours...')}</>
                     ) : (
                       <>
-                        <Send className="mr-2" size={20} /> 
+                        <Send className="mr-2" size={20} />
                         {t('contact.send', 'Envoyer')}
                       </>
                     )}
@@ -288,27 +412,27 @@ const Contact = () => {
                     {t('contact.urgentTitle', 'Besoin Urgent ?')}
                   </h3>
                   <p className="mb-6 opacity-90">
-                    {t('contact.urgentDescription', 'Notre équipe est disponible pour une intervention rapide sous 24-48h.')}
+                    Appelez-nous : nous confirmerons immédiatement la disponibilité, le délai et le mode d’intervention possibles.
                   </p>
                   <div className="flex flex-col gap-3">
-                    <a href="tel:+33367310201">
-                      <Button size="lg" className="w-full bg-white text-primary hover:bg-white/90">
+                    <Button asChild size="lg" className="w-full bg-white text-primary hover:bg-white/90">
+<a href="tel:+33367310201">
                         <Phone className="mr-2" size={20} />
                         {t('contact.callNow', 'Appeler Maintenant')}
-                      </Button>
-                    </a>
-                    <a href="https://wa.me/33766638040" target="_blank" rel="noopener noreferrer">
-                      <Button size="lg" className="w-full bg-[#25D366] text-white hover:bg-[#25D366]/90">
+                      </a>
+</Button>
+                    <Button asChild size="lg" className="w-full bg-[#25D366] text-white hover:bg-[#25D366]/90">
+<a href="https://wa.me/33766638040" target="_blank" rel="noopener noreferrer">
                         <MessageCircle className="mr-2" size={20} />
                         WhatsApp
-                      </Button>
-                    </a>
-                    <a href="mailto:contact@netzinformatique.fr">
-                      <Button size="lg" variant="outline" className="w-full border-white text-white hover:bg-white/10">
+                      </a>
+</Button>
+                    <Button asChild size="lg" variant="outline" className="w-full border-white text-white hover:bg-white/10">
+<a href="mailto:contact@netzinformatique.fr">
                         <Mail className="mr-2" size={20} />
                         {t('contact.emailUs', 'Nous Écrire')}
-                      </Button>
-                    </a>
+                      </a>
+</Button>
                   </div>
                 </div>
               </div>

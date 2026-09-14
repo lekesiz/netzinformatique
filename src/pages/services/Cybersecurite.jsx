@@ -138,28 +138,15 @@ const Cybersecurite = () => {
     },
     {
       question: t('cyber.faq3Q', 'La conformité RGPD est-elle obligatoire ?'),
-      answer: t('cyber.faq3A', 'OUI, pour toute entreprise traitant des données personnelles (clients, prospects, employés). Non-conformité = risque d\'amende jusqu\'à 4% du CA ou 20M€. Au-delà de l\'obligation légale, c\'est un gage de confiance pour vos clients.')
+      answer: 'Le RGPD s’applique aux traitements de données personnelles selon le contexte. Notre intervention technique aide à réduire les risques ; pour une interprétation juridique ou une mise en conformité formelle, consultez votre DPO ou conseil.'
     },
     {
       question: t('cyber.faq4Q', 'Combien coûte une cyberattaque ?'),
-      answer: t('cyber.faq4A', 'Coût moyen pour une PME : 50000€ à 200000€ (rançon, perte d\'activité, restauration, image). Sans compter l\'amende RGPD si données clients compromises. La prévention coûte 10 à 20 fois moins cher qu\'une attaque.')
+      answer: 'L’impact dépend de l’arrêt d’activité, des données touchées, des restaurations, des obligations de notification et des tiers. Un audit permet d’identifier les scénarios prioritaires sans promettre un coût évité.'
     },
     {
       question: t('cyber.faq5Q', 'Un antivirus gratuit suffit-il ?'),
-      answer: t('cyber.faq5A', 'NON pour une entreprise. Les antivirus gratuits n\'offrent pas : protection avancée anti-ransomware, gestion centralisée, support professionnel, protection des serveurs, conformité RGPD. Investissement minimal : 5-10€/mois/poste.')
-    }
-  ];
-
-  const testimonials = [
-    {
-      company: t('cyber.testi1Company', 'Cabinet Médical'),
-      text: t('cyber.testi1Text', 'Après un ransomware qui a chiffré toutes nos données patients, NETZ a tout restauré en 4h grâce aux sauvegardes. Ils ont ensuite sécurisé notre infrastructure. Plus jamais ça !'),
-      author: 'Dr. Martin, Haguenau'
-    },
-    {
-      company: t('cyber.testi2Company', 'E-commerce'),
-      text: t('cyber.testi2Text', 'L\'audit RGPD a révélé 15 non-conformités majeures. NETZ nous a accompagnés sur 3 mois pour tout mettre en conformité. Contrôle CNIL passé sans problème.'),
-      author: 'Sophie L., Gérante'
+      answer: 'La protection doit être évaluée avec le système, les usages, la gestion centralisée, les correctifs, les sauvegardes, le MFA et la réponse aux incidents. Un antivirus seul ne constitue pas une stratégie complète.'
     }
   ];
 
@@ -185,16 +172,16 @@ const Cybersecurite = () => {
               {t('cyber.heroSubtitle', 'Protégez votre entreprise contre les cyberattaques. 43% des PME sont victimes chaque année. Ne soyez pas la prochaine !')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
-              <Link to="/contact">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+<Link to="/contact?audience=entreprise&service=cybersecurite&source=services">
                   {t('cyber.heroCtaAudit', 'Audit de Sécurité Gratuit')} <ArrowRight className="ml-2" />
-                </Button>
-              </Link>
-              <a href="tel:+33367310201">
-                <Button size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+                </Link>
+</Button>
+              <Button asChild size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+<a href="tel:+33367310201">
                   <Phone className="mr-2" /> {t('cyber.heroCtaUrgence', 'Urgence Cyberattaque')}
-                </Button>
-              </a>
+                </a>
+</Button>
             </div>
           </div>
         </section>
@@ -300,11 +287,11 @@ const Cybersecurite = () => {
                       </ul>
                     </div>
                     <div className="font-bold text-accent mb-4">{service.price}</div>
-                    <Link to="/contact">
-                      <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
+                    <Button asChild className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
+<Link to="/contact?audience=entreprise&service=cybersecurite&source=services">
                         {t('cyber.requestQuote', 'Demander un Devis')}
-                      </Button>
-                    </Link>
+                      </Link>
+</Button>
                   </div>
                 </div>
               ))}
@@ -332,27 +319,6 @@ const Cybersecurite = () => {
                   </div>
                   <h3 className="font-bold mb-2">{item.title}</h3>
                   <p className="text-sm text-muted-foreground">{item.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Testimonials */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                {t('cyber.testimonialsHeading', 'Ils Nous Font Confiance')}
-              </h2>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {testimonials.map((testimonial, index) => (
-                <div key={index} className="bg-card rounded-2xl p-8 shadow-xl">
-                  <div className="text-sm text-accent font-semibold mb-4">{testimonial.company}</div>
-                  <p className="text-muted-foreground mb-4 italic">"{testimonial.text}"</p>
-                  <div className="font-semibold">— {testimonial.author}</div>
                 </div>
               ))}
             </div>
@@ -394,18 +360,18 @@ const Cybersecurite = () => {
               {t('cyber.ctaSubheading', '60% des PME attaquées ferment dans les 6 mois. Protégez votre entreprise dès maintenant.')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
-              <Link to="/contact">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+<Link to="/contact?audience=entreprise&service=cybersecurite&source=services">
                   {t('cyber.ctaAudit', 'Audit de Sécurité Gratuit')}
                   <ArrowRight className="ml-2" />
-                </Button>
-              </Link>
-              <a href="tel:+33367310201">
-                <Button size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+                </Link>
+</Button>
+              <Button asChild size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+<a href="tel:+33367310201">
                   <Phone className="mr-2" />
                   03 67 31 02 01
-                </Button>
-              </a>
+                </a>
+</Button>
             </div>
           </div>
         </section>

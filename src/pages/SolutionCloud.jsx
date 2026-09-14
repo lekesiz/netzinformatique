@@ -171,20 +171,20 @@ const SolutionCloud = () => {
               {t('solCloud.heroSubtitle', 'Migration cloud, Microsoft 365, hébergement, sauvegarde et infrastructure hybride. NETZ Informatique accompagne votre entreprise vers une informatique plus agile, sécurisée et accessible partout.')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
-              <Link to="/contact">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+<Link to="/contact?audience=entreprise&service=cloud-reseau&source=services">
                   {t('solCloud.heroCtaQuote', 'Demander un devis')} <ArrowRight className="ml-2" size={18} />
-                </Button>
-              </Link>
-              <a href="tel:+33367310201">
-                <Button
+                </Link>
+</Button>
+              <Button asChild
                   size="lg"
                   variant="outline"
                   className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10"
                 >
+<a href="tel:+33367310201">
                   <Phone className="mr-2" size={18} /> 03 67 31 02 01
-                </Button>
-              </a>
+                </a>
+</Button>
             </div>
           </div>
         </section>
@@ -292,11 +292,11 @@ const SolutionCloud = () => {
               <div className="text-3xl md:text-4xl font-bold mb-8">
                 {t('solCloud.pricingNote', 'Tarifs sur devis • Audit gratuit')}
               </div>
-              <Link to="/contact">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+<Link to="/contact?audience=entreprise&service=cloud-reseau&source=services">
                   {t('solCloud.pricingCta', 'Demander un devis')} <ArrowRight className="ml-2" size={18} />
-                </Button>
-              </Link>
+                </Link>
+</Button>
             </div>
           </div>
         </section>
@@ -312,20 +312,20 @@ const SolutionCloud = () => {
               {t('solCloud.ctaSubtitle', 'Discutons de votre projet cloud et construisons ensemble une infrastructure fiable, sécurisée et évolutive.')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
-              <Link to="/contact">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+<Link to="/contact?audience=entreprise&service=cloud-reseau&source=services">
                   {t('solCloud.ctaQuote', 'Demander un devis')} <ArrowRight className="ml-2" size={18} />
-                </Button>
-              </Link>
-              <a href="tel:+33367310201">
-                <Button
+                </Link>
+</Button>
+              <Button asChild
                   size="lg"
                   variant="outline"
                   className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10"
                 >
+<a href="tel:+33367310201">
                   <Phone className="mr-2" size={18} /> 03 67 31 02 01
-                </Button>
-              </a>
+                </a>
+</Button>
             </div>
           </div>
         </section>

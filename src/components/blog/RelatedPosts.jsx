@@ -26,16 +26,16 @@ const RelatedPosts = ({ currentSlug, category, limit = 3 }) => {
       <h2 className="text-3xl font-bold mb-8">Articles Connexes</h2>
       <div className="grid md:grid-cols-3 gap-8">
         {relatedPosts.map(post => (
-          <Link 
-            key={post.slug} 
+          <Link
+            key={post.slug}
             to={`/blog/${post.slug}`}
             className="group"
           >
             <div className="bg-card rounded-xl overflow-hidden shadow-md hover-lift">
               <div className="aspect-video overflow-hidden">
-                <img 
-                  src={post.image} 
-                  alt={post.title[i18n.language]} 
+                <img
+                  src={post.image}
+                  alt={post.title[i18n.language]}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               </div>

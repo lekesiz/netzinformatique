@@ -49,11 +49,11 @@ const Services = () => {
                   <span>{t('services.partFeat3', 'Installation et configuration')}</span>
                 </li>
               </ul>
-              <Link to="/services/particuliers">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold w-full">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold w-full">
+<Link to="/services/particuliers">
                   {t('services.discover', 'Découvrir')} <ArrowRight className="ml-2" size={20} />
-                </Button>
-              </Link>
+                </Link>
+</Button>
             </div>
 
             <div className="bg-card rounded-2xl p-8 shadow-xl hover-lift">
@@ -78,11 +78,11 @@ const Services = () => {
                   <span>{t('services.entFeat3', 'Cybersécurité avancée')}</span>
                 </li>
               </ul>
-              <Link to="/services/entreprises">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold w-full">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold w-full">
+<Link to="/services/entreprises">
                   {t('services.discover', 'Découvrir')} <ArrowRight className="ml-2" size={20} />
-                </Button>
-              </Link>
+                </Link>
+</Button>
             </div>
           </div>
         </div>

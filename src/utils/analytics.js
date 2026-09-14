@@ -1,369 +1,277 @@
-/**
- * Enhanced Google Analytics Event Tracking Utility
- *
- * Usage:
- * trackEvent('button_click', { button_name: 'contact', page: 'home' });
- * trackFormSubmit('contact_form');
- * trackPageView('/about');
- */
+import { hasConsent } from '../consent/consentStore'
 
-// GA4 Measurement ID — must match the gtag snippet hardcoded in index.html <head>.
 export const GA_MEASUREMENT_ID = 'G-1P3QYCN1MJ'
+export const GA_SCRIPT_ID = 'netz-google-analytics'
 
-/**
- * Generate or retrieve anonymous user ID
- * Stored in localStorage for consistent tracking across sessions
- */
-export function getOrCreateUserId() {
-  const STORAGE_KEY = 'netz_user_id'
+const BLOCKED_PARAMETER_PATTERN = /^(email|message|phone|full_name|user_id|address|content|query|error_message)$/i
+let analyticsCleanup = null
+let googleAnalyticsInitialized = false
 
-  let userId = localStorage.getItem(STORAGE_KEY)
+export const canUseAnalytics = () => (
+  typeof window !== 'undefined' && hasConsent('analytics')
+)
 
-  if (!userId) {
-    // Generate anonymous user ID (UUID v4 format)
-    userId = 'uid_' + Date.now() + '_' + Math.random().toString(36).substring(2, 15)
-    localStorage.setItem(STORAGE_KEY, userId)
+const sanitizeEventParams = (params = {}) => Object.fromEntries(
+  Object.entries(params)
+    .filter(([key, value]) => !BLOCKED_PARAMETER_PATTERN.test(key) && ['string', 'number', 'boolean'].includes(typeof value))
+    .map(([key, value]) => [key, typeof value === 'string' ? value.slice(0, 100) : value])
+)
+
+const ensureGtagQueue = () => {
+  window.dataLayer = window.dataLayer || []
+  window.gtag = window.gtag || function gtag() {
+    window.dataLayer.push(arguments)
   }
-
-  return userId
+  return window.gtag
 }
 
-/**
- * Initialize user ID tracking with Google Analytics
- */
-export function initUserIdTracking() {
-  const userId = getOrCreateUserId()
+export function initGoogleAnalytics() {
+  if (!canUseAnalytics()) return false
 
-  if (window.gtag) {
-    window.gtag('config', GA_MEASUREMENT_ID, {
-      user_id: userId,
-      cookie_flags: 'SameSite=None;Secure'
-    })
+  const gtag = ensureGtagQueue()
+  window[`ga-disable-${GA_MEASUREMENT_ID}`] = false
 
-    console.log('✅ User ID tracking initialized:', userId)
+  if (!document.getElementById(GA_SCRIPT_ID)) {
+    const script = document.createElement('script')
+    script.id = GA_SCRIPT_ID
+    script.async = true
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(GA_MEASUREMENT_ID)}`
+    script.dataset.netzVendor = 'google-analytics'
+    document.head.appendChild(script)
   }
 
-  return userId
+  if (!googleAnalyticsInitialized) {
+    gtag('js', new Date())
+    gtag('config', GA_MEASUREMENT_ID, {
+      anonymize_ip: true,
+      send_page_view: false,
+      cookie_flags: 'SameSite=None;Secure',
+    })
+    googleAnalyticsInitialized = true
+  }
+
+  return true
+}
+
+const removeFirstPartyAnalyticsCookies = () => {
+  document.cookie.split(';').forEach((entry) => {
+    const name = entry.split('=')[0]?.trim()
+    if (!name || (!name.startsWith('_ga') && !name.startsWith('_gid'))) return
+    document.cookie = `${name}=; Max-Age=0; path=/; SameSite=Lax`
+    document.cookie = `${name}=; Max-Age=0; path=/; domain=.netzinformatique.fr; SameSite=Lax`
+  })
+}
+
+export function disposeGoogleAnalytics() {
+  if (typeof window === 'undefined') return
+  window[`ga-disable-${GA_MEASUREMENT_ID}`] = true
+  analyticsCleanup?.()
+  analyticsCleanup = null
+  googleAnalyticsInitialized = false
+  document.getElementById(GA_SCRIPT_ID)?.remove()
+  localStorage.removeItem('netz_user_id')
+  removeFirstPartyAnalyticsCookies()
+}
+
+/** @deprecated Persistent analytics identifiers were removed for data minimization. */
+export function getOrCreateUserId() {
+  return null
+}
+
+/** @deprecated Google Analytics is now initialized by the consent-aware route adapter. */
+export function initUserIdTracking() {
+  return null
 }
 
 export const trackEvent = (eventName, eventParams = {}) => {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('event', eventName, {
-      ...eventParams,
-      user_id: getOrCreateUserId(),
-      timestamp: Date.now()
-    });
-  }
-};
+  if (!canUseAnalytics() || typeof window.gtag !== 'function') return false
+  window.gtag('event', eventName, sanitizeEventParams(eventParams))
+  return true
+}
 
-export const trackFormSubmit = (formName) => {
-  trackEvent('form_submit', {
-    form_name: formName,
-    timestamp: new Date().toISOString(),
-  });
-};
+export const trackFormSubmit = (formName) => trackEvent('form_submit', { form_name: formName })
+export const trackButtonClick = (buttonName, location) => trackEvent('button_click', { button_name: buttonName, location })
+export const trackServiceView = (serviceName) => trackEvent('service_view', { service_name: serviceName })
+export const trackDownload = (fileName) => trackEvent('file_download', { file_name: fileName })
+export const trackOutboundLink = (url, linkText) => trackEvent('outbound_link', {
+  destination_host: (() => {
+    try { return new URL(url, window.location.origin).hostname } catch { return 'invalid' }
+  })(),
+  link_label: linkText,
+})
+export const trackSearch = () => trackEvent('search_used')
+export const trackCalendlyOpen = () => trackEvent('calendly_open', { source: 'floating_button' })
+export const trackNewsletterSignup = () => trackEvent('newsletter_signup')
 
-export const trackButtonClick = (buttonName, location) => {
-  trackEvent('button_click', {
-    button_name: buttonName,
-    location: location,
-  });
-};
+export const trackPageView = (path) => trackEvent('page_view', {
+  page_path: path,
+  page_title: document.title,
+})
 
-export const trackServiceView = (serviceName) => {
-  trackEvent('service_view', {
-    service_name: serviceName,
-  });
-};
+export const trackProductView = (productId, productName, category) => trackEvent('view_item', {
+  item_id: productId,
+  item_label: productName,
+  item_category: category,
+})
 
-export const trackDownload = (fileName) => {
-  trackEvent('file_download', {
-    file_name: fileName,
-  });
-};
+export const trackAddToCart = (productId, productName, price) => trackEvent('add_to_cart', {
+  item_id: productId,
+  item_label: productName,
+  price,
+  currency: 'EUR',
+})
 
-export const trackOutboundLink = (url, linkText) => {
-  trackEvent('outbound_link', {
-    url: url,
-    link_text: linkText,
-  });
-};
+export const trackPurchase = (transactionId, value) => trackEvent('purchase', {
+  transaction_id: transactionId,
+  value,
+  currency: 'EUR',
+})
 
-export const trackSearch = (searchTerm) => {
-  trackEvent('search', {
-    search_term: searchTerm,
-  });
-};
-
-export const trackCalendlyOpen = () => {
-  trackEvent('calendly_open', {
-    source: 'floating_button',
-  });
-};
-
-export const trackNewsletterSignup = (email) => {
-  trackEvent('newsletter_signup', {
-    email_domain: email.split('@')[1],
-  });
-};
-
-export const trackPageView = (path) => {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('config', GA_MEASUREMENT_ID, {
-      page_path: path,
-    });
-  }
-};
-
-// E-commerce tracking (for future use)
-export const trackProductView = (productId, productName, category) => {
-  trackEvent('view_item', {
-    items: [{
-      item_id: productId,
-      item_name: productName,
-      item_category: category,
-    }],
-  });
-};
-
-export const trackAddToCart = (productId, productName, price) => {
-  trackEvent('add_to_cart', {
-    items: [{
-      item_id: productId,
-      item_name: productName,
-      price: price,
-    }],
-  });
-};
-
-export const trackPurchase = (transactionId, value, items) => {
-  trackEvent('purchase', {
-    transaction_id: transactionId,
-    value: value,
-    currency: 'EUR',
-    items: items,
-  });
-};
-
-/**
- * Track scroll depth
- * Tracks when user scrolls to 25%, 50%, 75%, 90%, 100% of page
- */
 export function initScrollDepthTracking() {
   const thresholds = [25, 50, 75, 90, 100]
   const reached = new Set()
+  let scrollTimeout
 
   const checkScrollDepth = () => {
-    const windowHeight = window.innerHeight
+    if (!canUseAnalytics()) return
     const documentHeight = document.documentElement.scrollHeight
+    if (!documentHeight) return
     const scrollTop = window.scrollY || document.documentElement.scrollTop
+    const scrollPercent = Math.round(((scrollTop + window.innerHeight) / documentHeight) * 100)
 
-    const scrollPercent = Math.round((scrollTop + windowHeight) / documentHeight * 100)
-
-    thresholds.forEach(threshold => {
+    thresholds.forEach((threshold) => {
       if (scrollPercent >= threshold && !reached.has(threshold)) {
         reached.add(threshold)
-
-        trackEvent('scroll_depth', {
-          depth: threshold,
-          page_path: window.location.pathname
-        })
+        trackEvent('scroll_depth', { depth: threshold, page_path: window.location.pathname })
       }
     })
   }
 
-  let scrollTimeout
   const handleScroll = () => {
     clearTimeout(scrollTimeout)
     scrollTimeout = setTimeout(checkScrollDepth, 100)
   }
 
   window.addEventListener('scroll', handleScroll, { passive: true })
-
-  // Cleanup function
   return () => {
+    clearTimeout(scrollTimeout)
     window.removeEventListener('scroll', handleScroll)
   }
 }
 
-/**
- * Track time on page
- */
 export function initTimeTracking() {
   const startTime = Date.now()
   let isActive = true
 
-  // Track when user leaves page
   const trackTimeOnPage = () => {
-    if (!isActive) return
-
-    const timeSpent = Math.round((Date.now() - startTime) / 1000) // in seconds
-
+    if (!isActive || !canUseAnalytics()) return
+    const timeSpent = Math.round((Date.now() - startTime) / 1000)
     trackEvent('time_on_page', {
       time_seconds: timeSpent,
-      time_minutes: Math.round(timeSpent / 60),
-      page_path: window.location.pathname
+      page_path: window.location.pathname,
     })
   }
 
-  // Track on page unload
-  window.addEventListener('beforeunload', trackTimeOnPage)
-
-  // Track on visibility change (tab switch)
-  document.addEventListener('visibilitychange', () => {
+  const handleVisibilityChange = () => {
     if (document.hidden) {
       trackTimeOnPage()
       isActive = false
     } else {
       isActive = true
     }
-  })
+  }
 
-  // Cleanup
+  window.addEventListener('beforeunload', trackTimeOnPage)
+  document.addEventListener('visibilitychange', handleVisibilityChange)
+
   return () => {
     window.removeEventListener('beforeunload', trackTimeOnPage)
+    document.removeEventListener('visibilitychange', handleVisibilityChange)
   }
 }
 
-/**
- * Conversion Funnels
- * Track user progress through defined conversion paths
- */
 export const CONVERSION_FUNNELS = {
   contact: {
     name: 'Contact Form',
-    steps: [
-      'contact_page_view',
-      'contact_form_start',
-      'contact_form_field_complete',
-      'contact_form_submit',
-      'contact_form_success'
-    ]
+    steps: ['contact_page_view', 'contact_form_start', 'contact_form_field_complete', 'contact_form_submit', 'contact_form_success'],
   },
-
   service_inquiry: {
     name: 'Service Inquiry',
-    steps: [
-      'services_page_view',
-      'service_detail_view',
-      'service_cta_click',
-      'inquiry_form_start',
-      'inquiry_form_submit'
-    ]
+    steps: ['services_page_view', 'service_detail_view', 'service_cta_click', 'inquiry_form_start', 'inquiry_form_submit'],
   },
-
   training_registration: {
     name: 'Training Registration',
-    steps: [
-      'training_page_view',
-      'training_detail_view',
-      'registration_form_start',
-      'registration_payment_info',
-      'registration_complete'
-    ]
+    steps: ['training_page_view', 'training_detail_view', 'registration_form_start', 'registration_payment_info', 'registration_complete'],
   },
-
   quote_request: {
     name: 'Quote Request',
-    steps: [
-      'quote_page_view',
-      'quote_form_start',
-      'quote_service_selection',
-      'quote_details_complete',
-      'quote_submit'
-    ]
-  }
+    steps: ['quote_page_view', 'quote_form_start', 'quote_service_selection', 'quote_details_complete', 'quote_submit'],
+  },
 }
 
-/**
- * Track conversion funnel step
- * @param {string} funnelName - Funnel identifier
- * @param {string} stepName - Step identifier
- * @param {Object} metadata - Additional data
- */
 export function trackFunnelStep(funnelName, stepName, metadata = {}) {
   const funnel = CONVERSION_FUNNELS[funnelName]
-
-  if (!funnel) {
-    console.warn('Unknown funnel:', funnelName)
-    return
-  }
-
+  if (!funnel) return false
   const stepIndex = funnel.steps.indexOf(stepName)
-
   trackEvent('funnel_step', {
     funnel_name: funnelName,
-    funnel_display_name: funnel.name,
+    funnel_label: funnel.name,
     step_name: stepName,
     step_index: stepIndex,
     step_total: funnel.steps.length,
-    ...metadata
+    ...metadata,
   })
-
-  // Also track the specific step event
-  trackEvent(stepName, {
-    funnel: funnelName,
-    ...metadata
-  })
+  return trackEvent(stepName, { funnel: funnelName, ...metadata })
 }
 
-/**
- * Track form interactions (enhanced)
- * @param {string} formName - Form identifier
- * @param {string} action - Action (start, field_complete, submit, success, error)
- * @param {Object} data - Additional data
- */
 export function trackFormInteraction(formName, action, data = {}) {
-  trackEvent(`form_${action}`, {
-    form_name: formName,
-    ...data
-  })
+  return trackEvent(`form_${action}`, { form_name: formName, ...data })
 }
 
-/**
- * Track errors
- * @param {string} errorType - Error type
- * @param {string} errorMessage - Error message
- * @param {Object} context - Error context
- */
-export function trackError(errorType, errorMessage, context = {}) {
-  trackEvent('error', {
-    error_type: errorType,
-    error_message: errorMessage,
-    ...context
-  })
+export function initConversionTracking() {
+  const handleClick = (event) => {
+    if (!canUseAnalytics()) return
+    const link = event.target.closest?.('a[href]')
+    if (!link) return
+    const href = link.getAttribute('href') || ''
+    const sourceRoute = window.location.pathname
+
+    if (href.startsWith('tel:')) trackEvent('phone_click', { source_route: sourceRoute })
+    else if (href.includes('wa.me/')) trackEvent('whatsapp_click', { source_route: sourceRoute })
+    else if (href.startsWith('/contact')) {
+      const target = new URL(href, window.location.origin)
+      trackEvent('quote_cta_click', {
+        source_route: sourceRoute,
+        audience: target.searchParams.get('audience') || 'unknown',
+        service: target.searchParams.get('service') || 'unknown',
+        offer: target.searchParams.get('offer') || 'none',
+      })
+    }
+  }
+
+  document.addEventListener('click', handleClick)
+  return () => document.removeEventListener('click', handleClick)
 }
 
-/**
- * Track engagement metrics
- * @param {string} engagementType - Type of engagement
- * @param {Object} data - Engagement data
- */
+export function trackError(errorType) {
+  return trackEvent('error', { error_type: errorType })
+}
+
 export function trackEngagement(engagementType, data = {}) {
-  trackEvent('engagement', {
-    engagement_type: engagementType,
-    ...data
-  })
+  return trackEvent('engagement', { engagement_type: engagementType, ...data })
 }
 
-/**
- * Initialize all analytics features
- */
 export function initAnalytics() {
-  // Initialize user ID tracking
-  initUserIdTracking()
+  if (!canUseAnalytics()) return () => {}
+  if (analyticsCleanup) return analyticsCleanup
 
-  // Initialize scroll depth tracking
   const cleanupScroll = initScrollDepthTracking()
-
-  // Initialize time tracking
   const cleanupTime = initTimeTracking()
-
-  console.log('✅ Enhanced analytics initialized')
-
-  // Return cleanup function
-  return () => {
+  const cleanupConversions = initConversionTracking()
+  analyticsCleanup = () => {
     cleanupScroll()
     cleanupTime()
+    cleanupConversions()
   }
+  return analyticsCleanup
 }

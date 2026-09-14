@@ -1,0 +1,49 @@
+name: Digital Quality Governance
+
+on:
+  schedule:
+    - cron: '0 7 1 * *'
+    - cron: '0 7 15 1,4,7,10 *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  monthly-technical-audit:
+    if: github.event_name == 'workflow_dispatch' || github.event.schedule == '0 7 1 * *'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: pnpm/action-setup@b906affcce14559ad1aafd4ab0e942779e9f58b1 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Security, unit, coverage, prerender, and bundle gates
+        run: pnpm build:verified && pnpm test:coverage
+      - name: Lighthouse accessibility and web quality
+        run: pnpm test:lighthouse
+      - name: Dependency freshness inventory
+        run: pnpm outdated || true
+
+  quarterly-review-issue:
+    if: github.event_name == 'workflow_dispatch' || github.event.schedule == '0 7 15 1,4,7,10 *'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Open the quarterly evidence review
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        with:
+          script: |
+            const quarter = `${new Date().getUTCFullYear()}-Q${Math.floor(new Date().getUTCMonth() / 3) + 1}`;
+            const title = `Quarterly digital quality review — ${quarter}`;
+            const open = await github.paginate(github.rest.issues.listForRepo, { owner: context.repo.owner, repo: context.repo.repo, state: 'open' });
+            if (open.some(issue => issue.title === title)) return;
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              body: `## Evidence and claims\n- [ ] Reverify registry, certificate, partner, price, availability, and response-time claims.\n- [ ] Remove or qualify claims without current evidence.\n- [ ] Confirm every testimonial or case study still has written publication permission.\n\n## Content and search\n- [ ] Review top service and sector pages for accuracy, intent, authorship, dates, and primary sources.\n- [ ] Check Search Console coverage, sitemap, canonicals, structured data, and 404 reports.\n\n## Privacy and security\n- [ ] Review vendors, consent categories, retention, CSP reports, dependencies, secrets, and API abuse logs.\n\n## Accessibility and performance\n- [ ] Complete keyboard and screen-reader checks on Home, Services, Tarifs, Contact, Blog, and cookie preferences.\n- [ ] Review field Web Vitals p75 by route and mobile/desktop and open corrective issues for any regression.\n`,
+            });

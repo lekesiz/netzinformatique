@@ -49,7 +49,7 @@ const Tarifs = () => {
       features: [
         t('tarifs.part3Feat1', 'Analyse préalable gratuite'),
         t('tarifs.part3Feat2', 'Aucun frais en cas d\'échec'),
-        t('tarifs.part3Feat3', 'Confidentialité garantie'),
+        'Engagement de confidentialité précisé au devis',
         t('tarifs.part3Feat4', 'Devis ferme après diagnostic'),
       ],
     },
@@ -71,42 +71,44 @@ const Tarifs = () => {
   // ---- Entreprises ----
   const entreprises = [
     {
+      id: 'essentiel',
       icon: Server,
-      name: t('tarifs.ent1Name', 'Contrat de maintenance'),
-      price: t('tarifs.ent1Price', 'À partir de 79€'),
-      unit: t('tarifs.ent1Unit', '/ mois'),
+      name: 'Essentiel',
+      price: 'À partir de 79 € HT',
+      unit: '/ mois',
       popular: true,
-      description: t('tarifs.ent1Desc', 'La tranquillité d\'esprit pour votre parc informatique, sans mauvaise surprise.'),
+      description: 'Base indicative pour une petite structure. Le nombre de postes, les licences et la durée sont fixés dans le devis.',
       features: [
-        t('tarifs.ent1Feat1', 'Mises à jour & correctifs'),
-        t('tarifs.ent1Feat2', 'Sauvegardes automatiques'),
-        t('tarifs.ent1Feat3', 'Surveillance 24/7'),
-        t('tarifs.ent1Feat4', 'Support prioritaire'),
-        t('tarifs.ent1Feat5', 'Rapports mensuels'),
+        'Inventaire et maintenance planifiée',
+        'Mises à jour et contrôle des sauvegardes selon devis',
+        'Support pendant les horaires publiés',
+        'Matériel, licences et déplacements exclus sauf mention',
       ],
     },
     {
+      id: 'serenite',
       icon: ShieldCheck,
-      name: t('tarifs.ent2Name', 'Audit & cybersécurité'),
-      price: t('tarifs.ent2Price', 'sur devis'),
-      description: t('tarifs.ent2Desc', 'Évaluation de votre sécurité, conformité RGPD et plan d\'action concret.'),
+      name: 'Sérénité',
+      price: 'Sur devis',
+      description: 'Maintenance renforcée pour un parc multi-utilisateur, dimensionnée après inventaire technique.',
       features: [
-        t('tarifs.ent2Feat1', 'Audit de votre infrastructure'),
-        t('tarifs.ent2Feat2', 'Analyse des vulnérabilités'),
-        t('tarifs.ent2Feat3', 'Conformité RGPD'),
-        t('tarifs.ent2Feat4', 'Recommandations chiffrées'),
+        'Supervision automatisée 24/7, sans astreinte humaine implicite',
+        'Support priorisé avec objectif de prise en charge contractuel',
+        'Suivi des correctifs, sauvegardes et capacité',
+        'Interventions sur site et licences cadrées au devis',
       ],
     },
     {
+      id: 'cyber-renforcee',
       icon: Building2,
-      name: t('tarifs.ent3Name', 'Infogérance'),
-      price: t('tarifs.ent3Price', 'sur devis'),
-      description: t('tarifs.ent3Desc', 'Gestion complète et externalisée de votre informatique au quotidien.'),
+      name: 'Cyber renforcée',
+      price: 'Sur devis',
+      description: 'Socle de réduction des risques adapté à l’exposition, aux outils et aux obligations de l’organisation.',
       features: [
-        t('tarifs.ent3Feat1', 'Gestion complète du parc'),
-        t('tarifs.ent3Feat2', 'Support utilisateurs illimité'),
-        t('tarifs.ent3Feat3', 'Interlocuteur dédié'),
-        t('tarifs.ent3Feat4', 'Engagement de service (SLA)'),
+        'Audit, MFA, stratégie de correctifs et sauvegardes',
+        'EDR, pare-feu et sensibilisation selon architecture',
+        'Chemin d’escalade incident défini au contrat',
+        'Aucune garantie de conformité juridique ou de résolution',
       ],
     },
   ]
@@ -154,10 +156,10 @@ const Tarifs = () => {
 
   // ---- Reassurance band ----
   const reassurance = [
-    { icon: FileCheck, title: t('tarifs.reass1Title', 'Diagnostic gratuit'), desc: t('tarifs.reass1Desc', 'Avant toute intervention, sans engagement.') },
-    { icon: HeartHandshake, title: t('tarifs.reass2Title', 'Devis sans engagement'), desc: t('tarifs.reass2Desc', 'Un prix clair, validé avant de commencer.') },
-    { icon: CreditCard, title: t('tarifs.reass3Title', 'Paiement en 2-3x'), desc: t('tarifs.reass3Desc', 'Sans frais pour toute prestation > 500€.') },
-    { icon: Sparkles, title: t('tarifs.reass4Title', 'Tarifs associations'), desc: t('tarifs.reass4Desc', '-20% pour les associations & organismes à but non lucratif.') },
+    { icon: FileCheck, title: 'Diagnostic et devis', desc: 'Le périmètre, le prix et les éventuels frais sont confirmés avant intervention.' },
+    { icon: HeartHandshake, title: 'Conditions lisibles', desc: 'Inclus, exclusions, délais et responsabilités figurent dans le devis ou le contrat.' },
+    { icon: CreditCard, title: 'Modalités adaptées', desc: 'Les possibilités de paiement sont précisées au devis selon la prestation.' },
+    { icon: Sparkles, title: 'Associations et organismes', desc: 'Une proposition adaptée peut être étudiée selon le besoin et le budget.' },
   ]
 
   const breadcrumbs = [
@@ -199,16 +201,16 @@ const Tarifs = () => {
             {t('tarifs.heroSubtitle', 'Diagnostic gratuit, devis détaillé avant toute intervention. Pas de surprise.')}
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Link to="/contact">
-              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold gap-2">
+            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold gap-2">
+<Link to="/contact">
                 {t('tarifs.heroCtaQuote', 'Demander un devis personnalisé')} <ArrowRight size={18} />
-              </Button>
-            </Link>
-            <a href="tel:+33367310201">
-              <Button size="lg" variant="outline" className="border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10 gap-2">
+              </Link>
+</Button>
+            <Button asChild size="lg" variant="outline" className="border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10 gap-2">
+<a href="tel:+33367310201">
                 <Phone size={18} /> 03 67 31 02 01
-              </Button>
-            </a>
+              </a>
+</Button>
           </div>
           <p className="mt-6 text-sm text-primary-foreground/70 max-w-2xl mx-auto">
             {t('tarifs.heroNote', 'Tous les prix sont indicatifs et donnés « à partir de ». Chaque besoin est unique : nous établissons un devis gratuit et personnalisé.')}
@@ -249,9 +251,9 @@ const Tarifs = () => {
                     </li>
                   ))}
                 </ul>
-                <Link to="/contact" className="mt-auto">
-                  <Button variant="outline" className="w-full">{t('tarifs.askQuote', 'Demander un devis')}</Button>
-                </Link>
+                <Button asChild variant="outline" className="w-full">
+<Link to={`/contact?audience=entreprise&service=maintenance&offer=${item.id}&source=tarifs`} className="mt-auto">{t('tarifs.askQuote', 'Demander un devis')}</Link>
+</Button>
               </div>
             ))}
           </div>
@@ -305,14 +307,14 @@ const Tarifs = () => {
                     </li>
                   ))}
                 </ul>
-                <Link to="/contact" className="mt-auto">
-                  <Button
+                <Button asChild
                     className={`w-full ${item.popular ? 'bg-accent text-accent-foreground hover:bg-accent/90' : ''}`}
                     variant={item.popular ? 'default' : 'outline'}
                   >
+<Link to="/contact" className="mt-auto">
                     {t('tarifs.askQuote', 'Demander un devis')}
-                  </Button>
-                </Link>
+                  </Link>
+</Button>
               </div>
             ))}
           </div>
@@ -365,14 +367,14 @@ const Tarifs = () => {
                     </li>
                   ))}
                 </ul>
-                <Link to="/contact" className="mt-auto">
-                  <Button
+                <Button asChild
                     className={`w-full ${item.popular ? 'bg-accent text-accent-foreground hover:bg-accent/90' : ''}`}
                     variant={item.popular ? 'default' : 'outline'}
                   >
+<Link to="/contact" className="mt-auto">
                     {t('tarifs.askQuote', 'Demander un devis')}
-                  </Button>
-                </Link>
+                  </Link>
+</Button>
               </div>
             ))}
           </div>
@@ -401,12 +403,12 @@ const Tarifs = () => {
               </div>
               <h2 className="text-2xl font-bold mb-2">{t('tarifs.formTitle', 'Formation professionnelle')}</h2>
               <p className="text-muted-foreground mb-4">
-                {t('tarifs.formDesc', 'Nos formations sont certifiées QUALIOPI et finançables. Reste à charge souvent nul selon votre situation.')}
+                La certification QUALIOPI couvre les actions de formation et les bilans de compétences. Tout financement dépend du dispositif, de la formation et du dossier.
               </p>
               <ul className="space-y-3 mb-6 flex-1">
                 <li className="flex items-start gap-2 text-sm">
                   <CheckCircle size={18} className="text-accent flex-shrink-0 mt-0.5" />
-                  <span>{t('tarifs.formCpfPre', 'Éligible')} <strong>CPF</strong> {t('tarifs.formCpfPost', '(Compte Personnel de Formation)')}</span>
+                  <span><strong>CPF</strong> : éligibilité à vérifier pour chaque parcours</span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
                   <CheckCircle size={18} className="text-accent flex-shrink-0 mt-0.5" />
@@ -417,9 +419,9 @@ const Tarifs = () => {
                   <span>{t('tarifs.formPePre', 'Financement')} <strong>Pôle Emploi</strong> {t('tarifs.formPePost', '/ France Travail')}</span>
                 </li>
               </ul>
-              <Link to="/formation" className="mt-auto">
-                <Button variant="outline" className="w-full">{t('tarifs.formCta', 'Voir les formations')}</Button>
-              </Link>
+              <Button asChild variant="outline" className="w-full">
+<Link to="/formation" className="mt-auto">{t('tarifs.formCta', 'Voir les formations')}</Link>
+</Button>
             </div>
 
             <div className="flex flex-col bg-card border border-border rounded-2xl p-8 shadow-sm">
@@ -433,7 +435,7 @@ const Tarifs = () => {
               <ul className="space-y-3 mb-6 flex-1">
                 <li className="flex items-start gap-2 text-sm">
                   <CheckCircle size={18} className="text-accent flex-shrink-0 mt-0.5" />
-                  <span><strong>{t('tarifs.bilanFeat1', 'Finançable à 100% par le CPF')}</strong></span>
+                  <span><strong>Financement possible selon éligibilité et droits disponibles</strong></span>
                 </li>
                 <li className="flex items-start gap-2 text-sm">
                   <CheckCircle size={18} className="text-accent flex-shrink-0 mt-0.5" />
@@ -444,9 +446,9 @@ const Tarifs = () => {
                   <span>{t('tarifs.bilanFeat3', 'Idéal pour une reconversion ou évolution')}</span>
                 </li>
               </ul>
-              <Link to="/formation/bilan-competences" className="mt-auto">
-                <Button variant="outline" className="w-full">{t('tarifs.bilanCta', 'En savoir plus')}</Button>
-              </Link>
+              <Button asChild variant="outline" className="w-full">
+<Link to="/formation/bilan-competences" className="mt-auto">{t('tarifs.bilanCta', 'En savoir plus')}</Link>
+</Button>
             </div>
           </div>
         </div>
@@ -468,7 +470,7 @@ const Tarifs = () => {
                 <ul className="space-y-3">
                   <li className="flex items-start gap-2 text-sm">
                     <CheckCircle size={18} className="text-accent flex-shrink-0 mt-0.5" />
-                    <span>{t('tarifs.iaFeat1', 'Confidentialité totale, données 100% locales')}</span>
+                    <span>Traitement local ou hybride selon l’architecture retenue</span>
                   </li>
                   <li className="flex items-start gap-2 text-sm">
                     <CheckCircle size={18} className="text-accent flex-shrink-0 mt-0.5" />
@@ -484,11 +486,11 @@ const Tarifs = () => {
                 <p className="text-sm uppercase tracking-wide text-primary-foreground/70 mb-2">{t('tarifs.iaInvestLabel', 'Investissement')}</p>
                 <div className="text-4xl font-bold mb-1">5 000€ – 50 000€+</div>
                 <p className="text-primary-foreground/80 mb-6">{t('tarifs.iaInvestNote', 'Location avec option d\'achat — sur étude')}</p>
-                <Link to="/contact">
-                  <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 w-full font-semibold gap-2">
+                <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 w-full font-semibold gap-2">
+<Link to="/contact">
                     {t('tarifs.iaCta', 'Étudier mon projet')} <ArrowRight size={18} />
-                  </Button>
-                </Link>
+                  </Link>
+</Button>
               </div>
             </div>
           </div>
@@ -501,7 +503,7 @@ const Tarifs = () => {
           <div className="text-center mb-10">
             <h2 className="text-2xl md:text-3xl font-bold mb-3">{t('tarifs.engagTitle', 'Nos engagements')}</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              {t('tarifs.engagSubtitle', 'Parce que la confiance se construit sur la clarté, voici ce que nous garantissons à chaque client.')}
+              La confiance repose sur un périmètre écrit, des limites explicites et un devis accepté avant intervention.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -528,16 +530,16 @@ const Tarifs = () => {
             {t('tarifs.ctaDesc', 'Chaque situation est unique. Décrivez-nous votre besoin et recevez un devis gratuit, détaillé et sans engagement.')}
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Link to="/contact">
-              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold gap-2">
+            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold gap-2">
+<Link to="/contact">
                 {t('tarifs.heroCtaQuote', 'Demander un devis personnalisé')} <ArrowRight size={18} />
-              </Button>
-            </Link>
-            <a href="tel:+33367310201">
-              <Button size="lg" variant="outline" className="border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10 gap-2">
+              </Link>
+</Button>
+            <Button asChild size="lg" variant="outline" className="border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10 gap-2">
+<a href="tel:+33367310201">
                 <Phone size={18} /> 03 67 31 02 01
-              </Button>
-            </a>
+              </a>
+</Button>
           </div>
         </div>
       </section>

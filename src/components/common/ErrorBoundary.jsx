@@ -41,6 +41,13 @@ class ErrorBoundary extends Component {
     window.location.href = '/';
   };
 
+  handleLoadLatest = async () => {
+    const registrations = await navigator.serviceWorker?.getRegistrations?.() || [];
+    await Promise.all(registrations.map((registration) => registration.update()));
+    await Promise.all((await caches?.keys?.() || []).map((key) => caches.delete(key)));
+    window.location.reload();
+  };
+
   render() {
     if (this.state.hasError) {
       // Fallback UI
@@ -85,6 +92,15 @@ class ErrorBoundary extends Component {
               {/* Actions */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
+                  type="button"
+                  onClick={this.handleLoadLatest}
+                  className="inline-flex min-h-11 items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium"
+                >
+                  <RefreshCw className="w-5 h-5" aria-hidden="true" />
+                  Charger la nouvelle version
+                </button>
+                <button
+                  type="button"
                   onClick={this.handleReset}
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-medium"
                 >
@@ -93,6 +109,7 @@ class ErrorBoundary extends Component {
                 </button>
 
                 <button
+                  type="button"
                   onClick={this.handleGoHome}
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-muted text-foreground rounded-lg hover:bg-gray-200 transition-colors font-medium"
                 >

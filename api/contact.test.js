@@ -1,162 +1,135 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 import handler, { __resetRateLimit } from './contact.js'
 
-// Mock dependencies
-vi.mock('@sendgrid/mail', () => ({
-  default: {
-    setApiKey: vi.fn(),
-    send: vi.fn(),
-  }
+const { mockSend } = vi.hoisted(() => ({ mockSend: vi.fn() }))
+vi.mock('resend', () => ({
+  Resend: vi.fn(function Resend() {
+    return { emails: { send: mockSend } }
+  }),
 }))
 
-vi.mock('isomorphic-dompurify', () => ({
-  default: {
-    sanitize: vi.fn((str) => str), // Simple pass-through for testing
-  }
-}))
+const createResponse = () => ({
+  setHeader: vi.fn(),
+  status: vi.fn().mockReturnThis(),
+  json: vi.fn().mockReturnThis(),
+  end: vi.fn(),
+})
 
-vi.mock('validator', () => ({
-  default: {
-    isEmail: vi.fn((email) => email && email.includes('@')),
-    isMobilePhone: vi.fn(() => true),
-  }
-}))
+const createRequest = () => ({
+  method: 'POST',
+  headers: {
+    origin: 'https://www.netzinformatique.fr',
+    'content-type': 'application/json',
+    'x-forwarded-for': '127.0.0.1, 10.0.0.1',
+  },
+  body: {
+    name: 'Jean Dupont',
+    email: 'jean@example.com',
+    message: 'Bonjour, je souhaite obtenir un devis.',
+  },
+  socket: { remoteAddress: '127.0.0.1' },
+})
 
-describe('Contact API Handler', () => {
-  let mockReq
-  let mockRes
+describe('contact API', () => {
+  let req
+  let res
 
   beforeEach(() => {
-    // Reset mocks
     vi.clearAllMocks()
-    // Reset rate-limit state so each test starts clean
     __resetRateLimit()
+    req = createRequest()
+    res = createResponse()
+    process.env.RESEND_API_KEY = 'test-key'
+    process.env.RESEND_FROM_EMAIL = 'site@example.com'
+    process.env.RESEND_TO_EMAIL = 'contact@example.com'
+    mockSend.mockResolvedValue({ data: { id: 'email_123' }, error: null })
+  })
 
-    // Mock request
-    mockReq = {
-      method: 'POST',
-      headers: {
-        origin: 'https://netzinformatique.fr',
-        'x-forwarded-for': '127.0.0.1',
-      },
-      body: {
-        name: 'John Doe',
-        email: 'john@example.com',
-        message: 'This is a test message that is long enough',
-      },
-      connection: {
-        remoteAddress: '127.0.0.1',
-      }
+  it('returns a 204 preflight with explicit methods', async () => {
+    req.method = 'OPTIONS'
+    await handler(req, res)
+    expect(res.status).toHaveBeenCalledWith(204)
+    expect(res.setHeader).toHaveBeenCalledWith('Allow', 'POST, OPTIONS')
+    expect(res.end).toHaveBeenCalled()
+  })
+
+  it('rejects unsupported methods and origins', async () => {
+    req.method = 'GET'
+    await handler(req, res)
+    expect(res.status).toHaveBeenCalledWith(405)
+
+    res = createResponse()
+    req = createRequest()
+    req.headers.origin = 'https://attacker.example'
+    await handler(req, res)
+    expect(res.status).toHaveBeenCalledWith(403)
+  })
+
+  it('rejects wrong media types and oversized requests', async () => {
+    req.headers['content-type'] = 'text/plain'
+    await handler(req, res)
+    expect(res.status).toHaveBeenCalledWith(415)
+
+    res = createResponse()
+    req = createRequest()
+    req.headers['content-length'] = String(17 * 1024)
+    await handler(req, res)
+    expect(res.status).toHaveBeenCalledWith(413)
+  })
+
+  it('returns field errors for invalid input and unknown fields', async () => {
+    req.body = { ...req.body, name: 'A', email: 'invalid', extra: true }
+    await handler(req, res)
+    expect(res.status).toHaveBeenCalledWith(422)
+    expect(res.json).toHaveBeenCalledWith(expect.objectContaining({
+      code: 'validation_failed',
+      fieldErrors: expect.any(Object),
+    }))
+  })
+
+  it('acknowledges honeypot traffic without sending email', async () => {
+    req.body.website = 'spam.example'
+    await handler(req, res)
+    expect(res.status).toHaveBeenCalledWith(200)
+    expect(mockSend).not.toHaveBeenCalled()
+  })
+
+  it('returns 503 instead of false success when delivery is unconfigured', async () => {
+    delete process.env.RESEND_API_KEY
+    await handler(req, res)
+    expect(res.status).toHaveBeenCalledWith(503)
+    expect(res.json).toHaveBeenCalledWith(expect.objectContaining({ code: 'delivery_unavailable' }))
+  })
+
+  it('escapes every HTML interpolation and normalizes the mail subject', async () => {
+    req.body = {
+      name: '<img src=x onerror=alert(1)>',
+      email: 'safe@example.com',
+      phone: '+33 6 12 34 56 78',
+      subject: 'Hello\r\nBcc: attacker@example.com',
+      message: '<script>alert(1)</script>\nNext line',
     }
+    await handler(req, res)
 
-    // Mock response
-    mockRes = {
-      setHeader: vi.fn(),
-      status: vi.fn().mockReturnThis(),
-      json: vi.fn().mockReturnThis(),
-      end: vi.fn(),
-    }
-
-    // Mock environment variables
-    process.env.SENDGRID_API_KEY = 'test_api_key'
-    process.env.SENDGRID_FROM_EMAIL = 'test@example.com'
-    process.env.SENDGRID_TO_EMAIL = 'admin@example.com'
+    const payload = mockSend.mock.calls[0][0]
+    expect(payload.html).not.toContain('<script>alert(1)</script>')
+    expect(payload.html).toContain('&lt;script&gt;alert(1)&lt;/script&gt;<br>Next line')
+    expect(payload.html).toContain('&lt;img src=x onerror=alert(1)&gt;')
+    expect(payload.subject).not.toMatch(/[\r\n]/)
+    expect(payload.replyTo).toBe('safe@example.com')
+    expect(res.status).toHaveBeenCalledWith(200)
   })
 
-  it('should handle OPTIONS request', async () => {
-    mockReq.method = 'OPTIONS'
-
-    await handler(mockReq, mockRes)
-
-    expect(mockRes.status).toHaveBeenCalledWith(200)
-    expect(mockRes.end).toHaveBeenCalled()
+  it('returns 502 when Resend resolves with an error', async () => {
+    mockSend.mockResolvedValue({ data: null, error: { name: 'validation_error', statusCode: 422 } })
+    await handler(req, res)
+    expect(res.status).toHaveBeenCalledWith(502)
+    expect(res.json).toHaveBeenCalledWith(expect.objectContaining({ code: 'delivery_failed' }))
   })
 
-  it('should reject non-POST requests', async () => {
-    mockReq.method = 'GET'
-
-    await handler(mockReq, mockRes)
-
-    expect(mockRes.status).toHaveBeenCalledWith(405)
-    expect(mockRes.json).toHaveBeenCalledWith(
-      expect.objectContaining({ error: 'Method not allowed' })
-    )
-  })
-
-  it('should validate required fields', async () => {
-    mockReq.body = { email: 'test@example.com' } // Missing name and message
-
-    await handler(mockReq, mockRes)
-
-    expect(mockRes.status).toHaveBeenCalledWith(400)
-    expect(mockRes.json).toHaveBeenCalledWith(
-      expect.objectContaining({ error: 'Missing required fields' })
-    )
-  })
-
-  it('should validate email format', async () => {
-    mockReq.body.email = 'invalid-email'
-
-    await handler(mockReq, mockRes)
-
-    expect(mockRes.status).toHaveBeenCalledWith(400)
-    expect(mockRes.json).toHaveBeenCalledWith(
-      expect.objectContaining({ error: 'Invalid email' })
-    )
-  })
-
-  it('should validate name length', async () => {
-    mockReq.body.name = 'A' // Too short
-
-    await handler(mockReq, mockRes)
-
-    expect(mockRes.status).toHaveBeenCalledWith(400)
-    expect(mockRes.json).toHaveBeenCalledWith(
-      expect.objectContaining({ error: 'Invalid name' })
-    )
-  })
-
-  it('should validate message length', async () => {
-    mockReq.body.message = 'Short' // Too short (< 10 chars)
-
-    await handler(mockReq, mockRes)
-
-    expect(mockRes.status).toHaveBeenCalledWith(400)
-    expect(mockRes.json).toHaveBeenCalledWith(
-      expect.objectContaining({ error: 'Invalid message' })
-    )
-  })
-
-  it('should set CORS headers for allowed origins', async () => {
-    await handler(mockReq, mockRes)
-
-    expect(mockRes.setHeader).toHaveBeenCalledWith(
-      'Access-Control-Allow-Origin',
-      'https://netzinformatique.fr'
-    )
-  })
-
-  it('should not set CORS headers for disallowed origins', async () => {
-    mockReq.headers.origin = 'https://malicious-site.com'
-
-    await handler(mockReq, mockRes)
-
-    const corsCall = mockRes.setHeader.mock.calls.find(
-      call => call[0] === 'Access-Control-Allow-Origin' && call[1] === 'https://malicious-site.com'
-    )
-    expect(corsCall).toBeUndefined()
-  })
-
-  it('should enforce rate limiting', async () => {
-    // Make 6 requests (limit is 5)
-    for (let i = 0; i < 6; i++) {
-      await handler(mockReq, mockRes)
-    }
-
-    // Last request should be rate limited
-    expect(mockRes.status).toHaveBeenLastCalledWith(429)
-    expect(mockRes.json).toHaveBeenLastCalledWith(
-      expect.objectContaining({ error: 'Too many requests' })
-    )
+  it('enforces a bounded per-IP rate limit with Retry-After', async () => {
+    for (let index = 0; index < 6; index += 1) await handler(req, res)
+    expect(res.status).toHaveBeenLastCalledWith(429)
+    expect(res.setHeader).toHaveBeenCalledWith('Retry-After', expect.any(String))
   })
 })

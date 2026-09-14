@@ -182,20 +182,20 @@ const SolutionAI = () => {
               {t('solAI.heroSubtitle', "Exécutez l'IA directement dans vos locaux pour maîtriser les flux de données. La confidentialité et la conformité RGPD dépendent de l'architecture et des procédures mises en place.")}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
-              <Link to="/contact">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+<Link to="/contact?audience=entreprise&service=ia-offline&source=services">
                   {t('solAI.heroCtaQuote', 'Demander un devis')} <ArrowRight className="ml-2" size={18} />
-                </Button>
-              </Link>
-              <a href="tel:+33367310201">
-                <Button
+                </Link>
+</Button>
+              <Button asChild
                   size="lg"
                   variant="outline"
                   className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10"
                 >
+<a href="tel:+33367310201">
                   <Phone className="mr-2" size={18} /> 03 67 31 02 01
-                </Button>
-              </a>
+                </a>
+</Button>
             </div>
           </div>
         </section>
@@ -355,11 +355,11 @@ const SolutionAI = () => {
               <p className="opacity-90 mb-8">
                 {t('solAI.pricingNote', 'Investissement unique • Location possible • Devis gratuit et personnalisé')}
               </p>
-              <Link to="/contact">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+<Link to="/contact?audience=entreprise&service=ia-offline&source=services">
                   {t('solAI.pricingCta', 'Obtenir mon devis gratuit')} <ArrowRight className="ml-2" size={18} />
-                </Button>
-              </Link>
+                </Link>
+</Button>
             </div>
           </div>
         </section>
@@ -399,20 +399,20 @@ const SolutionAI = () => {
               {t('solAI.ctaSubtitle', 'Audit de vos besoins, devis personnalisé et installation clé en main par nos experts.')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
-              <Link to="/contact">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+<Link to="/contact?audience=entreprise&service=ia-offline&source=services">
                   {t('solAI.ctaQuote', 'Demander un devis')} <ArrowRight className="ml-2" size={18} />
-                </Button>
-              </Link>
-              <a href="tel:+33367310201">
-                <Button
+                </Link>
+</Button>
+              <Button asChild
                   size="lg"
                   variant="outline"
                   className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10"
                 >
+<a href="tel:+33367310201">
                   <Phone className="mr-2" size={18} /> 03 67 31 02 01
-                </Button>
-              </a>
+                </a>
+</Button>
             </div>
           </div>
         </section>

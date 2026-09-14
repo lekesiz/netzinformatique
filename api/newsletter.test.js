@@ -1,25 +1,13 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 import handler, { __resetRateLimit } from './newsletter.js'
 
-// Mock dependencies
-vi.mock('isomorphic-dompurify', () => ({
-  default: {
-    sanitize: vi.fn((str) => str?.toLowerCase().trim()),
-  }
+const { mockSend, mockContactsCreate } = vi.hoisted(() => ({
+  mockSend: vi.fn(),
+  mockContactsCreate: vi.fn(),
 }))
 
-vi.mock('validator', () => ({
-  default: {
-    isEmail: vi.fn((email) => email && email.includes('@') && email.includes('.')),
-  }
-}))
-
-// Mock Resend
-const mockSend = vi.fn()
-const mockContactsCreate = vi.fn()
 vi.mock('resend', () => ({
-  // Must be a real function (not arrow) so `new Resend()` works
-  Resend: vi.fn(function () {
+  Resend: vi.fn(function Resend() {
     return {
       emails: { send: mockSend },
       contacts: { create: mockContactsCreate },
@@ -27,134 +15,111 @@ vi.mock('resend', () => ({
   }),
 }))
 
-describe('Newsletter API Handler', () => {
-  let mockReq
-  let mockRes
+const createResponse = () => ({
+  setHeader: vi.fn(),
+  status: vi.fn().mockReturnThis(),
+  json: vi.fn().mockReturnThis(),
+  end: vi.fn(),
+})
+
+const createRequest = () => ({
+  method: 'POST',
+  headers: {
+    origin: 'https://www.netzinformatique.fr',
+    'content-type': 'application/json',
+    'x-forwarded-for': '127.0.0.1',
+  },
+  body: { email: ' Test@Example.com ', consent: true, consentVersion: '2026-09' },
+  socket: { remoteAddress: '127.0.0.1' },
+})
+
+describe('newsletter API', () => {
+  let req
+  let res
 
   beforeEach(() => {
     vi.clearAllMocks()
-    // Reset rate-limit state so each test starts clean
     __resetRateLimit()
-
-    mockReq = {
-      method: 'POST',
-      headers: {
-        origin: 'https://netzinformatique.fr',
-        'x-forwarded-for': '127.0.0.1',
-      },
-      body: {
-        email: 'test@example.com',
-      },
-      connection: {
-        remoteAddress: '127.0.0.1',
-      }
-    }
-
-    mockRes = {
-      setHeader: vi.fn(),
-      status: vi.fn().mockReturnThis(),
-      json: vi.fn().mockReturnThis(),
-      end: vi.fn(),
-    }
-
-    process.env.RESEND_API_KEY = 'test_api_key'
+    req = createRequest()
+    res = createResponse()
+    process.env.RESEND_API_KEY = 'test-key'
     process.env.RESEND_FROM_EMAIL = 'newsletter@example.com'
-
-    // Mock successful email send
-    mockSend.mockResolvedValue({ id: 'email_123' })
-    mockContactsCreate.mockResolvedValue({ id: 'contact_123' })
+    process.env.RESEND_AUDIENCE_ID = 'audience_123'
+    mockContactsCreate.mockResolvedValue({ data: { id: 'contact_123' }, error: null })
+    mockSend.mockResolvedValue({ data: { id: 'email_123' }, error: null })
   })
 
-  it('should handle OPTIONS request', async () => {
-    mockReq.method = 'OPTIONS'
+  it('handles preflight and rejects unsupported methods', async () => {
+    req.method = 'OPTIONS'
+    await handler(req, res)
+    expect(res.status).toHaveBeenCalledWith(204)
 
-    await handler(mockReq, mockRes)
-
-    expect(mockRes.status).toHaveBeenCalledWith(200)
-    expect(mockRes.end).toHaveBeenCalled()
+    res = createResponse()
+    req = createRequest()
+    req.method = 'GET'
+    await handler(req, res)
+    expect(res.status).toHaveBeenCalledWith(405)
   })
 
-  it('should reject non-POST requests', async () => {
-    mockReq.method = 'GET'
-
-    await handler(mockReq, mockRes)
-
-    expect(mockRes.status).toHaveBeenCalledWith(405)
-    expect(mockRes.json).toHaveBeenCalledWith(
-      expect.objectContaining({ error: 'Method not allowed' })
-    )
+  it('requires a valid email and explicit newsletter consent', async () => {
+    req.body = { email: 'invalid', consent: false }
+    await handler(req, res)
+    expect(res.status).toHaveBeenCalledWith(422)
+    expect(mockContactsCreate).not.toHaveBeenCalled()
   })
 
-  it('should validate email format', async () => {
-    mockReq.body.email = 'invalid-email'
-
-    await handler(mockReq, mockRes)
-
-    expect(mockRes.status).toHaveBeenCalledWith(400)
-    expect(mockRes.json).toHaveBeenCalledWith(
-      expect.objectContaining({
-        error: 'Invalid email address',
-      })
-    )
+  it('normalizes the address, keeps it unsubscribed, and sends an encrypted confirmation link', async () => {
+    await handler(req, res)
+    expect(mockContactsCreate).toHaveBeenCalledWith({
+      email: 'test@example.com',
+      unsubscribed: true,
+      audienceId: 'audience_123',
+    })
+    expect(mockSend).toHaveBeenCalledWith(expect.objectContaining({
+      to: 'test@example.com',
+      subject: expect.stringContaining('Confirmez'),
+      html: expect.stringContaining('/newsletter-confirmation?token='),
+    }))
+    expect(res.status).toHaveBeenCalledWith(202)
   })
 
-  it('should reject missing email', async () => {
-    mockReq.body = {}
-
-    await handler(mockReq, mockRes)
-
-    expect(mockRes.status).toHaveBeenCalledWith(400)
+  it('requires durable audience and sender configuration', async () => {
+    delete process.env.RESEND_AUDIENCE_ID
+    await handler(req, res)
+    expect(res.status).toHaveBeenCalledWith(503)
+    expect(mockContactsCreate).not.toHaveBeenCalled()
   })
 
-  it('should set CORS headers for allowed origins', async () => {
-    await handler(mockReq, mockRes)
-
-    expect(mockRes.setHeader).toHaveBeenCalledWith(
-      'Access-Control-Allow-Origin',
-      'https://netzinformatique.fr'
-    )
+  it('returns 502 when audience creation is rejected', async () => {
+    mockContactsCreate.mockResolvedValue({ data: null, error: { name: 'provider_error', statusCode: 400 } })
+    await handler(req, res)
+    expect(res.status).toHaveBeenCalledWith(502)
+    expect(mockSend).not.toHaveBeenCalled()
   })
 
-  it('should subscribe successfully and send a welcome email', async () => {
-    await handler(mockReq, mockRes)
-
-    expect(mockSend).toHaveBeenCalledWith(
-      expect.objectContaining({ to: 'test@example.com' })
-    )
-    expect(mockRes.status).toHaveBeenCalledWith(200)
-    expect(mockRes.json).toHaveBeenCalledWith(
-      expect.objectContaining({ success: true })
-    )
+  it('treats an existing subscriber as idempotent success', async () => {
+    mockContactsCreate.mockResolvedValue({ data: null, error: { name: 'already_exists', statusCode: 409 } })
+    await handler(req, res)
+    expect(res.status).toHaveBeenCalledWith(202)
+    expect(mockSend).toHaveBeenCalled()
   })
 
-  it('should enforce rate limiting', async () => {
-    // Limit is 3 per window; the 4th request from the same IP is rejected
-    for (let i = 0; i < 4; i++) {
-      await handler(mockReq, mockRes)
-    }
-
-    expect(mockRes.status).toHaveBeenLastCalledWith(429)
+  it('does not claim success when the mandatory confirmation email is rejected', async () => {
+    mockSend.mockResolvedValue({ data: null, error: { name: 'email_rejected', statusCode: 422 } })
+    await handler(req, res)
+    expect(res.status).toHaveBeenCalledWith(502)
   })
 
-  it('should return error when RESEND_API_KEY is missing', async () => {
-    delete process.env.RESEND_API_KEY
-
-    await handler(mockReq, mockRes)
-
-    expect(mockRes.status).toHaveBeenCalledWith(500)
-    expect(mockRes.json).toHaveBeenCalledWith(
-      expect.objectContaining({ error: 'Newsletter service not configured' })
-    )
+  it('acknowledges honeypot traffic without calling Resend', async () => {
+    req.body.website = 'spam.example'
+    await handler(req, res)
+    expect(res.status).toHaveBeenCalledWith(200)
+    expect(mockContactsCreate).not.toHaveBeenCalled()
   })
 
-  it('should handle Resend API errors', async () => {
-    mockSend.mockRejectedValue(new Error('Resend error'))
-
-    await handler(mockReq, mockRes)
-
-    expect(mockRes.status).toHaveBeenCalledWith(500)
-    expect(mockRes.json).toHaveBeenCalledWith(
-      expect.objectContaining({ error: 'Failed to subscribe to newsletter' })
-    )
+  it('enforces rate limiting and returns Retry-After', async () => {
+    for (let index = 0; index < 4; index += 1) await handler(req, res)
+    expect(res.status).toHaveBeenLastCalledWith(429)
+    expect(res.setHeader).toHaveBeenCalledWith('Retry-After', expect.any(String))
   })
 })

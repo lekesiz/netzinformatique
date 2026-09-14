@@ -19,20 +19,20 @@ const FAQ = () => {
       category: 'Services Généraux',
       icon: Briefcase,
       questions: [
-        { 
-          question: t('faq.q1', 'Quels sont vos délais d\'intervention ?'), 
+        {
+          question: t('faq.q1', 'Quels sont vos délais d\'intervention ?'),
           answer: t('faq.a1', 'Nous intervenons généralement sous 24 à 48h pour les urgences à Haguenau et ses environs (rayon de 30 km). Pour les interventions planifiées, nous nous adaptons à votre agenda. En cas d\'urgence critique, nous pouvons intervenir le jour même selon disponibilité.')
         },
-        { 
-          question: t('faq.q2', 'Quels sont vos tarifs ?'), 
+        {
+          question: t('faq.q2', 'Quels sont vos tarifs ?'),
           answer: t('faq.a2', 'Nos tarifs varient selon la nature de l\'intervention. Diagnostic gratuit, puis devis détaillé avant toute intervention. Forfaits mensuels disponibles pour les entreprises à partir de 79€/mois. Contactez-nous pour un devis personnalisé adapté à vos besoins.')
         },
-        { 
-          question: 'Intervenez-vous uniquement à Haguenau ?', 
+        {
+          question: 'Intervenez-vous uniquement à Haguenau ?',
           answer: 'Non, nous intervenons dans tout le Grand Est, avec un focus particulier sur Haguenau et un rayon de 50 km (Strasbourg, Saverne, Wissembourg, etc.). Pour les interventions plus éloignées, nous proposons également des solutions à distance.'
         },
-        { 
-          question: 'Proposez-vous un contrat de maintenance ?', 
+        {
+          question: 'Proposez-vous un contrat de maintenance ?',
           answer: 'Oui, nous proposons des contrats de maintenance mensuels incluant : mises à jour automatiques, sauvegardes quotidiennes, surveillance 24/7, support prioritaire et interventions illimitées. Tarifs dégressifs selon le nombre de postes. À partir de 79€/mois.'
         },
         {
@@ -45,12 +45,12 @@ const FAQ = () => {
       category: 'Dépannage & Réparation',
       icon: Wrench,
       questions: [
-        { 
-          question: t('faq.q3', 'Intervenez-vous sur Mac et PC ?'), 
+        {
+          question: t('faq.q3', 'Intervenez-vous sur Mac et PC ?'),
           answer: t('faq.a3', 'Oui, nous intervenons sur tous types d\'ordinateurs : PC (Windows, Linux) et Mac (macOS). Nous sommes également compétents sur les serveurs, NAS, équipements réseau, imprimantes et périphériques. Support technique multi-plateforme disponible.')
         },
-        { 
-          question: 'Mon ordinateur est très lent, que faire ?', 
+        {
+          question: 'Mon ordinateur est très lent, que faire ?',
           answer: 'La lenteur peut avoir plusieurs causes : virus, disque dur saturé, RAM insuffisante, programmes au démarrage, etc. Nous effectuons un diagnostic complet gratuit pour identifier la cause et proposer la solution optimale (nettoyage, upgrade RAM/SSD, réinstallation).'
         },
         {
@@ -71,8 +71,8 @@ const FAQ = () => {
       category: 'Formation Professionnelle',
       icon: GraduationCap,
       questions: [
-        { 
-          question: t('faq.q4', 'Proposez-vous des formations ?'), 
+        {
+          question: t('faq.q4', 'Proposez-vous des formations ?'),
           answer: t('faq.a4', 'Oui, nous sommes un organisme de formation certifié QUALIOPI. Nos formations couvrent la bureautique (Word, Excel, PowerPoint), l\'IA, la cybersécurité et le marketing digital. Elles sont éligibles aux financements OPCO, Pôle Emploi et CPF. Plus de plus de 1 100 participants uniques déclarés au 29 juillet 2026.')
         },
         {
@@ -97,8 +97,8 @@ const FAQ = () => {
       category: 'Intelligence Artificielle',
       icon: Bot,
       questions: [
-        { 
-          question: t('faq.q5', 'Qu\'est-ce que l\'IA Offline ?'), 
+        {
+          question: t('faq.q5', 'Qu\'est-ce que l\'IA Offline ?'),
           answer: t('faq.a5', 'L\'IA Offline exécute le traitement dans vos locaux afin de réduire les transferts vers des services cloud. La confidentialité et la conformité RGPD dépendent aussi de la configuration, des accès, des journaux et des procédures mises en place.')
         },
         {
@@ -119,8 +119,8 @@ const FAQ = () => {
       category: 'Développement Web',
       icon: Globe,
       questions: [
-        { 
-          question: t('faq.q6', 'Faites-vous de la création de sites web ?'), 
+        {
+          question: t('faq.q6', 'Faites-vous de la création de sites web ?'),
           answer: t('faq.a6', 'Oui, nous créons des sites vitrine (à partir de 990€), sites business (1990€) et e-commerce (sur devis). Nous gérons également le référencement (SEO), l\'hébergement et la maintenance (79€/mois). De nombreuses réalisations sont disponibles sur demande. Demandez un devis gratuit.')
         },
         {
@@ -141,8 +141,8 @@ const FAQ = () => {
       category: 'Sécurité & RGPD',
       icon: ShieldCheck,
       questions: [
-        { 
-          question: t('faq.q9', 'Êtes-vous conformes RGPD ?'), 
+        {
+          question: t('faq.q9', 'Êtes-vous conformes RGPD ?'),
           answer: t('faq.a9', 'Oui, nous sommes en conformité totale avec le RGPD. Nous pouvons également vous accompagner dans votre mise en conformité (audit, documentation, formation, DPO externalisé). Indispensable pour éviter les sanctions (jusqu\'à 4% du CA).')
         },
         {
@@ -181,8 +181,8 @@ const FAQ = () => {
       category: 'Divers',
       icon: HelpCircle,
       questions: [
-        { 
-          question: t('faq.q10', 'Travaillez-vous avec les associations ?'), 
+        {
+          question: t('faq.q10', 'Travaillez-vous avec les associations ?'),
           answer: t('faq.a10', 'Oui, nous proposons des tarifs préférentiels pour les associations (jusqu\'à -20%). Nous comprenons vos contraintes budgétaires et privilégions les solutions open-source et économiques. Nous soutenons également des associations locales via du mécénat de compétences.')
         },
         {
@@ -239,7 +239,7 @@ const FAQ = () => {
               Plus de 40 questions fréquentes sur nos services informatiques, formations et solutions
             </p>
             <p className="text-sm text-muted-foreground inline-flex items-center gap-2">
-              <Lightbulb size={16} className="text-accent flex-shrink-0" /> Vous ne trouvez pas votre réponse ? <Link to="/contact" className="text-primary font-semibold hover:underline">Contactez-nous</Link>
+              <Lightbulb size={16} className="text-accent flex-shrink-0" /> Vous ne trouvez pas votre réponse ? <Link to="/contact?source=faq" className="text-primary font-semibold hover:underline">Contactez-nous</Link>
             </p>
           </div>
         </section>
@@ -255,7 +255,7 @@ const FAQ = () => {
                   </span>
                   <h2 className="text-2xl md:text-3xl font-bold">{category.category}</h2>
                 </div>
-                
+
                 <Accordion type="single" collapsible className="w-full">
                   {category.questions.map((faq, index) => (
                     <AccordionItem value={`item-${catIndex}-${index}`} key={index} className="bg-card rounded-lg mb-3 px-6 border shadow-sm">
@@ -284,18 +284,18 @@ const FAQ = () => {
               Notre équipe est là pour vous répondre et vous conseiller gratuitement
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
-              <Link to="/contact">
-                <Button size="lg" className="bg-white text-primary hover:bg-white/90">
+              <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90">
+<Link to="/contact?source=faq">
                   Nous Contacter
                   <ArrowRight className="ml-2" />
-                </Button>
-              </Link>
-              <a href="tel:+33367310201">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                </Link>
+</Button>
+              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+<a href="tel:+33367310201">
                   <Phone className="mr-2" />
                   03 67 31 02 01
-                </Button>
-              </a>
+                </a>
+</Button>
             </div>
           </div>
         </section>

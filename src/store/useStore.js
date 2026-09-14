@@ -69,7 +69,6 @@ const useStore = create(
       // ===== UI PREFERENCES =====
       preferences: {
         introShown: false,
-        cookieConsentGiven: false,
         reducedMotion: false,
         compactMode: false,
         sidebarOpen: true
@@ -187,7 +186,6 @@ const useStore = create(
           theme: 'light',
           preferences: {
             introShown: false,
-            cookieConsentGiven: false,
             reducedMotion: false,
             compactMode: false,
             sidebarOpen: true
@@ -203,6 +201,7 @@ const useStore = create(
     {
       name: 'netz-store', // localStorage key
       storage: createJSONStorage(() => localStorage),
+      skipHydration: true,
       // Only persist certain values
       partialize: (state) => ({
         theme: state.theme,

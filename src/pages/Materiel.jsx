@@ -69,11 +69,11 @@ const Materiel = () => {
                 </div>
               </li>
             </ul>
-            <Link to="/contact">
-              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+<Link to="/contact?service=materiel&source=services">
                 {t('materiel.pcCta', 'Demander un Devis Gratuit')} <ArrowRight className="ml-2" />
-              </Button>
-            </Link>
+              </Link>
+</Button>
           </div>
           <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl p-8">
             <div className="bg-card rounded-xl p-6 shadow-lg">
@@ -136,11 +136,11 @@ const Materiel = () => {
                 <span>{t('materiel.serversFeature4', 'Support technique dédié')}</span>
               </li>
             </ul>
-            <Link to="/contact">
-              <Button variant="outline" className="w-full">
+            <Button asChild variant="outline" className="w-full">
+<Link to="/contact?service=materiel&source=services">
                 {t('materiel.serversCta', 'Demander un Devis')}
-              </Button>
-            </Link>
+              </Link>
+</Button>
           </div>
 
           {/* Portables */}
@@ -168,11 +168,11 @@ const Materiel = () => {
                 <span>{t('materiel.laptopsFeature4', 'Configuration et livraison')}</span>
               </li>
             </ul>
-            <Link to="/contact">
-              <Button variant="outline" className="w-full">
+            <Button asChild variant="outline" className="w-full">
+<Link to="/contact?service=materiel&source=services">
                 {t('materiel.laptopsCta', 'Nous Contacter')}
-              </Button>
-            </Link>
+              </Link>
+</Button>
           </div>
 
           {/* Périphériques */}
@@ -200,15 +200,15 @@ const Materiel = () => {
                 <span>{t('materiel.peripheralsFeature4', 'Webcams et casques')}</span>
               </li>
             </ul>
-            <a
+            <Button asChild variant="outline" className="w-full">
+<a
               href="https://informatique-haguenau.fr/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button variant="outline" className="w-full">
                 {t('materiel.peripheralsCta', 'Voir la Boutique')}
-              </Button>
-            </a>
+              </a>
+</Button>
           </div>
 
           {/* PC Gaming */}
@@ -236,11 +236,11 @@ const Materiel = () => {
                 <span>{t('materiel.gamingFeature4', 'RGB et boîtiers gaming')}</span>
               </li>
             </ul>
-            <Link to="/contact">
-              <Button variant="outline" className="w-full">
+            <Button asChild variant="outline" className="w-full">
+<Link to="/contact?service=materiel&source=services">
                 {t('materiel.gamingCta', 'Configurer mon PC')}
-              </Button>
-            </Link>
+              </Link>
+</Button>
           </div>
 
           {/* Imprimantes */}
@@ -268,15 +268,15 @@ const Materiel = () => {
                 <span>{t('materiel.printersFeature4', 'Prix compétitifs')}</span>
               </li>
             </ul>
-            <a
+            <Button asChild variant="outline" className="w-full">
+<a
               href="https://informatique-haguenau.fr/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button variant="outline" className="w-full">
                 {t('materiel.printersCta', 'Commander')}
-              </Button>
-            </a>
+              </a>
+</Button>
           </div>
 
           {/* Garantie */}
@@ -304,11 +304,11 @@ const Materiel = () => {
                 <span>{t('materiel.warrantyFeature4', 'Pièces de rechange disponibles')}</span>
               </li>
             </ul>
-            <Link to="/services/particuliers">
-              <Button className="bg-white text-primary hover:bg-white/90 w-full">
+            <Button asChild className="bg-white text-primary hover:bg-white/90 w-full">
+<Link to="/services/particuliers">
                 {t('materiel.warrantyCta', 'Nos Services')}
-              </Button>
-            </Link>
+              </Link>
+</Button>
           </div>
         </div>
       </div>
@@ -325,20 +325,20 @@ const Materiel = () => {
             {t('materiel.ctaSubtitle', "Notre équipe d'experts est à votre disposition pour vous conseiller et vous accompagner dans le choix de votre matériel informatique")}
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Link to="/contact">
-              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+<Link to="/contact?service=materiel&source=services">
                 {t('materiel.ctaContact', 'Nous Contacter')}
-              </Button>
-            </Link>
-            <a 
-              href="https://informatique-haguenau.fr/" 
-              target="_blank" 
+              </Link>
+</Button>
+            <Button asChild size="lg" variant="outline">
+<a
+              href="https://informatique-haguenau.fr/"
+              target="_blank"
               rel="noopener noreferrer"
             >
-              <Button size="lg" variant="outline">
                 {t('materiel.ctaShop', 'Visiter la Boutique en Ligne')}
-              </Button>
-            </a>
+              </a>
+</Button>
           </div>
         </div>
       </div>

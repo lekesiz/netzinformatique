@@ -9,7 +9,7 @@ const NotFound = () => {
 
   return (
     <>
-      <SEO 
+      <SEO
         title={t('notFound.title', '404 - Page Non Trouvée')}
         description={t('notFound.description', 'La page que vous recherchez n`existe pas ou a été déplacée.')}
         noindex={true}
@@ -27,26 +27,26 @@ const NotFound = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             {t('notFound.heading', 'Oups ! Page Non Trouvée')}
           </h2>
-          
+
           <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
             {t('notFound.message', 'La page que vous recherchez n`existe pas, a été déplacée ou n`est plus disponible. Retournez à l`accueil ou utilisez la recherche.')}
           </p>
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link to="/">
-              <Button size="lg" className="gradient-blue text-white font-semibold w-full sm:w-auto">
+            <Button asChild size="lg" className="gradient-blue text-white font-semibold w-full sm:w-auto">
+<Link to="/">
                 <Home className="mr-2" size={20} />
                 {t('notFound.backHome', 'Retour à l`Accueil')}
-              </Button>
-            </Link>
-            
-            <Link to="/contact">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto">
+              </Link>
+</Button>
+
+            <Button asChild size="lg" variant="outline" className="w-full sm:w-auto">
+<Link to="/contact">
                 <Search className="mr-2" size={20} />
                 {t('notFound.contact', 'Nous Contacter')}
-              </Button>
-            </Link>
+              </Link>
+</Button>
           </div>
 
           {/* Popular Links */}

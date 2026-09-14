@@ -1,137 +1,113 @@
 import * as Sentry from '@sentry/react'
 
-// Initialize Sentry
-export function initSentry() {
-  // Only initialize in production
-  if (import.meta.env.PROD && import.meta.env.VITE_SENTRY_DSN) {
-    Sentry.init({
-      dsn: import.meta.env.VITE_SENTRY_DSN,
+let isSentryActive = false
 
-      // Environment
-      environment: import.meta.env.MODE,
-
-      // Release tracking
-      release: `netz-informatique@${import.meta.env.VITE_APP_VERSION || '1.0.0'}`,
-
-      // Performance Monitoring
-      integrations: [
-        Sentry.browserTracingIntegration(),
-        Sentry.replayIntegration({
-          maskAllText: false,
-          blockAllMedia: false,
-        }),
-      ],
-
-      // Performance Monitoring - Sample rate
-      tracesSampleRate: 0.1, // 10% of transactions
-
-      // Session Replay - Sample rate
-      replaysSessionSampleRate: 0.1, // 10% of sessions
-      replaysOnErrorSampleRate: 1.0, // 100% of sessions with errors
-
-      // Errors to ignore
-      ignoreErrors: [
-        // Browser extensions
-        'top.GLOBALS',
-        'chrome-extension://',
-        'moz-extension://',
-        // Network errors
-        'NetworkError',
-        'Failed to fetch',
-        // Third-party
-        'ResizeObserver loop limit exceeded',
-      ],
-
-      // URLs to ignore
-      denyUrls: [
-        // Browser extensions
-        /extensions\//i,
-        /^chrome:\/\//i,
-        /^moz-extension:\/\//i,
-      ],
-
-      // Before sending event
-      beforeSend(event, hint) {
-        // Don't send events in development
-        if (import.meta.env.DEV) {
-          console.error('Sentry Event (DEV):', event, hint)
-          return null
-        }
-
-        // Filter out certain errors
-        if (event.exception) {
-          const error = hint.originalException
-
-          // Ignore cancelled requests
-          if (error?.message?.includes('cancelled')) {
-            return null
-          }
-        }
-
-        return event
-      },
-
-      // Before sending breadcrumb
-      beforeBreadcrumb(breadcrumb) {
-        // Filter console breadcrumbs in production
-        if (breadcrumb.category === 'console' && breadcrumb.level === 'log') {
-          return null
-        }
-        return breadcrumb
-      },
-    })
-
-    console.log('✅ Sentry initialized')
-  } else {
-    console.log('ℹ️ Sentry not initialized (development or DSN not configured)')
+const removeSensitiveUrlParts = (url) => {
+  if (!url) return url
+  try {
+    const parsed = new URL(url)
+    parsed.search = ''
+    parsed.hash = ''
+    return parsed.toString()
+  } catch {
+    return String(url).split(/[?#]/)[0]
   }
 }
 
-// Capture exception manually
+const scrubEvent = (event) => {
+  const clean = { ...event }
+  if (clean.request) {
+    clean.request = {
+      method: clean.request.method,
+      url: removeSensitiveUrlParts(clean.request.url),
+    }
+  }
+  delete clean.user
+  if (clean.extra) clean.extra = { note: 'Additional context removed for privacy.' }
+  if (clean.contexts) delete clean.contexts.user
+  return clean
+}
+
+export function startSentry() {
+  if (isSentryActive || !import.meta.env.PROD || !import.meta.env.VITE_SENTRY_DSN) return false
+
+  Sentry.init({
+    dsn: import.meta.env.VITE_SENTRY_DSN,
+    environment: import.meta.env.MODE,
+    release: `netz-informatique@${import.meta.env.VITE_APP_VERSION || '1.0.0'}`,
+    sendDefaultPii: false,
+    integrations: [],
+    tracesSampleRate: 0,
+    replaysSessionSampleRate: 0,
+    replaysOnErrorSampleRate: 0,
+    ignoreErrors: [
+      'top.GLOBALS',
+      'chrome-extension://',
+      'moz-extension://',
+      'NetworkError',
+      'Failed to fetch',
+      'ResizeObserver loop limit exceeded',
+    ],
+    denyUrls: [/extensions\//i, /^chrome:\/\//i, /^moz-extension:\/\//i],
+    beforeSend(event, hint) {
+      if (hint.originalException?.message?.includes('cancelled')) return null
+      return scrubEvent(event)
+    },
+    beforeBreadcrumb(breadcrumb) {
+      if (breadcrumb.category === 'console') return null
+      const clean = { ...breadcrumb }
+      if (clean.data?.url) clean.data = { ...clean.data, url: removeSensitiveUrlParts(clean.data.url) }
+      return clean
+    },
+  })
+
+  isSentryActive = true
+  return true
+}
+
+export async function stopSentry() {
+  if (!isSentryActive) return
+  isSentryActive = false
+  Sentry.setUser(null)
+  await Sentry.close(1500)
+}
+
+/** @deprecated Use startSentry from the consent-aware integration lifecycle. */
+export const initSentry = startSentry
+
 export function captureException(error, context = {}) {
-  if (import.meta.env.DEV) {
-    console.error('Error captured:', error, context)
-  }
-
-  Sentry.captureException(error, {
-    extra: context,
+  if (import.meta.env.DEV) console.error('Error captured:', error)
+  if (!isSentryActive) return null
+  return Sentry.captureException(error, {
+    extra: context.componentStack ? { componentStack: String(context.componentStack).slice(0, 2000) } : {},
   })
 }
 
-// Capture message manually
-export function captureMessage(message, level = 'info', context = {}) {
-  if (import.meta.env.DEV) {
-    console.log(`[${level}] ${message}`, context)
-  }
-
-  Sentry.captureMessage(message, {
-    level,
-    extra: context,
-  })
+export function captureMessage(message, level = 'info') {
+  if (!isSentryActive) return null
+  return Sentry.captureMessage(String(message).slice(0, 200), { level })
 }
 
-// Set user context
-export function setUserContext(user) {
-  Sentry.setUser(user ? {
-    id: user.id,
-    email: user.email,
-    username: user.username,
-  } : null)
+export function setUserContext() {
+  if (isSentryActive) Sentry.setUser(null)
 }
 
-// Add breadcrumb
 export function addBreadcrumb(breadcrumb) {
-  Sentry.addBreadcrumb(breadcrumb)
+  if (isSentryActive) Sentry.addBreadcrumb({
+    category: breadcrumb?.category,
+    level: breadcrumb?.level,
+    message: breadcrumb?.message ? String(breadcrumb.message).slice(0, 200) : undefined,
+  })
 }
 
-// Set tag
 export function setTag(key, value) {
-  Sentry.setTag(key, value)
+  if (isSentryActive) Sentry.setTag(String(key).slice(0, 50), String(value).slice(0, 100))
 }
 
-// Set context
-export function setContext(name, context) {
-  Sentry.setContext(name, context)
+export function setContext(name) {
+  if (isSentryActive) Sentry.setContext(name, null)
 }
+
+export const isSentryEnabled = () => isSentryActive
 
 export default Sentry

@@ -15,7 +15,7 @@ const CloudReseau = () => {
   const { t } = useTranslation();
 
   const pageTitle = t('cloudReseau.title', 'Solutions Cloud & Infrastructure Réseau');
-  const pageDescription = t('cloudReseau.description', 'Modernisez votre infrastructure IT avec nos solutions Cloud et réseau. Migration Microsoft 365, serveurs, WiFi professionnel. Fiabilité et performance garanties.');
+  const pageDescription = 'Modernisez votre infrastructure IT avec des solutions Cloud, Microsoft 365, serveurs et Wi-Fi professionnel dimensionnées selon vos besoins.';
 
   const breadcrumbs = [
     { name: t('breadcrumbs.home', 'Accueil'), url: '/' },
@@ -170,22 +170,7 @@ const CloudReseau = () => {
     },
     {
       question: t('cloudReseau.faq5Q', 'Proposez-vous la maintenance de l\'infrastructure ?'),
-      answer: t('cloudReseau.faq5A', 'Oui, nous proposons des contrats de maintenance incluant : surveillance 24/7, mises à jour, sauvegardes, support prioritaire. À partir de 200€/mois selon la taille de l\'infrastructure.')
-    }
-  ];
-
-  const caseStudies = [
-    {
-      company: t('cloudReseau.case1Company', 'Cabinet Comptable (15 postes)'),
-      challenge: t('cloudReseau.case1Challenge', 'Serveur vieillissant, pas de sauvegarde, accès distant impossible'),
-      solution: t('cloudReseau.case1Solution', 'Migration vers Microsoft 365 + NAS Synology pour archives'),
-      results: t('cloudReseau.case1Results', 'Économie de 40% sur 3 ans, télétravail possible, sécurité renforcée')
-    },
-    {
-      company: t('cloudReseau.case2Company', 'PME Industrielle (50 postes)'),
-      challenge: t('cloudReseau.case2Challenge', 'WiFi instable, câblage obsolète, pas de segmentation réseau'),
-      solution: t('cloudReseau.case2Solution', 'Nouveau câblage Cat6, WiFi Ubiquiti, firewall pfSense, VLANs'),
-      results: t('cloudReseau.case2Results', 'Performance x3, sécurité optimale, couverture WiFi 100%')
+      answer: 'Selon le contrat, une supervision automatisée peut fonctionner 24/7. Les horaires de support humain, objectifs de prise en charge, sauvegardes, mises à jour et prix sont précisés au devis.'
     }
   ];
 
@@ -208,19 +193,19 @@ const CloudReseau = () => {
               {t('cloudReseau.heroTitlePart1', 'Solutions')} <span className="text-accent">{t('cloudReseau.heroTitleCloud', 'Cloud')}</span> {t('cloudReseau.heroTitlePart2', '& Infrastructure')} <span className="text-accent">{t('cloudReseau.heroTitleReseau', 'Réseau')}</span>
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/80 max-w-3xl mx-auto mb-8">
-              {t('cloudReseau.heroSubtitle', 'Modernisez votre infrastructure IT. Migration cloud, serveurs, WiFi professionnel. Performance, sécurité et fiabilité garanties.')}
+              Modernisez votre infrastructure IT avec un périmètre, des objectifs de service et une architecture validés avant déploiement.
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
-              <Link to="/contact">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+<Link to="/contact?audience=entreprise&service=cloud-reseau&source=services">
                   {t('cloudReseau.heroCtaAudit', 'Demander un Audit Gratuit')} <ArrowRight className="ml-2" />
-                </Button>
-              </Link>
-              <a href="tel:+33367310201">
-                <Button size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+                </Link>
+</Button>
+              <Button asChild size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+<a href="tel:+33367310201">
                   <Phone className="mr-2" /> 03 67 31 02 01
-                </Button>
-              </a>
+                </a>
+</Button>
             </div>
           </div>
         </section>
@@ -271,11 +256,11 @@ const CloudReseau = () => {
                     ))}
                   </ul>
                   <div className="text-center font-bold text-accent mb-4">{solution.pricing}</div>
-                  <Link to="/contact">
-                    <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
+                  <Button asChild className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
+<Link to="/contact?audience=entreprise&service=cloud-reseau&source=services">
                       {t('cloudReseau.learnMore', 'En Savoir Plus')}
-                    </Button>
-                  </Link>
+                    </Link>
+</Button>
                 </div>
               ))}
             </div>
@@ -301,9 +286,9 @@ const CloudReseau = () => {
                   <p className="text-muted-foreground mb-4 text-sm">{service.description}</p>
                   <div className="flex items-center justify-between">
                     <span className="font-semibold text-accent">{service.price}</span>
-                    <Link to="/contact">
-                      <Button size="sm" variant="outline">{t('cloudReseau.quoteBtn', 'Devis')}</Button>
-                    </Link>
+                    <Button asChild size="sm" variant="outline">
+<Link to="/contact?audience=entreprise&service=cloud-reseau&source=services">{t('cloudReseau.quoteBtn', 'Devis')}</Link>
+</Button>
                   </div>
                 </div>
               ))}
@@ -360,40 +345,6 @@ const CloudReseau = () => {
           </div>
         </section>
 
-        {/* Case Studies */}
-        <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                {t('cloudReseau.caseHeading', 'Cas Clients')}
-              </h2>
-              <p className="text-xl text-muted-foreground">
-                {t('cloudReseau.caseSubheading', 'Découvrez comment nous avons transformé leur IT')}
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {caseStudies.map((study, index) => (
-                <div key={index} className="bg-card rounded-2xl p-8 shadow-xl">
-                  <div className="text-sm text-accent font-semibold mb-2">{study.company}</div>
-                  <div className="mb-4">
-                    <div className="font-bold mb-1">{t('cloudReseau.caseChallengeLabel', 'Problématique:')}</div>
-                    <p className="text-sm text-muted-foreground">{study.challenge}</p>
-                  </div>
-                  <div className="mb-4">
-                    <div className="font-bold mb-1">{t('cloudReseau.caseSolutionLabel', 'Solution:')}</div>
-                    <p className="text-sm text-muted-foreground">{study.solution}</p>
-                  </div>
-                  <div>
-                    <div className="font-bold mb-1">{t('cloudReseau.caseResultsLabel', 'Résultats:')}</div>
-                    <p className="text-sm text-accent font-semibold">{study.results}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* FAQ */}
         <section className="py-16">
           <div className="container mx-auto px-4">
@@ -428,18 +379,18 @@ const CloudReseau = () => {
               {t('cloudReseau.ctaSubheading', 'Audit gratuit • Devis détaillé • Migration sans interruption • Support inclus')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
-              <Link to="/contact">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+<Link to="/contact?audience=entreprise&service=cloud-reseau&source=services">
                   {t('cloudReseau.ctaAudit', 'Demander un Audit')}
                   <ArrowRight className="ml-2" />
-                </Button>
-              </Link>
-              <a href="tel:+33367310201">
-                <Button size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+                </Link>
+</Button>
+              <Button asChild size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+<a href="tel:+33367310201">
                   <Phone className="mr-2" />
                   {t('cloudReseau.ctaCall', 'Appeler Maintenant')}
-                </Button>
-              </a>
+                </a>
+</Button>
             </div>
           </div>
         </section>

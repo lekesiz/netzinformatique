@@ -169,21 +169,6 @@ const WebDigital = () => {
     }
   ];
 
-  const caseStudies = [
-    {
-      client: t('webDigital.case1Client', 'Restaurant Gastronomique'),
-      challenge: t('webDigital.case1Challenge', 'Augmenter les réservations en ligne'),
-      solution: t('webDigital.case1Solution', 'Site vitrine + SEO local + Google Ads'),
-      results: t('webDigital.case1Results', '+250% de réservations en 6 mois, 1ère page Google "restaurant Haguenau"')
-    },
-    {
-      client: t('webDigital.case2Client', 'Boutique Mode'),
-      challenge: t('webDigital.case2Challenge', 'Lancer la vente en ligne'),
-      solution: t('webDigital.case2Solution', 'E-commerce WooCommerce + SEO + Instagram Ads'),
-      results: t('webDigital.case2Results', 'Lancement e-commerce accompagné par des travaux techniques et SEO')
-    }
-  ];
-
   const faq = [
     {
       question: t('webDigital.faqQ1', 'Combien de temps pour créer un site web ?'),
@@ -203,7 +188,7 @@ const WebDigital = () => {
     },
     {
       question: t('webDigital.faqQ5', 'Combien coûte une campagne Google Ads ?'),
-      answer: t('webDigital.faqA5', 'Gestion : 300€/mois. Budget publicitaire : à définir selon vos objectifs (minimum 300€/mois recommandé). Exemple : 300€ gestion + 500€ pub = 800€/mois. ROI généralement positif dès le 2ème mois.')
+      answer: 'Les frais de gestion et le budget média sont séparés et définis au devis. Aucun niveau de trafic, de classement, de chiffre d’affaires ou de retour sur investissement n’est garanti.'
     }
   ];
 
@@ -229,16 +214,16 @@ const WebDigital = () => {
               {t('webDigital.heroSubtitle', 'Augmentez votre visibilité et vos ventes en ligne. Site vitrine, e-commerce, SEO, Google Ads. Solutions clé en main.')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
-              <Link to="/contact">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+<Link to="/contact?audience=entreprise&service=web-digital&source=services">
                   {t('webDigital.heroCtaQuote', 'Demander un Devis Gratuit')} <ArrowRight className="ml-2" />
-                </Button>
-              </Link>
-              <a href="tel:+33367310201">
-                <Button size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+                </Link>
+</Button>
+              <Button asChild size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+<a href="tel:+33367310201">
                   <Phone className="mr-2" /> 03 67 31 02 01
-                </Button>
-              </a>
+                </a>
+</Button>
             </div>
           </div>
         </section>
@@ -288,7 +273,7 @@ const WebDigital = () => {
 
             <div className="grid md:grid-cols-3 gap-8">
               {webPackages.map((pkg, index) => (
-                <div 
+                <div
                   key={index}
                   className={`bg-card rounded-2xl shadow-xl overflow-hidden ${
                     pkg.popular ? 'ring-4 ring-accent transform scale-105' : ''
@@ -323,11 +308,11 @@ const WebDigital = () => {
                         </li>
                       ))}
                     </ul>
-                    <Link to="/contact">
-                      <Button className={`w-full ${pkg.popular ? 'bg-accent text-accent-foreground hover:bg-accent/90' : ''}`} variant={pkg.popular ? 'default' : 'outline'}>
+                    <Button asChild className={`w-full ${pkg.popular ? 'bg-accent text-accent-foreground hover:bg-accent/90' : ''}`} variant={pkg.popular ? 'default' : 'outline'}>
+<Link to="/contact?audience=entreprise&service=web-digital&source=services">
                         {t('webDigital.pkgCtaQuote', 'Demander un Devis')}
-                      </Button>
-                    </Link>
+                      </Link>
+</Button>
                   </div>
                 </div>
               ))}
@@ -365,9 +350,9 @@ const WebDigital = () => {
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-accent">{service.price}</span>
-                    <Link to="/contact">
-                      <Button size="sm" variant="outline">{t('webDigital.btnQuoteShort', 'Devis')}</Button>
-                    </Link>
+                    <Button asChild size="sm" variant="outline">
+<Link to="/contact?audience=entreprise&service=web-digital&source=services">{t('webDigital.btnQuoteShort', 'Devis')}</Link>
+</Button>
                   </div>
                 </div>
               ))}
@@ -442,37 +427,6 @@ const WebDigital = () => {
           </div>
         </section>
 
-        {/* Case Studies */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                {t('webDigital.caseTitle', 'Cas Clients')}
-              </h2>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {caseStudies.map((study, index) => (
-                <div key={index} className="bg-card rounded-2xl p-8 shadow-xl">
-                  <div className="text-sm text-accent font-semibold mb-2">{study.client}</div>
-                  <div className="mb-4">
-                    <div className="font-bold mb-1">{t('webDigital.caseChallengeLabel', 'Défi:')}</div>
-                    <p className="text-sm text-muted-foreground">{study.challenge}</p>
-                  </div>
-                  <div className="mb-4">
-                    <div className="font-bold mb-1">{t('webDigital.caseSolutionLabel', 'Solution:')}</div>
-                    <p className="text-sm text-muted-foreground">{study.solution}</p>
-                  </div>
-                  <div>
-                    <div className="font-bold mb-1">{t('webDigital.caseResultsLabel', 'Résultats:')}</div>
-                    <p className="text-sm text-accent font-semibold">{study.results}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* FAQ */}
         <section className="py-16 bg-gradient-to-br from-primary/5 to-secondary/5">
           <div className="container mx-auto px-4">
@@ -507,18 +461,18 @@ const WebDigital = () => {
               {t('webDigital.ctaSubtitle', 'Devis gratuit • Design moderne • Livraison rapide • Support inclus')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
-              <Link to="/contact">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+<Link to="/contact?audience=entreprise&service=web-digital&source=services">
                   {t('webDigital.ctaQuote', 'Demander un Devis')}
                   <ArrowRight className="ml-2" />
-                </Button>
-              </Link>
-              <a href="tel:+33367310201">
-                <Button size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+                </Link>
+</Button>
+              <Button asChild size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+<a href="tel:+33367310201">
                   <Phone className="mr-2" />
                   03 67 31 02 01
-                </Button>
-              </a>
+                </a>
+</Button>
             </div>
           </div>
         </section>

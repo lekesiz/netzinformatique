@@ -107,7 +107,9 @@ const resources = {
         backToTop: 'Retour en haut',
         copyright: '© 2025 NETZ Informatique',
         legalNotice: 'Mentions Légales',
-        privacy: 'Confidentialité'
+        privacy: 'Confidentialité',
+        cookiePolicy: 'Politique des cookies',
+        cookiePreferences: 'Gérer mes cookies'
       },
       cookies: {
         banner: {
@@ -123,7 +125,9 @@ const resources = {
           title: 'Préférences de Cookies',
           description: 'Gérez vos préférences de cookies. Les cookies nécessaires sont toujours activés car ils sont essentiels au fonctionnement du site.',
           save: 'Enregistrer les Préférences',
-          acceptAll: 'Tout Accepter'
+          acceptAll: 'Tout Accepter',
+          close: 'Fermer les préférences de cookies',
+          toggle: 'Activer ou désactiver {{category}}'
         },
         necessary: {
           title: 'Cookies Nécessaires',
@@ -146,11 +150,14 @@ const resources = {
           examples: 'OpenAI Advertising Pixel, publicités ciblées, remarketing, médias sociaux'
         },
         required: 'Requis',
-        examples: 'Exemples'
+        examples: 'Exemples',
+        managePreferences: 'Gérer mes cookies',
+        enableAppointment: 'Autoriser le service de rendez-vous',
+        mapDisabled: 'La carte externe est désactivée tant que les services fonctionnels ne sont pas autorisés.'
       }
     }
   },
-  
+
   en: {
     translation: {
       nav: {
@@ -252,7 +259,9 @@ const resources = {
         backToTop: 'Back to top',
         copyright: '© 2025 NETZ Informatique',
         legalNotice: 'Legal Notice',
-        privacy: 'Privacy'
+        privacy: 'Privacy',
+        cookiePolicy: 'Cookie Policy',
+        cookiePreferences: 'Manage cookies'
       },
       cookies: {
         banner: {
@@ -268,7 +277,9 @@ const resources = {
           title: 'Cookie Preferences',
           description: 'Manage your cookie preferences. Necessary cookies are always enabled as they are essential for the website to function.',
           save: 'Save Preferences',
-          acceptAll: 'Accept All'
+          acceptAll: 'Accept All',
+          close: 'Close cookie preferences',
+          toggle: 'Enable or disable {{category}}'
         },
         necessary: {
           title: 'Necessary Cookies',
@@ -291,7 +302,10 @@ const resources = {
           examples: 'OpenAI Advertising Pixel, targeted ads, remarketing, social media'
         },
         required: 'Required',
-        examples: 'Examples'
+        examples: 'Examples',
+        managePreferences: 'Manage cookies',
+        enableAppointment: 'Enable the appointment service',
+        mapDisabled: 'The external map is disabled until functional services are allowed.'
       }
     }
   },
@@ -397,7 +411,9 @@ const resources = {
         backToTop: 'Nach oben',
         copyright: '© 2025 NETZ Informatique',
         legalNotice: 'Impressum',
-        privacy: 'Datenschutz'
+        privacy: 'Datenschutz',
+        cookiePolicy: 'Cookie-Richtlinie',
+        cookiePreferences: 'Cookies verwalten'
       },
       cookies: {
         banner: {
@@ -413,7 +429,9 @@ const resources = {
           title: 'Cookie-Einstellungen',
           description: 'Verwalten Sie Ihre Cookie-Einstellungen. Notwendige Cookies sind immer aktiviert, da sie für die Funktion der Website unerlässlich sind.',
           save: 'Einstellungen Speichern',
-          acceptAll: 'Alle Akzeptieren'
+          acceptAll: 'Alle Akzeptieren',
+          close: 'Cookie-Einstellungen schließen',
+          toggle: '{{category}} aktivieren oder deaktivieren'
         },
         necessary: {
           title: 'Notwendige Cookies',
@@ -436,7 +454,10 @@ const resources = {
           examples: 'OpenAI Advertising Pixel, gezielte Werbung, Remarketing, soziale Medien'
         },
         required: 'Erforderlich',
-        examples: 'Beispiele'
+        examples: 'Beispiele',
+        managePreferences: 'Cookies verwalten',
+        enableAppointment: 'Terminservice aktivieren',
+        mapDisabled: 'Die externe Karte bleibt deaktiviert, bis funktionale Dienste erlaubt sind.'
       }
     }
   },
@@ -542,7 +563,9 @@ const resources = {
         backToTop: 'Yukarı çık',
         copyright: '© 2025 NETZ Informatique',
         legalNotice: 'Yasal Bildirim',
-        privacy: 'Gizlilik'
+        privacy: 'Gizlilik',
+        cookiePolicy: 'Çerez Politikası',
+        cookiePreferences: 'Çerezleri yönet'
       },
       cookies: {
         banner: {
@@ -558,7 +581,9 @@ const resources = {
           title: 'Çerez Tercihleri',
           description: 'Çerez tercihlerinizi yönetin. Gerekli çerezler, web sitesinin çalışması için gerekli olduğundan her zaman etkindir.',
           save: 'Tercihleri Kaydet',
-          acceptAll: 'Tümünü Kabul Et'
+          acceptAll: 'Tümünü Kabul Et',
+          close: 'Çerez tercihlerini kapat',
+          toggle: '{{category}} seçeneğini etkinleştir veya devre dışı bırak'
         },
         necessary: {
           title: 'Gerekli Çerezler',
@@ -581,7 +606,10 @@ const resources = {
           examples: 'OpenAI Advertising Pixel, hedefli reklamlar, yeniden pazarlama, sosyal medya'
         },
         required: 'Gerekli',
-        examples: 'Örnekler'
+        examples: 'Örnekler',
+        managePreferences: 'Çerezleri yönet',
+        enableAppointment: 'Randevu hizmetine izin ver',
+        mapDisabled: 'İşlevsel hizmetlere izin verilene kadar harici harita devre dışıdır.'
       }
     }
   }
@@ -589,8 +617,9 @@ const resources = {
 
 // Get language from localStorage or default to French
 const getInitialLanguage = () => {
+  if (typeof document !== 'undefined' && document.getElementById('root')?.hasChildNodes()) return 'fr'
   try {
-    const savedLanguage = localStorage.getItem('i18nextLng')
+    const savedLanguage = globalThis.localStorage?.getItem('i18nextLng')
     if (savedLanguage && ['fr', 'en', 'de', 'tr'].includes(savedLanguage)) {
       return savedLanguage
     }
@@ -598,6 +627,18 @@ const getInitialLanguage = () => {
     console.warn('Could not access localStorage:', error)
   }
   return 'fr'
+}
+
+export const applySavedLanguage = () => {
+  try {
+    const savedLanguage = globalThis.localStorage?.getItem('i18nextLng')
+    if (savedLanguage && ['fr', 'en', 'de', 'tr'].includes(savedLanguage) && savedLanguage !== i18n.language) {
+      return i18n.changeLanguage(savedLanguage)
+    }
+  } catch (error) {
+    console.warn('Could not restore saved language:', error)
+  }
+  return Promise.resolve()
 }
 
 // Initialize i18n synchronously
@@ -648,7 +689,7 @@ ensureLocale(i18n.language)
 i18n.on('languageChanged', (lng) => {
   ensureLocale(lng)
   try {
-    localStorage.setItem('i18nextLng', lng)
+    globalThis.localStorage?.setItem('i18nextLng', lng)
   } catch (error) {
     console.warn('Could not save language to localStorage:', error)
   }

@@ -209,16 +209,16 @@ const IAOffline = () => {
               {t('iaOffline.heroSubtitle', "Exécutez l'IA dans vos locaux afin de réduire la dépendance au cloud. Les flux de données et obligations RGPD doivent être évalués selon l'architecture et les procédures.")}
             </p>
             <div className="flex gap-4 justify-center flex-wrap mb-8">
-              <Link to="/contact">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+<Link to="/contact?audience=entreprise&service=ia-offline&source=services">
                   {t('iaOffline.heroCtaDemo', 'Demander une Démo')} <ArrowRight className="ml-2" />
-                </Button>
-              </Link>
-              <a href="tel:+33367310201">
-                <Button size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+                </Link>
+</Button>
+              <Button asChild size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+<a href="tel:+33367310201">
                   <Phone className="mr-2" /> 03 67 31 02 01
-                </Button>
-              </a>
+                </a>
+</Button>
             </div>
             <p className="text-sm text-primary-foreground/80 flex items-center justify-center gap-x-3 gap-y-1 flex-wrap">
               <span className="flex items-center gap-1.5"><Lock size={16} className="text-accent" /> {t('iaOffline.trustDeployed', 'Architecture évaluée selon le contexte')}</span>
@@ -367,7 +367,7 @@ const IAOffline = () => {
 
             <div className="grid md:grid-cols-3 gap-8">
               {configurations.map((config, index) => (
-                <div 
+                <div
                   key={index}
                   className={`bg-card rounded-2xl shadow-xl overflow-hidden ${
                     config.popular ? 'ring-4 ring-accent transform scale-105' : ''
@@ -403,11 +403,11 @@ const IAOffline = () => {
                         <p className="text-xs text-accent font-semibold">{config.performance}</p>
                       </div>
                     </div>
-                    <Link to="/contact">
-                      <Button className={`w-full ${config.popular ? 'bg-accent text-accent-foreground hover:bg-accent/90' : ''}`} variant={config.popular ? 'default' : 'outline'}>
+                    <Button asChild className={`w-full ${config.popular ? 'bg-accent text-accent-foreground hover:bg-accent/90' : ''}`} variant={config.popular ? 'default' : 'outline'}>
+<Link to="/contact?audience=entreprise&service=ia-offline&source=services">
                         {t('iaOffline.configCtaQuote', 'Demander un Devis')}
-                      </Button>
-                    </Link>
+                      </Link>
+</Button>
                   </div>
                 </div>
               ))}
@@ -473,18 +473,18 @@ const IAOffline = () => {
               {t('iaOffline.ctaSubtitle', 'Démo gratuite • Audit de vos besoins • Devis personnalisé • Installation clé en main')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
-              <Link to="/contact">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+<Link to="/contact?audience=entreprise&service=ia-offline&source=services">
                   {t('iaOffline.ctaDemo', 'Demander une Démo')}
                   <ArrowRight className="ml-2" />
-                </Button>
-              </Link>
-              <a href="tel:+33367310201">
-                <Button size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+                </Link>
+</Button>
+              <Button asChild size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+<a href="tel:+33367310201">
                   <Phone className="mr-2" />
                   03 67 31 02 01
-                </Button>
-              </a>
+                </a>
+</Button>
             </div>
           </div>
         </section>

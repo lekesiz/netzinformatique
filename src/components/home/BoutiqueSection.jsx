@@ -73,22 +73,22 @@ const BoutiqueSection = () => {
                 </div>
               </div>
               <div className="flex gap-3">
-                <a 
+                <Button asChild variant="outline" className="w-full">
+<a
                   href="tel:+33367310201"
                   className="flex-1"
                 >
-                  <Button variant="outline" className="w-full">
                     <Phone size={16} className="mr-2" /> 03 67 31 02 01
-                  </Button>
-                </a>
-                <a 
+                  </a>
+</Button>
+                <Button asChild variant="outline" className="w-full">
+<a
                   href="mailto:contact@netzinformatique.fr"
                   className="flex-1"
                 >
-                  <Button variant="outline" className="w-full">
                     <Mail size={16} className="mr-2" /> Email
-                  </Button>
-                </a>
+                  </a>
+</Button>
               </div>
             </div>
           </div>
@@ -101,7 +101,7 @@ const BoutiqueSection = () => {
               </h3>
               <div className="grid grid-cols-2 gap-4 mb-8">
                 {categories.map((category, index) => (
-                  <div 
+                  <div
                     key={index}
                     className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-xl p-4 hover:shadow-md transition-shadow cursor-pointer"
                   >
@@ -111,17 +111,17 @@ const BoutiqueSection = () => {
                 ))}
               </div>
 
-              <a 
-                href="https://informatique-haguenau.fr/" 
-                target="_blank" 
+              <Button asChild size="lg" className="gradient-green text-white w-full font-semibold">
+<a
+                href="https://informatique-haguenau.fr/"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="block"
               >
-                <Button size="lg" className="gradient-green text-white w-full font-semibold">
                   Visiter la Boutique en Ligne
                   <ArrowRight className="ml-2" size={20} />
-                </Button>
-              </a>
+                </a>
+</Button>
 
               <p className="text-sm text-muted-foreground text-center mt-4 inline-flex items-center justify-center gap-1.5 w-full flex-wrap">
                 <CreditCard size={16} className="text-accent" /> Paiement sécurisé
@@ -140,15 +140,15 @@ const BoutiqueSection = () => {
           <p className="text-lg opacity-90 mb-4">
             Économisez jusqu'à 30% sur nos cartouches compatibles de toutes les grandes marques
           </p>
-          <a 
-            href="https://informatique-haguenau.fr/" 
-            target="_blank" 
+          <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90">
+<a
+            href="https://informatique-haguenau.fr/"
+            target="_blank"
             rel="noopener noreferrer"
           >
-            <Button size="lg" className="bg-white text-primary hover:bg-white/90">
               Découvrir les Offres
-            </Button>
-          </a>
+            </a>
+</Button>
         </div>
       </div>
     </section>

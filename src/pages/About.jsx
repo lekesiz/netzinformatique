@@ -17,8 +17,7 @@ const About = () => {
   ]
 
   const certifications = [
-    { name: 'QUALIOPI', description: t('about.cert1Desc', 'Certification qualité pour les formations professionnelles') },
-    { name: 'TOSA', description: t('about.cert2Desc', 'Certifications bureautiques reconnues') },
+    { name: 'QUALIOPI', description: 'Périmètre public : actions de formation et bilans de compétences. Vérification disponible dans l’Annuaire des Entreprises.' },
   ]
 
   const milestones = [
@@ -245,7 +244,7 @@ const About = () => {
       </section>
 
       {/* Team */}
-      <section className="py-20">
+      <section id="direction" className="py-20 scroll-mt-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -281,9 +280,7 @@ const About = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               {t('about.certsTitlePart1', 'Nos')} <span className="text-primary">{t('about.certsTitleHighlight', 'Certifications')}</span>
             </h2>
-            <p className="text-xl text-muted-foreground">
-              {t('about.certsSubtitle', 'Reconnus par les plus grandes marques')}
-            </p>
+            <p className="text-xl text-muted-foreground">Un périmètre public précis, sans extrapolation commerciale.</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -340,17 +337,17 @@ const About = () => {
               {t('about.ctaSubtitle', "Faites confiance à l'expertise NETZ Informatique pour votre transformation digitale")}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
-              <Link to="/contact">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold">
+<Link to="/contact">
                   {t('about.ctaContact', 'Nous Contacter')}
                   <ArrowRight className="ml-2" />
-                </Button>
-              </Link>
-              <Link to="/services">
-                <Button size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+                </Link>
+</Button>
+              <Button asChild size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+<Link to="/services">
                   {t('about.ctaServices', 'Découvrir Nos Services')}
-                </Button>
-              </Link>
+                </Link>
+</Button>
             </div>
           </div>
         </div>

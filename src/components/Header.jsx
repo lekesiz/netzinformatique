@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
@@ -14,6 +14,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState(null)
+  const mobileMenuButtonRef = useRef(null)
   const location = useLocation()
 
   useEffect(() => {
@@ -26,6 +27,19 @@ const Header = () => {
   useEffect(() => {
     setIsMobileMenuOpen(false)
   }, [location.pathname])
+
+  useEffect(() => {
+    const handleEscape = (event) => {
+      if (event.key !== 'Escape') return
+      setOpenDropdown(null)
+      if (isMobileMenuOpen) {
+        setIsMobileMenuOpen(false)
+        mobileMenuButtonRef.current?.focus()
+      }
+    }
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [isMobileMenuOpen])
 
   // Mega-menu content for Services & Solutions
   const megaServices = [
@@ -73,7 +87,7 @@ const Header = () => {
       <div className="bg-primary text-primary-foreground py-2 text-sm">
         <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-2">
           <div className="flex flex-wrap items-center gap-4 justify-center md:justify-start">
-            <a href="tel:+33367310201" className="flex items-center gap-2 hover:opacity-80 transition">
+            <a href="tel:+33367310201" aria-label="Appeler NETZ Informatique au 03 67 31 02 01" className="flex items-center gap-2 hover:opacity-80 transition">
               <Phone size={15} />
               <span>03 67 31 02 01</span>
             </a>
@@ -111,19 +125,24 @@ const Header = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-1">
-              {navItems.map((item) => (
+            <nav aria-label="Navigation principale" className="hidden lg:flex items-center gap-1">
+              {navItems.map((item, index) => (
                 <div
                   key={item.name}
                   className="relative"
                   onMouseEnter={() => (item.mega || item.dropdown) && setOpenDropdown(item.name)}
                   onMouseLeave={() => setOpenDropdown(null)}
+                  onFocus={() => (item.mega || item.dropdown) && setOpenDropdown(item.name)}
+                  onBlur={(event) => {
+                    if (!event.currentTarget.contains(event.relatedTarget)) setOpenDropdown(null)
+                  }}
                 >
                   {item.external ? (
                     <a
                       href={item.path}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={`${item.name} (${t('common.newWindow', 'nouvel onglet')})`}
                       className="flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium text-foreground/80 hover:text-accent hover:bg-muted transition-colors"
                     >
                       {item.name}
@@ -131,6 +150,10 @@ const Header = () => {
                   ) : (
                     <Link
                       to={item.path}
+                      aria-current={isActive(item.path) ? 'page' : undefined}
+                      aria-haspopup={(item.mega || item.dropdown) ? 'menu' : undefined}
+                      aria-expanded={(item.mega || item.dropdown) ? openDropdown === item.name : undefined}
+                      aria-controls={(item.mega || item.dropdown) ? `desktop-navigation-menu-${index}` : undefined}
                       className={`flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium transition-colors hover:text-accent hover:bg-muted ${
                         isActive(item.path) ? 'text-accent' : 'text-foreground/80'
                       }`}
@@ -142,7 +165,7 @@ const Header = () => {
 
                   {/* Mega Menu (Services / Solutions) */}
                   {item.mega && openDropdown === item.name && (
-                    <div className="absolute top-full left-0 pt-2">
+                    <div id={`desktop-navigation-menu-${index}`} role="menu" className="absolute top-full left-0 pt-2">
                       <div className="w-[640px] max-w-[90vw] bg-popover text-popover-foreground rounded-2xl shadow-2xl border border-border p-4 animate-fadeIn">
                         <div className="grid sm:grid-cols-2 gap-1">
                           {megaItemsFor(item.mega).map((m) => (
@@ -166,12 +189,12 @@ const Header = () => {
                             <Sparkles size={18} className="text-accent" />
                             {t('megaMenu.ctaText', 'Pas sûr de ce qu\'il vous faut ? Diagnostic gratuit.')}
                           </span>
-                          <Link to="/contact">
-                            <Button size="sm" className="bg-accent text-accent-foreground hover:bg-accent/90 gap-1.5 shrink-0">
+                          <Button asChild size="sm" className="bg-accent text-accent-foreground hover:bg-accent/90 gap-1.5 shrink-0">
+<Link to="/contact">
                               {t('common.getQuote', 'Devis gratuit')}
                               <ArrowRight size={15} />
-                            </Button>
-                          </Link>
+                            </Link>
+</Button>
                         </div>
                       </div>
                     </div>
@@ -179,7 +202,7 @@ const Header = () => {
 
                   {/* Simple Dropdown (Formation) */}
                   {item.dropdown && openDropdown === item.name && (
-                    <div className="absolute top-full left-0 pt-2">
+                    <div id={`desktop-navigation-menu-${index}`} role="menu" className="absolute top-full left-0 pt-2">
                       <div className="w-60 bg-popover text-popover-foreground rounded-xl shadow-xl border border-border py-2 animate-fadeIn">
                         {item.dropdown.map((subItem) => (
                           <Link
@@ -201,20 +224,29 @@ const Header = () => {
             <div className="hidden lg:flex items-center gap-2 shrink-0">
               <ThemeToggle />
               <LanguageSwitcher />
-              <Link to="/contact">
-                <Button className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold gap-1.5">
+              <Button asChild variant="outline" size="sm" className="font-semibold">
+                <a href="tel:+33367310201" aria-label="Appeler NETZ Informatique au 03 67 31 02 01">
+                  <Phone size={16} aria-hidden="true" />
+                  {t('common.call', 'Appeler')}
+                </a>
+              </Button>
+              <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold gap-1.5">
+<Link to="/contact">
                   {t('common.getQuote', 'Devis gratuit')}
                   <ArrowRight size={16} />
-                </Button>
-              </Link>
+                </Link>
+</Button>
             </div>
 
             {/* Mobile Menu Button */}
             <button
+              ref={mobileMenuButtonRef}
+              type="button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="lg:hidden p-2 hover:bg-muted rounded-lg transition"
               aria-label={isMobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
               aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -223,7 +255,7 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden border-t border-border bg-background animate-fadeIn max-h-[calc(100dvh-7rem)] overflow-y-auto">
+          <nav id="mobile-navigation" aria-label="Navigation mobile" className="lg:hidden border-t border-border bg-background animate-fadeIn max-h-[calc(100dvh-7rem)] overflow-y-auto">
             <div className="container mx-auto px-4 py-4 space-y-1">
               {navItems.map((item) =>
                 item.external ? (
@@ -240,6 +272,7 @@ const Header = () => {
                   <div key={item.name}>
                     <Link
                       to={item.path}
+                      aria-current={isActive(item.path) ? 'page' : undefined}
                       className={`block py-2.5 px-4 rounded-lg font-medium transition ${
                         isActive(item.path) ? 'bg-primary text-primary-foreground' : 'hover:bg-muted'
                       }`}
@@ -266,14 +299,20 @@ const Header = () => {
                 <ThemeToggle />
                 <LanguageSwitcher />
               </div>
-              <Link to="/contact">
-                <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold mt-2 gap-1.5">
+              <Button asChild variant="outline" className="w-full font-semibold mt-2">
+                <a href="tel:+33367310201" aria-label="Appeler NETZ Informatique au 03 67 31 02 01">
+                  <Phone size={18} aria-hidden="true" />
+                  {t('common.callPhone', 'Appeler le 03 67 31 02 01')}
+                </a>
+              </Button>
+              <Button asChild className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold mt-2 gap-1.5">
+<Link to="/contact">
                   {t('common.getQuote', 'Devis gratuit')}
                   <ArrowRight size={16} />
-                </Button>
-              </Link>
+                </Link>
+</Button>
             </div>
-          </div>
+          </nav>
         )}
       </header>
     </>

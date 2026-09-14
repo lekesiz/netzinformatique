@@ -2,7 +2,7 @@ export const posts = [
   {
     slug: "lintelligence-artificielle-pour-les-pme-un-levier-de-croissance-incontournable",
     date: "2025-10-04",
-    image: "/images/blog/ia-pour-pme.jpg",
+    image: "/images/blog/ia-pour-pme.webp",
     title: {
       fr: "L'Intelligence Artificielle pour les PME : Un Levier de Croissance Incontournable",
       en: "AI for SMEs: An Essential Growth Lever",
@@ -52,7 +52,7 @@ export const posts = [
   {
     slug: "le-cloud-computing-en-2025--votre-pme-prte-pour-lavenir-numrique",
     date: "2025-10-04",
-    image: "/images/blog/le-cloud-computing-en-2025--votre-pme-prte-pour-lavenir-numrique.jpg",
+    image: "/images/blog/cloud-computing-2025.webp",
     title: {
       fr: "Le Cloud Computing en 2025 : Votre PME prête pour l'avenir numérique",
       en: "Cloud Computing in 2025: Your SME Ready for the Digital Future",
@@ -150,7 +150,7 @@ export const posts = [
   {
     slug: "cybersecurite-pour-les-pme-protegez-votre-entreprise-des-menaces-numeriques",
     date: "2025-10-04",
-    image: "/images/blog/cybersecurite-pour-les-pme-protegez-votre-entreprise-des-menaces-numeriques.jpg",
+    image: "/images/blog/cybersecurite-pme-2025.webp",
     title: {
       fr: "Cybersécurité pour les PME : Protégez Votre Entreprise des Menaces Numériques",
       en: "Cybersecurity for SMEs: Protect Your Business from Digital Threats",
@@ -225,7 +225,7 @@ export const posts = [
   {
     slug: "l-ia-agentique-revolutionner-les-pme-avec-l-autonomie-intelligente",
     date: "2025-10-04",
-    image: "/images/blog/l-ia-agentique-revolutionner-les-pme-avec-l-autonomie-intelligente.jpg",
+    image: "/images/blog/ia-agentique.webp",
     title: {
       fr: "L'IA Agentique : Révolutionner les PME avec l'Autonomie Intelligente",
       en: "Agentic AI: Revolutionizing SMEs with Intelligent Autonomy",
@@ -290,7 +290,7 @@ export const posts = [
   {
     slug: "l-automatisation-au-service-des-pme-un-levier-de-croissance-incontournable",
     date: "2025-10-04",
-    image: "/images/blog/l-automatisation-au-service-des-pme-un-levier-de-croissance-incontournable.jpg",
+    image: "/images/blog/automatisation.webp",
     title: {
       fr: "L'Automatisation au Service des PME : Un Levier de Croissance Incontournable",
       en: "Automation for SMEs: An Essential Growth Driver",
@@ -350,7 +350,7 @@ export const posts = [
   {
     slug: "la-transformation-numrique-le-levier-essentiel-pour-la-croissance-de-votre-pme",
     date: "2025-10-04",
-    image: "/images/blog/la-transformation-numrique-le-levier-essentiel-pour-la-croissance-de-votre-pme.jpg",
+    image: "/images/blog/transformation-numerique.webp",
     title: {
       fr: "La Transformation Numérique : Le Levier Essentiel pour la Croissance de Votre PME",
       en: "Digital Transformation: The Essential Lever for the Growth of Your SME",
@@ -376,7 +376,7 @@ export const posts = [
   {
     slug: "outils-ia",
     date: "2025-10-04",
-    image: "/images/blog/outils-ia.jpg",
+    image: "/images/blog/outils-ia.webp",
     title: {
       fr: "Les Outils IA pour les PME : Un Levier de Croissance Incontournable",
       en: "AI Tools for SMEs: An Essential Growth Lever",
@@ -402,7 +402,7 @@ export const posts = [
   {
     slug: "la-productivite-en-pme-cles-pour-une-croissance-durable",
     date: "2025-10-04",
-    image: "/images/blog/la-productivite-en-pme-cles-pour-une-croissance-durable.jpg",
+    image: "/images/blog/productivite.webp",
     title: {
       fr: "La Productivité en PME : Clés pour une Croissance Durable",
       en: "SME Productivity: Keys to Sustainable Growth",
@@ -472,7 +472,7 @@ export const posts = [
   {
     slug: "souverainet-numrique-un-enjeu-stratgique-pour-les-pme",
     date: "2025-10-04",
-    image: "/images/blog/souverainet-numrique-un-enjeu-stratgique-pour-les-pme.jpg",
+    image: "/images/blog/souverainete-numerique.webp",
     title: {
       fr: "Souveraineté Numérique : Un Enjeu Stratégique pour les PME",
       en: "Digital Sovereignty: A Strategic Issue for SMEs",
@@ -522,7 +522,7 @@ export const posts = [
   {
     slug: "10-conseils-cybersecurite-pme",
     date: "2025-10-01",
-    image: "/images/blog/cybersecurity.jpg",
+    image: "/images/blog/cybersecurite.webp",
     title: {
       fr: "10 Conseils de Cybersécurité Essentiels pour les PME",
       en: "10 Essential Cybersecurity Tips for SMEs",
@@ -545,74 +545,74 @@ export const posts = [
       fr: `
         <h2>Introduction</h2>
         <p>La cybersécurité n'est plus un luxe mais une nécessité pour les PME. En 2025, 60% des petites entreprises qui subissent une cyberattaque ferment dans les 6 mois. Voici 10 conseils essentiels pour protéger votre entreprise.</p>
-        
+
         <h3>1. Formez vos employés régulièrement</h3>
         <p>La première ligne de défense, c'est l'humain. Organisez des formations trimestrielles sur le phishing, les mots de passe sécurisés et les bonnes pratiques. Un employé informé est votre meilleur pare-feu.</p>
-        
+
         <h3>2. Utilisez des mots de passe forts et uniques</h3>
         <p>Combinez majuscules, minuscules, chiffres et symboles. Utilisez un gestionnaire de mots de passe comme Bitwarden ou 1Password pour ne jamais réutiliser le même mot de passe.</p>
-        
+
         <h3>3. Activez l'authentification à deux facteurs (2FA)</h3>
         <p>Le 2FA ajoute une couche de sécurité supplémentaire. Même si un mot de passe est compromis, l'accès reste protégé par un code temporaire.</p>
-        
+
         <h3>4. Mettez à jour vos logiciels régulièrement</h3>
         <p>Les mises à jour contiennent souvent des correctifs de sécurité vitaux. Activez les mises à jour automatiques pour Windows, macOS et tous vos logiciels professionnels.</p>
-        
+
         <h3>5. Sauvegardez vos données (règle 3-2-1)</h3>
         <p>3 copies de vos données, sur 2 supports différents, dont 1 hors site (cloud). En cas de ransomware, vous pourrez restaurer sans payer de rançon.</p>
-        
+
         <h3>6. Installez un antivirus professionnel</h3>
         <p>Les solutions gratuites ne suffisent pas pour une entreprise. Investissez dans une suite de sécurité professionnelle avec protection en temps réel et pare-feu avancé.</p>
-        
+
         <h3>7. Sécurisez votre réseau Wi-Fi</h3>
         <p>Changez le mot de passe par défaut de votre routeur, utilisez le chiffrement WPA3, et créez un réseau invité séparé pour les visiteurs.</p>
-        
+
         <h3>8. Limitez les accès aux données sensibles</h3>
         <p>Appliquez le principe du moindre privilège : chaque employé n'a accès qu'aux données nécessaires à son travail. Révisez les permissions trimestriellement.</p>
-        
+
         <h3>9. Établissez un plan de réponse aux incidents</h3>
         <p>Que faire en cas d'attaque ? Qui contacter ? Comment isoler les systèmes ? Un plan clair peut réduire les dégâts de 80%.</p>
-        
+
         <h3>10. Faites un audit de sécurité annuel</h3>
         <p>Un expert externe identifiera les failles que vous ne voyez pas. Chez NETZ Informatique, nous proposons des audits complets adaptés aux PME.</p>
-        
+
         <h2>Conclusion</h2>
         <p>La cybersécurité est un investissement, pas une dépense. Ces 10 conseils constituent une base solide, mais chaque entreprise a des besoins spécifiques. Contactez-nous pour un audit personnalisé.</p>
       `,
       en: `
         <h2>Introduction</h2>
         <p>Cybersecurity is no longer a luxury but a necessity for SMEs. In 2025, 60% of small businesses that suffer a cyberattack close within 6 months. Here are 10 essential tips to protect your business.</p>
-        
+
         <h3>1. Train your employees regularly</h3>
         <p>The first line of defense is human. Organize quarterly training on phishing, secure passwords, and best practices. An informed employee is your best firewall.</p>
-        
+
         <h3>2. Use strong and unique passwords</h3>
         <p>Combine uppercase, lowercase, numbers, and symbols. Use a password manager like Bitwarden or 1Password to never reuse the same password.</p>
-        
+
         <h3>3. Enable two-factor authentication (2FA)</h3>
         <p>2FA adds an extra layer of security. Even if a password is compromised, access remains protected by a temporary code.</p>
-        
+
         <h3>4. Update your software regularly</h3>
         <p>Updates often contain vital security patches. Enable automatic updates for Windows, macOS, and all your business software.</p>
-        
+
         <h3>5. Back up your data (3-2-1 rule)</h3>
         <p>3 copies of your data, on 2 different media, including 1 offsite (cloud). In case of ransomware, you can restore without paying ransom.</p>
-        
+
         <h3>6. Install professional antivirus</h3>
         <p>Free solutions are not enough for a business. Invest in a professional security suite with real-time protection and advanced firewall.</p>
-        
+
         <h3>7. Secure your Wi-Fi network</h3>
         <p>Change your router's default password, use WPA3 encryption, and create a separate guest network for visitors.</p>
-        
+
         <h3>8. Limit access to sensitive data</h3>
         <p>Apply the principle of least privilege: each employee only has access to data necessary for their work. Review permissions quarterly.</p>
-        
+
         <h3>9. Establish an incident response plan</h3>
         <p>What to do in case of attack? Who to contact? How to isolate systems? A clear plan can reduce damage by 80%.</p>
-        
+
         <h3>10. Conduct an annual security audit</h3>
         <p>An external expert will identify vulnerabilities you don't see. At NETZ Informatique, we offer comprehensive audits tailored to SMEs.</p>
-        
+
         <h2>Conclusion</h2>
         <p>Cybersecurity is an investment, not an expense. These 10 tips constitute a solid foundation, but each business has specific needs. Contact us for a personalized audit.</p>
       `,
@@ -621,7 +621,7 @@ export const posts = [
   {
     slug: "choisir-ordinateur-professionnel",
     date: "2025-09-28",
-    image: "/images/blog/laptop.jpg",
+    image: "/images/blog/cloud-computing-2025.webp",
     title: {
       fr: "Comment Choisir le Bon Ordinateur Professionnel en 2025",
       en: "How to Choose the Right Business Laptop in 2025",
@@ -644,47 +644,47 @@ export const posts = [
       fr: `
         <h2>Introduction</h2>
         <p>Choisir un ordinateur professionnel est un investissement stratégique. Un bon choix booste la productivité, un mauvais choix coûte cher en temps et en frustration. Voici notre guide complet 2025.</p>
-        
+
         <h3>1. Définissez vos besoins réels</h3>
         <p><strong>Bureautique légère :</strong> Traitement de texte, emails, navigation web → Intel Core i3 ou AMD Ryzen 3, 8 Go RAM, 256 Go SSD suffisent.</p>
         <p><strong>Bureautique intensive :</strong> Tableurs complexes, multitâche → Intel Core i5/i7 ou AMD Ryzen 5/7, 16 Go RAM, 512 Go SSD.</p>
         <p><strong>Création graphique/vidéo :</strong> Photoshop, Premiere Pro → Intel Core i7/i9 ou AMD Ryzen 7/9, 32 Go RAM, 1 To SSD, carte graphique dédiée (NVIDIA RTX).</p>
-        
+
         <h3>2. Processeur : Intel vs AMD en 2025</h3>
         <p><strong>Intel (13e/14e gen) :</strong> Excellentes performances single-core, idéal pour la bureautique et les logiciels professionnels classiques.</p>
         <p><strong>AMD Ryzen (7000/8000 series) :</strong> Meilleur rapport performance/prix, excellent pour le multitâche et la création de contenu.</p>
         <p><em>Notre recommandation :</em> AMD Ryzen pour le meilleur rapport qualité/prix, Intel si vous utilisez des logiciels optimisés Intel (Adobe Suite).</p>
-        
+
         <h3>3. RAM : Ne lésinez pas</h3>
         <p>• <strong>8 Go :</strong> Minimum absolu, mais limite le multitâche<br>
         • <strong>16 Go :</strong> Standard professionnel, confortable pour 95% des usages<br>
         • <strong>32 Go+ :</strong> Création graphique, machines virtuelles, développement</p>
-        
+
         <h3>4. Stockage : SSD obligatoire</h3>
         <p>Les HDD sont obsolètes pour un usage professionnel. Un SSD NVMe est 10x plus rapide. Minimum 256 Go, idéal 512 Go, 1 To si vous stockez beaucoup de fichiers.</p>
-        
+
         <h3>5. Écran : Taille et résolution</h3>
         <p>• <strong>13-14 pouces :</strong> Ultraportable, idéal pour les déplacements<br>
         • <strong>15-16 pouces :</strong> Compromis parfait mobilité/confort<br>
         • <strong>17 pouces+ :</strong> Poste fixe de remplacement<br>
         <em>Résolution minimum :</em> Full HD (1920x1080), idéal 2K ou 4K pour la création.</p>
-        
+
         <h3>6. Autonomie : Minimum 8 heures</h3>
         <p>Pour une journée de travail sans recharge, visez 8-10 heures d'autonomie réelle (pas les chiffres marketing). Les processeurs récents (Intel 13e gen, AMD Ryzen 7000) offrent d'excellentes autonomies.</p>
-        
+
         <h3>7. PC vs Mac : Le débat éternel</h3>
         <p><strong>Choisissez PC si :</strong> Budget serré, besoin de logiciels Windows spécifiques, gaming occasionnel, personnalisation matérielle.</p>
         <p><strong>Choisissez Mac si :</strong> Écosystème Apple (iPhone, iPad), création graphique/vidéo (Final Cut, Logic Pro), longévité exceptionnelle, support premium.</p>
-        
+
         <h3>8. Garantie et support</h3>
         <p>Pour un usage professionnel, optez pour une garantie 3 ans minimum. Les marques professionnelles (Dell Latitude, Lenovo ThinkPad, HP EliteBook) offrent un support prioritaire.</p>
-        
+
         <h2>Nos recommandations 2025</h2>
         <p><strong>Budget serré (600-800€) :</strong> Lenovo IdeaPad 3, HP 255 G9<br>
         <strong>Milieu de gamme (800-1200€) :</strong> Dell Latitude 5440, Lenovo ThinkPad E15<br>
         <strong>Haut de gamme (1200-2000€) :</strong> MacBook Air M3, Dell XPS 15, Lenovo ThinkPad X1 Carbon<br>
         <strong>Workstation (2000€+) :</strong> MacBook Pro M3 Pro/Max, Dell Precision, Lenovo ThinkPad P Series</p>
-        
+
         <h2>Conclusion</h2>
         <p>Le bon ordinateur professionnel dépend de vos besoins spécifiques. Chez NETZ Informatique, nous vous accompagnons dans le choix et la configuration de votre matériel. Contactez-nous pour un conseil personnalisé.</p>
       `,
@@ -694,7 +694,7 @@ export const posts = [
   {
     slug: "avantages-ia-offline",
     date: "2025-09-25",
-    image: "/images/blog/ai-offline.jpg",
+    image: "/images/blog/ia-pour-pme.webp",
     title: {
       fr: "Les Avantages de l'IA Offline pour Votre Entreprise",
       en: "The Benefits of Offline AI for Your Business",
