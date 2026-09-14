@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import SEO from '@/components/common/SEO';
 import { useTranslation } from 'react-i18next';
 import { Input } from '@/components/ui/input';
-import { Search, FileText, ArrowRight } from 'lucide-react';
+import { Search, ArrowRight } from 'lucide-react';
+import BlogImage from '@/components/blog/BlogImage';
 
 // Dummy blog posts data - replace with dynamic import
 import { posts as allPosts } from '@/content/blog/posts';
@@ -12,7 +13,7 @@ const BlogIndex = () => {
   const { t, i18n } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredPosts, setFilteredPosts] = useState(allPosts);
-  
+
   // Normalize language code (e.g., 'en-US' -> 'en')
   const lang = i18n.language.split('-')[0];
 
@@ -20,7 +21,7 @@ const BlogIndex = () => {
     if (searchTerm === '') {
       setFilteredPosts(allPosts);
     } else {
-      const results = allPosts.filter(post => 
+      const results = allPosts.filter(post =>
         post.title[lang]?.toLowerCase().includes(searchTerm.toLowerCase()) ||
         post.excerpt[lang]?.toLowerCase().includes(searchTerm.toLowerCase()) ||
         post.tags[lang]?.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
@@ -31,7 +32,7 @@ const BlogIndex = () => {
 
   return (
     <>
-      <SEO 
+      <SEO
         title={t('blog.title', 'Blog & Actualités Tech')}
         description={t('blog.description', 'Suivez nos analyses, tutoriels et actualités sur l`informatique, l`IA, la cybersécurité et le développement web.')}
         url="/blog"
@@ -54,13 +55,13 @@ const BlogIndex = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredPosts && filteredPosts.length > 0 ? (
-            filteredPosts.map(post => (
+            filteredPosts.map((post, index) => (
               <Link to={`/blog/${post.slug}`} key={post.slug} className="group block bg-card rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-border hover:-translate-y-1">
                 <div className="relative w-full h-56 bg-gradient-to-br from-violet-500 via-purple-500 to-fuchsia-500 overflow-hidden">
-                  <div className="absolute inset-0 bg-black/10"></div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center text-white p-6">
-                      <FileText size={48} className="mx-auto mb-3" />
+                  <BlogImage src={post.image} alt="" priority={index === 0} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+                  <div className="absolute inset-x-0 bottom-0 p-6">
+                    <div className="text-white">
                       <div className="text-xs font-semibold uppercase tracking-wider opacity-90">
                         {new Date(post.date).toLocaleDateString(lang, { day: 'numeric', month: 'short', year: 'numeric' })}
                       </div>

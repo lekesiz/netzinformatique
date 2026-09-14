@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button'
 
 const SocialShare = ({ url, title, description }) => {
   const fullUrl = `https://www.netzinformatique.fr${url}`
-  
+
   const shareLinks = {
     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(fullUrl)}`,
     twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(fullUrl)}&text=${encodeURIComponent(title)}`,
@@ -19,35 +19,35 @@ const SocialShare = ({ url, title, description }) => {
   return (
     <div className="flex items-center gap-2 flex-wrap">
       <span className="text-sm font-semibold text-muted-foreground mr-2">Partager:</span>
-      
-      <a href={shareLinks.facebook} target="_blank" rel="noopener noreferrer">
-        <Button variant="outline" size="sm" className="gap-2">
+
+      <Button asChild variant="outline" size="sm" className="gap-2">
+<a href={shareLinks.facebook} target="_blank" rel="noopener noreferrer">
           <Facebook size={16} />
           Facebook
-        </Button>
-      </a>
-      
-      <a href={shareLinks.twitter} target="_blank" rel="noopener noreferrer">
-        <Button variant="outline" size="sm" className="gap-2">
+        </a>
+</Button>
+
+      <Button asChild variant="outline" size="sm" className="gap-2">
+<a href={shareLinks.twitter} target="_blank" rel="noopener noreferrer">
           <Twitter size={16} />
           Twitter
-        </Button>
-      </a>
-      
-      <a href={shareLinks.linkedin} target="_blank" rel="noopener noreferrer">
-        <Button variant="outline" size="sm" className="gap-2">
+        </a>
+</Button>
+
+      <Button asChild variant="outline" size="sm" className="gap-2">
+<a href={shareLinks.linkedin} target="_blank" rel="noopener noreferrer">
           <Linkedin size={16} />
           LinkedIn
-        </Button>
-      </a>
-      
-      <a href={shareLinks.email}>
-        <Button variant="outline" size="sm" className="gap-2">
+        </a>
+</Button>
+
+      <Button asChild variant="outline" size="sm" className="gap-2">
+<a href={shareLinks.email}>
           <Mail size={16} />
           Email
-        </Button>
-      </a>
-      
+        </a>
+</Button>
+
       <Button variant="outline" size="sm" className="gap-2" onClick={copyToClipboard}>
         <LinkIcon size={16} />
         Copier

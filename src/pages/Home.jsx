@@ -23,7 +23,7 @@ const Home = () => {
     { icon: Wrench, value: '2016', label: t('home.statsFounded', 'Année de création') },
     { icon: Award, value: '2025-2028', label: t('home.statsQualiopi', 'Certification QUALIOPI') },
     { icon: ShieldCheck, value: '2', label: t('home.statsCertifiedActivities', 'Catégories certifiées') },
-    { icon: Clock, value: '24-48h', label: t('home.statsSupport', 'Délai d\'intervention') },
+    { icon: Clock, value: 'Sur RDV', label: 'Délai confirmé avant intervention' },
   ]
 
   const audiences = [
@@ -69,24 +69,24 @@ const Home = () => {
                 </p>
 
                 <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                  <Link to="/contact">
-                    <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold w-full sm:w-auto gap-2">
+                  <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold w-full sm:w-auto gap-2">
+<Link to="/contact?source=home">
                       {t('home.heroCtaQuote', 'Demander un devis gratuit')}
                       <ArrowRight size={20} />
-                    </Button>
-                  </Link>
-                  <a href="tel:+33367310201">
-                    <Button size="lg" variant="outline" className="w-full sm:w-auto gap-2 border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+                    </Link>
+</Button>
+                  <Button asChild size="lg" variant="outline" className="w-full sm:w-auto gap-2 border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+<a href="tel:+33367310201">
                       <Phone size={18} />
                       03 67 31 02 01
-                    </Button>
-                  </a>
+                    </a>
+</Button>
                 </div>
 
                 {/* Trust row */}
                 <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-primary-foreground/80">
                   <span className="flex items-center gap-1.5"><Award size={15} className="text-accent" /> {t('home.trustQualiopi', 'QUALIOPI · formation & bilans de compétences')}</span>
-                  <span className="flex items-center gap-1.5"><Clock size={15} className="text-accent" /> {t('home.trustIntervention', 'Intervention 24-48h')}</span>
+                  <span className="flex items-center gap-1.5"><Clock size={15} className="text-accent" /> Délai annoncé selon disponibilité</span>
                 </div>
               </div>
 
@@ -111,7 +111,7 @@ const Home = () => {
                   ))}
                   <div className="flex items-center justify-center gap-2 rounded-2xl border border-dashed border-white/20 p-4 text-sm text-primary-foreground/70">
                     <Award size={16} className="text-accent" />
-                    Solutions Microsoft · Cisco · Google Cloud · QUALIOPI
+                    Technologies couvertes : Microsoft · Cisco · Google Cloud
                   </div>
                 </div>
               </div>
@@ -165,18 +165,18 @@ const Home = () => {
               {t('home.ctaDescription', 'Contactez-nous dès aujourd\'hui pour un diagnostic gratuit et découvrez comment optimiser votre infrastructure informatique.')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold w-full sm:w-auto gap-2">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold w-full sm:w-auto gap-2">
+<Link to="/contact?source=home">
                   {t('common.contactUs', 'Nous contacter')}
                   <ArrowRight size={20} />
-                </Button>
-              </Link>
-              <a href="tel:+33367310201">
-                <Button size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15 w-full sm:w-auto gap-2">
+                </Link>
+</Button>
+              <Button asChild size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15 w-full sm:w-auto gap-2">
+<a href="tel:+33367310201">
                   <Phone size={20} />
                   {t('common.callNow', 'Appeler maintenant')}
-                </Button>
-              </a>
+                </a>
+</Button>
             </div>
           </div>
         </section>

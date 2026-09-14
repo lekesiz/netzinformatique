@@ -178,16 +178,16 @@ const DepannageMaintenance = () => {
               {t('depannage.heroSubtitle', 'Intervention rapide à Haguenau pour tous vos problèmes informatiques. Diagnostic gratuit, réparation sous 24-48h, garantie 3 mois.')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
-              <Link to="/contact">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+<Link to="/contact?audience=particulier&service=depannage&source=services">
                   {t('depannage.heroCtaQuote', 'Demander un Devis Gratuit')} <ArrowRight className="ml-2" />
-                </Button>
-              </Link>
-              <a href="tel:+33367310201">
-                <Button size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+                </Link>
+</Button>
+              <Button asChild size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+<a href="tel:+33367310201">
                   <Phone className="mr-2" /> 03 67 31 02 01
-                </Button>
-              </a>
+                </a>
+</Button>
             </div>
           </div>
         </section>
@@ -227,9 +227,9 @@ const DepannageMaintenance = () => {
                   <p className="text-muted-foreground mb-4">{problem.description}</p>
                   <div className="flex items-center justify-between">
                     <span className="font-semibold text-accent">{problem.price}</span>
-                    <Link to="/contact">
-                      <Button size="sm" variant="outline">{t('depannage.quoteBtn', 'Devis')}</Button>
-                    </Link>
+                    <Button asChild size="sm" variant="outline">
+<Link to="/contact?audience=particulier&service=depannage&source=services">{t('depannage.quoteBtn', 'Devis')}</Link>
+</Button>
                   </div>
                 </div>
               ))}
@@ -308,7 +308,7 @@ const DepannageMaintenance = () => {
 
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {maintenancePackages.map((pkg, index) => (
-                <div 
+                <div
                   key={index}
                   className={`bg-card rounded-2xl shadow-xl overflow-hidden ${
                     pkg.popular ? 'ring-4 ring-primary transform scale-105' : ''
@@ -332,11 +332,11 @@ const DepannageMaintenance = () => {
                         </li>
                       ))}
                     </ul>
-                    <Link to="/contact">
-                      <Button className={`w-full ${pkg.popular ? 'bg-accent text-accent-foreground hover:bg-accent/90' : ''}`}>
+                    <Button asChild className={`w-full ${pkg.popular ? 'bg-accent text-accent-foreground hover:bg-accent/90' : ''}`}>
+<Link to="/contact?audience=particulier&service=depannage&source=services">
                         {t('depannage.subscribe', 'Souscrire')}
-                      </Button>
-                    </Link>
+                      </Link>
+</Button>
                   </div>
                 </div>
               ))}
@@ -378,18 +378,18 @@ const DepannageMaintenance = () => {
               {t('depannage.ctaSubheading', 'Diagnostic gratuit • Intervention 24-48h • Garantie 3 mois')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
-              <Link to="/contact">
-                <Button size="lg" className="bg-white text-primary hover:bg-white/90">
+              <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90">
+<Link to="/contact?audience=particulier&service=depannage&source=services">
                   {t('depannage.ctaQuote', 'Demander un Devis')}
                   <ArrowRight className="ml-2" />
-                </Button>
-              </Link>
-              <a href="tel:+33367310201">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                </Link>
+</Button>
+              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+<a href="tel:+33367310201">
                   <Phone className="mr-2" />
                   {t('depannage.ctaCall', 'Appeler Maintenant')}
-                </Button>
-              </a>
+                </a>
+</Button>
             </div>
           </div>
         </section>

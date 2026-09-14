@@ -1,44 +1,48 @@
 import { onCLS, onFCP, onLCP, onTTFB, onINP } from 'web-vitals'
+import { hasConsent } from '../consent/consentStore'
+
+let activeGeneration = 0
 
 /**
  * Initialize Web Vitals monitoring
  * Sends metrics to Google Analytics and console in development
  */
 export function initWebVitals() {
+  if (!hasConsent('analytics')) return () => {}
+  const generation = ++activeGeneration
+
   const sendToAnalytics = (metric) => {
+    if (generation !== activeGeneration || !hasConsent('analytics')) return
+
     // Log in development
     if (import.meta.env.DEV) {
       console.log('📊 Web Vital:', metric)
     }
 
     // Send to Google Analytics 4
-    if (window.gtag) {
+    if (typeof window.gtag === 'function') {
       window.gtag('event', metric.name, {
         event_category: 'Web Vitals',
-        event_label: metric.id,
         value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
         non_interaction: true,
-        metric_id: metric.id,
         metric_value: metric.value,
         metric_delta: metric.delta,
         metric_rating: metric.rating,
       })
     }
 
-    // Send to custom analytics endpoint (optional)
-    if (import.meta.env.VITE_ANALYTICS_ENDPOINT) {
-      fetch(import.meta.env.VITE_ANALYTICS_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          metric: metric.name,
-          value: metric.value,
-          rating: metric.rating,
-          id: metric.id,
-          timestamp: Date.now(),
-          url: window.location.pathname,
-        }),
-      }).catch(err => console.error('Failed to send metric:', err))
+    const connection = navigator.connection?.effectiveType
+    const payload = JSON.stringify({
+      metric: metric.name,
+      value: metric.value,
+      rating: metric.rating,
+      timestamp: Date.now(),
+      route: window.location.pathname,
+      device: window.matchMedia('(max-width: 767px)').matches ? 'mobile' : 'desktop',
+      connection: ['slow-2g', '2g', '3g', '4g'].includes(connection) ? connection : 'unknown',
+    })
+    if (!navigator.sendBeacon?.('/api/vitals', new Blob([payload], { type: 'application/json' }))) {
+      fetch('/api/vitals', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: payload, keepalive: true }).catch(() => {})
     }
   }
 
@@ -49,7 +53,9 @@ export function initWebVitals() {
   onTTFB(sendToAnalytics) // Time to First Byte
   onINP(sendToAnalytics)  // Interaction to Next Paint (replaces deprecated FID)
 
-  console.log('✅ Web Vitals monitoring initialized')
+  return () => {
+    if (generation === activeGeneration) activeGeneration += 1
+  }
 }
 
 /**

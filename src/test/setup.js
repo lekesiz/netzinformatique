@@ -58,14 +58,18 @@ global.IntersectionObserver = class IntersectionObserver {
 // Mock scrollTo
 window.scrollTo = vi.fn()
 
-// Mock localStorage
+// Mock storage using a configurable property because Vitest 5 exposes it via
+// a read-only accessor in browser-like environments.
 const localStorageMock = {
   getItem: vi.fn(),
   setItem: vi.fn(),
   removeItem: vi.fn(),
   clear: vi.fn(),
 }
-global.localStorage = localStorageMock
+Object.defineProperty(globalThis, 'localStorage', {
+  configurable: true,
+  value: localStorageMock,
+})
 
 // Extend expect with custom matchers if needed
 expect.extend({

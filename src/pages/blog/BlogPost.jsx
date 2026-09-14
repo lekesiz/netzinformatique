@@ -6,21 +6,18 @@ import RelatedPosts from '@/components/blog/RelatedPosts';
 import { useTranslation } from 'react-i18next';
 import { posts } from '@/content/blog/posts';
 import { ArrowLeft, Calendar, Clock, Tag } from 'lucide-react';
+import NotFound from '../NotFound';
+import BlogImage from '@/components/blog/BlogImage';
+import { EDITORIAL_AUTHOR, editorialBySlug } from '@/content/blog/editorial';
 
 const BlogPost = () => {
   const { slug } = useParams();
   const { t, i18n } = useTranslation();
   const post = posts.find(p => p.slug === slug);
+  const editorial = editorialBySlug[slug] || { author: EDITORIAL_AUTHOR, dateModified: post?.date, sources: [] };
 
   if (!post) {
-    return (
-      <div className="container mx-auto px-4 py-16 text-center">
-        <h1 className="text-4xl font-bold mb-4">{t('blog.postNotFound', 'Article non trouvé')}</h1>
-        <Link to="/blog" className="text-blue-600 hover:underline">
-          {t('blog.backToBlog', 'Retour au blog')}
-        </Link>
-      </div>
-    );
+    return <NotFound />;
   }
 
   const postContent = post.content[i18n.language] || post.content.fr;
@@ -29,7 +26,7 @@ const BlogPost = () => {
 
   return (
     <>
-      <SEO 
+      <SEO
         title={`${postTitle} | NETZ Informatique Blog`}
         description={postExcerpt}
         url={`/blog/${post.slug}`}
@@ -42,6 +39,9 @@ const BlogPost = () => {
         description={postExcerpt}
         image={post.image}
         datePublished={post.date}
+        dateModified={editorial.dateModified}
+        author={editorial.author.name}
+        authorUrl={editorial.author.url}
         url={`/blog/${post.slug}`}
       />
 
@@ -49,8 +49,8 @@ const BlogPost = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             {/* Back to blog */}
-            <Link 
-              to="/blog" 
+            <Link
+              to="/blog"
               className="inline-flex items-center gap-2 text-blue-600 font-semibold mb-8 hover:underline"
             >
               <ArrowLeft size={20} />
@@ -61,11 +61,7 @@ const BlogPost = () => {
             <article className="bg-card rounded-2xl shadow-lg overflow-hidden">
               {/* Featured Image */}
               <div className="aspect-video overflow-hidden">
-                <img 
-                  src={post.image} 
-                  alt={postTitle} 
-                  className="w-full h-full object-cover"
-                />
+                <BlogImage src={post.image} alt={postTitle} priority className="w-full h-full object-cover" />
               </div>
 
               <div className="p-8 md:p-12">
@@ -83,12 +79,13 @@ const BlogPost = () => {
 
                 {/* Meta Info */}
                 <div className="flex flex-wrap items-center gap-6 text-muted-foreground mb-8 pb-8 border-b">
+                  <span>Par <Link to={editorial.author.url} className="font-semibold text-primary hover:underline">{editorial.author.name}</Link></span>
                   <div className="flex items-center gap-2">
                     <Calendar size={18} />
-                    <span>{new Date(post.date).toLocaleDateString(i18n.language, { 
-                      year: 'numeric', 
-                      month: 'long', 
-                      day: 'numeric' 
+                    <span>{new Date(post.date).toLocaleDateString(i18n.language, {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
                     })}</span>
                   </div>
                   {post.readTime && (
@@ -107,7 +104,7 @@ const BlogPost = () => {
 
                 {/* Social Share */}
                 <div className="mb-8 pb-8 border-b">
-                  <SocialShare 
+                  <SocialShare
                     url={`/blog/${post.slug}`}
                     title={postTitle}
                     description={postExcerpt}
@@ -115,15 +112,25 @@ const BlogPost = () => {
                 </div>
 
                 {/* Content */}
-                <div 
+                <div
                   className="prose lg:prose-xl max-w-none dark:prose-invert prose-headings:font-bold prose-a:text-accent prose-img:rounded-xl"
                   dangerouslySetInnerHTML={{ __html: postContent }}
                 />
 
+                {editorial.sources.length > 0 && (
+                  <aside className="mt-12 rounded-xl border border-border bg-muted/40 p-6" aria-labelledby="article-sources">
+                    <h2 id="article-sources" className="text-xl font-bold mb-3">Sources primaires et références</h2>
+                    <p className="text-sm text-muted-foreground mb-3">Article relu et mis à jour le {new Date(editorial.dateModified).toLocaleDateString('fr-FR')}.</p>
+                    <ul className="list-disc pl-5 space-y-2">
+                      {editorial.sources.map(([label, href]) => <li key={href}><a href={href} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">{label}</a></li>)}
+                    </ul>
+                  </aside>
+                )}
+
                 {/* Social Share (Bottom) */}
                 <div className="mt-12 pt-8 border-t">
                   <p className="text-lg font-semibold mb-4">Cet article vous a plu ? Partagez-le !</p>
-                  <SocialShare 
+                  <SocialShare
                     url={`/blog/${post.slug}`}
                     title={postTitle}
                     description={postExcerpt}
@@ -134,8 +141,8 @@ const BlogPost = () => {
 
             {/* Related Posts */}
             <div className="mt-16">
-              <RelatedPosts 
-                currentSlug={post.slug} 
+              <RelatedPosts
+                currentSlug={post.slug}
                 category={post.category}
                 limit={3}
               />
@@ -149,8 +156,8 @@ const BlogPost = () => {
               <p className="text-xl mb-8 opacity-90">
                 Notre équipe d'experts est là pour vous accompagner
               </p>
-              <Link 
-                to="/contact" 
+              <Link
+                to="/contact?source=blog"
                 className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
               >
                 Contactez-nous

@@ -112,13 +112,13 @@ const BilanCompetences = () => {
 
   return (
     <>
-      <SEO 
+      <SEO
         title="Bilan de Compétences QUALIOPI | CPF | Haguenau"
         description="Bilan de compétences certifié QUALIOPI à Haguenau. Financé par CPF. Accompagnement personnalisé pour votre projet professionnel et reconversion."
         keywords="bilan de compétences, CPF, QUALIOPI, reconversion professionnelle, Haguenau, orientation professionnelle"
       />
-      
-      <StructuredData 
+
+      <StructuredData
         type="Service"
         name="Bilan de Compétences"
         description="Bilan de compétences certifié QUALIOPI, finançable par CPF"
@@ -216,7 +216,7 @@ const BilanCompetences = () => {
                 {t('bilan.processSubtitle', 'Un processus structuré en 3 phases sur 24 heures réparties sur 1 à 3 mois')}
               </p>
             </div>
-            
+
             <div className="space-y-8">
               {phases.map((phase, index) => {
                 const Icon = phase.icon;

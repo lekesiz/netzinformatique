@@ -11,6 +11,7 @@ const WhatsAppButton = () => {
 
   return (
     <a
+      data-floating-widget
       href={href}
       target="_blank"
       rel="noopener noreferrer"

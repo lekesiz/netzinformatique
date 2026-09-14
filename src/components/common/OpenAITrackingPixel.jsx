@@ -1,42 +1,36 @@
 import { useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
+import { useConsent } from '../../consent/ConsentProvider'
 import {
-  COOKIE_CONSENT_UPDATED_EVENT,
+  disposeOpenAITrackingPixel,
   initOpenAITrackingPixel,
-  readCookiePreferences,
 } from '../../utils/openaiTrackingPixel'
 
-/**
- * Loads the OpenAI advertising pixel only after the visitor has granted
- * marketing-cookie consent. It also reacts immediately to a new consent
- * choice without requiring a page refresh.
- */
 const OpenAITrackingPixel = () => {
   const location = useLocation()
+  const { categories } = useConsent()
   const lastMeasuredLocation = useRef(null)
 
   useEffect(() => {
-    const initializeAndMeasureWhenAllowed = (event) => {
-      const preferences = event?.detail ?? readCookiePreferences()
-
-      if (preferences?.marketing) {
-        initOpenAITrackingPixel()
-
-        const currentLocation = location.pathname + location.search
-        if (lastMeasuredLocation.current !== currentLocation) {
-          window.oaiq('measure', 'page_viewed', { type: 'contents' })
-          lastMeasuredLocation.current = currentLocation
-        }
-      }
+    if (!categories.marketing) {
+      lastMeasuredLocation.current = null
+      disposeOpenAITrackingPixel()
+      return
     }
 
-    initializeAndMeasureWhenAllowed()
-    window.addEventListener(COOKIE_CONSENT_UPDATED_EVENT, initializeAndMeasureWhenAllowed)
+    initOpenAITrackingPixel()
+  }, [categories.marketing])
 
-    return () => {
-      window.removeEventListener(COOKIE_CONSENT_UPDATED_EVENT, initializeAndMeasureWhenAllowed)
+  useEffect(() => {
+    if (!categories.marketing) return
+
+    initOpenAITrackingPixel()
+    const currentLocation = location.pathname + location.search
+    if (lastMeasuredLocation.current !== currentLocation && typeof window.oaiq === 'function') {
+      window.oaiq('measure', 'page_viewed', { type: 'contents' })
+      lastMeasuredLocation.current = currentLocation
     }
-  }, [location.pathname, location.search])
+  }, [categories.marketing, location.pathname, location.search])
 
   return null
 }

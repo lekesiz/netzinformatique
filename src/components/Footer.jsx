@@ -4,6 +4,7 @@ import {
   ShoppingCart, GraduationCap, FileText,
 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import { openConsentPreferences } from '../consent/consentStore'
 
 const Footer = () => {
   const { t } = useTranslation()
@@ -145,10 +146,22 @@ const Footer = () => {
               <span className="hidden sm:inline">•</span>
               <span>{t('footer.qualiopi')}</span>
             </div>
-            <div className="flex gap-4">
+            <div className="flex flex-wrap justify-center gap-x-4 gap-y-2">
               <Link to="/mentions-legales" className={linkCls}>{t('footer.legalNotice')}</Link>
               <span>•</span>
               <Link to="/politique-confidentialite" className={linkCls}>{t('footer.privacy')}</Link>
+              <span>•</span>
+              <Link to="/cookie-policy" className={linkCls}>{t('footer.cookiePolicy')}</Link>
+              <span>•</span>
+              <Link to="/confiance" className={linkCls}>Centre de confiance</Link>
+              <span>•</span>
+              <button
+                type="button"
+                onClick={() => openConsentPreferences('footer')}
+                className={`${linkCls} underline underline-offset-2`}
+              >
+                {t('footer.cookiePreferences')}
+              </button>
             </div>
           </div>
         </div>

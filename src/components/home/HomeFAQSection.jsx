@@ -37,12 +37,12 @@ const HomeFAQSection = () => {
             <p className="mt-3 text-lg text-muted-foreground">
               {t('homeFaq.subtitle', 'Voici les réponses aux questions les plus posées. Vous ne trouvez pas la vôtre ?')}
             </p>
-            <Link to="/faq" className="inline-block mt-6">
-              <Button variant="outline" className="gap-2">
+            <Button asChild variant="outline" className="gap-2">
+<Link to="/faq" className="inline-block mt-6">
                 {t('homeFaq.cta', 'Voir toutes les questions')}
                 <ArrowRight size={18} />
-              </Button>
-            </Link>
+              </Link>
+</Button>
           </Reveal>
 
           {/* Right: accordion */}

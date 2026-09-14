@@ -1,35 +1,58 @@
-import { useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
-import { GA_MEASUREMENT_ID } from '@/utils/analytics';
+import { useEffect, useRef } from 'react'
+import { useLocation } from 'react-router-dom'
+import { useConsent } from '../../consent/ConsentProvider'
+import {
+  disposeGoogleAnalytics,
+  initAnalytics,
+  initGoogleAnalytics,
+  trackPageView,
+} from '../../utils/analytics'
+import { initWebVitals } from '../../utils/webVitals'
 
-/**
- * gtag.js is loaded once from the static snippet in index.html <head>
- * (with Consent Mode defaults). This component only sends a page_view on
- * SPA route changes — client-side navigation isn't a full page load, so GA4
- * would otherwise only ever see the first page. It does NOT inject a second
- * gtag script (which would double-count) and skips the initial render
- * (already counted by the index.html config call).
- */
 const GoogleAnalytics = () => {
-  const location = useLocation();
-  const isInitialLoad = useRef(true);
+  const location = useLocation()
+  const { categories } = useConsent()
+  const lifecycleCleanup = useRef(null)
+  const lastPage = useRef(null)
 
   useEffect(() => {
-    if (isInitialLoad.current) {
-      isInitialLoad.current = false;
-      return;
+    if (!categories.analytics) {
+      lifecycleCleanup.current?.()
+      lifecycleCleanup.current = null
+      lastPage.current = null
+      disposeGoogleAnalytics()
+      return undefined
     }
 
-    if (typeof window.gtag === 'function') {
-      window.gtag('event', 'page_view', {
-        page_path: location.pathname + location.search,
-        page_location: window.location.href,
-        page_title: document.title,
-      });
+    initGoogleAnalytics()
+    const cleanupAnalytics = initAnalytics()
+    const cleanupVitals = initWebVitals()
+    lifecycleCleanup.current = () => {
+      cleanupAnalytics()
+      cleanupVitals()
     }
-  }, [location]);
 
-  return null;
-};
+    return () => {
+      lifecycleCleanup.current?.()
+      lifecycleCleanup.current = null
+    }
+  }, [categories.analytics])
 
-export default GoogleAnalytics;
+  useEffect(() => {
+    if (!categories.analytics || !initGoogleAnalytics()) return undefined
+
+    const page = location.pathname + location.search
+    if (lastPage.current === page) return undefined
+
+    const frame = requestAnimationFrame(() => {
+      trackPageView(page)
+      lastPage.current = page
+    })
+
+    return () => cancelAnimationFrame(frame)
+  }, [categories.analytics, location.pathname, location.search])
+
+  return null
+}
+
+export default GoogleAnalytics

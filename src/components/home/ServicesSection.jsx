@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/ui/button'
-import { 
-  Wrench, Cpu, Network, Brain, Shield, Cloud, Code, GraduationCap, ArrowRight 
+import {
+  Wrench, Cpu, Network, Brain, Shield, Cloud, Code, GraduationCap, ArrowRight
 } from 'lucide-react'
 import { services } from '@/data/services'
 
@@ -44,12 +44,12 @@ const ServicesSection = () => {
                 <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
                   {service.description[currentLang] || service.description.fr}
                 </p>
-                <Link to={service.link} className="inline-flex">
-                  <Button variant="ghost" className="h-11 px-2 -ml-2 font-semibold text-accent hover:text-accent/80 hover:bg-accent/5">
+                <Button asChild variant="ghost" className="h-11 px-2 -ml-2 font-semibold text-accent hover:text-accent/80 hover:bg-accent/5">
+<Link to={service.link} className="inline-flex">
                     {t('common.learnMore', 'En savoir plus')}
                     <ArrowRight className="ml-2" size={16} />
-                  </Button>
-                </Link>
+                  </Link>
+</Button>
                 {service.featured && (
                   <div className="mt-3">
                     <span className="inline-block bg-accent/10 text-accent text-xs font-semibold px-3 py-1 rounded-full">
@@ -63,12 +63,12 @@ const ServicesSection = () => {
         </div>
 
         <div className="text-center">
-          <Link to="/services">
-            <Button size="lg" className="gradient-blue text-white font-semibold">
+          <Button asChild size="lg" className="gradient-blue text-white font-semibold">
+<Link to="/services">
               {t('home.viewAllServices', 'Voir tous nos services')}
               <ArrowRight className="ml-2" size={20} />
-            </Button>
-          </Link>
+            </Link>
+</Button>
         </div>
       </div>
     </section>

@@ -1,165 +1,62 @@
-import DOMPurify from 'isomorphic-dompurify';
-import validator from 'validator';
-import { Resend } from 'resend';
+import { Resend } from 'resend'
+import { newsletterRequestSchema } from '../shared/schemas.js'
+import { getClientIdentifier, parseJsonBody, prepareRequest, sendError } from '../server/http.js'
+import { createDuplicateGuard, createRateLimiter, fingerprint, isLikelyAutomated } from '../server/security.js'
+import { createNewsletterToken } from '../server/newsletterToken.js'
 
-// Rate limiting - simple in-memory store
-const rateLimitMap = new Map();
-const RATE_LIMIT_WINDOW = 15 * 60 * 1000; // 15 minutes
-const RATE_LIMIT_MAX_REQUESTS = 3; // Max 3 newsletter subscriptions per window
+const ipLimiter = createRateLimiter({ limit: 3, windowMs: 15 * 60 * 1000 })
+const emailLimiter = createRateLimiter({ limit: 3, windowMs: 24 * 60 * 60 * 1000 })
+const duplicateGuard = createDuplicateGuard({ ttlMs: 10 * 60 * 1000 })
 
-function checkRateLimit(identifier) {
-  const now = Date.now();
-  const userRequests = rateLimitMap.get(identifier) || [];
+const isAlreadySubscribed = (error) => `${error?.name || ''} ${error?.message || ''} ${error?.statusCode || ''}`.toLowerCase().match(/already|exist|409/)
 
-  // Clean old requests
-  const validRequests = userRequests.filter((time) => now - time < RATE_LIMIT_WINDOW);
+const confirmationEmail = (url) => `<!doctype html><html lang="fr"><body style="font-family:Arial,sans-serif;line-height:1.6;color:#1f2937"><main style="max-width:600px;margin:0 auto;padding:24px"><h1>Confirmez votre inscription</h1><p>Vous avez demandé à recevoir la newsletter de NETZ Informatique.</p><p><a href="${url}" style="display:inline-block;padding:12px 18px;background:#0369a1;color:white;text-decoration:none;border-radius:8px">Confirmer mon inscription</a></p><p>Ce lien expire dans 24 heures. Si vous n’êtes pas à l’origine de cette demande, ignorez cet email.</p></main></body></html>`
 
-  if (validRequests.length >= RATE_LIMIT_MAX_REQUESTS) {
-    return false;
-  }
-
-  validRequests.push(now);
-  rateLimitMap.set(identifier, validRequests);
-  return true;
-}
-
-// Exposed for tests to reset rate-limit state between cases
 export function __resetRateLimit() {
-  rateLimitMap.clear();
-}
-
-function welcomeEmailHtml() {
-  return `
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <meta charset="UTF-8">
-    </head>
-    <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
-      <div style="background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%); padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
-        <h1 style="color: white; margin: 0;">Bienvenue chez NETZ Informatique !</h1>
-      </div>
-
-      <div style="background: #f9fafb; padding: 30px; border-radius: 0 0 10px 10px;">
-        <p style="font-size: 16px;">Bonjour,</p>
-
-        <p style="font-size: 16px;">Merci de vous être inscrit à notre newsletter ! 🎉</p>
-
-        <p style="font-size: 16px;">Vous recevrez désormais :</p>
-        <ul style="font-size: 16px;">
-          <li>Nos dernières actualités IT</li>
-          <li>Des conseils et tutoriels exclusifs</li>
-          <li>Des offres spéciales réservées à nos abonnés</li>
-        </ul>
-
-        <div style="text-align: center; margin: 30px 0;">
-          <a href="https://www.netzinformatique.fr/blog" style="background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%); color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">Découvrir notre blog</a>
-        </div>
-
-        <p style="font-size: 14px; color: #666; margin-top: 30px;">
-          À très bientôt,<br>
-          <strong>L'équipe NETZ Informatique</strong>
-        </p>
-
-        <hr style="border: none; border-top: 1px solid #ddd; margin: 30px 0;">
-
-        <p style="font-size: 12px; color: #999; text-align: center;">
-          Vous recevez cet email car vous vous êtes inscrit à notre newsletter.<br>
-          <a href="https://www.netzinformatique.fr" style="color: #4F46E5;">netzinformatique.fr</a>
-        </p>
-      </div>
-    </body>
-    </html>
-  `;
+  ipLimiter.clear(); emailLimiter.clear(); duplicateGuard.clear()
 }
 
 export default async function handler(req, res) {
-  // CORS - Whitelist allowed origins
-  const allowedOrigins = [
-    'https://netzinformatique.fr',
-    'https://www.netzinformatique.fr',
-    'https://netzinformatique.vercel.app',
-    'http://localhost:5173',
-    'http://localhost:3000'
-  ];
+  if (!prepareRequest(req, res)) return
+  const body = parseJsonBody(req, res)
+  if (!body) return
 
-  const origin = req.headers.origin;
-  if (allowedOrigins.includes(origin)) {
-    res.setHeader('Access-Control-Allow-Origin', origin);
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-  }
+  const clientId = getClientIdentifier(req)
+  const ipLimit = ipLimiter.check(clientId)
+  if (!ipLimit.allowed) { res.setHeader('Retry-After', String(ipLimit.retryAfter)); return sendError(res, 429, 'rate_limited', 'Trop de demandes. Veuillez réessayer plus tard.') }
 
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  const parsed = newsletterRequestSchema.safeParse(body)
+  if (!parsed.success) return sendError(res, 422, 'validation_failed', 'Veuillez vérifier votre adresse email et votre accord.', { fieldErrors: parsed.error.flatten().fieldErrors })
+  const data = parsed.data
+  if (isLikelyAutomated(data)) return res.status(200).json({ success: true, message: 'Votre demande a été prise en compte.' })
 
-  if (req.method === 'OPTIONS') {
-    res.status(200).end();
-    return;
-  }
+  const emailLimit = emailLimiter.check(data.email)
+  if (!emailLimit.allowed) { res.setHeader('Retry-After', String(emailLimit.retryAfter)); return sendError(res, 429, 'rate_limited', 'Trop de demandes. Veuillez réessayer plus tard.') }
+  if (duplicateGuard.seen(fingerprint('newsletter', clientId, data.email))) return res.status(200).json({ success: true, message: 'Vérifiez votre boîte email pour confirmer votre inscription.' })
 
-  // Only allow POST
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
-
-  // Rate limiting
-  const identifier = req.headers['x-forwarded-for'] || req.connection?.remoteAddress || 'unknown';
-  if (!checkRateLimit(identifier)) {
-    return res.status(429).json({
-      error: 'Too many requests',
-      message: 'Trop de demandes. Veuillez réessayer dans 15 minutes.'
-    });
-  }
-
-  const { email } = req.body;
-
-  // Enhanced email validation
-  if (!email || !validator.isEmail(email)) {
-    return res.status(400).json({
-      error: 'Invalid email address',
-      message: 'Adresse email invalide'
-    });
-  }
-
-  // Sanitize email
-  const sanitizedEmail = DOMPurify.sanitize(email.toLowerCase().trim());
-
-  // Newsletter delivery via Resend (same provider as the contact form)
-  const RESEND_API_KEY = process.env.RESEND_API_KEY;
-
-  if (!RESEND_API_KEY) {
-    console.error('RESEND_API_KEY not configured');
-    return res.status(500).json({ error: 'Newsletter service not configured' });
-  }
+  const apiKey = process.env.RESEND_API_KEY
+  const audienceId = process.env.RESEND_AUDIENCE_ID
+  const fromEmail = process.env.RESEND_FROM_EMAIL
+  if (!apiKey || !audienceId || !fromEmail) return sendError(res, 503, 'newsletter_unavailable', 'Le service d’inscription est temporairement indisponible.')
 
   try {
-    const resend = new Resend(RESEND_API_KEY);
+    const resend = new Resend(apiKey)
+    const contactResult = await resend.contacts.create({ email: data.email, unsubscribed: true, audienceId })
+    if (contactResult?.error && !isAlreadySubscribed(contactResult.error)) return sendError(res, 502, 'subscription_failed', 'L’inscription n’a pas pu être enregistrée. Veuillez réessayer.')
 
-    // Add the subscriber to a Resend Audience when one is configured
-    const audienceId = process.env.RESEND_AUDIENCE_ID;
-    if (audienceId) {
-      await resend.contacts.create({
-        email: sanitizedEmail,
-        unsubscribed: false,
-        audienceId
-      });
-    }
-
-    // Send the welcome email
-    const fromEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
-    await resend.emails.send({
+    const token = createNewsletterToken(data.email, process.env.NEWSLETTER_TOKEN_SECRET || apiKey)
+    const confirmationUrl = `https://www.netzinformatique.fr/newsletter-confirmation?token=${encodeURIComponent(token)}`
+    const emailResult = await resend.emails.send({
       from: fromEmail,
-      to: sanitizedEmail,
-      subject: 'Bienvenue dans notre newsletter ! 🎉',
-      html: welcomeEmailHtml()
-    });
+      to: data.email,
+      subject: 'Confirmez votre inscription à la newsletter NETZ',
+      html: confirmationEmail(confirmationUrl),
+    })
+    if (emailResult?.error) return sendError(res, 502, 'confirmation_failed', 'L’email de confirmation n’a pas pu être envoyé. Veuillez réessayer.')
 
-    return res.status(200).json({
-      success: true,
-      message: 'Successfully subscribed to newsletter'
-    });
+    return res.status(202).json({ success: true, message: 'Un email de confirmation vient de vous être envoyé. Le lien est valable 24 heures.' })
   } catch (error) {
-    console.error('Newsletter subscription error:', error);
-    return res.status(500).json({ error: 'Failed to subscribe to newsletter' });
+    console.error('Newsletter opt-in failed', { providerError: error?.name || 'network_error' })
+    return sendError(res, 502, 'subscription_failed', 'L’inscription n’a pas pu être enregistrée. Veuillez réessayer.')
   }
 }

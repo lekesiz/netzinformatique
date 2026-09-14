@@ -1,275 +1,159 @@
 import { Helmet } from 'react-helmet-async'
+import { serializeJsonLd } from '../../utils/jsonLd'
+
+const SITE_URL = 'https://www.netzinformatique.fr'
 
 const StructuredData = ({ type = 'all', data = {} }) => {
-  const siteUrl = 'https://www.netzinformatique.fr'
-
-  // LocalBusiness Schema
   const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "ComputerStore",
-    "@id": `${siteUrl}/#organization`,
-    "name": "NETZ Informatique",
-    "alternateName": "NETZ",
-    "url": siteUrl,
-    "logo": `${siteUrl}/logo.png`,
-    "image": `${siteUrl}/images/og-image.jpg`,
-    "description": "Entreprise de services informatiques et organisme de formation à Haguenau. NETZ Informatique est enregistrée en France depuis 2016 et certifiée QUALIOPI pour les actions de formation et les bilans de compétences.",
-    "telephone": "+33367310201",
-    "email": "contact@netzinformatique.fr",
-    "priceRange": "€€",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "1a Route de Schweighouse",
-      "addressLocality": "Haguenau",
-      "addressRegion": "Alsace",
-      "postalCode": "67500",
-      "addressCountry": "FR"
+    '@type': ['ComputerStore', 'LocalBusiness'],
+    '@id': `${SITE_URL}/#organization`,
+    name: 'NETZ Informatique',
+    alternateName: 'NETZ',
+    url: SITE_URL,
+    logo: `${SITE_URL}/logo.png`,
+    image: `${SITE_URL}/og-image.jpg`,
+    description: 'Entreprise de services informatiques et organisme de formation à Haguenau, créée en 2016 et certifiée QUALIOPI pour les actions de formation et les bilans de compétences.',
+    telephone: '+33367310201',
+    email: 'contact@netzinformatique.fr',
+    priceRange: '€€',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '1a Route de Schweighouse',
+      addressLocality: 'Haguenau',
+      addressRegion: 'Grand Est',
+      postalCode: '67500',
+      addressCountry: 'FR',
     },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 48.8112633,
-      "longitude": 7.7814
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 48.8112633,
+      longitude: 7.7814016,
     },
-    "openingHoursSpecification": [
+    openingHoursSpecification: [
       {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "09:00",
-        "closes": "12:00"
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '09:00',
+        closes: '12:00',
       },
       {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "14:00",
-        "closes": "18:00"
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '14:00',
+        closes: '18:00',
       },
       {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Saturday",
-        "opens": "09:00",
-        "closes": "12:00"
-      }
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: 'Saturday',
+        opens: '09:00',
+        closes: '12:00',
+      },
     ],
-    "areaServed": {
-      "@type": "GeoCircle",
-      "geoMidpoint": {
-        "@type": "GeoCoordinates",
-        "latitude": 48.8112633,
-        "longitude": 7.7814
+    areaServed: {
+      '@type': 'GeoCircle',
+      geoMidpoint: {
+        '@type': 'GeoCoordinates',
+        latitude: 48.8112633,
+        longitude: 7.7814016,
       },
-      "geoRadius": "50000"
+      geoRadius: '50000',
     },
-    "knowsLanguage": ["fr", "en", "de", "tr"],
-    "sameAs": [
-      "https://www.facebook.com/informatiquehaguenau",
-      "https://fr.linkedin.com/company/netz-informatique"
+    knowsLanguage: ['fr', 'en', 'de', 'tr'],
+    sameAs: [
+      'https://www.facebook.com/informatiquehaguenau',
+      'https://fr.linkedin.com/company/netz-informatique',
     ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Services Informatiques",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Dépannage & Maintenance Informatique",
-            "description": "Intervention rapide sous 24-48h pour tous vos problèmes informatiques"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Solutions IA Offline",
-            "description": "Intelligence artificielle avec confidentialité totale pour secteurs sensibles"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Formation Professionnelle QUALIOPI",
-            "description": "Formations certifiées en informatique, IA et outils numériques"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Cybersécurité",
-            "description": "Protection antivirus, pare-feu, conformité RGPD et audit de sécurité"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Cloud & Transformation Digitale",
-            "description": "Migration cloud, Microsoft 365, accompagnement digital"
-          }
-        }
-      ]
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Services informatiques',
+      itemListElement: [
+        'Dépannage et maintenance informatique',
+        'Solutions IA locales',
+        'Formation professionnelle QUALIOPI',
+        'Cybersécurité',
+        'Cloud et transformation digitale',
+      ].map((name) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name } })),
     },
-    "employee": {
-      "@type": "Person",
-      "name": "Mikail Lekesiz",
-      "jobTitle": "Président"
-    },
-    "foundingDate": "2016",
-    "slogan": "Solutions informatiques, IA responsable et formation professionnelle",
+    foundingDate: '2016',
+    slogan: 'Solutions informatiques, IA responsable et formation professionnelle',
   }
 
-  // Organization Schema
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": `${siteUrl}/#organization`,
-    "name": "NETZ Informatique",
-    "url": siteUrl,
-    "logo": {
-      "@type": "ImageObject",
-      "url": `${siteUrl}/logo.png`,
-      "width": 250,
-      "height": 60
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+33367310201",
-      "contactType": "customer service",
-      "email": "contact@netzinformatique.fr",
-      "areaServed": "FR",
-      "availableLanguage": ["French", "English", "German", "Turkish"]
-    },
-    "sameAs": [
-      "https://www.facebook.com/informatiquehaguenau",
-      "https://fr.linkedin.com/company/netz-informatique"
-    ]
-  }
-
-  // WebSite Schema
   const websiteSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": `${siteUrl}/#website`,
-    "url": siteUrl,
-    "name": "NETZ Informatique",
-    "description": "Expert informatique à Haguenau",
-    "publisher": {
-      "@id": `${siteUrl}/#organization`
-    },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": `${siteUrl}/search?q={search_term_string}`
+    '@type': 'WebSite',
+    '@id': `${SITE_URL}/#website`,
+    url: SITE_URL,
+    name: 'NETZ Informatique',
+    description: 'Expert informatique à Haguenau',
+    publisher: { '@id': `${SITE_URL}/#organization` },
+    inLanguage: 'fr-FR',
+  }
+
+  const graph = []
+  if (type === 'all' || type === 'home') graph.push(localBusinessSchema, websiteSchema)
+
+  if (type === 'service' && data.service) {
+    graph.push({
+      '@type': 'Service',
+      name: data.service.name,
+      description: data.service.description,
+      provider: { '@id': `${SITE_URL}/#organization` },
+      areaServed: { '@type': 'City', name: 'Haguenau' },
+      serviceType: data.service.type || 'IT Services',
+    })
+  }
+
+  if (type === 'course' && data.course) {
+    graph.push({
+      '@type': 'Course',
+      name: data.course.name,
+      description: data.course.description,
+      provider: { '@id': `${SITE_URL}/#organization` },
+      hasCourseInstance: {
+        '@type': 'CourseInstance',
+        courseMode: 'onsite',
+        location: {
+          '@type': 'Place',
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: '1a Route de Schweighouse',
+            addressLocality: 'Haguenau',
+            postalCode: '67500',
+            addressCountry: 'FR',
+          },
+        },
       },
-      "query-input": "required name=search_term_string"
-    },
-    "inLanguage": ["fr-FR", "en-US", "de-DE", "tr-TR"]
+    })
   }
 
-  // Service Schema (for service pages)
-  const serviceSchema = data.service ? {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": data.service.name,
-    "description": data.service.description,
-    "provider": {
-      "@id": `${siteUrl}/#organization`
-    },
-    "areaServed": {
-      "@type": "City",
-      "name": "Haguenau"
-    },
-    "serviceType": data.service.type || "IT Services"
-  } : null
+  if (type === 'faq' && data.faqs) {
+    graph.push({
+      '@type': 'FAQPage',
+      mainEntity: data.faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+      })),
+    })
+  }
 
-  // Course Schema (for training pages)
-  const courseSchema = data.course ? {
-    "@context": "https://schema.org",
-    "@type": "Course",
-    "name": data.course.name,
-    "description": data.course.description,
-    "provider": {
-      "@id": `${siteUrl}/#organization`
-    },
-    "hasCourseInstance": {
-      "@type": "CourseInstance",
-      "courseMode": "onsite",
-      "location": {
-        "@type": "Place",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "1a Route de Schweighouse",
-          "addressLocality": "Haguenau",
-          "postalCode": "67500",
-          "addressCountry": "FR"
-        }
-      }
-    },
-    "offers": {
-      "@type": "Offer",
-      "category": "Professional Training",
-      "priceCurrency": "EUR"
-    }
-  } : null
+  if (data.breadcrumbs) {
+    graph.push({
+      '@type': 'BreadcrumbList',
+      itemListElement: data.breadcrumbs.map((crumb, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: crumb.name,
+        item: new URL(crumb.url, SITE_URL).toString(),
+      })),
+    })
+  }
 
-  // FAQ Schema
-  const faqSchema = data.faqs ? {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": data.faqs.map(faq => ({
-      "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.answer
-      }
-    }))
-  } : null
-
-  // BreadcrumbList Schema
-  const breadcrumbSchema = data.breadcrumbs ? {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": data.breadcrumbs.map((crumb, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "name": crumb.name,
-      "item": `${siteUrl}${crumb.url}`
-    }))
-  } : null
-
-  // Combine schemas based on type
-  let schemas = []
-  
-  if (type === 'all' || type === 'home') {
-    schemas.push(localBusinessSchema, organizationSchema, websiteSchema)
-  }
-  
-  if (type === 'service' && serviceSchema) {
-    schemas.push(serviceSchema)
-  }
-  
-  if (type === 'course' && courseSchema) {
-    schemas.push(courseSchema)
-  }
-  
-  if (type === 'faq' && faqSchema) {
-    schemas.push(faqSchema)
-  }
-  
-  if (breadcrumbSchema) {
-    schemas.push(breadcrumbSchema)
-  }
+  if (!graph.length) return null
+  const schema = { '@context': 'https://schema.org', '@graph': graph }
 
   return (
     <Helmet>
-      {schemas.map((schema, index) => (
-        <script key={index} type="application/ld+json">
-          {JSON.stringify(schema)}
-        </script>
-      ))}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(schema) }} />
     </Helmet>
   )
 }

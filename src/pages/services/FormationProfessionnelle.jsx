@@ -208,16 +208,16 @@ const FormationProfessionnelle = () => {
               {t('formationPro.heroSubtitle', 'Développez vos compétences informatiques. Bureautique, IA, cybersécurité, web. Financement OPCO, CPF, Pôle Emploi.')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap mb-8">
-              <a href="https://formation-haguenau.fr" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+<a href="https://formation-haguenau.fr" target="_blank" rel="noopener noreferrer">
                   {t('formationPro.heroCtaCatalog', 'Catalogue Complet')} <ArrowRight className="ml-2" />
-                </Button>
-              </a>
-              <Link to="/contact">
-                <Button size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+                </a>
+</Button>
+              <Button asChild size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+<Link to="/contact?service=formation&source=services">
                   <Phone className="mr-2" /> {t('formationPro.heroCtaQuote', 'Demander un Devis')}
-                </Button>
-              </Link>
+                </Link>
+</Button>
             </div>
             <p className="text-sm text-primary-foreground/80 flex items-center justify-center gap-x-4 gap-y-1 flex-wrap">
               <span className="flex items-center gap-1.5"><GraduationCap size={16} className="text-accent" /> {t('formationPro.heroStat1', '1100+ participants uniques déclarés au 29/07/2026')}</span>
@@ -299,9 +299,9 @@ const FormationProfessionnelle = () => {
                           </div>
                           <div className="flex items-center justify-between">
                             <span className="font-bold text-accent">{course.price}</span>
-                            <Link to="/contact">
-                              <Button size="sm" variant="outline">{t('formationPro.infosBtn', 'Infos')}</Button>
-                            </Link>
+                            <Button asChild size="sm" variant="outline">
+<Link to="/contact?service=formation&source=services">{t('formationPro.infosBtn', 'Infos')}</Link>
+</Button>
                           </div>
                         </div>
                       ))}
@@ -312,11 +312,11 @@ const FormationProfessionnelle = () => {
             </div>
 
             <div className="text-center mt-8">
-              <a href="https://formation-haguenau.fr" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+<a href="https://formation-haguenau.fr" target="_blank" rel="noopener noreferrer">
                   {t('formationPro.seeAllCatalog', 'Voir Tout le Catalogue')} <ArrowRight className="ml-2" />
-                </Button>
-              </a>
+                </a>
+</Button>
             </div>
           </div>
         </section>
@@ -446,18 +446,18 @@ const FormationProfessionnelle = () => {
               {t('formationPro.ctaSubheading', "Catalogue complet • Financement jusqu'à 100% • Formateurs experts • Certification QUALIOPI")}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
-              <a href="https://formation-haguenau.fr" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+<a href="https://formation-haguenau.fr" target="_blank" rel="noopener noreferrer">
                   {t('formationPro.ctaCatalog', 'Voir le Catalogue')}
                   <ArrowRight className="ml-2" />
-                </Button>
-              </a>
-              <Link to="/contact">
-                <Button size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+                </a>
+</Button>
+              <Button asChild size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+<Link to="/contact?service=formation&source=services">
                   <Phone className="mr-2" />
                   {t('formationPro.ctaQuote', 'Demander un Devis')}
-                </Button>
-              </Link>
+                </Link>
+</Button>
             </div>
           </div>
         </section>

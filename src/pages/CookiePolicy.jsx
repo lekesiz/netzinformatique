@@ -1,10 +1,12 @@
 import { useTranslation } from 'react-i18next'
-import { Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { Cookie, Shield, Eye, Settings, Clock } from 'lucide-react'
+import SEO from '@/components/common/SEO'
+import { useConsent } from '@/consent/ConsentProvider'
 
 const CookiePolicy = () => {
   const { t, i18n } = useTranslation()
+  const { openPreferences } = useConsent()
 
   const cookieTypes = [
     {
@@ -204,10 +206,11 @@ const CookiePolicy = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{t('cookies.banner.cookiePolicy')} - NETZ Informatique</title>
-        <meta name="description" content="Cookie Policy - Learn how NETZ Informatique uses cookies on our website" />
-      </Helmet>
+      <SEO
+        title={`${t('cookies.banner.cookiePolicy')} | NETZ Informatique`}
+        description={currentContent.intro}
+        url="/cookie-policy"
+      />
 
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
         {/* Hero Section */}
@@ -361,6 +364,14 @@ const CookiePolicy = () => {
             <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
               {currentContent.disabling.text}
             </p>
+            <button
+              type="button"
+              onClick={() => openPreferences('cookie-policy')}
+              className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-lg bg-primary px-5 py-2.5 font-semibold text-primary-foreground hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            >
+              <Settings className="size-5" aria-hidden="true" />
+              {t('cookies.managePreferences', 'Gérer mes cookies')}
+            </button>
           </motion.section>
 
           {/* Contact */}

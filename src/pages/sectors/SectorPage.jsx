@@ -2,8 +2,9 @@ import SEO from '@/components/common/SEO';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Link, useParams } from 'react-router-dom';
-import { ArrowRight, AlertCircle } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { sectors } from './sectorsData';
+import NotFound from '../NotFound';
 
 const SectorPage = () => {
   const { t } = useTranslation();
@@ -12,22 +13,7 @@ const SectorPage = () => {
 
   // Graceful fallback when the slug doesn't match any sector
   if (!sector) {
-    return (
-      <>
-        <SEO title="Secteur introuvable | NETZ Informatique" url={`/sectors/${slug || ''}`} />
-        <div className="container mx-auto px-4 py-24 text-center">
-          <AlertCircle className="w-14 h-14 mx-auto mb-4 text-muted-foreground" />
-          <h1 className="text-3xl font-bold mb-4">Secteur introuvable</h1>
-          <p className="text-muted-foreground mb-8">
-            Ce secteur d'activité n'existe pas ou plus. Découvrez nos services ou contactez-nous.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link to="/services"><Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">Nos services</Button></Link>
-            <Link to="/contact"><Button size="lg" variant="outline">Nous contacter</Button></Link>
-          </div>
-        </div>
-      </>
-    );
+    return <NotFound />;
   }
 
   const { name, description, heroImage, challenges, solutions, icon: Icon } = sector;
@@ -78,12 +64,12 @@ const SectorPage = () => {
               </div>
             </div>
             <div className="text-center mt-12">
-              <Link to="/contact">
-                <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold">
+              <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold">
+<Link to="/contact">
                   {t('sectors.cta', { sector: name, defaultValue: 'Discutons de votre projet — {{sector}}' })}
                   <ArrowRight className="ml-2" size={20} />
-                </Button>
-              </Link>
+                </Link>
+</Button>
             </div>
           </div>
         </section>

@@ -1,46 +1,44 @@
 import { Helmet } from 'react-helmet-async'
+import { serializeJsonLd } from '../../utils/jsonLd'
 
-const ArticleSchema = ({ 
-  title, 
-  description, 
-  image, 
-  author = 'NETZ Informatique',
-  datePublished, 
+const SITE_URL = 'https://www.netzinformatique.fr'
+const absoluteUrl = (value, fallback = '/') => new URL(value || fallback, SITE_URL).toString()
+
+const ArticleSchema = ({
+  title,
+  description,
+  image,
+  author = 'Mikail Lekesiz',
+  authorUrl = '/a-propos#direction',
+  datePublished,
   dateModified,
-  url
+  url,
 }) => {
   const schema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": title,
-    "description": description,
-    "image": image || "https://www.netzinformatique.fr/images/og-image.jpg",
-    "author": {
-      "@type": "Organization",
-      "name": author,
-      "url": "https://www.netzinformatique.fr"
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description,
+    image: absoluteUrl(image, '/og-image.jpg'),
+    author: {
+      '@type': 'Person',
+      name: author,
+      url: absoluteUrl(authorUrl),
     },
-    "publisher": {
-      "@type": "Organization",
-      "name": "NETZ Informatique",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.netzinformatique.fr/logo.png"
-      }
+    publisher: {
+      '@id': `${SITE_URL}/#organization`,
     },
-    "datePublished": datePublished,
-    "dateModified": dateModified || datePublished,
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": url ? `https://www.netzinformatique.fr${url}` : "https://www.netzinformatique.fr"
-    }
+    datePublished,
+    dateModified: dateModified || datePublished,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': absoluteUrl(url),
+    },
   }
 
   return (
     <Helmet>
-      <script type="application/ld+json">
-        {JSON.stringify(schema)}
-      </script>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(schema) }} />
     </Helmet>
   )
 }

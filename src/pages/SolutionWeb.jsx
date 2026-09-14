@@ -123,16 +123,16 @@ const SolutionWeb = () => {
             {t('solWeb.heroSubtitle', 'Sites web modernes, fonctionnels et optimisés pour le référencement. Donnez à votre entreprise la visibilité qu\'elle mérite.')}
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Link to="/contact">
-              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+<Link to="/contact?audience=entreprise&service=web-digital&source=services">
                 {t('solWeb.heroCtaQuote', 'Demander un Devis Gratuit')} <ArrowRight className="ml-2" />
-              </Button>
-            </Link>
-            <a href="https://netz-blog.fr" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+              </Link>
+</Button>
+            <Button asChild size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+<a href="https://netz-blog.fr" target="_blank" rel="noopener noreferrer">
                 {t('solWeb.heroCtaPortfolio', 'Voir Nos Réalisations')}
-              </Button>
-            </a>
+              </a>
+</Button>
           </div>
         </div>
       </section>
@@ -177,7 +177,7 @@ const SolutionWeb = () => {
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {packages.map((pkg, index) => (
-              <div 
+              <div
                 key={index}
                 className={`bg-card rounded-2xl shadow-xl overflow-hidden ${
                   pkg.popular ? 'ring-4 ring-primary transform scale-105' : ''
@@ -206,13 +206,13 @@ const SolutionWeb = () => {
                       </li>
                     ))}
                   </ul>
-                  <Link to="/contact">
-                    <Button 
+                  <Button asChild
                       className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
                     >
+<Link to="/contact?audience=entreprise&service=web-digital&source=services">
                       {pkg.price === 'Sur Devis' ? t('solWeb.btnQuote', 'Demander un Devis') : t('solWeb.btnOrder', 'Commander')}
-                    </Button>
-                  </Link>
+                    </Link>
+</Button>
                 </div>
               </div>
             ))}
@@ -253,11 +253,11 @@ const SolutionWeb = () => {
                   <p className="opacity-90 mb-6">
                     {t('solWeb.subPlanDesc', 'Un site web nécessite un entretien régulier pour rester performant et sécurisé. Notre abonnement vous garantit tranquillité d\'esprit.')}
                   </p>
-                  <Link to="/contact">
-                    <Button size="lg" className="bg-white text-primary hover:bg-white/90 w-full">
+                  <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 w-full">
+<Link to="/contact?audience=entreprise&service=web-digital&source=services">
                       {t('solWeb.subscribeBtn', 'Souscrire Maintenant')}
-                    </Button>
-                  </Link>
+                    </Link>
+</Button>
                 </div>
               </div>
 
@@ -347,16 +347,16 @@ const SolutionWeb = () => {
             {t('solWeb.ctaSubtitle', 'Discutons de votre projet et trouvons ensemble la solution idéale pour votre entreprise')}
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Link to="/contact">
-              <Button size="lg" className="bg-white text-primary hover:bg-white/90">
+            <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90">
+<Link to="/contact?audience=entreprise&service=web-digital&source=services">
                 {t('solWeb.ctaQuote', 'Demander un Devis Gratuit')}
-              </Button>
-            </Link>
-            <a href="tel:+33367310201">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              </Link>
+</Button>
+            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+<a href="tel:+33367310201">
                 <Phone className="mr-2" size={18} /> 03 67 31 02 01
-              </Button>
-            </a>
+              </a>
+</Button>
           </div>
         </div>
       </section>

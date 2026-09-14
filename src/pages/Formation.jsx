@@ -80,15 +80,15 @@ const Formation = () => {
                 <span className="text-sm">{t('formation.cpfFeature4', 'Certification TOSA incluse')}</span>
               </li>
             </ul>
-            <a 
-              href="https://formation-haguenau.fr/" 
-              target="_blank" 
+            <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90 w-full">
+<a
+              href="https://formation-haguenau.fr/"
+              target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="bg-accent text-accent-foreground hover:bg-accent/90 w-full">
                 {t('formation.cpfCta', 'Découvrir les Formations')} <ArrowRight className="ml-2" size={18} />
-              </Button>
-            </a>
+              </a>
+</Button>
           </div>
 
           {/* OPCO Card - Professionnels */}
@@ -119,15 +119,15 @@ const Formation = () => {
                 <span className="text-sm">{t('formation.opcoFeature4', 'Suivi post-formation')}</span>
               </li>
             </ul>
-            <a 
-              href="https://formation-haguenau.fr/" 
-              target="_blank" 
+            <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90 w-full">
+<a
+              href="https://formation-haguenau.fr/"
+              target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="bg-accent text-accent-foreground hover:bg-accent/90 w-full">
                 {t('formation.opcoCta', 'En Savoir Plus')} <ArrowRight className="ml-2" size={18} />
-              </Button>
-            </a>
+              </a>
+</Button>
           </div>
 
           {/* Bilan de Compétences */}
@@ -216,20 +216,20 @@ const Formation = () => {
             {t('formation.ctaSubtitle', 'Contactez-nous pour discuter de votre projet de formation et découvrir les solutions de financement adaptées')}
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Link to="/contact">
-              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold">
+            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold">
+<Link to="/contact?service=formation&source=services">
                 {t('formation.ctaContact', 'Nous Contacter')}
-              </Button>
-            </Link>
-            <a
+              </Link>
+</Button>
+            <Button asChild size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
+<a
               href="https://formation-haguenau.fr/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button size="lg" variant="outline" className="border-white/30 bg-white/5 text-primary-foreground hover:bg-white/15">
                 {t('formation.ctaAllFormations', 'Voir Toutes les Formations')}
-              </Button>
-            </a>
+              </a>
+</Button>
           </div>
         </div>
       </div>

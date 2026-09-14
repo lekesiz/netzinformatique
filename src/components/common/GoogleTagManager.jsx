@@ -1,43 +1,35 @@
-import { useEffect } from 'react';
+import { useEffect } from 'react'
+import { useConsent } from '../../consent/ConsentProvider'
+
+const GTM_SCRIPT_ID = 'netz-google-tag-manager'
 
 const GoogleTagManager = () => {
-  const gtmId = import.meta.env.VITE_GTM_ID;
+  const { categories } = useConsent()
+  const gtmId = import.meta.env.VITE_GTM_ID
+  const isEnabled = import.meta.env.VITE_ENABLE_GTM === 'true'
 
   useEffect(() => {
-    if (!gtmId || gtmId === 'GTM-XXXXXXX') {
-      console.warn('Google Tag Manager ID not configured');
-      return;
+    if (!categories.analytics || !isEnabled || !gtmId || gtmId === 'GTM-XXXXXXX') {
+      document.getElementById(GTM_SCRIPT_ID)?.remove()
+      return undefined
     }
 
-    // Load GTM script
-    const script = document.createElement('script');
-    script.innerHTML = `
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','${gtmId}');
-    `;
-    document.head.appendChild(script);
+    window.dataLayer = window.dataLayer || []
+    window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' })
 
-    // Add noscript iframe
-    const noscript = document.createElement('noscript');
-    noscript.innerHTML = `
-      <iframe src="https://www.googletagmanager.com/ns.html?id=${gtmId}"
-      height="0" width="0" style="display:none;visibility:hidden"></iframe>
-    `;
-    document.body.insertBefore(noscript, document.body.firstChild);
+    if (!document.getElementById(GTM_SCRIPT_ID)) {
+      const script = document.createElement('script')
+      script.id = GTM_SCRIPT_ID
+      script.async = true
+      script.src = `https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(gtmId)}`
+      script.dataset.netzVendor = 'google-tag-manager'
+      document.head.appendChild(script)
+    }
 
-    return () => {
-      // Cleanup on unmount
-      document.head.removeChild(script);
-      if (noscript.parentNode) {
-        document.body.removeChild(noscript);
-      }
-    };
-  }, [gtmId]);
+    return () => document.getElementById(GTM_SCRIPT_ID)?.remove()
+  }, [categories.analytics, gtmId, isEnabled])
 
-  return null;
-};
+  return null
+}
 
-export default GoogleTagManager;
+export default GoogleTagManager
