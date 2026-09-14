@@ -72,6 +72,11 @@ The OpenAI advertising pixel is installed with pixel ID `TSLUo3yYe2rsjCqYKsxpya`
 - A saved marketing consent choice is honored on subsequent visits.
 - A newly granted choice activates the pixel immediately without a page refresh.
 - Rejecting analytics or marketing cookies prevents the pixel SDK from loading.
+- The `page_viewed` event is measured once for the initial consented page and once for every subsequent client-side route change:
+
+```javascript
+oaiq('measure', 'page_viewed', { type: 'contents' });
+```
 
 ### Microsoft Clarity
 Free heatmaps and session recordings

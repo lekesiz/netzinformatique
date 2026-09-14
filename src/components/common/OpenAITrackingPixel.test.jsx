@@ -1,5 +1,6 @@
-import { act, render } from '@testing-library/react'
+import { act, fireEvent, render } from '@testing-library/react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { MemoryRouter, useNavigate } from 'react-router-dom'
 import OpenAITrackingPixel from './OpenAITrackingPixel'
 import {
   COOKIE_CONSENT_UPDATED_EVENT,
@@ -13,6 +14,18 @@ const resetPixel = () => {
   delete window.__netzOpenAIPixelInitialized
 }
 
+const renderPixel = (children = null) => render(
+  <MemoryRouter>
+    {children}
+    <OpenAITrackingPixel />
+  </MemoryRouter>
+)
+
+const NavigationTrigger = () => {
+  const navigate = useNavigate()
+  return <button onClick={() => navigate('/services?source=test')}>Navigate</button>
+}
+
 describe('OpenAITrackingPixel', () => {
   beforeEach(() => {
     resetPixel()
@@ -22,16 +35,16 @@ describe('OpenAITrackingPixel', () => {
   it('does not load before marketing consent is granted', () => {
     localStorage.getItem.mockReturnValue(JSON.stringify({ marketing: false }))
 
-    render(<OpenAITrackingPixel />)
+    renderPixel()
 
     expect(document.getElementById('openai-advertising-pixel')).toBeNull()
     expect(window.oaiq).toBeUndefined()
   })
 
-  it('loads and initializes immediately for stored marketing consent', () => {
+  it('loads and measures the first page for stored marketing consent', () => {
     localStorage.getItem.mockReturnValue(JSON.stringify({ marketing: true }))
 
-    render(<OpenAITrackingPixel />)
+    renderPixel()
 
     const script = document.getElementById('openai-advertising-pixel')
     expect(script).toBeTruthy()
@@ -40,12 +53,17 @@ describe('OpenAITrackingPixel', () => {
       'init',
       { pixelId: OPENAI_PIXEL_ID, debug: true },
     ])
+    expect(Array.from(window.oaiq.q[1])).toEqual([
+      'measure',
+      'page_viewed',
+      { type: 'contents' },
+    ])
   })
 
-  it('loads after consent changes and initializes only once', () => {
+  it('loads and measures immediately when consent changes', () => {
     localStorage.getItem.mockReturnValue(null)
 
-    render(<OpenAITrackingPixel />)
+    renderPixel()
 
     act(() => {
       window.dispatchEvent(new CustomEvent(COOKIE_CONSENT_UPDATED_EVENT, {
@@ -57,6 +75,21 @@ describe('OpenAITrackingPixel', () => {
     })
 
     expect(document.querySelectorAll('#openai-advertising-pixel')).toHaveLength(1)
-    expect(window.oaiq.q).toHaveLength(1)
+    expect(window.oaiq.q).toHaveLength(2)
+  })
+
+  it('measures each SPA location once after consent', () => {
+    localStorage.getItem.mockReturnValue(JSON.stringify({ marketing: true }))
+
+    const { getByRole } = renderPixel(<NavigationTrigger />)
+
+    fireEvent.click(getByRole('button', { name: 'Navigate' }))
+
+    const calls = window.oaiq.q.map(call => Array.from(call))
+    expect(calls).toEqual([
+      ['init', { pixelId: OPENAI_PIXEL_ID, debug: true }],
+      ['measure', 'page_viewed', { type: 'contents' }],
+      ['measure', 'page_viewed', { type: 'contents' }],
+    ])
   })
 })
