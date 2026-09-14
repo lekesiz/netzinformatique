@@ -50,4 +50,14 @@ export default [
       globals: { ...globals.node },
     },
   },
+  {
+    files: [
+      'src/components/ui/**/*.jsx',
+      'src/consent/ConsentProvider.jsx',
+      'src/test/**/*.jsx',
+    ],
+    rules: {
+      'react-refresh/only-export-components': 'off',
+    },
+  },
 ]
