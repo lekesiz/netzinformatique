@@ -3,7 +3,7 @@ module.exports = {
     collect: {
       staticDistDir: './dist',
       url: ['/index.html', '/services.html', '/tarifs.html', '/contact.html', '/blog.html'],
-      numberOfRuns: 1,
+      numberOfRuns: 3,
       settings: {
         preset: 'desktop',
         chromeFlags: '--no-sandbox --headless --disable-gpu',
