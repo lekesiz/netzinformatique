@@ -48,13 +48,13 @@ const BilanCompetences = () => {
   const benefits = [
     {
       icon: Award,
-      title: t('bilan.benefit1Title', 'Certifié QUALIOPI'),
-      description: t('bilan.benefit1Desc', 'Un gage de qualité et de conformité aux standards nationaux de formation professionnelle.')
+      title: t('bilan.benefit1Title', 'Démarche QUALIOPI'),
+      description: t('bilan.benefit1Desc', 'La certification porte sur le processus qualité des catégories indiquées sur le certificat en vigueur.')
     },
     {
       icon: Users,
       title: t('bilan.benefit2Title', 'Accompagnement Personnalisé'),
-      description: t('bilan.benefit2Desc', 'Un consultant certifié dédié vous accompagne tout au long de votre parcours.')
+      description: t('bilan.benefit2Desc', 'Un consultant référent vous accompagne tout au long du parcours défini.')
     },
     {
       icon: Clock,
@@ -64,7 +64,7 @@ const BilanCompetences = () => {
     {
       icon: CheckCircle,
       title: t('bilan.benefit4Title', 'Financement CPF'),
-      description: t('bilan.benefit4Desc', "Éligible au Compte Personnel de Formation, financement possible jusqu'à 100%.")
+      description: t('bilan.benefit4Desc', "Un financement CPF peut être possible si la prestation choisie est éligible et si les droits disponibles sont suffisants.")
     }
   ];
 
@@ -94,7 +94,7 @@ const BilanCompetences = () => {
     },
     {
       question: t('bilan.faq2Q', 'Comment financer mon bilan de compétences ?'),
-      answer: t('bilan.faq2A', "Le bilan est éligible au CPF (Compte Personnel de Formation). Vous pouvez utiliser vos droits acquis pour financer tout ou partie du bilan. D'autres solutions de financement existent selon votre situation.")
+      answer: t('bilan.faq2A', "Vérifiez sur Mon Compte Formation que la prestation choisie est publiée et éligible, puis contrôlez vos droits et l’éventuel reste à charge. La prise en charge n’est acquise qu’après validation sur la plateforme officielle.")
     },
     {
       question: t('bilan.faq3Q', 'Le bilan peut-il se faire à distance ?'),
@@ -113,15 +113,15 @@ const BilanCompetences = () => {
   return (
     <>
       <SEO
-        title="Bilan de Compétences QUALIOPI | CPF | Haguenau"
-        description="Bilan de compétences certifié QUALIOPI à Haguenau. Financé par CPF. Accompagnement personnalisé pour votre projet professionnel et reconversion."
+        title="Bilan de Compétences | QUALIOPI & CPF selon éligibilité | Haguenau"
+        description="Bilan de compétences à Haguenau dans le périmètre de la certification QUALIOPI. Financement CPF possible selon l’éligibilité, les droits et la validation officielle."
         keywords="bilan de compétences, CPF, QUALIOPI, reconversion professionnelle, Haguenau, orientation professionnelle"
       />
 
       <StructuredData
         type="Service"
         name="Bilan de Compétences"
-        description="Bilan de compétences certifié QUALIOPI, finançable par CPF"
+        description="Bilan de compétences couvert par la certification QUALIOPI ; financement CPF selon éligibilité et validation"
       />
 
       {/* Hero Section */}
@@ -130,7 +130,7 @@ const BilanCompetences = () => {
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-block bg-white/10 ring-1 ring-white/20 text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold mb-6">
               <Award className="inline-block w-4 h-4 mr-2" />
-              {t('bilan.heroBadge', 'Certifié QUALIOPI • Finançable CPF')}
+              {t('bilan.heroBadge', 'Processus certifié QUALIOPI • CPF selon éligibilité')}
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               {t('bilan.heroTitlePrefix', 'Bilan de')} <span className="text-accent">{t('bilan.heroTitleHighlight', 'Compétences')}</span> {t('bilan.heroTitleSuffix', 'à Haguenau')}

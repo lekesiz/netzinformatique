@@ -27,7 +27,7 @@ const ServiceEnterprise = () => {
   const { t } = useTranslation()
   const pageTitle = t('svcEnt.pageTitle', 'Solutions IT pour entreprises & professionnels')
   const pageDescription =
-    t('svcEnt.pageDescription', "Partenaire IT de confiance dans le Grand Est : maintenance et infogérance, cybersécurité & RGPD, cloud & réseaux Microsoft 365, IA Offline, développement web et formation QUALIOPI. Contrats de maintenance dès 79€/mois, surveillance 24/7.")
+    t('svcEnt.pageDescription', "Partenaire informatique et organisme de formation dans le Grand Est : maintenance, cloud, développement web, IA à traitement local ou hybride et formation QUALIOPI. Périmètre, délais et contrôles sont définis au devis.")
 
   const breadcrumbs = [
     { name: t('svcEnt.bcHome', 'Accueil'), url: '/' },
@@ -47,7 +47,7 @@ const ServiceEnterprise = () => {
   const valueProps = [
     { icon: Shield, title: t('svcEnt.vp1Title', 'Partenaire IT de confiance'), description: t('svcEnt.vp1Desc', 'Un interlocuteur unique pour toute votre informatique.') },
     { icon: Clock, title: t('svcEnt.vp2Title', 'Contrats de maintenance'), description: t('svcEnt.vp2Desc', 'Forfaits dès 79€/mois avec surveillance 24/7.') },
-    { icon: Server, title: t('svcEnt.vp3Title', 'Sécurité & conformité'), description: t('svcEnt.vp3Desc', 'Protection des données et conformité RGPD assurées.') },
+    { icon: Server, title: t('svcEnt.vp3Title', 'Sécurité & conformité'), description: t('svcEnt.vp3Desc', 'Mesures de protection et accompagnement RGPD adaptés au contexte.') },
   ]
 
   const services = [
@@ -79,7 +79,7 @@ const ServiceEnterprise = () => {
       icon: BrainCircuit,
       title: t('svcEnt.svc4Title', 'Intelligence Artificielle Offline'),
       description:
-        t('svcEnt.svc4Desc', "Déployez une IA 100% confidentielle dans vos locaux. Vos données ne quittent jamais l'entreprise. Conformité RGPD simplifiée."),
+        t('svcEnt.svc4Desc', "Déployez une IA locale ou hybride selon vos contraintes. Les flux de données, accès, journaux et responsabilités sont définis pour chaque projet."),
       link: '/services/ia-offline',
       linkLabel: t('svcEnt.svc4Link', "Découvrir l'IA Offline"),
     },
@@ -95,7 +95,7 @@ const ServiceEnterprise = () => {
       icon: GraduationCap,
       title: t('svcEnt.svc6Title', 'Formation professionnelle QUALIOPI'),
       description:
-        t('svcEnt.svc6Desc', 'Montez vos équipes en compétences avec nos formations certifiées QUALIOPI (financement OPCO/CPF possible).'),
+        t('svcEnt.svc6Desc', 'Développez les compétences de vos équipes avec nos actions de formation couvertes par la certification QUALIOPI. L’éligibilité au financement est vérifiée au cas par cas.'),
       link: '/services/formation-professionnelle',
       linkLabel: t('svcEnt.svc6Link', 'Voir les formations'),
     },
@@ -110,7 +110,7 @@ const ServiceEnterprise = () => {
     {
       icon: Award,
       title: t('svcEnt.reason2Title', 'Expertise certifiée'),
-      description: t('svcEnt.reason2Desc', 'Partenaires Microsoft, Cisco et Google : des compétences reconnues et à jour.'),
+      description: t('svcEnt.reason2Desc', 'Solutions conçues avec des technologies Microsoft, Cisco et Google selon les besoins du projet.'),
     },
     {
       icon: MapPin,
@@ -120,7 +120,7 @@ const ServiceEnterprise = () => {
     {
       icon: Clock,
       title: t('svcEnt.reason4Title', "Une pratique de terrain éprouvée"),
-      description: t('svcEnt.reason4Desc', 'Une expertise IT solide au service des entreprises et des professionnels depuis des décennies.'),
+      description: t('svcEnt.reason4Desc', 'Une pratique technique adaptée aux besoins des entreprises et des professionnels.'),
     },
   ]
 

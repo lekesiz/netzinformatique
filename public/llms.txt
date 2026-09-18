@@ -23,6 +23,11 @@ NETZ Informatique propose des services informatiques, de développement logiciel
 
 L’export interne communiqué au 29 juillet 2026 indique 1 268 dossiers de formation ou d’évaluation terminés et approuvés, représentant plus de 1 100 participants uniques. Ces chiffres sont des données internes déclaratives et ne constituent pas une statistique certifiée par une source publique indépendante.
 
+## Expertise publiée
+
+- Cadre pratique de maîtrise de l’IA, vérification, données et supervision humaine : https://www.netzinformatique.fr/blog/ai-literacy-reliable-workflows
+- Profil et kit média de Mikail Lekesiz : https://mikail.net/press/
+
 ## Sources
 
 - https://www.pappers.fr/entreprise/netz-informatique-818347346

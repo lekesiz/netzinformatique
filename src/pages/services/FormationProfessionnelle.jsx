@@ -14,8 +14,8 @@ import {
 const FormationProfessionnelle = () => {
   const { t } = useTranslation();
 
-  const pageTitle = t('formationPro.title', 'Formation Professionnelle Certifiée QUALIOPI');
-  const pageDescription = t('formationPro.description', 'Formations informatiques certifiées QUALIOPI. Bureautique, IA, cybersécurité, web. Financement OPCO, CPF, Pôle Emploi. Présentiel ou distanciel.');
+  const pageTitle = t('formationPro.title', 'Formation Professionnelle — démarche QUALIOPI');
+  const pageDescription = t('formationPro.description', 'Actions de formation couvertes par la certification QUALIOPI : bureautique, IA, cybersécurité et web. Présentiel ou distanciel ; financement vérifié selon le dispositif et le dossier.');
 
   const breadcrumbs = [
     { name: t('breadcrumbs.home', 'Accueil'), url: '/' },
@@ -33,11 +33,11 @@ const FormationProfessionnelle = () => {
   };
 
   const features = [
-    { icon: Award, title: t('formationPro.feature1Title', 'Certifié QUALIOPI'), description: t('formationPro.feature1Desc', 'Organisme de formation certifié, gage de qualité') },
-    { icon: Euro, title: t('formationPro.feature2Title', 'Financement Possible'), description: t('formationPro.feature2Desc', 'OPCO, CPF, Pôle Emploi, Plan de formation') },
+    { icon: Award, title: t('formationPro.feature1Title', 'Démarche QUALIOPI'), description: t('formationPro.feature1Desc', 'Processus qualité couvert par le certificat QUALIOPI en vigueur') },
+    { icon: Euro, title: t('formationPro.feature2Title', 'Financement Possible'), description: t('formationPro.feature2Desc', 'OPCO, CPF ou France Travail selon l’éligibilité et l’accord du financeur') },
     { icon: Users, title: t('formationPro.feature3Title', 'Sur Mesure'), description: t('formationPro.feature3Desc', 'Programmes adaptés à vos besoins spécifiques') },
     { icon: Clock, title: t('formationPro.feature4Title', 'Flexible'), description: t('formationPro.feature4Desc', 'Présentiel, distanciel, intra ou inter-entreprise') },
-    { icon: GraduationCap, title: t('formationPro.feature5Title', 'Formateurs Experts'), description: t('formationPro.feature5Desc', 'Pratique technique et pédagogie appliquée') },
+    { icon: GraduationCap, title: t('formationPro.feature5Title', 'Formateurs Experts'), description: t('formationPro.feature5Desc', 'Pédagogie appliquée et expertise technique documentée') },
     { icon: FileText, title: t('formationPro.feature6Title', 'Certification'), description: t('formationPro.feature6Desc', 'Attestation de formation, passage TOSA possible') }
   ];
 
@@ -96,7 +96,7 @@ const FormationProfessionnelle = () => {
       icon: Building,
       target: t('formationPro.fund1Target', 'Entreprises'),
       description: t('formationPro.fund1Desc', 'Opérateurs de Compétences financent les formations de vos salariés'),
-      coverage: t('formationPro.fund1Coverage', 'Jusqu\'à 100% du coût'),
+      coverage: t('formationPro.fund1Coverage', 'Selon les règles et la décision de votre OPCO'),
       process: t('formationPro.fund1Process', 'Nous vous accompagnons dans les démarches administratives')
     },
     {
@@ -108,19 +108,19 @@ const FormationProfessionnelle = () => {
       process: t('formationPro.fund2Process', 'Inscription directe sur moncompteformation.gouv.fr')
     },
     {
-      name: 'Pôle Emploi',
+      name: 'France Travail',
       icon: Target,
       target: t('formationPro.fund3Target', 'Demandeurs d\'Emploi'),
-      description: t('formationPro.fund3Desc', 'AIF (Aide Individuelle à la Formation) pour votre retour à l\'emploi'),
-      coverage: t('formationPro.fund3Coverage', 'Jusqu\'à 100% selon situation'),
-      process: t('formationPro.fund3Process', 'Validation par votre conseiller Pôle Emploi')
+      description: t('formationPro.fund3Desc', 'AIF (Aide individuelle à la formation) sous réserve de validation par France Travail'),
+      coverage: t('formationPro.fund3Coverage', 'Selon la situation et la décision de France Travail'),
+      process: t('formationPro.fund3Process', 'Validation écrite par France Travail avant le début de la formation')
     },
     {
       name: t('formationPro.fund4Name', 'Plan de Formation'),
       icon: ClipboardList,
       target: t('formationPro.fund4Target', 'Entreprises'),
       description: t('formationPro.fund4Desc', 'Budget formation de l\'entreprise pour développer les compétences'),
-      coverage: t('formationPro.fund4Coverage', '100% pris en charge par l\'entreprise'),
+      coverage: t('formationPro.fund4Coverage', 'Selon le budget validé par l’entreprise'),
       process: t('formationPro.fund4Process', 'Devis et convention de formation')
     }
   ];
@@ -165,23 +165,23 @@ const FormationProfessionnelle = () => {
   const faq = [
     {
       question: t('formationPro.faq1Q', 'Qu\'est-ce que la certification QUALIOPI ?'),
-      answer: t('formationPro.faq1A', 'QUALIOPI est la certification qualité obligatoire pour tous les organismes de formation souhaitant accéder aux fonds publics ou mutualisés (OPCO, CPF, etc.). Elle garantit la qualité des processus de formation. NETZ Informatique est certifié QUALIOPI depuis 2021.')
+      answer: t('formationPro.faq1A', 'QUALIOPI atteste la conformité du processus qualité d’un prestataire pour les catégories couvertes par son certificat. Le certificat NETZ INFORMATIQUE consulté couvre les actions de formation et les bilans de compétences ; il ne garantit ni un résultat pédagogique ni un financement automatique.')
     },
     {
       question: t('formationPro.faq2Q', 'Comment financer ma formation avec mon CPF ?'),
-      answer: t('formationPro.faq2A', 'Connectez-vous sur moncompteformation.gouv.fr, recherchez "NETZ Informatique" ou la formation souhaitée. Vérifiez vos droits disponibles. Si suffisants, inscrivez-vous directement. Sinon, complément possible par l\'entreprise ou Pôle Emploi.')
+      answer: t('formationPro.faq2A', 'Consultez Mon Compte Formation pour vérifier si le parcours visé est publié et éligible, puis contrôlez vos droits et l’éventuel reste à charge. Aucune prise en charge n’est présumée avant validation sur la plateforme officielle.')
     },
     {
       question: t('formationPro.faq3Q', 'Combien de temps pour monter un dossier OPCO ?'),
-      answer: t('formationPro.faq3A', 'Délai moyen : 3-4 semaines. Nous vous accompagnons : devis, programme, convention. Vous transmettez à votre OPCO. Accord sous 2-3 semaines. Anticipez 1 mois avant la date de formation souhaitée.')
+      answer: t('formationPro.faq3A', 'Le délai dépend de votre OPCO et de votre dossier. Nous préparons le devis, le programme et la convention ; déposez la demande avant le début de la formation et attendez l’accord écrit du financeur.')
     },
     {
       question: t('formationPro.faq4Q', 'Proposez-vous des formations sur mesure ?'),
-      answer: t('formationPro.faq4A', 'OUI ! 80% de nos formations sont personnalisées. Nous adaptons le contenu, les exemples, la durée à vos besoins spécifiques. Audit préalable gratuit pour définir le programme optimal.')
+      answer: t('formationPro.faq4A', 'Oui. Après un échange de cadrage, nous adaptons les objectifs, les exemples, le niveau et la durée à votre contexte. Le programme et les modalités sont confirmés dans la proposition.')
     },
     {
       question: t('formationPro.faq5Q', 'Délivrez-vous une certification en fin de formation ?'),
-      answer: t('formationPro.faq5A', 'Oui, attestation de formation systématique. Pour certaines formations (Excel, Word, PowerPoint), passage possible de la certification TOSA (reconnue par l\'État) en fin de formation (+150€).')
+      answer: t('formationPro.faq5A', 'Une attestation de fin de formation peut être remise selon le parcours. Lorsqu’une certification externe est proposée, son organisme, ses conditions, son coût et son enregistrement en vigueur sont indiqués avant l’inscription.')
     }
   ];
 
@@ -197,15 +197,15 @@ const FormationProfessionnelle = () => {
             <div className="inline-block rounded-full px-6 py-2 mb-4 bg-white/10 ring-1 ring-white/20">
               <span className="font-semibold flex items-center gap-2">
                 <Award size={20} />
-                {t('formationPro.heroBadge', 'Certifié QUALIOPI')}
+                {t('formationPro.heroBadge', 'Processus certifié QUALIOPI')}
               </span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               <span className="text-accent">{t('formationPro.heroTitleHighlight', 'Formation Professionnelle')}</span><br />
-              {t('formationPro.heroTitleRest', 'Certifiée QUALIOPI')}
+              {t('formationPro.heroTitleRest', 'dans un cadre qualité documenté')}
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/80 max-w-3xl mx-auto mb-8">
-              {t('formationPro.heroSubtitle', 'Développez vos compétences informatiques. Bureautique, IA, cybersécurité, web. Financement OPCO, CPF, Pôle Emploi.')}
+              {t('formationPro.heroSubtitle', 'Développez vos compétences en bureautique, IA, cybersécurité et web. Financement possible après vérification d’éligibilité et accord du financeur.')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap mb-8">
               <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
@@ -329,7 +329,7 @@ const FormationProfessionnelle = () => {
                 {t('formationPro.fundingHeading', 'Options de Financement')}
               </h2>
               <p className="text-xl text-muted-foreground">
-                {t('formationPro.fundingSubheading', "Jusqu'à 100% de prise en charge possible")}
+                {t('formationPro.fundingSubheading', 'Prise en charge possible après vérification et accord du financeur')}
               </p>
             </div>
 
@@ -443,7 +443,7 @@ const FormationProfessionnelle = () => {
               {t('formationPro.ctaHeading', 'Prêt à Développer Vos Compétences ?')}
             </h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto text-primary-foreground/80">
-              {t('formationPro.ctaSubheading', "Catalogue complet • Financement jusqu'à 100% • Formateurs experts • Certification QUALIOPI")}
+              {t('formationPro.ctaSubheading', 'Programme détaillé • Financement vérifié au cas par cas • Pédagogie appliquée • Certification QUALIOPI')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">

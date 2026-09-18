@@ -10,6 +10,21 @@ const common = {
 }
 
 export const editorialBySlug = {
+  'ai-literacy-reliable-workflows': {
+    dateModified: '2026-09-18',
+    author: {
+      name: 'Mikail Lekesiz',
+      role: 'Formateur en intelligence artificielle et transformation numérique',
+      url: 'https://mikail.net/press/',
+    },
+    sources: [
+      ['Commission européenne — AI Literacy: Questions & Answers', 'https://digital-strategy.ec.europa.eu/en/faqs/ai-literacy-questions-answers'],
+      ['Règlement (UE) 2024/1689 sur l’intelligence artificielle', 'https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng'],
+      ['CNIL — déployer une IA générative', 'https://www.cnil.fr/fr/comment-deployer-une-ia-generative-la-cnil-apporte-de-premieres-precisions'],
+      ['NIST — Generative AI Profile', 'https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence'],
+      ['OWASP GenAI Security Project', 'https://genai.owasp.org/'],
+    ],
+  },
   'lintelligence-artificielle-pour-les-pme-un-levier-de-croissance-incontournable': {
     ...common,
     sources: [

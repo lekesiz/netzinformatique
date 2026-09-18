@@ -24,15 +24,15 @@ const About = () => {
     { year: '2009', title: t('about.milestone2009Title', 'Historique déclaré'), description: t('about.milestone2009Desc', 'NETZ indique une continuité avec une activité informatique antérieure appelée Orditeur') },
     { year: '2012', title: t('about.milestone2012Title', 'Boutique en ligne'), description: t('about.milestone2012Desc', 'Lancement de la boutique informatique-haguenau.fr') },
     { year: '2016', title: t('about.milestone2016Title', 'Création'), description: t('about.milestone2016Desc', 'Immatriculation de NETZ Informatique en France ; Mikail Lekesiz est le président inscrit') },
-    { year: '2022', title: t('about.milestone2022Title', 'Certification'), description: t('about.milestone2022Desc', 'Obtention de la certification QUALIOPI') },
+    { year: '2022', title: t('about.milestone2022Title', 'Développement de l’offre de formation'), description: t('about.milestone2022Desc', 'Structuration progressive des parcours, des supports et du suivi qualité') },
     { year: '2023', title: t('about.milestone2023Title', 'Innovation'), description: t('about.milestone2023Desc', 'Lancement des solutions IA Offline') },
     { year: '2025', title: t('about.milestone2025Title', 'Qualité'), description: t('about.milestone2025Desc', 'Certification QUALIOPI pour les actions de formation et les bilans de compétences') }
   ]
 
   const team = [
     {
-      role: t('about.teamRole1', 'Direction'),
-      description: t('about.teamDesc1', 'Pratique technique et gestion de projets'),
+      role: t('about.teamRole1', 'Présidence — Mikail Lekesiz'),
+      description: t('about.teamDesc1', 'Président inscrit de NETZ INFORMATIQUE, Mikail Lekesiz coordonne la stratégie technique, les projets numériques et les actions de formation.'),
       expertise: [t('about.teamExp1a', 'Stratégie IT'), t('about.teamExp1b', 'Gestion de projet'), t('about.teamExp1c', 'Conseil')]
     },
     {

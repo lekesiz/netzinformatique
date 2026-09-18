@@ -29,15 +29,15 @@ const FAQ = () => {
         },
         {
           question: 'Intervenez-vous uniquement à Haguenau ?',
-          answer: 'Non, nous intervenons dans tout le Grand Est, avec un focus particulier sur Haguenau et un rayon de 50 km (Strasbourg, Saverne, Wissembourg, etc.). Pour les interventions plus éloignées, nous proposons également des solutions à distance.'
+          answer: 'Nous intervenons principalement depuis Haguenau dans un rayon d’environ 30 km, selon les horaires et disponibilités publiés. Pour les besoins plus éloignés, une intervention à distance ou un déplacement sur devis peut être étudié.'
         },
         {
           question: 'Proposez-vous un contrat de maintenance ?',
-          answer: 'Oui, nous proposons des contrats de maintenance mensuels incluant : mises à jour automatiques, sauvegardes quotidiennes, surveillance 24/7, support prioritaire et interventions illimitées. Tarifs dégressifs selon le nombre de postes. À partir de 79€/mois.'
+          answer: 'Oui. Le contrat peut couvrir maintenance planifiée, suivi automatisé, contrôle des sauvegardes et support priorisé. Le périmètre, les horaires, les licences, les déplacements et les objectifs de prise en charge sont précisés dans le devis.'
         },
         {
           question: 'Quels sont vos horaires d\'ouverture ?',
-          answer: 'Nous sommes ouverts du lundi au vendredi de 9h à 12h et de 14h à 18h. Pour les urgences entreprises, nous proposons un service d\'astreinte 24/7 sur demande.'
+          answer: 'Nous sommes ouverts du lundi au vendredi de 9h à 12h et de 14h à 18h. Une astreinte ou un niveau de service étendu n’est applicable que s’il est prévu dans un contrat écrit.'
         }
       ]
     },
@@ -59,11 +59,11 @@ const FAQ = () => {
         },
         {
           question: 'Comment se passe une intervention à distance ?',
-          answer: 'Nous utilisons des outils sécurisés (TeamViewer, AnyDesk) pour prendre le contrôle de votre ordinateur avec votre autorisation. Connexion cryptée, aucune donnée stockée. Idéal pour les dépannages rapides sans déplacement. Tarif horaire : 60€/h.'
+          answer: 'Avec votre autorisation, nous pouvons utiliser un outil d’assistance à distance adapté. Le périmètre d’accès, les conditions de la session et les éventuelles traces techniques dépendent de l’outil et sont expliqués avant intervention.'
         },
         {
           question: 'Garantissez-vous vos réparations ?',
-          answer: 'Oui, toutes nos réparations sont garanties 3 mois pièces et main d\'œuvre. Les pièces neuves bénéficient de la garantie constructeur (généralement 1 à 2 ans). Nous utilisons uniquement des pièces de qualité.'
+          answer: 'Les conditions de garantie dépendent de la prestation et des pièces utilisées. La garantie constructeur applicable et les conditions de main-d’œuvre figurent sur le devis ou la facture.'
         }
       ]
     },
@@ -73,23 +73,23 @@ const FAQ = () => {
       questions: [
         {
           question: t('faq.q4', 'Proposez-vous des formations ?'),
-          answer: t('faq.a4', 'Oui, nous sommes un organisme de formation certifié QUALIOPI. Nos formations couvrent la bureautique (Word, Excel, PowerPoint), l\'IA, la cybersécurité et le marketing digital. Elles sont éligibles aux financements OPCO, Pôle Emploi et CPF. Plus de plus de 1 100 participants uniques déclarés au 29 juillet 2026.')
+          answer: t('faq.a4', 'Oui. NETZ Informatique est certifiée QUALIOPI pour les actions de formation et les bilans de compétences. L’éligibilité et le niveau de prise en charge dépendent du parcours, des droits disponibles et de la décision du financeur.')
         },
         {
           question: 'Mes formations sont-elles finançables par le CPF ?',
-          answer: 'Oui, nos formations certifiantes (TOSA, ICDL) sont éligibles au CPF (Compte Personnel de Formation). Nous vous accompagnons dans les démarches administratives. Vous pouvez vérifier votre solde CPF sur moncompteformation.gouv.fr.'
+          answer: 'Un financement CPF n’est possible que pour un parcours éligible et publié sur Mon Compte Formation. Vérifiez le parcours, vos droits et l’éventuel reste à charge sur la plateforme officielle avant toute inscription.'
         },
         {
           question: 'Proposez-vous des formations en entreprise ?',
-          answer: 'Oui, nous proposons des formations intra-entreprise sur mesure, adaptées à vos besoins spécifiques. Nos formateurs se déplacent dans vos locaux. Financement possible via OPCO. Tarifs dégressifs pour les groupes.'
+          answer: 'Oui, nous proposons des formations intra-entreprise adaptées après analyse du besoin. Le lieu, le programme, le tarif et toute demande de financement OPCO sont confirmés dans la proposition et restent soumis à l’accord du financeur.'
         },
         {
           question: 'Qu\'est-ce qu\'un bilan de compétences ?',
-          answer: 'Le bilan de compétences permet d\'analyser vos compétences professionnelles et personnelles, vos aptitudes et motivations. Il vous aide à définir un projet professionnel ou de formation. Durée : 24h réparties sur 2-3 mois. Finançable par le CPF.'
+          answer: 'Le bilan de compétences analyse les compétences, aptitudes et motivations afin de construire un projet professionnel ou de formation. Le programme, la durée et les possibilités de financement sont précisés après vérification de la situation.'
         },
         {
           question: 'Délivrez-vous des certificats ?',
-          answer: 'Oui, toutes nos formations donnent lieu à une attestation de formation. Les formations certifiantes (TOSA, ICDL) incluent un passage de certification reconnu par l\'État et les entreprises.'
+          answer: 'Une attestation de fin de formation peut être remise selon le parcours. Lorsqu’une certification externe est proposée, son organisme, ses conditions, son enregistrement en vigueur et son coût sont indiqués avant l’inscription.'
         }
       ]
     },
@@ -129,11 +129,11 @@ const FAQ = () => {
         },
         {
           question: 'Puis-je modifier mon site moi-même après la livraison ?',
-          answer: 'Oui, nous utilisons des CMS intuitifs (WordPress, etc.) et vous formons à leur utilisation. Vous pourrez modifier textes, images et ajouter du contenu facilement. Pour les modifications complexes, notre abonnement maintenance (79€/mois) inclut des modifications illimitées.'
+          answer: 'Nous pouvons livrer un CMS administrable et proposer une prise en main. La maintenance, le nombre de modifications, les délais et les exclusions sont définis dans l’offre retenue.'
         },
         {
           question: 'Mon site sera-t-il bien référencé sur Google ?',
-          answer: 'Oui, tous nos sites sont optimisés SEO dès la création : structure, balises, vitesse, mobile-first. Nous proposons également un accompagnement SEO avancé (audit, stratégie de contenu, netlinking) pour améliorer votre positionnement. Résultats visibles sous 3-6 mois.'
+          answer: 'Nous intégrons un socle SEO technique et pouvons proposer audit, stratégie de contenu et suivi. Le positionnement dépend du marché, de la concurrence, des contenus et des moteurs de recherche ; aucun délai ou rang ne peut être garanti.'
         }
       ]
     },
@@ -143,7 +143,7 @@ const FAQ = () => {
       questions: [
         {
           question: t('faq.q9', 'Êtes-vous conformes RGPD ?'),
-          answer: t('faq.a9', 'Oui, nous sommes en conformité totale avec le RGPD. Nous pouvons également vous accompagner dans votre mise en conformité (audit, documentation, formation, DPO externalisé). Indispensable pour éviter les sanctions (jusqu\'à 4% du CA).')
+          answer: t('faq.a9', 'NETZ Informatique applique des mesures de protection des données à ses propres traitements et peut accompagner des travaux de conformité. La conformité d’une organisation reste liée à son contexte, ses responsabilités, ses contrats et les contrôles effectivement mis en œuvre.')
         },
         {
           question: 'Comment protéger mon entreprise des cyberattaques ?',
@@ -151,11 +151,11 @@ const FAQ = () => {
         },
         {
           question: 'Que faire en cas de ransomware ?',
-          answer: 'NE PAYEZ PAS la rançon ! Déconnectez immédiatement le poste du réseau et contactez-nous en urgence. Nous analysons l\'infection, restaurons vos données depuis les sauvegardes et sécurisons votre infrastructure. Prévention : sauvegardes régulières + formation.'
+          answer: 'Isolez le système concerné sans détruire les preuves, activez votre procédure d’incident et contactez les personnes compétentes. La possibilité de restauration dépend de sauvegardes intactes et testées ; les obligations de notification doivent être évaluées selon le contexte.'
         },
         {
           question: 'Mes données sont-elles en sécurité chez vous ?',
-          answer: 'Oui, nous appliquons des protocoles stricts : chiffrement des données, accès restreints, serveurs sécurisés, destruction sécurisée après intervention. Nous signons des accords de confidentialité (NDA) sur demande. Aucune donnée n\'est conservée sans votre accord.'
+          answer: 'Nous appliquons des mesures techniques et organisationnelles adaptées au service. Les accès, la conservation, les sous-traitants éventuels et la suppression sont définis selon le contrat, les outils utilisés et les obligations applicables.'
         }
       ]
     },
@@ -169,11 +169,11 @@ const FAQ = () => {
         },
         {
           question: 'Puis-je commander un PC sur mesure ?',
-          answer: 'Oui, nous assemblons des PC sur mesure selon vos besoins : bureautique, gaming, CAO/DAO, montage vidéo. Nous sélectionnons les meilleurs composants pour optimiser le rapport qualité/prix. Garantie 2 ans, support technique inclus.'
+          answer: 'Oui, nous pouvons proposer une configuration sur mesure selon l’usage et le budget. Les composants, la garantie constructeur et le niveau de support sont précisés dans le devis.'
         },
         {
           question: 'Où trouver des cartouches d\'encre pas chères ?',
-          answer: 'Sur notre boutique informatique-haguenau.fr ! Nous proposons des cartouches originales et compatibles de toutes marques (HP, Canon, Epson, Brother) à prix compétitifs. Économisez jusqu\'à 30% par rapport aux grandes surfaces. Livraison gratuite dès 50€.'
+          answer: 'Notre boutique peut proposer des cartouches originales ou compatibles selon les références disponibles. Le prix, les frais et les conditions de livraison sont affichés au moment de la commande.'
         }
       ]
     },
@@ -183,11 +183,11 @@ const FAQ = () => {
       questions: [
         {
           question: t('faq.q10', 'Travaillez-vous avec les associations ?'),
-          answer: t('faq.a10', 'Oui, nous proposons des tarifs préférentiels pour les associations (jusqu\'à -20%). Nous comprenons vos contraintes budgétaires et privilégions les solutions open-source et économiques. Nous soutenons également des associations locales via du mécénat de compétences.')
+          answer: t('faq.a10', 'Oui. Nous pouvons étudier les besoins des associations et proposer une solution proportionnée au budget, au périmètre et aux outils disponibles. Toute remise ou contribution éventuelle est précisée dans le devis.')
         },
         {
           question: 'Acceptez-vous les paiements en plusieurs fois ?',
-          answer: 'Oui, pour les prestations supérieures à 500€, nous proposons un paiement en 2 ou 3 fois sans frais. Pour les entreprises, nous acceptons les paiements à 30 jours sur facture.'
+          answer: 'Les modalités de paiement, l’échelonnement éventuel et les délais applicables sont précisés dans le devis et la facture.'
         },
         {
           question: 'Puis-je obtenir une facture ?',
@@ -195,7 +195,7 @@ const FAQ = () => {
         },
         {
           question: 'Comment prendre rendez-vous ?',
-          answer: 'Vous pouvez prendre rendez-vous par téléphone (03 67 31 02 01), email (contact@netzinformatique.fr), via notre formulaire de contact ou directement sur notre site avec Calendly. Réponse sous 2h en moyenne.'
+          answer: 'Vous pouvez nous joindre par téléphone, par e-mail ou via le formulaire de contact. Le délai de réponse dépend de la demande et des horaires d’ouverture.'
         }
       ]
     }
@@ -208,7 +208,7 @@ const FAQ = () => {
     <>
       <SEO
         title="FAQ - Questions Fréquentes | NETZ Informatique"
-        description="Toutes les réponses à vos questions sur nos services : dépannage, formation, IA, développement web, sécurité, matériel. Plus de 40 questions répondues."
+        description="Réponses claires sur les services NETZ Informatique : dépannage, formation, IA, développement web, sécurité, matériel, financement et conditions d’intervention."
         url="/faq"
       />
       <StructuredData

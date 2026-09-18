@@ -124,8 +124,8 @@ for (const { path, output } of renderedRoutes) {
 }
 const notFoundHtml = await readFile(join(DIST, '404.html'), 'utf8')
 if (!notFoundHtml.includes('noindex, nofollow')) throw new Error('404.html must be noindex, nofollow')
-if (canonicalRoutes.length !== 45) throw new Error(`Expected 45 canonical routes, found ${canonicalRoutes.length}`)
-if (sortedPosts.length !== 12) throw new Error(`Expected 12 RSS posts, found ${sortedPosts.length}`)
+if (canonicalRoutes.length !== 46) throw new Error(`Expected 46 canonical routes, found ${canonicalRoutes.length}`)
+if (sortedPosts.length !== 13) throw new Error(`Expected 13 RSS posts, found ${sortedPosts.length}`)
 
 await rm(join(ROOT, '.prerender'), { recursive: true, force: true })
 console.log(`Prerendered and validated ${canonicalRoutes.length} canonical routes plus 404.html.`)
