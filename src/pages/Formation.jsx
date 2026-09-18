@@ -10,7 +10,7 @@ const Formation = () => {
   <div>
     <SEO
       title={t('formation.seoTitle', 'Formations QUALIOPI & Bilan de Compétences | NETZ Informatique')}
-      description={t('formation.seoDescription', 'Formations certifiées QUALIOPI et bilan de compétences financés par CPF, OPCO et Pôle Emploi. Développez vos compétences numériques à Haguenau.')}
+      description={t('formation.seoDescription', 'Actions de formation et bilans de compétences couverts par la certification QUALIOPI à Haguenau. Financement possible selon l’éligibilité, les droits et l’accord du financeur.')}
       url="/formation"
     />
     {/* Hero Section */}
@@ -20,7 +20,7 @@ const Formation = () => {
           <span className="text-accent">{t('formation.heroTitleHighlight', 'Formation')}</span> QUALIOPI
         </h1>
         <p className="text-xl text-primary-foreground/80 max-w-3xl mx-auto mb-8">
-          {t('formation.heroSubtitle', 'Formations certifiées et bilan de compétences financés par CPF, OPCO et Pôle Emploi')}
+          {t('formation.heroSubtitle', 'Actions de formation et bilans de compétences couverts par notre certification QUALIOPI ; financement sous réserve d’éligibilité et d’accord du financeur')}
         </p>
         <div className="flex justify-center gap-4 flex-wrap">
           <div className="bg-white/10 ring-1 ring-white/20 rounded-lg px-6 py-3">
@@ -60,16 +60,16 @@ const Formation = () => {
             <h3 className="text-2xl font-bold mb-4">{t('formation.cpfTitle', 'Formation CPF')}</h3>
             <p className="text-sm text-primary font-semibold mb-4">{t('formation.cpfAudience', 'Pour Particuliers')}</p>
             <p className="text-muted-foreground mb-6">
-              {t('formation.cpfDesc', "Financez votre formation avec votre Compte Personnel de Formation. Accessible à tous les salariés et demandeurs d'emploi.")}
+              {t('formation.cpfDesc', "Mobilisez vos droits CPF lorsqu’un parcours est éligible et publié sur la plateforme officielle. Les droits et conditions sont vérifiés avant inscription.")}
             </p>
             <ul className="space-y-3 mb-6">
               <li className="flex items-start gap-2">
                 <CheckCircle size={20} className="text-accent flex-shrink-0 mt-0.5" />
-                <span className="text-sm">{t('formation.cpfFeature1', "Financement jusqu'à 100%")}</span>
+                <span className="text-sm">{t('formation.cpfFeature1', 'Financement selon droits et reste à charge')}</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle size={20} className="text-accent flex-shrink-0 mt-0.5" />
-                <span className="text-sm">{t('formation.cpfFeature2', 'Formations bureautiques certifiées')}</span>
+                <span className="text-sm">{t('formation.cpfFeature2', 'Parcours et certification vérifiés avant inscription')}</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle size={20} className="text-accent flex-shrink-0 mt-0.5" />
@@ -99,12 +99,12 @@ const Formation = () => {
             <h3 className="text-2xl font-bold mb-4">{t('formation.opcoTitle', 'Formation OPCO')}</h3>
             <p className="text-sm text-secondary font-semibold mb-4">{t('formation.opcoAudience', 'Pour Entreprises')}</p>
             <p className="text-muted-foreground mb-6">
-              {t('formation.opcoDesc', 'Développez les compétences de vos équipes avec un financement OPCO. Solutions sur-mesure pour les professionnels.')}
+              {t('formation.opcoDesc', 'Développez les compétences de vos équipes avec un programme sur mesure. Une prise en charge OPCO peut être demandée selon votre branche, votre dossier et la décision du financeur.')}
             </p>
             <ul className="space-y-3 mb-6">
               <li className="flex items-start gap-2">
                 <CheckCircle size={20} className="text-accent flex-shrink-0 mt-0.5" />
-                <span className="text-sm">{t('formation.opcoFeature1', 'Prise en charge par votre OPCO')}</span>
+                <span className="text-sm">{t('formation.opcoFeature1', 'Prise en charge soumise à accord OPCO')}</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle size={20} className="text-accent flex-shrink-0 mt-0.5" />
@@ -152,7 +152,7 @@ const Formation = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle size={20} className="text-accent flex-shrink-0 mt-0.5" />
-                  <span className="text-sm">{t('formation.bilanFeature3', 'Financement CPF possible')}</span>
+                  <span className="text-sm">{t('formation.bilanFeature3', 'Financement possible selon éligibilité')}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle size={20} className="text-accent flex-shrink-0 mt-0.5" />

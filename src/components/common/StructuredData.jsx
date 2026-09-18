@@ -75,6 +75,19 @@ const StructuredData = ({ type = 'all', data = {} }) => {
       ].map((name) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name } })),
     },
     foundingDate: '2016',
+    founder: {
+      '@type': 'Person',
+      '@id': 'https://mikail.net/#person',
+      name: 'Mikail Lekesiz',
+      url: 'https://mikail.net/mikail/',
+      jobTitle: 'Formateur en intelligence artificielle et transformation numérique',
+      sameAs: [
+        'https://www.linkedin.com/in/mikail-lekesiz/',
+        'https://github.com/lekesiz',
+        'https://sessionize.com/mikail-lekesiz',
+        'https://speakerhub.com/speaker/mikail-lekesiz',
+      ],
+    },
     slogan: 'Solutions informatiques, IA responsable et formation professionnelle',
   }
 

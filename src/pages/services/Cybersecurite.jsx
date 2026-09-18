@@ -121,16 +121,16 @@ const Cybersecurite = () => {
   ];
 
   const stats = [
-    { value: '43%', label: t('cyber.stat1Label', 'des PME victimes de cyberattaque en 2024') },
-    { value: '60%', label: t('cyber.stat2Label', 'des PME attaquées ferment dans les 6 mois') },
-    { value: '4%', label: t('cyber.stat3Label', 'du CA : amende RGPD maximale') },
-    { value: '287 jours', label: t('cyber.stat4Label', 'délai moyen de détection d\'une intrusion') }
+    { value: '1', label: t('cyber.stat1Label', 'Identifier les actifs et scénarios critiques') },
+    { value: '2', label: t('cyber.stat2Label', 'Protéger les accès, postes et sauvegardes') },
+    { value: '3', label: t('cyber.stat3Label', 'Détecter les anomalies et les incidents') },
+    { value: '4', label: t('cyber.stat4Label', 'Réagir, restaurer et améliorer les contrôles') }
   ];
 
   const faq = [
     {
       question: t('cyber.faq1Q', 'Mon entreprise est-elle vraiment une cible ?'),
-      answer: t('cyber.faq1A', 'OUI ! 43% des cyberattaques visent les PME. Les hackers ciblent les petites structures car elles sont souvent moins protégées que les grandes entreprises. Toute entreprise avec des données clients, bancaires ou stratégiques est une cible potentielle.')
+      answer: t('cyber.faq1A', 'Une PME peut être ciblée parce qu’elle détient des données clients, financières ou opérationnelles tout en disposant parfois de ressources de sécurité limitées. Le risque doit être évalué selon vos actifs, votre exposition et vos contrôles réels.')
     },
     {
       question: t('cyber.faq2Q', 'Que faire en cas de ransomware ?'),
@@ -169,7 +169,7 @@ const Cybersecurite = () => {
               <span className="text-accent">{t('cyber.heroTitleHighlight', 'Cybersécurité')}</span> {t('cyber.heroTitleRest', '& Protection des Données')}
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/80 max-w-3xl mx-auto mb-8">
-              {t('cyber.heroSubtitle', 'Protégez votre entreprise contre les cyberattaques. 43% des PME sont victimes chaque année. Ne soyez pas la prochaine !')}
+              {t('cyber.heroSubtitle', 'Réduisez le risque cyber avec des mesures proportionnées, des sauvegardes, des contrôles d’accès et la sensibilisation des équipes.')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
@@ -307,7 +307,7 @@ const Cybersecurite = () => {
                 {t('cyber.rgpdHeading', 'Mise en Conformité RGPD')}
               </h2>
               <p className="text-xl text-muted-foreground">
-                {t('cyber.rgpdSubheading', '6 étapes pour être 100% conforme')}
+                {t('cyber.rgpdSubheading', 'Une méthode en six étapes pour évaluer et améliorer la conformité')}
               </p>
             </div>
 
@@ -357,7 +357,7 @@ const Cybersecurite = () => {
               {t('cyber.ctaHeading', "Ne Attendez Pas d'Être Victime !")}
             </h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto text-primary-foreground/80">
-              {t('cyber.ctaSubheading', '60% des PME attaquées ferment dans les 6 mois. Protégez votre entreprise dès maintenant.')}
+              {t('cyber.ctaSubheading', 'Réduisez le risque opérationnel avec un plan de sécurité documenté et des contrôles priorisés.')}
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">

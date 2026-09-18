@@ -23,6 +23,9 @@ const BlogPost = () => {
   const postContent = post.content[i18n.language] || post.content.fr;
   const postTitle = post.title[i18n.language] || post.title.fr;
   const postExcerpt = post.excerpt[i18n.language] || post.excerpt.fr;
+  const language = i18n.language.split('-')[0];
+  const postTags = Array.isArray(post.tags) ? post.tags : (post.tags?.[language] || post.tags?.fr || []);
+  const readTime = post.readTime || post.readingTime;
 
   return (
     <>
@@ -88,16 +91,16 @@ const BlogPost = () => {
                       day: 'numeric'
                     })}</span>
                   </div>
-                  {post.readTime && (
+                  {readTime && (
                     <div className="flex items-center gap-2">
                       <Clock size={18} />
-                      <span>{post.readTime} min de lecture</span>
+                      <span>{readTime} min de lecture</span>
                     </div>
                   )}
-                  {post.tags && post.tags.length > 0 && (
+                  {postTags.length > 0 && (
                     <div className="flex items-center gap-2">
                       <Tag size={18} />
-                      <span>{post.tags.join(', ')}</span>
+                      <span>{postTags.join(', ')}</span>
                     </div>
                   )}
                 </div>

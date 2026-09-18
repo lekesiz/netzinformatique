@@ -416,7 +416,7 @@ const Tarifs = () => {
                 </li>
                 <li className="flex items-start gap-2 text-sm">
                   <CheckCircle size={18} className="text-accent flex-shrink-0 mt-0.5" />
-                  <span>{t('tarifs.formPePre', 'Financement')} <strong>Pôle Emploi</strong> {t('tarifs.formPePost', '/ France Travail')}</span>
+                  <span>{t('tarifs.formPePre', 'Financement')} <strong>France Travail</strong> {t('tarifs.formPePost', 'selon éligibilité et validation du dossier')}</span>
                 </li>
               </ul>
               <Button asChild variant="outline" className="w-full">
@@ -465,7 +465,7 @@ const Tarifs = () => {
                 </div>
                 <h2 className="text-3xl font-bold mb-4">{t('tarifs.iaTitle', 'IA Offline & confidentielle')}</h2>
                 <p className="text-primary-foreground/90 mb-6">
-                  {t('tarifs.iaDesc', 'Une intelligence artificielle hébergée chez vous, sans cloud, pour les secteurs sensibles (santé, juridique, industrie). Chaque projet est étudié individuellement.')}
+                  {t('tarifs.iaDesc', 'Une solution d’IA locale ou hybride dimensionnée selon vos données, vos usages, les accès et les exigences du secteur. Chaque projet est étudié individuellement.')}
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-2 text-sm">

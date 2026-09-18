@@ -228,7 +228,7 @@ const SolutionAI = () => {
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle size={20} className="text-accent flex-shrink-0 mt-0.5" />
-                    <span>{t('solAI.solution2', 'Vos données ne quittent jamais votre infrastructure.')}</span>
+                    <span>{t('solAI.solution2', 'Les flux externes peuvent être fortement limités selon l’architecture et les intégrations retenues.')}</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle size={20} className="text-accent flex-shrink-0 mt-0.5" />
@@ -236,7 +236,7 @@ const SolutionAI = () => {
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle size={20} className="text-accent flex-shrink-0 mt-0.5" />
-                    <span>{t('solAI.solution4', 'Indépendance et souveraineté numérique totales.')}</span>
+                    <span>{t('solAI.solution4', 'Dépendances cloud et exposition externe réduites selon le périmètre choisi.')}</span>
                   </li>
                 </ul>
               </div>

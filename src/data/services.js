@@ -83,10 +83,10 @@ export const services = [
       tr: 'Siber Güvenlik'
     },
     description: {
-      fr: 'Protection antivirus, pare-feu, conformité RGPD. Audit de sécurité et formation de vos équipes.',
-      en: 'Antivirus protection, firewall, GDPR compliance. Security audit and team training.',
-      de: 'Antivirenschutz, Firewall, DSGVO-Konformität. Sicherheitsaudit und Teamschulung.',
-      tr: 'Antivirüs koruması, güvenlik duvarı, GDPR uyumluluğu. Güvenlik denetimi ve ekip eğitimi.'
+      fr: 'Protection antivirus, pare-feu, audit de sécurité et accompagnement RGPD selon le périmètre défini.',
+      en: 'Antivirus protection, firewall, security audits and GDPR support within the agreed scope.',
+      de: 'Antivirenschutz, Firewall, Sicherheitsaudits und DSGVO-Begleitung im vereinbarten Umfang.',
+      tr: 'Antivirüs koruması, güvenlik duvarı, güvenlik denetimi ve belirlenen kapsamda GDPR desteği.'
     },
     link: '/services/cybersecurite',
     color: 'gradient-blue'
@@ -137,10 +137,10 @@ export const services = [
       tr: 'Eğitim & Destek'
     },
     description: {
-      fr: 'Formations professionnelles certifiées QUALIOPI. Bilan de compétences, IA, Cloud, outils numériques.',
-      en: 'QUALIOPI certified professional training. Skills assessment, AI, Cloud, digital tools.',
-      de: 'QUALIOPI-zertifizierte Berufsausbildung. Kompetenzbewertung, KI, Cloud, digitale Werkzeuge.',
-      tr: 'QUALIOPI sertifikalı profesyonel eğitim. Yetenek değerlendirmesi, AI, Bulut, dijital araçlar.'
+      fr: 'Actions de formation couvertes par QUALIOPI : bilan de compétences, IA, cloud et outils numériques.',
+      en: 'Professional training covered by QUALIOPI: skills assessment, AI, cloud and digital tools.',
+      de: 'Von QUALIOPI abgedeckte Weiterbildung: Kompetenzbilanz, KI, Cloud und digitale Werkzeuge.',
+      tr: 'QUALIOPI kapsamındaki profesyonel eğitimler: yetkinlik değerlendirmesi, yapay zekâ, bulut ve dijital araçlar.'
     },
     link: '/services/formation-professionnelle',
     color: 'gradient-green'

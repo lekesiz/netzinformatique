@@ -220,7 +220,7 @@ const SolutionWeb = () => {
 
           <div className="text-center mt-8">
             <p className="text-muted-foreground inline-flex items-center gap-2">
-              <Lightbulb size={18} className="text-accent" /> {t('solWeb.guaranteeNote', 'Tous nos forfaits incluent une garantie satisfait ou remboursé de 30 jours')}
+              <Lightbulb size={18} className="text-accent" /> {t('solWeb.guaranteeNote', 'Les conditions d’accompagnement et de résiliation sont précisées dans l’offre et le contrat choisis.')}
             </p>
           </div>
         </div>
@@ -251,7 +251,7 @@ const SolutionWeb = () => {
                     <span className="text-xl"> {t('solWeb.perMonth', '/mois')}</span>
                   </div>
                   <p className="opacity-90 mb-6">
-                    {t('solWeb.subPlanDesc', 'Un site web nécessite un entretien régulier pour rester performant et sécurisé. Notre abonnement vous garantit tranquillité d\'esprit.')}
+                    {t('solWeb.subPlanDesc', 'Un site web nécessite un entretien régulier pour rester performant et sécurisé. Le périmètre et le niveau de service sont précisés au contrat.')}
                   </p>
                   <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 w-full">
 <Link to="/contact?audience=entreprise&service=web-digital&source=services">
